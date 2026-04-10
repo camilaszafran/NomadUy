@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vivir en Uruguay — NomadUY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300;1,9..144,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --blue:#1B4F8A;--blue-deep:#0C2340;--blue-light:#2E6FB4;--blue-pale:#EBF2FB;
+      --gold:#D4922A;--gold-light:#F5C97A;--terra:#B85C38;--terra-deep:#6B2D18;--terra-pale:#FAE4D8;
+      --sand:#F8F3EB;--cream:#FDFAF5;--ink:#1A1A2E;--ink-60:#5B5B7A;--ink-30:#ADADC4;--white:#FFFFFF;
+      --text-xs:clamp(0.64rem,0.61rem + 0.15vw,0.72rem);--text-sm:clamp(0.80rem,0.75rem + 0.24vw,0.94rem);
+      --text-base:clamp(1rem,0.91rem + 0.43vw,1.25rem);--text-lg:clamp(1.25rem,1.11rem + 0.68vw,1.67rem);
+      --text-xl:clamp(1.56rem,1.36rem + 1.03vw,2.22rem);--text-2xl:clamp(1.95rem,1.64rem + 1.56vw,2.96rem);
+      --text-3xl:clamp(2.44rem,1.97rem + 2.35vw,3.95rem);--text-4xl:clamp(3.05rem,2.36rem + 3.46vw,5.26rem);
+      --sp-xs:clamp(0.75rem,0.68rem + 0.33vw,0.94rem);--sp-s:clamp(1rem,0.91rem + 0.43vw,1.25rem);
+      --sp-m:clamp(1.5rem,1.37rem + 0.65vw,1.88rem);--sp-l:clamp(2rem,1.83rem + 0.87vw,2.5rem);
+      --sp-xl:clamp(3rem,2.74rem + 1.30vw,3.75rem);--sp-2xl:clamp(4rem,3.65rem + 1.74vw,5rem);
+      --sp-3xl:clamp(6rem,5.48rem + 2.61vw,7.5rem);
+      --ease-out:cubic-bezier(0.23,1,0.32,1);--ease-snap:cubic-bezier(0.85,0,0.15,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Instrument Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3,h4{font-family:'Fraunces',serif;text-wrap:balance;}
+    p{text-wrap:pretty;}
+
+    .page-wipe{position:fixed;inset:0;z-index:9999;background:var(--gold);transform:scaleY(0);transform-origin:bottom;pointer-events:none;}
+    .page-wipe.out{animation:wipeIn 0.55s var(--ease-snap) forwards;}
+    @keyframes wipeIn{to{transform:scaleY(1);}}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,5vw,4rem);background:rgba(12,35,64,0.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,0.07);}
+    .nav-logo{font-family:'Fraunces',serif;font-size:var(--text-lg);font-weight:700;color:var(--white);text-decoration:none;letter-spacing:-0.02em;}
+    .nav-logo em{font-style:italic;color:var(--gold-light);}
+    .nav-links{list-style:none;display:flex;align-items:center;gap:2px;}
+    .nav-links a{display:block;padding:7px 14px;font-size:var(--text-sm);font-weight:500;color:rgba(255,255,255,0.72);text-decoration:none;position:relative;transition:color 180ms ease;}
+    .nav-links a::after{content:'';position:absolute;bottom:4px;left:14px;right:14px;height:1px;background:var(--gold-light);transform:scaleX(0);transform-origin:right;transition:transform 0.35s ease;}
+    .nav-links a:hover{color:var(--white);}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left;}
+    .nav-links a.active{color:var(--gold-light);}
+    .nav-cta{background:var(--gold);color:var(--ink)!important;border-radius:3px;padding:9px 20px!important;font-weight:600!important;box-shadow:0 0.4em 0 #9C6B17;transition:transform 0.1s ease,box-shadow 0.1s ease!important;}
+    .nav-cta::after{display:none!important;}
+    .nav-cta:hover{transform:translateY(0.2em);box-shadow:0 0.2em 0 #9C6B17!important;}
+
+    .wave-divider{display:block;width:100%;overflow:hidden;line-height:0;}
+    .wave-divider svg{display:block;width:100%;}
+
+    /* HERO */
+    .page-hero{margin-top:68px;background:var(--blue-deep);padding:var(--sp-3xl) clamp(1.5rem,8vw,7rem);position:relative;overflow:hidden;}
+    .page-hero::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");opacity:0.3;}
+    .header-inner{position:relative;z-index:1;max-width:700px;}
+    .kicker{font-size:var(--text-xs);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-light);display:flex;align-items:center;gap:12px;margin-bottom:var(--sp-s);}
+    .kicker::after{content:'';flex:1;max-width:48px;height:1px;background:var(--gold-light);opacity:0.5;}
+    .page-hero h1{font-size:var(--text-4xl);font-weight:700;line-height:0.95;letter-spacing:-0.03em;color:var(--white);margin-bottom:var(--sp-m);}
+    .page-hero h1 em{font-style:italic;color:var(--gold-light);}
+    .page-hero>div p{font-size:var(--text-base);color:rgba(255,255,255,0.65);line-height:1.7;}
+
+    /* TOPICS NAV */
+    .topics-nav{background:var(--white);border-bottom:1px solid rgba(26,26,46,0.08);position:sticky;top:68px;z-index:50;}
+    .topics-inner{max-width:1200px;margin:0 auto;padding:0 clamp(1.5rem,5vw,4rem);display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;}
+    .topics-inner::-webkit-scrollbar{display:none;}
+    .topic-btn{flex-shrink:0;padding:14px 18px;font-size:var(--text-sm);font-weight:500;color:var(--ink-60);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;transition:color 180ms ease,border-color 180ms ease;white-space:nowrap;font-family:'Instrument Sans',sans-serif;}
+    .topic-btn:hover{color:var(--ink);}
+    .topic-btn.active{color:var(--blue);font-weight:600;border-bottom-color:var(--blue);}
+
+    /* CONTENT */
+    .content-wrap{padding:var(--sp-3xl) clamp(1.5rem,8vw,7rem);}
+    .topic-section{margin-bottom:var(--sp-3xl);}
+    .topic-section:last-child{margin-bottom:0;}
+
+    /* Topic heading row */
+    .topic-head{display:grid;grid-template-columns:1fr 2fr;gap:var(--sp-3xl);align-items:start;margin-bottom:var(--sp-2xl);}
+    .topic-head.dark-bg{background:var(--blue-deep);border-radius:4px;padding:var(--sp-xl);margin-left:calc(-1 * clamp(1.5rem,8vw,7rem));margin-right:calc(-1 * clamp(1.5rem,8vw,7rem));padding-left:clamp(1.5rem,8vw,7rem);padding-right:clamp(1.5rem,8vw,7rem);}
+    .topic-head.dark-bg .topic-label,.topic-head.dark-bg h2,.topic-head.dark-bg p{color:var(--white);}
+    .topic-head.dark-bg p{color:rgba(255,255,255,0.65);}
+    .topic-label{font-size:var(--text-xs);font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--sp-s);}
+    .topic-head h2{font-size:var(--text-2xl);font-weight:700;letter-spacing:-0.025em;line-height:1.1;color:var(--ink);margin-bottom:var(--sp-s);}
+    .topic-head h2 em{font-style:italic;color:var(--blue);}
+    .topic-head p{font-size:var(--text-base);color:var(--ink-60);line-height:1.7;}
+
+    /* Cards grid */
+    .cards-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(0.75rem,1.5vw,1.25rem);}
+    .info-card{border-radius:4px;padding:var(--sp-l) var(--sp-m);border:1.5px solid rgba(26,26,46,0.08);background:var(--white);position:relative;overflow:hidden;transition:border-color 200ms ease,transform 300ms var(--ease-out),box-shadow 300ms ease;}
+    .info-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--blue);transform:scaleY(0);transform-origin:bottom;transition:transform 0.35s var(--ease-out);}
+    .info-card:hover::before{transform:scaleY(1);}
+    .info-card:hover{border-color:transparent;transform:translateY(-3px);box-shadow:0 1rem 2rem -0.5rem rgba(0,0,0,0.09);}
+    .info-card.span5{grid-column:span 5;}
+    .info-card.span7{grid-column:span 7;}
+    .info-card.span4{grid-column:span 4;}
+    .info-card.span8{grid-column:span 8;}
+    .info-card.span6{grid-column:span 6;}
+    .info-card.span3{grid-column:span 3;}
+    .card-icon{font-size:1.6rem;margin-bottom:var(--sp-s);display:block;}
+    .info-card h3{font-size:var(--text-base);font-weight:700;color:var(--ink);margin-bottom:8px;letter-spacing:-0.01em;}
+    .info-card p{font-size:var(--text-sm);color:var(--ink-60);line-height:1.65;}
+    .card-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:var(--sp-s);}
+    .pill{display:inline-block;font-size:var(--text-xs);font-weight:600;padding:3px 10px;border-radius:100px;background:var(--blue-pale);color:var(--blue);}
+    .pill.green{background:var(--terra-pale);color:var(--terra);}
+    .pill.gold{background:rgba(212,146,42,0.1);color:var(--gold);}
+
+    /* NEIGHBORHOOD CARDS — colored bg */
+    .barrio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:clamp(0.75rem,1.5vw,1rem);margin-top:var(--sp-m);}
+    .barrio-card{border-radius:4px;padding:var(--sp-m);cursor:pointer;transition:transform 220ms var(--ease-out);text-decoration:none;display:block;}
+    .barrio-card:hover{transform:translateY(-4px);}
+    .barrio-card:nth-child(1){background:#EBF2FB;}.barrio-card:nth-child(2){background:#FAE4D8;}.barrio-card:nth-child(3){background:#FDF3E2;}
+    .barrio-card:nth-child(4){background:#F3E8F9;}.barrio-card:nth-child(5){background:#E8F4F8;}.barrio-card:nth-child(6){background:#F8F3EB;}
+    .barrio-card:nth-child(7){background:#F9EAE8;}
+    .barrio-icon{font-size:1.4rem;margin-bottom:8px;display:block;}
+    .barrio-card h4{font-size:var(--text-sm);font-weight:700;color:var(--ink);margin-bottom:4px;}
+    .barrio-card p{font-size:var(--text-xs);color:var(--ink-60);line-height:1.5;}
+    .barrio-price{font-size:var(--text-xs);font-weight:600;color:var(--ink-30);margin-top:6px;}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(2.5rem);transition:opacity 0.8s var(--ease-out),transform 0.8s var(--ease-out);}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .rd1{transition-delay:0.1s;}.rd2{transition-delay:0.2s;}.rd3{transition-delay:0.3s;}
+
+    /* FOOTER */
+    footer{background:var(--ink);padding:var(--sp-3xl) clamp(1.5rem,8vw,7rem) var(--sp-l);}
+    .footer-grid{display:grid;grid-template-columns:1.8fr repeat(3,1fr);gap:clamp(2rem,5vw,5rem);margin-bottom:var(--sp-2xl);}
+    .footer-brand-name{font-family:'Fraunces',serif;font-size:var(--text-xl);font-weight:700;color:var(--white);letter-spacing:-0.02em;margin-bottom:var(--sp-s);}
+    .footer-brand-name em{font-style:italic;color:var(--gold-light);}
+    .footer-brand p{font-size:var(--text-sm);color:rgba(255,255,255,0.45);line-height:1.7;max-width:28ch;}
+    .footer-col h4{font-size:var(--text-xs);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:var(--sp-m);}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .footer-col a{font-size:var(--text-sm);color:rgba(255,255,255,0.55);text-decoration:none;transition:color 160ms ease;}
+    .footer-col a:hover{color:var(--white);}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:var(--sp-l);display:flex;justify-content:space-between;}
+    .footer-bottom p{font-size:var(--text-xs);color:rgba(255,255,255,0.25);}
+
+    @media(max-width:900px){.topic-head{grid-template-columns:1fr;gap:var(--sp-m);}.cards-grid{grid-template-columns:1fr 1fr;}.info-card{grid-column:span 1!important;}.footer-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:600px){.nav-links{display:none;}.cards-grid{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr;}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;}.reveal{opacity:1;transform:none;}}
+  </style>
+</head>
+<body>
+  <div class="page-wipe" id="pageWipe"></div>
+  <nav>
+    <a href="homepage-mockup.html" class="nav-logo nav-link-trans">Nomad<em>UY</em></a>
+    <ul class="nav-links">
+      <li><a href="guias.html" class="nav-link-trans">Guías</a></li>
+      <li><a href="vivir-en-uruguay.html" class="active">Vivir</a></li>
+      <li><a href="conocer-uruguay.html" class="nav-link-trans">Conocer Uruguay</a></li>
+      <li><a href="recursos.html" class="nav-link-trans">Recursos</a></li>
+      <li><a href="comunidad.html" class="nav-cta nav-link-trans">Unirme</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-hero">
+    <div class="header-inner">
+      <p class="kicker">Guía de vida</p>
+      <h1>Vivir en<br><em>Uruguay</em></h1>
+      <p>Barrios, vivienda, salud, trabajo, cultura. Todo lo práctico para construir tu vida acá, sin importar si llegás por tres meses o para siempre.</p>
+    </div>
+  </header>
+
+  <div class="wave-divider"><svg viewBox="0 0 1440 64" preserveAspectRatio="none" fill="none"><path d="M0,32 C240,64 480,0 720,32 C960,64 1200,0 1440,32 L1440,64 L0,64 Z" fill="#FDFAF5"/></svg></div>
+
+  <nav class="topics-nav">
+    <div class="topics-inner">
+      <button class="topic-btn active">Barrios</button>
+      <button class="topic-btn">Vivienda</button>
+      <button class="topic-btn">Trabajo</button>
+      <button class="topic-btn">Salud</button>
+      <button class="topic-btn">Transporte</button>
+      <button class="topic-btn">Comida</button>
+      <button class="topic-btn">Cultura</button>
+      <button class="topic-btn">Familia</button>
+    </div>
+  </nav>
+
+  <main class="content-wrap">
+    <!-- BARRIOS -->
+    <section class="topic-section" id="barrios">
+      <div class="topic-head reveal">
+        <div>
+          <p class="topic-label">Barrios</p>
+          <h2>¿Dónde <em>vivir</em> en Montevideo?</h2>
+        </div>
+        <p>Cada barrio tiene su carácter, su precio y su comunidad. Acá te ayudamos a entender cuál encaja con tu estilo de vida, tu presupuesto y tu forma de ser.</p>
+      </div>
+      <div class="barrio-grid reveal rd1">
+        <a href="#" class="barrio-card"><i class="ph ph-waves barrio-icon"></i><h4>Pocitos</h4><p>Hub expat. Playa, modern, internacional.</p><p class="barrio-price">$$$ · Alta demanda</p></a>
+        <a href="#" class="barrio-card"><i class="ph ph-paint-brush barrio-icon"></i><h4>Palermo</h4><p>Artsy, joven, cafés, galerías. El Brooklyn de Mvd.</p><p class="barrio-price">$$ · Popular entre nómadas</p></a>
+        <a href="#" class="barrio-card"><i class="ph ph-buildings barrio-icon"></i><h4>Ciudad Vieja</h4><p>Histórico, murales, gentrificando.</p><p class="barrio-price">$$ · Mucho carácter</p></a>
+        <a href="#" class="barrio-card"><i class="ph ph-tree barrio-icon"></i><h4>Parque Rodó</h4><p>Bohemio, estudiantes, asequible, lago.</p><p class="barrio-price">$ · Muy vivo</p></a>
+        <a href="#" class="barrio-card"><i class="ph ph-shopping-bag barrio-icon"></i><h4>Punta Carretas</h4><p>Upscale, tranquilo, seguro.</p><p class="barrio-price">$$$$ · Familias expat</p></a>
+        <a href="#" class="barrio-card"><i class="ph ph-person-simple-walk barrio-icon"></i><h4>Cordón</h4><p>Central, caminable, local, mixto.</p><p class="barrio-price">$$ · Auténtico</p></a>
+        <a href="#" class="barrio-card"><i class="ph ph-leaf barrio-icon"></i><h4>Carrasco</h4><p>Lujo, embajadas, familias, suburbano.</p><p class="barrio-price">$$$$ · Premium</p></a>
+      </div>
+    </section>
+
+    <!-- VIVIENDA -->
+    <section class="topic-section" id="vivienda">
+      <div class="topic-head reveal">
+        <div>
+          <p class="topic-label">Vivienda</p>
+          <h2>Alquilar en Uruguay <em>siendo extranjero</em></h2>
+        </div>
+        <p>El mercado de alquiler uruguayo tiene sus particularidades. El mayor obstáculo es la garantía local — pero hay formas de navegarlo.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="info-card span7 reveal">
+          <i class="ph ph-clipboard-text card-icon"></i>
+          <h3>El sistema de garantías</h3>
+          <p>Los contratos de alquiler en Uruguay requieren un garante local (propietario en Uruguay). Sin él, las opciones son: garantía bancaria (depósito equivalente a 12 meses de alquiler), seguro de alquiler (ANDA), o inmobiliarias que trabajan con extranjeros sin garantía.</p>
+          <div class="card-pills"><span class="pill">ANDA</span><span class="pill">Garantía bancaria</span><span class="pill green">Sin garantía posible</span></div>
+        </div>
+        <div class="info-card span5 reveal rd1">
+          <i class="ph ph-coins card-icon"></i>
+          <h3>Precios reales por zona</h3>
+          <p>Monoambiente en Palermo: $500–700 USD/mes. 2 ambientes en Pocitos: $800–1.200 USD. Cordón: 15–20% más barato que Pocitos.</p>
+          <div class="card-pills"><span class="pill gold">Actualizado 2026</span></div>
+        </div>
+        <div class="info-card span4 reveal rd2">
+          <i class="ph ph-magnifying-glass card-icon"></i>
+          <h3>Plataformas</h3>
+          <p>Gallito, Infocasas, MercadoLibre, grupos de Facebook "Alquileres Montevideo".</p>
+        </div>
+        <div class="info-card span8 reveal rd3">
+          <i class="ph ph-building-office card-icon"></i>
+          <h3>Colivings verificados</h3>
+          <p>Opciones con internet testeado, sin garantía local requerida, ideales para los primeros meses. Algunos tienen descuentos para miembros NomadUY. Cada espacio incluye velocidad real de conexión, precio de día/mes y vibe del lugar.</p>
+          <div class="card-pills"><span class="pill green">WiFi verificado</span><span class="pill">Sin garantía</span><span class="pill gold">Descuento miembros</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SALUD -->
+    <section class="topic-section" id="salud">
+      <div class="topic-head reveal">
+        <div>
+          <p class="topic-label">Salud</p>
+          <h2>Sistema de salud:<br><em>lo esencial</em></h2>
+        </div>
+        <p>Uruguay tiene uno de los mejores sistemas de salud de la región. La clave es entender la diferencia entre ASSE (público) y las mutualistas (privado subsidiado).</p>
+      </div>
+      <div class="cards-grid">
+        <div class="info-card span6 reveal">
+          <i class="ph ph-first-aid-kit card-icon"></i>
+          <h3>Mutualistas</h3>
+          <p>Sistema privado subsidiado. Médica Uruguaya, CASMU, SMI. Costo ~$30–50 USD/mes. Incluye médico de cabecera, especialistas, urgencias, medicamentos con descuento. El camino recomendado para extranjeros con residencia o en trámite.</p>
+          <div class="card-pills"><span class="pill green">Recomendado</span></div>
+        </div>
+        <div class="info-card span6 reveal rd1">
+          <i class="ph ph-gift card-icon"></i>
+          <h3>ASSE (público)</h3>
+          <p>Acceso gratuito o de muy bajo costo. Tiempos de espera mayores. Válido para cualquier persona en Uruguay, independientemente del estatus migratorio. Bueno como red de seguridad.</p>
+        </div>
+        <div class="info-card span4 reveal rd2">
+          <i class="ph ph-first-aid-kit card-icon"></i>
+          <h3>Emergencias</h3>
+          <p>SAMU: 105. Policía: 911. Las mutualistas tienen servicio de emergencias a domicilio 24/7.</p>
+        </div>
+        <div class="info-card span8 reveal rd3">
+          <i class="ph ph-user-circle card-icon"></i>
+          <h3>Médicos recomendados por la comunidad</h3>
+          <p>Directorio de médicos verificados por la comunidad NomadUY. Filtrable por especialidad, idioma (inglés, portugués) y zona de Montevideo. Actualizado por los miembros.</p>
+          <div class="card-pills"><span class="pill">Clínica general</span><span class="pill">Salud mental</span><span class="pill">Dental</span><span class="pill gold">Inglés disponible</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRABAJO -->
+    <section class="topic-section" id="trabajo">
+      <div class="topic-head reveal">
+        <div>
+          <p class="topic-label">Trabajo</p>
+          <h2>Trabajar en<br><em>Uruguay</em></h2>
+        </div>
+        <p>Trabajo remoto sin impuesto sobre ingresos del exterior (primeros 11 años). Coworkings probados. Y si querés trabajar localmente, todo lo que necesitás saber.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="info-card span5 reveal">
+          <i class="ph ph-laptop card-icon"></i>
+          <h3>Coworkings verificados</h3>
+          <p>Sinergia District, Crea Cowork y más. Cada espacio incluye: velocidad real de WiFi (bajada/subida), precio día y mensualidad, ruido, café, y si podés quedarte todo el día con un cortado.</p>
+          <div class="card-pills"><span class="pill gold">Descuento miembros NomadUY</span></div>
+        </div>
+        <div class="info-card span7 reveal rd1">
+          <i class="ph ph-coffee card-icon"></i>
+          <h3>Cafés para trabajar</h3>
+          <p>La cultura del café-trabajo es real en Montevideo, especialmente en Palermo, Cordón y Pocitos. Criterios de nuestra guía: WiFi funcional, enchufes accesibles, nivel de ruido, política de permanencia y calidad del café.</p>
+        </div>
+        <div class="info-card span6 reveal rd2">
+          <i class="ph ph-chart-bar card-icon"></i>
+          <h3>Impuestos y trabajo remoto</h3>
+          <p>Uruguay usa sistema territorial: los ingresos del exterior no tributan durante los primeros 11 años de residencia fiscal. Es una de las ventajas más importantes para nómadas y expats de altos ingresos.</p>
+          <div class="card-pills"><span class="pill green">0% sobre ingresos exterior</span></div>
+        </div>
+        <div class="info-card span6 reveal rd3">
+          <i class="ph ph-plug card-icon"></i>
+          <h3>Internet en Uruguay</h3>
+          <p>Fibra óptica disponible en Montevideo y ciudades principales. Velocidades reales de 300Mbps–1Gbps posibles. Providers: Antel (estatal, más confiable), Claro, Movistar.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><p class="footer-brand-name">Nomad<em>UY</em></p><p>El recurso más completo y la comunidad más cálida para vivir en Uruguay.</p></div>
+      <div class="footer-col"><h4>Explorar</h4><ul><li><a href="guias.html" class="nav-link-trans">Guías</a></li><li><a href="vivir-en-uruguay.html">Vivir</a></li><li><a href="conocer-uruguay.html" class="nav-link-trans">Conocer</a></li><li><a href="recursos.html" class="nav-link-trans">Recursos</a></li></ul></div>
+      <div class="footer-col"><h4>Comunidad</h4><ul><li><a href="comunidad.html" class="nav-link-trans">Unirme</a></li><li><a href="comunidad.html" class="nav-link-trans">Eventos</a></li><li><a href="comunidad.html" class="nav-link-trans">Grupos</a></li></ul></div>
+      <div class="footer-col"><h4>Guías</h4><ul><li><a href="guia-primeras-48h.html" class="nav-link-trans">Primeras 48h</a></li><li><a href="guias.html" class="nav-link-trans">Visas</a></li><li><a href="guias.html" class="nav-link-trans">Coworkings</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 NomadUY · Montevideo, Uruguay</p><p>Hecho con amor</p></div>
+  </footer>
+
+  <script>
+    const wipe=document.getElementById('pageWipe');
+    document.querySelectorAll('a.nav-link-trans').forEach(l=>{l.addEventListener('click',e=>{const h=l.getAttribute('href');if(!h||h.startsWith('#'))return;e.preventDefault();wipe.classList.add('out');setTimeout(()=>{window.location.href=h;},520);});});
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+    document.querySelectorAll('.topic-btn').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('.topic-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');});});
+  </script>
+</body>
+</html>

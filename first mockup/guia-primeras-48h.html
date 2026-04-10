@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Primeras 48 Horas en Uruguay — NomadUY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:       #1B4F8A;
+      --blue-light: #2E6FB4;
+      --blue-pale:  #EBF2FB;
+      --gold:       #D4922A;
+      --gold-light: #F5C97A;
+      --green:      #2E7D52;
+      --green-pale: #EAF4EE;
+      --sand:       #F8F3EB;
+      --cream:      #FDFAF5;
+      --ink:        #1A1A2E;
+      --ink-60:     #5B5B7A;
+      --ink-30:     #ADADC4;
+      --white:      #FFFFFF;
+      --radius-sm:  8px;
+      --radius-md:  14px;
+      --radius-lg:  24px;
+      --radius-xl:  36px;
+      --ease-out:   cubic-bezier(0.23, 1, 0.32, 1);
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+    }
+
+    body { overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Fraunces', serif; font-weight: 700; line-height: 1.15; }
+    h1 { font-size: clamp(2rem, 4vw, 3rem); }
+    h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); }
+    h3 { font-size: 1.15rem; }
+    h4 { font-size: 0.95rem; }
+    p  { line-height: 1.65; color: var(--ink-60); }
+
+    /* Nav */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 68px;
+      background: rgba(253,250,245,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(26,26,46,0.07);
+    }
+    .nav-logo { font-family: 'Fraunces', serif; font-size: 1.35rem; font-weight: 700; color: var(--blue); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a { display: block; padding: 7px 14px; font-size: 0.88rem; font-weight: 500; color: var(--ink-60); text-decoration: none; border-radius: var(--radius-sm); transition: color 180ms ease, background 180ms ease; }
+    @media (hover: hover) and (pointer: fine) { .nav-links a:hover { color: var(--ink); background: rgba(26,26,46,0.05); } }
+    .nav-cta { background: var(--blue); color: var(--white) !important; border-radius: var(--radius-sm); padding: 9px 18px !important; font-weight: 600 !important; transition: background 160ms ease, transform 160ms var(--ease-out) !important; }
+    .nav-cta:active { transform: scale(0.97); }
+    @media (hover: hover) and (pointer: fine) { .nav-cta:hover { background: var(--blue-light) !important; } }
+    .nav-back { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--ink-60); text-decoration: none; transition: color 160ms ease; }
+    @media (hover: hover) and (pointer: fine) { .nav-back:hover { color: var(--blue); } }
+
+    /* Page Hero */
+    .page-hero {
+      padding-top: 68px;
+      background: linear-gradient(160deg, var(--blue-pale) 0%, var(--cream) 60%);
+      padding-bottom: 0;
+      border-bottom: 1px solid rgba(26,26,46,0.07);
+    }
+    .page-hero-inner {
+      padding: 56px 8vw 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: end;
+    }
+    .page-hero-breadcrumb {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--blue);
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 16px;
+    }
+    .page-hero-breadcrumb span { color: var(--ink-30); }
+    .page-hero h1 { margin-bottom: 14px; }
+    .page-hero p { font-size: 1.05rem; max-width: 520px; margin-bottom: 28px; }
+
+    .hero-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600;
+      background: var(--white); border: 1.5px solid rgba(26,26,46,0.1);
+      color: var(--ink-60);
+    }
+
+    /* Progress bar at bottom of hero */
+    .progress-bar-track {
+      height: 4px; background: rgba(26,26,46,0.08);
+      border-radius: 100px; width: 100%; max-width: 400px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%; width: 0%; background: var(--blue);
+      border-radius: 100px;
+      transition: width 600ms var(--ease-out);
+    }
+
+    /* Step counter card on right of hero */
+    .hero-checklist-card {
+      background: var(--white);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      padding: 28px 32px;
+      box-shadow: 0 -4px 40px rgba(26,26,46,0.08);
+      border: 1px solid rgba(26,26,46,0.07);
+      border-bottom: none;
+      min-width: 300px;
+    }
+    .checklist-stat {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .checklist-stat strong {
+      display: block;
+      font-family: 'Fraunces', serif;
+      font-size: 3rem; font-weight: 700; color: var(--blue);
+      line-height: 1;
+    }
+    .checklist-stat span { font-size: 0.85rem; color: var(--ink-60); }
+    .mini-checklist { display: flex; flex-direction: column; gap: 10px; }
+    .mini-check-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.84rem; color: var(--ink-60);
+    }
+    .mini-check-dot {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--blue-pale); border: 2px solid var(--blue);
+      flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+      font-size: 10px; color: var(--blue);
+    }
+    .mini-check-dot.done { background: var(--blue); color: var(--white); }
+
+    /* ─── Layout ─────────────────────────────────────────────────────── */
+    .guide-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 48px;
+      padding: 48px 8vw;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    /* Sidebar TOC */
+    .guide-toc {
+      position: sticky;
+      top: 88px;
+    }
+    .toc-label {
+      font-size: 0.73rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--ink-30);
+      margin-bottom: 16px;
+    }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .toc-item a {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 12px;
+      font-size: 0.85rem; font-weight: 500; color: var(--ink-60);
+      text-decoration: none; border-radius: var(--radius-sm);
+      transition: color 160ms ease, background 160ms ease;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .toc-item a:hover { color: var(--ink); background: rgba(26,26,46,0.05); }
+    }
+    .toc-item.active a { color: var(--blue); background: var(--blue-pale); font-weight: 600; }
+    .toc-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--ink-30); flex-shrink: 0;
+      transition: background 160ms ease;
+    }
+    .toc-item.active .toc-dot { background: var(--blue); }
+
+    .toc-pdf-cta {
+      margin-top: 28px;
+      padding: 18px 20px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      border-radius: var(--radius-md);
+      color: var(--white);
+      text-decoration: none;
+      display: block;
+      transition: transform 160ms var(--ease-out), box-shadow 160ms ease;
+      box-shadow: 0 4px 16px rgba(27,79,138,0.25);
+    }
+    .toc-pdf-cta:active { transform: scale(0.97); }
+    @media (hover: hover) and (pointer: fine) {
+      .toc-pdf-cta:hover { box-shadow: 0 8px 28px rgba(27,79,138,0.35); }
+    }
+    .toc-pdf-cta strong { display: block; font-size: 0.88rem; color: var(--white); margin-bottom: 4px; }
+    .toc-pdf-cta span { font-size: 0.78rem; color: rgba(255,255,255,0.7); }
+
+    /* ─── Timeline Sections ──────────────────────────────────────────── */
+    .guide-content { display: flex; flex-direction: column; gap: 56px; }
+
+    .timeline-section { scroll-margin-top: 88px; }
+
+    .phase-header {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid rgba(26,26,46,0.08);
+    }
+    .phase-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 52px; height: 52px;
+      border-radius: var(--radius-md);
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .phase-badge.blue  { background: var(--blue-pale); }
+    .phase-badge.gold  { background: rgba(212,146,42,0.1); }
+    .phase-badge.green { background: var(--green-pale); }
+
+    .phase-meta { flex: 1; }
+    .phase-time {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 4px;
+    }
+    .phase-time.blue  { color: var(--blue); }
+    .phase-time.gold  { color: var(--gold); }
+    .phase-time.green { color: var(--green); }
+    .phase-meta h2 { font-size: 1.6rem; }
+
+    /* Step cards */
+    .steps-list { display: flex; flex-direction: column; gap: 16px; }
+
+    .step-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border: 1.5px solid rgba(26,26,46,0.07);
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: stepIn 350ms var(--ease-out) forwards;
+    }
+
+    @keyframes stepIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .step-card:nth-child(1) { animation-delay: 0ms; }
+    .step-card:nth-child(2) { animation-delay: 60ms; }
+    .step-card:nth-child(3) { animation-delay: 120ms; }
+    .step-card:nth-child(4) { animation-delay: 180ms; }
+    .step-card:nth-child(5) { animation-delay: 240ms; }
+    .step-card:nth-child(6) { animation-delay: 300ms; }
+
+    .step-header {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 24px;
+      cursor: pointer;
+    }
+    .step-num {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--blue-pale); color: var(--blue);
+      font-size: 0.85rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-family: 'Fraunces', serif;
+    }
+    .step-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .step-title-group { flex: 1; }
+    .step-title { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+    .step-subtitle { font-size: 0.8rem; color: var(--ink-60); }
+    .step-priority {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 100px;
+      flex-shrink: 0;
+    }
+    .priority-now  { background: rgba(212,146,42,0.12); color: var(--gold); }
+    .priority-soon { background: var(--blue-pale); color: var(--blue); }
+    .priority-day2 { background: var(--green-pale); color: var(--green); }
+
+    .step-body {
+      padding: 0 24px 22px 72px;
+    }
+    .step-body p { font-size: 0.88rem; margin-bottom: 14px; }
+
+    .step-tips {
+      background: var(--sand);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      margin-top: 12px;
+    }
+    .step-tips-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .step-tips ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .step-tips li {
+      font-size: 0.82rem; color: var(--ink-60);
+      display: flex; align-items: flex-start; gap: 8px;
+    }
+    .step-tips li::before { content: '→'; color: var(--blue); flex-shrink: 0; font-weight: 600; }
+
+    .step-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.82rem; font-weight: 600; color: var(--blue);
+      text-decoration: none; margin-top: 10px;
+      transition: color 160ms ease;
+    }
+    @media (hover: hover) and (pointer: fine) { .step-link:hover { color: var(--blue-light); } }
+
+    /* Info boxes */
+    .info-box {
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+      margin-top: 8px;
+      border-left: 3px solid;
+    }
+    .info-box.blue  { background: var(--blue-pale); border-color: var(--blue); }
+    .info-box.gold  { background: rgba(212,146,42,0.08); border-color: var(--gold); }
+    .info-box.green { background: var(--green-pale); border-color: var(--green); }
+    .info-box strong { font-size: 0.88rem; color: var(--ink); display: block; margin-bottom: 6px; }
+    .info-box p { font-size: 0.82rem; }
+
+    /* Divider between phases */
+    .phase-divider {
+      height: 1px; background: rgba(26,26,46,0.07);
+      margin: 8px 0;
+    }
+
+    /* Bottom CTA */
+    .guide-cta-bar {
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      border-radius: var(--radius-lg);
+      padding: 40px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 32px;
+      margin-top: 16px;
+      margin-bottom: 48px;
+    }
+    .guide-cta-bar h3 { color: var(--white); font-size: 1.4rem; margin-bottom: 6px; }
+    .guide-cta-bar p { color: rgba(255,255,255,0.75); font-size: 0.92rem; }
+    .cta-bar-actions { display: flex; gap: 12px; flex-shrink: 0; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 24px; background: var(--white); color: var(--blue);
+      font-size: 0.92rem; font-weight: 700; border-radius: var(--radius-sm);
+      text-decoration: none; border: none; cursor: pointer;
+      transition: transform 160ms var(--ease-out), box-shadow 160ms ease;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    }
+    .btn-primary:active { transform: scale(0.97); }
+    @media (hover: hover) and (pointer: fine) { .btn-primary:hover { box-shadow: 0 6px 22px rgba(0,0,0,0.22); } }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 14px 20px; background: rgba(255,255,255,0.15); color: var(--white);
+      font-size: 0.92rem; font-weight: 600; border-radius: var(--radius-sm);
+      text-decoration: none; border: 1.5px solid rgba(255,255,255,0.25);
+      transition: background 160ms ease, transform 160ms var(--ease-out);
+    }
+    .btn-ghost:active { transform: scale(0.97); }
+    @media (hover: hover) and (pointer: fine) { .btn-ghost:hover { background: rgba(255,255,255,0.22); } }
+
+    /* Footer */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.5);
+      padding: 40px 8vw;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.82rem;
+    }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    .footer-logo { font-family: 'Fraunces', serif; font-size: 1.1rem; color: var(--white); }
+    .footer-logo span { color: var(--gold-light); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .step-card { animation: none; opacity: 1; transform: none; }
+      * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="homepage-mockup.html" class="nav-logo">Nomad<span>UY</span> 🇺🇾</a>
+    <ul class="nav-links">
+      <li><a href="guias.html" style="color:var(--blue);font-weight:600;">Guías</a></li>
+      <li><a href="vivir-en-uruguay.html">Vivir</a></li>
+      <li><a href="conocer-uruguay.html">Conocer Uruguay</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
+      <li><a href="homepage-mockup.html#community" class="nav-cta">Unirme</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div>
+        <div class="page-hero-breadcrumb"><a href="guias.html" style="color:inherit;text-decoration:none;">📚 Guías</a> <span>›</span> Primeras 48 horas</div>
+        <h1>Tus primeras 48 horas<br>en Uruguay.</h1>
+        <p>Llegaste. Respirá. Este checklist cubre todo lo que necesitás hacer — en orden de prioridad, con los links y números útiles.</p>
+        <div class="hero-tags">
+          <span class="hero-tag">✈️ Aeropuerto Carrasco</span>
+          <span class="hero-tag">📋 18 pasos</span>
+          <span class="hero-tag">⏱ ~2 horas para lo esencial</span>
+        </div>
+      </div>
+      <div class="hero-checklist-card">
+        <div class="checklist-stat">
+          <strong>18</strong>
+          <span>cosas que hacer al llegar</span>
+        </div>
+        <div class="mini-checklist">
+          <div class="mini-check-item">
+            <div class="mini-check-dot done">✓</div>
+            <span>SIM card en el aeropuerto</span>
+          </div>
+          <div class="mini-check-item">
+            <div class="mini-check-dot done">✓</div>
+            <span>Cambio de moneda</span>
+          </div>
+          <div class="mini-check-item">
+            <div class="mini-check-dot">3</div>
+            <span>Llegar al alojamiento</span>
+          </div>
+          <div class="mini-check-item">
+            <div class="mini-check-dot">4</div>
+            <span>Abrir billetera digital (Prex)</span>
+          </div>
+          <div class="mini-check-item">
+            <div class="mini-check-dot">5</div>
+            <span>Unirte a la comunidad NomadUY</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Layout -->
+  <div class="guide-layout">
+
+    <!-- Sidebar TOC -->
+    <aside class="guide-toc">
+      <div class="toc-label">En esta guía</div>
+      <ul class="toc-list">
+        <li class="toc-item active">
+          <a href="#fase-1">
+            <span class="toc-dot"></span>
+            ✈️ Al aterrizar (0–6h)
+          </a>
+        </li>
+        <li class="toc-item">
+          <a href="#fase-2">
+            <span class="toc-dot"></span>
+            🌅 Primer día (6–24h)
+          </a>
+        </li>
+        <li class="toc-item">
+          <a href="#fase-3">
+            <span class="toc-dot"></span>
+            🏙️ Segundo día (24–48h)
+          </a>
+        </li>
+      </ul>
+
+      <a href="#pdf" class="toc-pdf-cta">
+        <strong>📄 Descargá el PDF</strong>
+        <span>Llevá esta guía en el bolsillo — gratis</span>
+      </a>
+    </aside>
+
+    <!-- Content -->
+    <main class="guide-content">
+
+      <!-- FASE 1 -->
+      <section class="timeline-section" id="fase-1">
+        <div class="phase-header">
+          <div class="phase-badge blue">✈️</div>
+          <div class="phase-meta">
+            <div class="phase-time blue">Horas 0 – 6</div>
+            <h2>Al aterrizar</h2>
+          </div>
+        </div>
+        <div class="steps-list">
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">1</div>
+              <div class="step-icon">📱</div>
+              <div class="step-title-group">
+                <div class="step-title">Comprá una SIM local</div>
+                <div class="step-subtitle">Antes de salir del aeropuerto — hay kioscos en Arrivals</div>
+              </div>
+              <span class="step-priority priority-now">Ahora</span>
+            </div>
+            <div class="step-body">
+              <p>Hay tres operadoras: <strong>Antel</strong> (mejor cobertura en todo el país), Movistar y Claro. En Carrasco encontrás Antel en la terminal de llegadas. Un chip con datos cuesta ~$10–15 USD.</p>
+              <div class="step-tips">
+                <div class="step-tips-label">💡 Tips</div>
+                <ul>
+                  <li>Antel tiene mejor señal en el interior del país si pensás viajar</li>
+                  <li>Pedí una SIM con al menos 10GB de datos</li>
+                  <li>Tenés que presentar pasaporte</li>
+                  <li>La app de Antel te permite recargar desde el celular después</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">2</div>
+              <div class="step-icon">💵</div>
+              <div class="step-title-group">
+                <div class="step-title">Cambiá algo de plata a pesos</div>
+                <div class="step-subtitle">No mucho — Uruguay es mayormente tarjeta</div>
+              </div>
+              <span class="step-priority priority-now">Ahora</span>
+            </div>
+            <div class="step-body">
+              <p>El tipo de cambio en el aeropuerto es peor que en la ciudad, pero necesitás pesos para el bus, taxi, propinas y pequeños gastos. Cambiá entre 50–100 USD para los primeros días.</p>
+              <div class="info-box gold">
+                <strong>💱 Tasas de cambio (Abril 2026)</strong>
+                <p>1 USD ≈ 40–42 pesos uruguayos. Las mejores casas de cambio están en el centro de Montevideo (Galería Mediomundo y alrededores de 18 de Julio).</p>
+              </div>
+              <div class="step-tips">
+                <div class="step-tips-label">💡 Tips</div>
+                <ul>
+                  <li>Con tarjeta de débito/crédito internacional pagás casi todo sin recargo</li>
+                  <li>Wise y Revolut funcionan muy bien en Uruguay</li>
+                  <li>Los ATMs (cajeros) de BROU tienen las mejores tasas para extracciones</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">3</div>
+              <div class="step-icon">🚗</div>
+              <div class="step-title-group">
+                <div class="step-title">Llegá a tu alojamiento</div>
+                <div class="step-subtitle">Carrasco → Montevideo centro: 25–40 min</div>
+              </div>
+              <span class="step-priority priority-now">Ahora</span>
+            </div>
+            <div class="step-body">
+              <p>Desde el aeropuerto internacional de Carrasco hay varias opciones para llegar a Montevideo.</p>
+              <div class="step-tips">
+                <div class="step-tips-label">📍 Opciones desde Carrasco</div>
+                <ul>
+                  <li><strong>Uber/Cabify</strong> — ~$15–20 USD, lo más cómodo, pedilo desde el aeropuerto con WiFi gratuito</li>
+                  <li><strong>Taxi oficial</strong> — ~$20–25 USD, parada frente al aeropuerto</li>
+                  <li><strong>Bus COT / Cutcsa</strong> — ~$2 USD, más lento pero económico, parada a 5 min a pie</li>
+                  <li><strong>Transfer pre-reservado</strong> — opción si venís con mucho equipaje</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">4</div>
+              <div class="step-icon">📲</div>
+              <div class="step-title-group">
+                <div class="step-title">Instalá las apps esenciales</div>
+                <div class="step-subtitle">Los 5 apps que vas a usar todos los días</div>
+              </div>
+              <span class="step-priority priority-soon">Hoy</span>
+            </div>
+            <div class="step-body">
+              <p>Antes de que se te pase el día, bajate estas apps.</p>
+              <div class="step-tips">
+                <div class="step-tips-label">📱 Apps imprescindibles</div>
+                <ul>
+                  <li><strong>Uber / Cabify</strong> — transporte en la ciudad, funciona igual que en tu país</li>
+                  <li><strong>STM (Mi Tarjeta UY)</strong> — para el bus público, gestión de la tarjeta</li>
+                  <li><strong>Pedidos Ya</strong> — delivery de comida, el más usado en Uruguay</li>
+                  <li><strong>WhatsApp</strong> — la comunicación principal acá; anotá el número local si tenés SIM</li>
+                  <li><strong>Google Maps</strong> — tiene buena cobertura de Uruguay + transporte público</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="phase-divider"></div>
+
+      <!-- FASE 2 -->
+      <section class="timeline-section" id="fase-2">
+        <div class="phase-header">
+          <div class="phase-badge gold">🌅</div>
+          <div class="phase-meta">
+            <div class="phase-time gold">Horas 6 – 24</div>
+            <h2>Primer día</h2>
+          </div>
+        </div>
+        <div class="steps-list">
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">5</div>
+              <div class="step-icon">💳</div>
+              <div class="step-title-group">
+                <div class="step-title">Abrí una billetera digital — Prex</div>
+                <div class="step-subtitle">100% online, sin cuenta bancaria local</div>
+              </div>
+              <span class="step-priority priority-now">Ahora</span>
+            </div>
+            <div class="step-body">
+              <p><strong>Prex</strong> es la billetera digital más usada por extranjeros en Uruguay. Se abre en 5 minutos desde el teléfono, sin necesidad de cuenta bancaria. Te da una tarjeta VISA virtual y física para pagar en cualquier lado.</p>
+              <div class="info-box blue">
+                <strong>¿Por qué Prex y no un banco?</strong>
+                <p>Abrir cuenta bancaria en Uruguay requiere cédula de identidad o documento de residencia. Si sos turista o llegaste hace poco, Prex es la solución instantánea. Podés cargarla con transferencia internacional (Wise, PayPal, etc.).</p>
+              </div>
+              <a href="#" class="step-link">Descargar Prex →</a>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">6</div>
+              <div class="step-icon">🗺️</div>
+              <div class="step-title-group">
+                <div class="step-title">Caminá tu barrio</div>
+                <div class="step-subtitle">La mejor orientación que podés hacer</div>
+              </div>
+              <span class="step-priority priority-soon">Hoy</span>
+            </div>
+            <div class="step-body">
+              <p>Antes de arrancar con trámites, date 2 horas para caminar el barrio donde te alojás. Ubicá: el supermercado más cercano, una farmacia (Farmashop o Farmacity), un cajero automático, y una panadería para el desayuno de mañana.</p>
+              <div class="step-tips">
+                <div class="step-tips-label">🏘️ Barrios y su onda</div>
+                <ul>
+                  <li><strong>Pocitos</strong> — expat hub, cafés, playa, el más "internacional"</li>
+                  <li><strong>Palermo</strong> — joven, artístico, cafés de especialidad, vegano-friendly</li>
+                  <li><strong>Ciudad Vieja</strong> — histórico, murales, bares, vibe urbano</li>
+                  <li><strong>Parque Rodó</strong> — bohemio, estudiantes, económico, lindo</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">7</div>
+              <div class="step-icon">☕</div>
+              <div class="step-title-group">
+                <div class="step-title">Tomá tu primer mate o café</div>
+                <div class="step-subtitle">La integración empieza acá</div>
+              </div>
+              <span class="step-priority priority-soon">Hoy</span>
+            </div>
+            <div class="step-body">
+              <p>El mate es la bebida social de Uruguay — vas a ver gente con el termo en la calle, en el trabajo, en la playa. No tenés que saber tomarlo, pero entender la cultura del mate te abre puertas con los locales inmediatamente.</p>
+              <div class="step-tips">
+                <div class="step-tips-label">🧉 Etiqueta del mate</div>
+                <ul>
+                  <li>No digas "gracias" cuando te lo pasen — significa que no querés más</li>
+                  <li>Cuando termines, decí "gracias" para indicar que ya estás satisfecho</li>
+                  <li>El cebador (quien lo prepara) tiene el control — no cambies el orden</li>
+                  <li>Empezá por una <em>bombonería</em> — venden kits de mate completos para principiantes</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">8</div>
+              <div class="step-icon">🛒</div>
+              <div class="step-title-group">
+                <div class="step-title">Primera vuelta al supermercado</div>
+                <div class="step-subtitle">Conocé los precios antes de planificar el presupuesto</div>
+              </div>
+              <span class="step-priority priority-soon">Hoy</span>
+            </div>
+            <div class="step-body">
+              <p>Los supermercados principales son <strong>Disco</strong>, <strong>Tienda Inglesa</strong> (más premium), <strong>Ta-Ta</strong> y <strong>Devoto</strong>. Hay Mercado Agrícola (MAM) en el Cordón para frutas, verduras y productos artesanales.</p>
+              <div class="step-tips">
+                <div class="step-tips-label">💰 Precios de referencia (USD)</div>
+                <ul>
+                  <li>1 litro de leche: ~$1.20</li>
+                  <li>Kilo de asado: ~$6–8</li>
+                  <li>Docena de huevos: ~$2.50</li>
+                  <li>Café en barra: ~$1.50–2.50</li>
+                  <li>Almuerzo en tenedor libre: ~$8–12</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="phase-divider"></div>
+
+      <!-- FASE 3 -->
+      <section class="timeline-section" id="fase-3">
+        <div class="phase-header">
+          <div class="phase-badge green">🏙️</div>
+          <div class="phase-meta">
+            <div class="phase-time green">Horas 24 – 48</div>
+            <h2>Segundo día</h2>
+          </div>
+        </div>
+        <div class="steps-list">
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">9</div>
+              <div class="step-icon">🚌</div>
+              <div class="step-title-group">
+                <div class="step-title">Conseguí tu tarjeta STM</div>
+                <div class="step-subtitle">El transporte público de Montevideo</div>
+              </div>
+              <span class="step-priority priority-day2">Día 2</span>
+            </div>
+            <div class="step-body">
+              <p>La <strong>tarjeta STM</strong> ("Mi Tarjeta") es el pase para el sistema de buses de Montevideo. Se consigue en cualquier kiosco o terminal STM. Con esta tarjeta pagás ~$0.90 USD por viaje (vs $1.40 en efectivo). El primer viaje gratis con transbordos en 2h.</p>
+              <div class="step-tips">
+                <div class="step-tips-label">🗺️ Cómo usarla</div>
+                <ul>
+                  <li>Descargá la app "Mi Tarjeta UY" para recargar y ver el saldo</li>
+                  <li>Google Maps tiene integración de buses STM — funciona bien</li>
+                  <li>La app Moovit también sirve para planificar rutas</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">10</div>
+              <div class="step-icon">💻</div>
+              <div class="step-title-group">
+                <div class="step-title">Visitá un coworking</div>
+                <div class="step-subtitle">Probá el espacio antes de comprometerte</div>
+              </div>
+              <span class="step-priority priority-day2">Día 2</span>
+            </div>
+            <div class="step-body">
+              <p>Antes de quedarte con el primer coworking que encuentres, visitá 2 o 3 opciones. El ambiente y la comunidad varían mucho. La mayoría ofrece un día de prueba gratis o con descuento.</p>
+              <div class="step-tips">
+                <div class="step-tips-label">📍 Por dónde empezar</div>
+                <ul>
+                  <li><strong>Sinergia District</strong> (Pocitos) — el más grande, con comunidad activa</li>
+                  <li><strong>Crea Cowork</strong> (Centro) — buen precio, bien conectado</li>
+                  <li><strong>Hub Montevideo</strong> (Ciudad Vieja) — vibe startup, buenos eventos</li>
+                  <li>Ver el directorio completo → <a href="vivir-en-uruguay.html" style="color:var(--blue)">Vivir en Uruguay</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">11</div>
+              <div class="step-icon">🤝</div>
+              <div class="step-title-group">
+                <div class="step-title">Unite a la comunidad NomadUY</div>
+                <div class="step-subtitle">Los grupos de WhatsApp son un salvavidas</div>
+              </div>
+              <span class="step-priority priority-day2">Día 2</span>
+            </div>
+            <div class="step-body">
+              <p>El 90% de las preguntas que vas a tener en estas semanas ya fueron respondidas en los grupos de WhatsApp de NomadUY. Desde "¿cuál es el mejor dentista que habla inglés?" hasta "¿alguien tiene un depto amoblado disponible?".</p>
+              <div class="info-box green">
+                <strong>🎁 Lo que recibís al registrarte</strong>
+                <p>Acceso inmediato a los grupos de WhatsApp (Recién llegados, Housing, Eventos), el PDF "Tus primeros 30 días en Uruguay", el calendario de meetups mensuales y acceso al directorio de la comunidad.</p>
+              </div>
+              <a href="comunidad.html" class="step-link">Unirme ahora — es gratis →</a>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">12</div>
+              <div class="step-icon">📞</div>
+              <div class="step-title-group">
+                <div class="step-title">Guardá los números de emergencia</div>
+                <div class="step-subtitle">Imprimí o guardá en favoritos</div>
+              </div>
+              <span class="step-priority priority-day2">Día 2</span>
+            </div>
+            <div class="step-body">
+              <div class="step-tips">
+                <div class="step-tips-label">📱 Números esenciales Uruguay</div>
+                <ul>
+                  <li><strong>911</strong> — Policía y emergencias generales</li>
+                  <li><strong>105</strong> — SAMU (ambulancia)</li>
+                  <li><strong>104</strong> — Bomberos</li>
+                  <li><strong>0800 1616</strong> — Línea de ayuda 24h (gratis)</li>
+                  <li><strong>Uber / Cabify</strong> — siempre tener instalado para moverte rápido</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Bottom CTA -->
+      <div class="guide-cta-bar" id="pdf">
+        <div>
+          <h3>Llevá esta guía en el bolsillo.</h3>
+          <p>El PDF "Tus primeros 30 días en Uruguay" cubre todo esto y más — para leer sin conexión.</p>
+        </div>
+        <div class="cta-bar-actions">
+          <a href="#" class="btn-primary">📄 Descargar PDF gratis</a>
+          <a href="comunidad.html" class="btn-ghost">Unirme a la comunidad →</a>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <footer>
+    <span class="footer-logo">Nomad<span>UY</span> 🇺🇾</span>
+    <span>© 2026 NomadUY · Hecho en Montevideo</span>
+    <a href="guias.html">← Guías</a>
+  </footer>
+
+  <script>
+    // Highlight TOC on scroll
+    const sections = document.querySelectorAll('.timeline-section');
+    const tocItems = document.querySelectorAll('.toc-item');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocItems.forEach(item => item.classList.remove('active'));
+          const id = entry.target.id;
+          const link = document.querySelector(`.toc-item a[href="#${id}"]`);
+          if (link) link.closest('.toc-item').classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>

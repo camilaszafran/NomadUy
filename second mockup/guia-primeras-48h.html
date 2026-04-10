@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Primeras 48 horas — NomadUY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300;1,9..144,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --blue:#1B4F8A;--blue-deep:#0C2340;--blue-light:#2E6FB4;--blue-pale:#EBF2FB;
+      --gold:#D4922A;--gold-light:#F5C97A;--terra:#B85C38;--terra-deep:#6B2D18;--terra-pale:#FAE4D8;
+      --sand:#F8F3EB;--cream:#FDFAF5;--ink:#1A1A2E;--ink-60:#5B5B7A;--ink-30:#ADADC4;--white:#FFFFFF;
+      --text-xs:clamp(0.64rem,0.61rem + 0.15vw,0.72rem);--text-sm:clamp(0.80rem,0.75rem + 0.24vw,0.94rem);
+      --text-base:clamp(1rem,0.91rem + 0.43vw,1.25rem);--text-lg:clamp(1.25rem,1.11rem + 0.68vw,1.67rem);
+      --text-xl:clamp(1.56rem,1.36rem + 1.03vw,2.22rem);--text-2xl:clamp(1.95rem,1.64rem + 1.56vw,2.96rem);
+      --text-3xl:clamp(2.44rem,1.97rem + 2.35vw,3.95rem);--text-4xl:clamp(3.05rem,2.36rem + 3.46vw,5.26rem);
+      --sp-xs:clamp(0.75rem,0.68rem + 0.33vw,0.94rem);--sp-s:clamp(1rem,0.91rem + 0.43vw,1.25rem);
+      --sp-m:clamp(1.5rem,1.37rem + 0.65vw,1.88rem);--sp-l:clamp(2rem,1.83rem + 0.87vw,2.5rem);
+      --sp-xl:clamp(3rem,2.74rem + 1.30vw,3.75rem);--sp-2xl:clamp(4rem,3.65rem + 1.74vw,5rem);
+      --sp-3xl:clamp(6rem,5.48rem + 2.61vw,7.5rem);
+      --ease-out:cubic-bezier(0.23,1,0.32,1);--ease-snap:cubic-bezier(0.85,0,0.15,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Instrument Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3,h4{font-family:'Fraunces',serif;text-wrap:balance;}
+    p{text-wrap:pretty;}
+
+    .page-wipe{position:fixed;inset:0;z-index:9999;background:var(--gold);transform:scaleY(0);transform-origin:bottom;pointer-events:none;}
+    .page-wipe.out{animation:wipeIn 0.55s var(--ease-snap) forwards;}
+    @keyframes wipeIn{to{transform:scaleY(1);}}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,5vw,4rem);background:rgba(12,35,64,0.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,0.07);}
+    .nav-logo{font-family:'Fraunces',serif;font-size:var(--text-lg);font-weight:700;color:var(--white);text-decoration:none;letter-spacing:-0.02em;}
+    .nav-logo em{font-style:italic;color:var(--gold-light);}
+    .nav-links{list-style:none;display:flex;align-items:center;gap:2px;}
+    .nav-links a{display:block;padding:7px 14px;font-size:var(--text-sm);font-weight:500;color:rgba(255,255,255,0.72);text-decoration:none;position:relative;transition:color 180ms ease;}
+    .nav-links a::after{content:'';position:absolute;bottom:4px;left:14px;right:14px;height:1px;background:var(--gold-light);transform:scaleX(0);transform-origin:right;transition:transform 0.35s ease;}
+    .nav-links a:hover{color:var(--white);}
+    .nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+    .nav-cta{background:var(--gold);color:var(--ink)!important;border-radius:3px;padding:9px 20px!important;font-weight:600!important;box-shadow:0 0.4em 0 #9C6B17;transition:transform 0.1s ease,box-shadow 0.1s ease!important;}
+    .nav-cta::after{display:none!important;}
+    .nav-cta:hover{transform:translateY(0.2em);box-shadow:0 0.2em 0 #9C6B17!important;}
+
+    .wave-divider{display:block;width:100%;overflow:hidden;line-height:0;}
+    .wave-divider svg{display:block;width:100%;}
+
+    /* HERO */
+    .page-hero{margin-top:68px;background:var(--blue-deep);padding:var(--sp-3xl) clamp(1.5rem,8vw,7rem);display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3xl);align-items:center;position:relative;overflow:hidden;}
+    .page-hero::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");opacity:0.3;}
+    .hero-content{position:relative;z-index:1;}
+    .kicker{font-size:var(--text-xs);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-light);display:flex;align-items:center;gap:12px;margin-bottom:var(--sp-s);}
+    .kicker::after{content:'';flex:1;max-width:48px;height:1px;background:var(--gold-light);opacity:0.5;}
+    .page-hero h1{font-size:var(--text-4xl);font-weight:700;line-height:0.95;letter-spacing:-0.03em;color:var(--white);margin-bottom:var(--sp-m);}
+    .page-hero h1 em{font-style:italic;color:var(--gold-light);}
+    .page-hero>div>p{font-size:var(--text-base);color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:var(--sp-l);}
+    .hero-meta{display:flex;gap:var(--sp-l);flex-wrap:wrap;}
+    .hero-meta-item{display:flex;align-items:center;gap:8px;font-size:var(--text-sm);color:rgba(255,255,255,0.55);}
+    .hero-meta-item strong{color:var(--white);font-weight:600;}
+
+    /* Progress widget */
+    .progress-widget{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:var(--sp-l);position:relative;z-index:1;}
+    .progress-widget h3{font-family:'Fraunces',serif;font-size:var(--text-lg);font-weight:700;color:var(--white);margin-bottom:var(--sp-s);}
+    .progress-widget p{font-size:var(--text-xs);color:rgba(255,255,255,0.5);margin-bottom:var(--sp-m);}
+    .progress-bar-wrap{background:rgba(255,255,255,0.1);border-radius:100px;height:6px;overflow:hidden;margin-bottom:var(--sp-xs);}
+    .progress-bar{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--gold),var(--gold-light));width:0%;transition:width 1.5s var(--ease-out);}
+    .progress-label{font-size:var(--text-xs);color:rgba(255,255,255,0.4);text-align:right;}
+    .progress-steps{margin-top:var(--sp-m);display:flex;flex-direction:column;gap:10px;}
+    .prog-step{display:flex;align-items:center;gap:12px;padding:10px;border-radius:3px;cursor:pointer;transition:background 180ms ease;}
+    .prog-step:hover{background:rgba(255,255,255,0.05);}
+    .prog-step.done .step-check{background:var(--terra);border-color:var(--terra);}
+    .prog-step.done .step-check::after{content:'✓';font-size:0.7rem;}
+    .step-check{width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:0.75rem;flex-shrink:0;transition:background 180ms ease,border-color 180ms ease;}
+    .prog-step.done{opacity:0.7;}
+    .step-text{font-size:var(--text-sm);color:rgba(255,255,255,0.75);}
+
+    /* CONTENT */
+    .content-outer{display:grid;grid-template-columns:280px 1fr;gap:var(--sp-3xl);padding:var(--sp-3xl) clamp(1.5rem,8vw,7rem);align-items:start;}
+
+    /* Sticky sidebar */
+    .sidebar{position:sticky;top:calc(68px + var(--sp-m));}
+    .sidebar h3{font-size:var(--text-sm);font-weight:700;color:var(--ink);margin-bottom:var(--sp-m);}
+    .sidebar-nav{list-style:none;display:flex;flex-direction:column;}
+    .sidebar-nav li a{display:flex;align-items:center;gap:10px;padding:10px var(--sp-s);font-size:var(--text-sm);color:var(--ink-60);text-decoration:none;border-left:2px solid rgba(26,26,46,0.08);transition:color 180ms ease,border-color 180ms ease,background 180ms ease;border-radius:0 3px 3px 0;}
+    .sidebar-nav li a:hover,.sidebar-nav li a.active{color:var(--blue);border-left-color:var(--blue);background:var(--blue-pale);}
+    .sidebar-nav .step-num{width:20px;height:20px;border-radius:50%;background:var(--blue-pale);color:var(--blue);font-size:0.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .sidebar-pdf{background:var(--gold);border-radius:4px;padding:var(--sp-m);margin-top:var(--sp-l);text-align:center;}
+    .sidebar-pdf p{font-size:var(--text-xs);font-weight:600;color:var(--ink);margin-bottom:10px;}
+    .sidebar-pdf a{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:var(--blue-deep);color:var(--white);font-size:var(--text-xs);font-weight:700;text-decoration:none;border-radius:3px;box-shadow:0 0.3em 0 #060f1a;transition:transform 0.12s ease,box-shadow 0.12s ease;}
+    .sidebar-pdf a:hover{transform:translateY(0.15em);box-shadow:0 0.15em 0 #060f1a;}
+
+    /* Steps content */
+    .steps-content{}
+    .step-section{margin-bottom:var(--sp-3xl);}
+    .step-header{display:flex;align-items:center;gap:var(--sp-m);margin-bottom:var(--sp-xl);}
+    .step-badge{width:52px;height:52px;border-radius:50%;background:var(--blue-deep);color:var(--gold-light);font-family:'Fraunces',serif;font-size:var(--text-lg);font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .step-header-text h2{font-size:var(--text-2xl);font-weight:700;letter-spacing:-0.025em;color:var(--ink);}
+    .step-header-text h2 em{font-style:italic;color:var(--blue);}
+    .step-header-text p{font-size:var(--text-sm);color:var(--ink-60);margin-top:4px;}
+
+    /* Checklist items */
+    .checklist{display:flex;flex-direction:column;gap:10px;margin-bottom:var(--sp-l);}
+    .check-item{display:flex;align-items:start;gap:14px;padding:var(--sp-m);background:var(--white);border:1.5px solid rgba(26,26,46,0.07);border-radius:4px;cursor:pointer;transition:border-color 180ms ease,background 180ms ease;user-select:none;}
+    .check-item.checked{background:var(--terra-pale);border-color:rgba(46,125,82,0.2);}
+    .check-item.checked .check-box{background:var(--terra);border-color:var(--terra);}
+    .check-item.checked .check-box::after{content:'✓';color:var(--white);font-size:0.75rem;font-weight:700;}
+    .check-item.checked .check-main{opacity:0.6;text-decoration:line-through;}
+    .check-box{width:24px;height:24px;border-radius:4px;border:2px solid rgba(26,26,46,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;transition:background 180ms ease,border-color 180ms ease;}
+    .check-main{flex:1;}
+    .check-main strong{display:block;font-size:var(--text-sm);font-weight:600;color:var(--ink);margin-bottom:4px;}
+    .check-main p{font-size:var(--text-xs);color:var(--ink-60);line-height:1.6;}
+    .check-tag{display:inline-block;font-size:var(--text-xs);font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:2px 8px;border-radius:100px;background:var(--blue-pale);color:var(--blue);margin-top:6px;flex-shrink:0;}
+    .check-tag.green{background:var(--terra-pale);color:var(--terra);}
+    .check-tag.gold{background:rgba(212,146,42,0.12);color:var(--gold);}
+
+    /* Info boxes */
+    .info-box{border-radius:4px;padding:var(--sp-m) var(--sp-l);margin-bottom:var(--sp-l);border-left:3px solid var(--blue);}
+    .info-box.tip{background:var(--blue-pale);border-left-color:var(--blue);}
+    .info-box.warning{background:rgba(212,146,42,0.1);border-left-color:var(--gold);}
+    .info-box.success{background:var(--terra-pale);border-left-color:var(--terra);}
+    .info-box-label{font-size:var(--text-xs);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);margin-bottom:6px;}
+    .info-box.warning .info-box-label{color:var(--gold);}
+    .info-box.success .info-box-label{color:var(--terra);}
+    .info-box p{font-size:var(--text-sm);color:var(--ink);line-height:1.65;}
+
+    /* Comparison table */
+    .compare-table{width:100%;border-collapse:collapse;margin-bottom:var(--sp-l);}
+    .compare-table th{font-size:var(--text-xs);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-30);padding:10px 16px;text-align:left;background:var(--sand);border-bottom:1px solid rgba(26,26,46,0.07);}
+    .compare-table td{font-size:var(--text-sm);padding:12px 16px;border-bottom:1px solid rgba(26,26,46,0.05);color:var(--ink);}
+    .compare-table tr:last-child td{border-bottom:none;}
+    .compare-table tr:hover td{background:var(--sand);}
+    .compare-table .rec{font-weight:600;color:var(--terra);}
+
+    .reveal{opacity:0;transform:translateY(2.5rem);transition:opacity 0.8s var(--ease-out),transform 0.8s var(--ease-out);}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .rd1{transition-delay:0.1s;}
+
+    footer{background:var(--ink);padding:var(--sp-3xl) clamp(1.5rem,8vw,7rem) var(--sp-l);}
+    .footer-grid{display:grid;grid-template-columns:1.8fr repeat(3,1fr);gap:clamp(2rem,5vw,5rem);margin-bottom:var(--sp-2xl);}
+    .footer-brand-name{font-family:'Fraunces',serif;font-size:var(--text-xl);font-weight:700;color:var(--white);letter-spacing:-0.02em;margin-bottom:var(--sp-s);}
+    .footer-brand-name em{font-style:italic;color:var(--gold-light);}
+    .footer-brand p{font-size:var(--text-sm);color:rgba(255,255,255,0.45);line-height:1.7;max-width:28ch;}
+    .footer-col h4{font-size:var(--text-xs);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:var(--sp-m);}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .footer-col a{font-size:var(--text-sm);color:rgba(255,255,255,0.55);text-decoration:none;transition:color 160ms ease;}
+    .footer-col a:hover{color:var(--white);}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:var(--sp-l);display:flex;justify-content:space-between;}
+    .footer-bottom p{font-size:var(--text-xs);color:rgba(255,255,255,0.25);}
+
+    @media(max-width:1000px){.content-outer{grid-template-columns:1fr;}.sidebar{position:static;}}
+    @media(max-width:750px){.page-hero{grid-template-columns:1fr;}}
+    @media(max-width:600px){.nav-links{display:none;}.footer-grid{grid-template-columns:1fr;}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important;}.reveal{opacity:1;transform:none;}}
+  </style>
+</head>
+<body>
+  <div class="page-wipe" id="pageWipe"></div>
+  <nav>
+    <a href="homepage-mockup.html" class="nav-logo nav-link-trans">Nomad<em>UY</em></a>
+    <ul class="nav-links">
+      <li><a href="guias.html" class="nav-link-trans">Guías</a></li>
+      <li><a href="vivir-en-uruguay.html" class="nav-link-trans">Vivir</a></li>
+      <li><a href="conocer-uruguay.html" class="nav-link-trans">Conocer Uruguay</a></li>
+      <li><a href="recursos.html" class="nav-link-trans">Recursos</a></li>
+      <li><a href="comunidad.html" class="nav-cta nav-link-trans">Unirme</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-hero">
+    <div class="hero-content reveal">
+      <p class="kicker">Guía de llegada</p>
+      <h1>Tus primeras<br><em>48 horas</em><br>en Uruguay.</h1>
+      <p>Todo lo que necesitás hacer, en orden, desde que aterrizás en Carrasco. Checklist interactivo incluido.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><strong>12</strong> pasos</div>
+        <div class="hero-meta-item"><strong>~8h</strong> para completar</div>
+        <div class="hero-meta-item"><strong>Imprimible</strong></div>
+      </div>
+    </div>
+    <div class="progress-widget reveal rd1" id="progressWidget">
+      <h3>Tu progreso</h3>
+      <p>Tildá cada paso a medida que lo completás</p>
+      <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+      <p class="progress-label" id="progressLabel">0 / 12 completados</p>
+      <div class="progress-steps">
+        <div class="prog-step" data-step="1"><div class="step-check"></div><span class="step-text">Llegada y transporte al centro</span></div>
+        <div class="prog-step" data-step="2"><div class="step-check"></div><span class="step-text">SIM card</span></div>
+        <div class="prog-step" data-step="3"><div class="step-check"></div><span class="step-text">Dinero local</span></div>
+        <div class="prog-step" data-step="4"><div class="step-check"></div><span class="step-text">Uber / Cabify</span></div>
+        <div class="prog-step" data-step="5"><div class="step-check"></div><span class="step-text">Apps básicas</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wave-divider"><svg viewBox="0 0 1440 64" preserveAspectRatio="none" fill="none"><path d="M0,32 C240,64 480,0 720,32 C960,64 1200,0 1440,32 L1440,64 L0,64 Z" fill="#FDFAF5"/></svg></div>
+
+  <div class="content-outer">
+    <!-- Sidebar -->
+    <aside class="sidebar reveal">
+      <h3>En esta guía</h3>
+      <ul class="sidebar-nav">
+        <li><a href="#llegada" class="active"><span class="step-num">1</span>Llegada al aeropuerto</a></li>
+        <li><a href="#sim"><span class="step-num">2</span>SIM card</a></li>
+        <li><a href="#dinero"><span class="step-num">3</span>Dinero y efectivo</a></li>
+        <li><a href="#apps"><span class="step-num">4</span>Apps esenciales</a></li>
+        <li><a href="#barrio"><span class="step-num">5</span>Tu primer barrio</a></li>
+        <li><a href="#banco"><span class="step-num">6</span>Banco</a></li>
+        <li><a href="#comunidad"><span class="step-num">7</span>Unirte a la comunidad</a></li>
+      </ul>
+      <div class="sidebar-pdf">
+        <p>Descargá esta guía en PDF</p>
+        <a href="#"><i class="ph ph-download-simple"></i> Descargar gratis</a>
+      </div>
+    </aside>
+
+    <!-- Steps -->
+    <main class="steps-content">
+
+      <!-- STEP 1 -->
+      <section class="step-section reveal" id="llegada">
+        <div class="step-header">
+          <div class="step-badge">1</div>
+          <div class="step-header-text">
+            <h2>Llegada al <em>aeropuerto</em></h2>
+            <p>Aeropuerto Internacional de Carrasco (MVD) — lo primero que hacés</p>
+          </div>
+        </div>
+
+        <div class="info-box tip">
+          <p class="info-box-label"><i class="ph ph-lightbulb"></i> Tip</p>
+          <p>El aeropuerto de Carrasco está a 17km del centro de Montevideo. El camino más cómodo para la primera llegada es el taxi oficial o el Uber — el ómnibus existe pero requiere paciencia con equipaje.</p>
+        </div>
+
+        <div class="checklist">
+          <div class="check-item" data-id="1-1">
+            <div class="check-box"></div>
+            <div class="check-main">
+              <strong>Pasá por migraciones</strong>
+              <p>Ciudadanos de la mayoría de los países no necesitan visa. Turismo: 90 días. Sellás el pasaporte y seguís.</p>
+            </div>
+          </div>
+          <div class="check-item" data-id="1-2">
+            <div class="check-box"></div>
+            <div class="check-main">
+              <strong>Retirá efectivo en el aeropuerto</strong>
+              <p>Hay cajeros en el aeropuerto. Retirá $3.000–5.000 pesos uruguayos (USD 70–120) para los primeros días. Los cajeros Banred aceptan tarjetas internacionales.</p>
+            </div>
+            <span class="check-tag gold">Efectivo</span>
+          </div>
+          <div class="check-item" data-id="1-3">
+            <div class="check-box"></div>
+            <div class="check-main">
+              <strong>Transporte al centro</strong>
+              <p>Opción 1: Taxi oficial desde mostrador (fijo ~$900 pesos / USD 22 al centro). Opción 2: Uber desde el estacionamiento (USD 12–18, según tráfico). El ómnibus 709 llega a la Terminal Tres Cruces (~80 min, $44 pesos).</p>
+            </div>
+          </div>
+        </div>
+
+        <table class="compare-table">
+          <thead><tr><th>Opción</th><th>Tiempo</th><th>Costo</th><th>Recomendación</th></tr></thead>
+          <tbody>
+            <tr><td>Uber/Cabify</td><td>20–35 min</td><td>USD 12–18</td><td class="rec">✓ Primera llegada</td></tr>
+            <tr><td>Taxi oficial</td><td>25–40 min</td><td>USD 20–25</td><td>Si llevás mucho equipaje</td></tr>
+            <tr><td>Ómnibus 709</td><td>60–80 min</td><td>USD 1</td><td>Si venís liviano</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- STEP 2 -->
+      <section class="step-section reveal" id="sim">
+        <div class="step-header">
+          <div class="step-badge">2</div>
+          <div class="step-header-text">
+            <h2>SIM card — <em>conectividad</em></h2>
+            <p>Lo más urgente después de llegar</p>
+          </div>
+        </div>
+        <div class="info-box success">
+          <p class="info-box-label"><i class="ph ph-check-circle"></i> Lo mejor</p>
+          <p>Antel (la operadora estatal) tiene la mejor cobertura en todo Uruguay. Para nómadas y viajeros cortos, una SIM prepaga de Antel con plan de datos es la opción más confiable.</p>
+        </div>
+        <div class="checklist">
+          <div class="check-item" data-id="2-1">
+            <div class="check-box"></div>
+            <div class="check-main">
+              <strong>Comprá SIM de Antel</strong>
+              <p>Local de Antel en el aeropuerto o en cualquier Abitab/Redpagos del centro. SIM gratis o muy barata, plan de datos prepago desde ~$300 pesos (USD 7) / 10GB. Llevá pasaporte.</p>
+            </div>
+            <span class="check-tag">Antel</span>
+          </div>
+          <div class="check-item" data-id="2-2">
+            <div class="check-box"></div>
+            <div class="check-main">
+              <strong>Alternativas: Claro / Movistar</strong>
+              <p>También tienen presencia en el aeropuerto. Cobertura ligeramente menor que Antel en zonas rurales, pero funcionan bien en Montevideo y ciudades principales.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3 -->
+      <section class="step-section reveal" id="dinero">
+        <div class="step-header">
+          <div class="step-badge">3</div>
+          <div class="step-header-text">
+            <h2>Dinero y <em>efectivo</em></h2>
+            <p>La estrategia para los primeros días</p>
+          </div>
+        </div>
+        <div class="info-box warning">
+          <p class="info-box-label"><i class="ph ph-warning"></i> Importante</p>
+          <p>Uruguay usa el peso uruguayo (UYU). Los USD se aceptan en algunos lugares turísticos pero no en almacenes, ómnibus ni taxis. Cambiá o retirá pesos desde el primer día.</p>
+        </div>
+        <div class="checklist">
+          <div class="check-item" data-id="3-1">
+            <div class="check-box"></div>
+            <div class="check-main">
+              <strong>Usá cajeros Banred o Redbanc</strong>
+              <p>Aceptan la mayoría de tarjetas internacionales Visa/Mastercard/AmEx. El límite por retiro varía por banco. Wise, Charles Schwab y Revolut tienen las mejores tasas.</p>
+            </div>
+            <span class="check-tag">Cajero</span>
+          </div>
+          <div class="check-item" data-id="3-2">
+            <div class="check-box"></div>
+            <div class="check-main">
+              <strong>Conocé la tasa de cambio real</strong>
+              <p>Al momento de esta guía: ~1 USD = ~41 pesos uruguayos. Verificá en Google "USD a UYU" antes de cambiar. Las casas de cambio del centro dan mejor tasa que los bancos.</p>
+            </div>
+          </div>
+          <div class="check-item" data-id="3-3">
+            <div class="check-box"></div>
+            <div class="check-main">
+              <strong>Descargá Prex o Brou Pay</strong>
+              <p>Prex es la wallet digital más usada por extranjeros. Funciona con tarjeta virtual Visa. Muy útil mientras no tenés banco local.</p>
+            </div>
+            <span class="check-tag green">App</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 4 -->
+      <section class="step-section reveal" id="apps">
+        <div class="step-header">
+          <div class="step-badge">4</div>
+          <div class="step-header-text">
+            <h2>Apps <em>esenciales</em></h2>
+            <p>Las que vas a usar desde el primer día</p>
+          </div>
+        </div>
+        <div class="checklist">
+          <div class="check-item" data-id="4-1">
+            <div class="check-box"></div>
+            <div class="check-main">
+              <strong>Uber y Cabify</strong>
+              <p>Ambas funcionan en Montevideo. Cabify suele ser más confiable en horarios pico. Podés pagar con tarjeta internacional desde el primer día.</p>
+            </div>
+            <span class="check-tag">Transporte</span>
+          </div>
+          <div class="check-item" data-id="4-2">
+            <div class="check-box"></div>
+            <div class="check-main">
+              <strong>PedidosYa / Rappi</strong>
+              <p>Delivery de comida. PedidosYa es el líder local. Rappi tiene mejor cobertura en zonas como Pocitos y Palermo.</p>
+            </div>
+          </div>
+          <div class="check-item" data-id="4-3">
+            <div class="check-box"></div>
+            <div class="check-main">
+              <strong>Mi STM</strong>
+              <p>App oficial del sistema de ómnibus. Mostrá todas las líneas, horarios y dónde está el ómnibus en tiempo real. Imprescindible si vas a usar transporte público.</p>
+            </div>
+            <span class="check-tag">Transporte</span>
+          </div>
+          <div class="check-item" data-id="4-4">
+            <div class="check-box"></div>
+            <div class="check-main">
+              <strong>Unirte a los grupos de WhatsApp NomadUY</strong>
+              <p>Desde la comunidad podés preguntar cualquier cosa en tiempo real. Alguien ya pasó por lo mismo que vos.</p>
+            </div>
+            <span class="check-tag green">Comunidad</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5 -->
+      <section class="step-section reveal" id="comunidad">
+        <div class="step-header">
+          <div class="step-badge">5</div>
+          <div class="step-header-text">
+            <h2>Unirte a la<br><em>comunidad</em></h2>
+            <p>Lo más importante que podés hacer en tus primeras 48 horas</p>
+          </div>
+        </div>
+        <div class="info-box success">
+          <p class="info-box-label"><i class="ph ph-check-circle"></i> El paso más valioso</p>
+          <p>Las personas que más rápido se establecen en Uruguay son las que se conectan con la comunidad desde el primer día. No esperés tener todo resuelto — andá al meetup mensual aunque llegues la semana anterior.</p>
+        </div>
+        <div class="checklist">
+          <div class="check-item" data-id="5-1">
+            <div class="check-box"></div>
+            <div class="check-main">
+              <strong>Registrarte en NomadUY</strong>
+              <p>Gratis. Acceso inmediato a los grupos de WhatsApp, housing board y PDF guía.</p>
+            </div>
+            <span class="check-tag green">Gratis</span>
+          </div>
+          <div class="check-item" data-id="5-2">
+            <div class="check-box"></div>
+            <div class="check-main">
+              <strong>Unirte al meetup mensual</strong>
+              <p>Primer jueves de cada mes, Montevideo. Gratis. Presentate, conocé gente, hacé preguntas. Es la forma más rápida de integrarte.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><p class="footer-brand-name">Nomad<em>UY</em></p><p>El recurso más completo y la comunidad más cálida para vivir en Uruguay.</p></div>
+      <div class="footer-col"><h4>Explorar</h4><ul><li><a href="guias.html" class="nav-link-trans">Guías</a></li><li><a href="vivir-en-uruguay.html" class="nav-link-trans">Vivir</a></li><li><a href="conocer-uruguay.html" class="nav-link-trans">Conocer</a></li><li><a href="recursos.html" class="nav-link-trans">Recursos</a></li></ul></div>
+      <div class="footer-col"><h4>Comunidad</h4><ul><li><a href="comunidad.html" class="nav-link-trans">Unirme</a></li><li><a href="comunidad.html" class="nav-link-trans">Eventos</a></li><li><a href="comunidad.html" class="nav-link-trans">Grupos</a></li></ul></div>
+      <div class="footer-col"><h4>Guías</h4><ul><li><a href="guia-primeras-48h.html">Primeras 48h</a></li><li><a href="guias.html" class="nav-link-trans">Todas las guías</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 NomadUY · Montevideo, Uruguay</p><p>Hecho con amor</p></div>
+  </footer>
+
+  <script>
+    const wipe=document.getElementById('pageWipe');
+    document.querySelectorAll('a.nav-link-trans').forEach(l=>{l.addEventListener('click',e=>{const h=l.getAttribute('href');if(!h||h.startsWith('#'))return;e.preventDefault();wipe.classList.add('out');setTimeout(()=>{window.location.href=h;},520);});});
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+    // Checklist + progress
+    const total=12;let checked=new Set();
+    function updateProgress(){
+      const pct=Math.round((checked.size/total)*100);
+      document.getElementById('progressBar').style.width=pct+'%';
+      document.getElementById('progressLabel').textContent=checked.size+' / '+total+' completados';
+    }
+    document.querySelectorAll('.check-item').forEach(item=>{
+      item.addEventListener('click',()=>{
+        item.classList.toggle('checked');
+        const id=item.dataset.id;
+        if(item.classList.contains('checked'))checked.add(id);else checked.delete(id);
+        updateProgress();
+        // sync sidebar
+        const step=id.split('-')[0];
+        const allInStep=document.querySelectorAll(`[data-id^="${step}-"]`);
+        const allChecked=[...allInStep].every(i=>i.classList.contains('checked'));
+        const progStep=document.querySelector(`.prog-step[data-step="${step}"]`);
+        if(progStep)progStep.classList.toggle('done',allChecked);
+      });
+    });
+
+    // Sidebar active link on scroll
+    const sections=document.querySelectorAll('.step-section[id]');
+    const sideLinks=document.querySelectorAll('.sidebar-nav a');
+    const scrollObs=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          sideLinks.forEach(l=>l.classList.remove('active'));
+          const link=document.querySelector(`.sidebar-nav a[href="#${e.target.id}"]`);
+          if(link)link.classList.add('active');
+        }
+      });
+    },{rootMargin:'-30% 0px -60% 0px'});
+    sections.forEach(s=>scrollObs.observe(s));
+  </script>
+</body>
+</html>

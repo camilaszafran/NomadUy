@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recursos — NomadUY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:       #1B4F8A;
+      --blue-light: #2E6FB4;
+      --blue-pale:  #EBF2FB;
+      --gold:       #D4922A;
+      --gold-light: #F5C97A;
+      --green:      #2E7D52;
+      --green-pale: #EAF4EE;
+      --red:        #C0392B;
+      --red-pale:   #FDECEA;
+      --sand:       #F8F3EB;
+      --cream:      #FDFAF5;
+      --ink:        #1A1A2E;
+      --ink-60:     #5B5B7A;
+      --ink-30:     #ADADC4;
+      --border:     rgba(26,26,46,0.08);
+      --shadow-sm:  0 1px 4px rgba(26,26,46,0.06);
+      --shadow-md:  0 4px 20px rgba(26,26,46,0.09);
+      --radius-sm:  8px;
+      --radius-md:  14px;
+      --radius-lg:  24px;
+      --ease-out:   cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+      background: rgba(253,250,245,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--blue); text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--gold); }
+    nav ul { list-style: none; display: flex; gap: 32px; }
+    nav ul a {
+      font-size: 0.9rem; font-weight: 500;
+      color: var(--ink-60); text-decoration: none;
+      transition: color 180ms var(--ease-out);
+    }
+    nav ul a:hover { color: var(--ink); }
+    nav ul a.active { color: var(--blue); font-weight: 600; }
+    .nav-cta {
+      background: var(--blue); color: #fff !important;
+      padding: 8px 20px; border-radius: 100px;
+      font-size: 0.85rem; font-weight: 600;
+      transition: background 180ms var(--ease-out), transform 160ms var(--ease-out) !important;
+    }
+    .nav-cta:hover { background: var(--blue-light) !important; color: #fff !important; }
+    .nav-cta:active { transform: scale(0.97); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      margin-top: 68px;
+      background: linear-gradient(135deg, var(--green) 0%, #1d5e3a 100%);
+      padding: 60px 40px 50px;
+      color: #fff;
+    }
+    .page-header-inner {
+      max-width: 1100px; margin: 0 auto;
+    }
+    .page-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.9);
+      padding: 5px 12px; border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .page-header h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700; line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .page-header p {
+      font-size: 1.05rem; opacity: 0.85;
+      max-width: 560px;
+    }
+
+    /* ── RESOURCE TABS ── */
+    .resource-tabs {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 68px; z-index: 50;
+    }
+    .resource-tabs-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 40px;
+      display: flex; gap: 4px; overflow-x: auto;
+    }
+    .resource-tabs-inner::-webkit-scrollbar { display: none; }
+    .tab-pill {
+      flex-shrink: 0;
+      padding: 14px 20px;
+      font-size: 0.88rem; font-weight: 500;
+      color: var(--ink-60);
+      border: none; background: none; cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: color 180ms var(--ease-out), border-color 180ms var(--ease-out);
+      white-space: nowrap;
+    }
+    .tab-pill:hover { color: var(--ink); }
+    .tab-pill.active { color: var(--green); font-weight: 600; border-bottom-color: var(--green); }
+
+    /* ── MAIN LAYOUT ── */
+    .main-wrap {
+      max-width: 1100px; margin: 0 auto;
+      padding: 48px 40px 80px;
+    }
+
+    /* ── CALCULATOR LAYOUT ── */
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* Controls panel */
+    .calc-controls {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+    .calc-controls h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.4rem; font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .calc-controls > p {
+      font-size: 0.9rem; color: var(--ink-60);
+      margin-bottom: 28px;
+    }
+
+    /* Presets */
+    .presets-label {
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--ink-60); margin-bottom: 10px;
+    }
+    .presets {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 8px; margin-bottom: 28px;
+    }
+    .preset-btn {
+      padding: 12px 8px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--cream);
+      cursor: pointer;
+      text-align: center;
+      transition: border-color 180ms var(--ease-out), background 180ms var(--ease-out), transform 160ms var(--ease-out);
+    }
+    .preset-btn:hover { border-color: var(--ink-30); background: #fff; }
+    .preset-btn.active { border-color: var(--green); background: var(--green-pale); }
+    .preset-btn:active { transform: scale(0.97); }
+    .preset-name {
+      display: block;
+      font-size: 0.88rem; font-weight: 600; color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .preset-sub {
+      font-size: 0.78rem; color: var(--ink-60);
+    }
+
+    /* Currency toggle */
+    .currency-row {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 28px;
+    }
+    .currency-row span {
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--ink-60);
+    }
+    .currency-toggle {
+      display: flex;
+      background: var(--sand);
+      border-radius: 100px;
+      padding: 3px;
+      gap: 2px;
+    }
+    .cur-btn {
+      padding: 5px 16px;
+      border: none; border-radius: 100px;
+      font-size: 0.82rem; font-weight: 600;
+      cursor: pointer;
+      background: transparent; color: var(--ink-60);
+      transition: background 180ms var(--ease-out), color 180ms var(--ease-out), transform 160ms var(--ease-out);
+    }
+    .cur-btn.active { background: #fff; color: var(--blue); box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    .cur-btn:active { transform: scale(0.97); }
+
+    /* Sliders */
+    .sliders-section { display: flex; flex-direction: column; gap: 22px; }
+    .slider-row {}
+    .slider-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 8px;
+    }
+    .slider-label {
+      font-size: 0.9rem; font-weight: 500; color: var(--ink);
+    }
+    .slider-label span {
+      font-size: 0.78rem; color: var(--ink-60); font-weight: 400; margin-left: 4px;
+    }
+    .slider-value {
+      font-size: 0.9rem; font-weight: 600;
+      color: var(--blue); font-variant-numeric: tabular-nums;
+      min-width: 80px; text-align: right;
+    }
+    input[type=range] {
+      -webkit-appearance: none; appearance: none;
+      width: 100%; height: 4px;
+      border-radius: 100px;
+      background: var(--border);
+      outline: none; cursor: pointer;
+      transition: background 180ms;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 1px 4px rgba(27,79,138,0.3);
+      transition: transform 160ms var(--ease-out), box-shadow 160ms;
+    }
+    input[type=range]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+      box-shadow: 0 2px 8px rgba(27,79,138,0.4);
+    }
+    input[type=range]::-webkit-slider-thumb:active { transform: scale(1.1); }
+
+    /* ── RESULT CARD ── */
+    .result-card {
+      position: sticky; top: calc(68px + 56px + 20px);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+    }
+    .result-hero {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+      color: #fff;
+      padding: 28px 28px 24px;
+      text-align: center;
+    }
+    .result-label {
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      opacity: 0.75; margin-bottom: 10px;
+    }
+    .result-total {
+      font-family: 'Fraunces', serif;
+      font-size: 3rem; font-weight: 700;
+      line-height: 1; letter-spacing: -0.03em;
+      margin-bottom: 4px;
+      transition: all 200ms var(--ease-out);
+    }
+    .result-sub {
+      font-size: 0.82rem; opacity: 0.75;
+    }
+    .result-body {
+      background: #fff;
+      padding: 24px 28px;
+    }
+    .breakdown-title {
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--ink-60); margin-bottom: 16px;
+    }
+    .breakdown-list { display: flex; flex-direction: column; gap: 12px; }
+    .breakdown-item {}
+    .breakdown-item-header {
+      display: flex; justify-content: space-between;
+      font-size: 0.85rem; margin-bottom: 5px;
+    }
+    .breakdown-name { color: var(--ink-60); }
+    .breakdown-amt { font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+    .breakdown-bar-bg {
+      height: 5px; border-radius: 100px;
+      background: var(--sand);
+      overflow: hidden;
+    }
+    .breakdown-bar-fill {
+      height: 100%; border-radius: 100px;
+      transition: width 300ms var(--ease-out);
+    }
+
+    /* City comparison */
+    .comparison {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .comparison-title {
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--ink-60); margin-bottom: 14px;
+    }
+    .city-row {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+    .city-row:last-child { border-bottom: none; }
+    .city-name { color: var(--ink); font-weight: 500; }
+    .city-avg { color: var(--ink-60); }
+    .city-diff {
+      font-weight: 600; font-size: 0.8rem;
+      padding: 2px 8px; border-radius: 100px;
+    }
+    .city-diff.cheaper { background: var(--green-pale); color: var(--green); }
+    .city-diff.pricier { background: var(--red-pale); color: var(--red); }
+    .city-diff.similar { background: var(--blue-pale); color: var(--blue); }
+
+    /* PDF CTA inside result */
+    .result-cta {
+      margin-top: 20px;
+      background: var(--gold);
+      color: #fff;
+      border: none; border-radius: var(--radius-md);
+      width: 100%; padding: 13px;
+      font-size: 0.9rem; font-weight: 600;
+      cursor: pointer;
+      transition: background 180ms var(--ease-out), transform 160ms var(--ease-out);
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .result-cta:hover { background: #b87a22; }
+    .result-cta:active { transform: scale(0.97); }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      margin-bottom: 28px;
+    }
+    .section-heading h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem; font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .section-heading p {
+      font-size: 0.95rem; color: var(--ink-60);
+    }
+
+    /* ── OTHER TOOLS ── */
+    .tools-section {
+      margin-top: 64px;
+    }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .tool-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out), border-color 200ms;
+      opacity: 0; transform: translateY(10px);
+    }
+    .tool-card.visible {
+      animation: fadeUp 400ms var(--ease-out) forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (hover: hover) {
+      .tool-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--ink-30);
+      }
+    }
+    .tool-card:active { transform: scale(0.98); }
+    .tool-icon {
+      font-size: 1.8rem; margin-bottom: 12px;
+    }
+    .tool-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem; font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .tool-card p {
+      font-size: 0.85rem; color: var(--ink-60); line-height: 1.5;
+    }
+    .tool-badge {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 100px;
+      background: var(--blue-pale); color: var(--blue);
+    }
+    .tool-badge.green { background: var(--green-pale); color: var(--green); }
+    .tool-badge.gold { background: #FEF4E4; color: var(--gold); }
+
+    /* ── TIP BOX ── */
+    .tip-box {
+      background: var(--blue-pale);
+      border-left: 3px solid var(--blue-light);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-top: 28px;
+      color: var(--ink);
+    }
+    .tip-box strong { color: var(--blue); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 40px;
+      font-size: 0.85rem;
+    }
+    footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      nav ul { display: none; }
+      .page-header { padding: 40px 20px 36px; }
+      .resource-tabs-inner { padding: 0 20px; }
+      .main-wrap { padding: 32px 20px 60px; }
+      .calc-grid { grid-template-columns: 1fr; }
+      .result-card { position: static; }
+      .tools-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .tools-grid { grid-template-columns: 1fr; }
+      .presets { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="homepage-mockup.html" class="nav-logo">Nomad<span>UY</span></a>
+  <ul>
+    <li><a href="guias.html">Guías</a></li>
+    <li><a href="vivir-en-uruguay.html">Vivir</a></li>
+    <li><a href="conocer-uruguay.html">Conocer Uruguay</a></li>
+    <li><a href="recursos.html" class="active">Recursos</a></li>
+    <li><a href="homepage-mockup.html#community" class="nav-cta">Unirme</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="page-label">🛠 Herramientas</div>
+    <h1>Recursos & Calculadoras</h1>
+    <p>Todo lo que necesitás saber antes de llegar — números reales, checklists descargables y links directos a trámites.</p>
+  </div>
+</header>
+
+<!-- RESOURCE TABS -->
+<div class="resource-tabs">
+  <div class="resource-tabs-inner">
+    <button class="tab-pill active">Calculadora de costo de vida</button>
+    <button class="tab-pill">Checklists</button>
+    <button class="tab-pill">Trámites & Gobierno</button>
+    <button class="tab-pill">Bancos & Finanzas</button>
+    <button class="tab-pill">Conectividad</button>
+    <button class="tab-pill">Apps esenciales</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="main-wrap">
+
+  <!-- CALCULATOR SECTION -->
+  <section id="calculadora">
+    <div class="calc-grid">
+
+      <!-- Controls -->
+      <div class="calc-controls">
+        <h2>¿Cuánto cuesta vivir en Uruguay?</h2>
+        <p>Ajustá los sliders a tu estilo de vida para estimar tu presupuesto mensual.</p>
+
+        <div class="presets-label">Empezar desde un perfil</div>
+        <div class="presets">
+          <button class="preset-btn" onclick="applyPreset('budget')" id="preset-budget">
+            <span class="preset-name">🎒 Budget</span>
+            <span class="preset-sub">~$1.200/mes</span>
+          </button>
+          <button class="preset-btn active" onclick="applyPreset('comodo')" id="preset-comodo">
+            <span class="preset-name">☕ Cómodo</span>
+            <span class="preset-sub">~$2.100/mes</span>
+          </button>
+          <button class="preset-btn" onclick="applyPreset('expat')" id="preset-expat">
+            <span class="preset-name">🏠 Expat</span>
+            <span class="preset-sub">~$3.200/mes</span>
+          </button>
+        </div>
+
+        <div class="currency-row">
+          <span>Moneda</span>
+          <div class="currency-toggle">
+            <button class="cur-btn active" onclick="setCurrency('usd')" id="cur-usd">USD</button>
+            <button class="cur-btn" onclick="setCurrency('uyu')" id="cur-uyu">UYU</button>
+          </div>
+        </div>
+
+        <div class="sliders-section">
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <div class="slider-label">🏠 Alquiler <span>monoambiente amueblado</span></div>
+              <div class="slider-value" id="val-alquiler">$800</div>
+            </div>
+            <input type="range" id="sl-alquiler" min="300" max="2500" step="50" value="800" oninput="update()" />
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <div class="slider-label">🛒 Comida <span>súper + salir a comer</span></div>
+              <div class="slider-value" id="val-comida">$400</div>
+            </div>
+            <input type="range" id="sl-comida" min="100" max="1200" step="25" value="400" oninput="update()" />
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <div class="slider-label">🚌 Transporte <span>STM + Uber ocasional</span></div>
+              <div class="slider-value" id="val-transporte">$60</div>
+            </div>
+            <input type="range" id="sl-transporte" min="20" max="300" step="10" value="60" oninput="update()" />
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <div class="slider-label">🏥 Salud <span>mutualista o seguro</span></div>
+              <div class="slider-value" id="val-salud">$100</div>
+            </div>
+            <input type="range" id="sl-salud" min="0" max="400" step="10" value="100" oninput="update()" />
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <div class="slider-label">💻 Coworking <span>días sueltos o membresía</span></div>
+              <div class="slider-value" id="val-cowork">$120</div>
+            </div>
+            <input type="range" id="sl-cowork" min="0" max="400" step="10" value="120" oninput="update()" />
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <div class="slider-label">🎭 Ocio <span>salidas, cultura, viajes</span></div>
+              <div class="slider-value" id="val-ocio">$200</div>
+            </div>
+            <input type="range" id="sl-ocio" min="20" max="500" step="20" value="200" oninput="update()" />
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <div class="slider-label">📦 Otros <span>ropa, cuidado personal, etc.</span></div>
+              <div class="slider-value" id="val-otros">$80</div>
+            </div>
+            <input type="range" id="sl-otros" min="30" max="500" step="10" value="80" oninput="update()" />
+          </div>
+
+        </div>
+
+        <div class="tip-box">
+          <strong>💡 Dato clave:</strong> Uruguay tiene un régimen de <strong>renta territorial</strong> — los ingresos generados fuera del país están exentos de impuestos locales durante los primeros años. Para nómadas digitales, esto es un diferencial enorme.
+        </div>
+      </div>
+
+      <!-- Result Card -->
+      <div class="result-card">
+        <div class="result-hero">
+          <div class="result-label">Estimación mensual</div>
+          <div class="result-total" id="result-total">$1.760</div>
+          <div class="result-sub" id="result-sub">USD · promedio para Montevideo</div>
+        </div>
+        <div class="result-body">
+          <div class="breakdown-title">Desglose</div>
+          <div class="breakdown-list" id="breakdown-list">
+            <!-- rendered by JS -->
+          </div>
+
+          <div class="comparison">
+            <div class="comparison-title">vs. otras ciudades</div>
+            <div class="city-row">
+              <span class="city-name">🇺🇾 Montevideo</span>
+              <span class="city-avg" id="cmp-uy">$1.760</span>
+              <span class="city-diff similar">Tu ciudad</span>
+            </div>
+            <div class="city-row">
+              <span class="city-name">🇪🇸 Barcelona</span>
+              <span class="city-avg">~$3.200</span>
+              <span class="city-diff pricier">+82%</span>
+            </div>
+            <div class="city-row">
+              <span class="city-name">🇵🇹 Lisboa</span>
+              <span class="city-avg">~$2.800</span>
+              <span class="city-diff pricier">+59%</span>
+            </div>
+            <div class="city-row">
+              <span class="city-name">🇨🇴 Medellín</span>
+              <span class="city-avg">~$1.300</span>
+              <span class="city-diff cheaper">−26%</span>
+            </div>
+            <div class="city-row">
+              <span class="city-name">🇦🇷 Buenos Aires</span>
+              <span class="city-avg">~$1.100</span>
+              <span class="city-diff cheaper">−38%</span>
+            </div>
+          </div>
+
+          <button class="result-cta" onclick="exportPDF()">
+            📥 Guardar mi estimación en PDF
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER TOOLS -->
+  <section class="tools-section" id="other-tools">
+    <div class="section-heading">
+      <h2>Más herramientas</h2>
+      <p>Recursos descargables y links directos para organizar tu mudanza.</p>
+    </div>
+    <div class="tools-grid">
+      <a href="#" class="tool-card">
+        <div class="tool-icon">✅</div>
+        <h3>Checklist: Primeras 48 horas</h3>
+        <p>18 pasos esenciales al llegar — SIM, efectivo, apps y más. Descargable en PDF.</p>
+        <span class="tool-badge green">PDF gratis</span>
+      </a>
+      <a href="#" class="tool-card">
+        <div class="tool-icon">🏠</div>
+        <h3>Guía de barrios</h3>
+        <p>Pocitos, Palermo, Ciudad Vieja… qué esperar de cada zona y rangos de alquiler reales.</p>
+        <span class="tool-badge">Guía</span>
+      </a>
+      <a href="#" class="tool-card">
+        <div class="tool-icon">📋</div>
+        <h3>Trámites de residencia</h3>
+        <p>El paso a paso para la cédula de identidad, permiso de nómada digital y más — en lenguaje claro.</p>
+        <span class="tool-badge gold">En proceso</span>
+      </a>
+      <a href="#" class="tool-card">
+        <div class="tool-icon">💳</div>
+        <h3>Bancos & finanzas</h3>
+        <p>Cómo abrir una cuenta, mejores opciones para recibir pagos internacionales, y cómo funciona Prex.</p>
+        <span class="tool-badge">Guía</span>
+      </a>
+      <a href="#" class="tool-card">
+        <div class="tool-icon">📶</div>
+        <h3>Conectividad & SIMs</h3>
+        <p>Comparativa de Antel, Claro y Movistar. Cómo probar el WiFi de tu coworking antes de pagar.</p>
+        <span class="tool-badge green">Actualizado</span>
+      </a>
+      <a href="#" class="tool-card">
+        <div class="tool-icon">📱</div>
+        <h3>Apps esenciales</h3>
+        <p>MiUruguay, STM, Pedidos Ya, Urufarma, Uber y las 12 apps que todo nómada necesita al llegar.</p>
+        <span class="tool-badge">Guía</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2024 NomadUY — Hecho con ❤️ en Montevideo · <a href="#">Contacto</a> · <a href="#">Newsletter</a></p>
+</footer>
+
+<script>
+  const RATE = 41; // UYU per USD
+  let currency = 'usd';
+
+  const categories = [
+    { id: 'alquiler', label: '🏠 Alquiler',     color: '#1B4F8A' },
+    { id: 'comida',   label: '🛒 Comida',        color: '#2E7D52' },
+    { id: 'transporte',label:'🚌 Transporte',    color: '#D4922A' },
+    { id: 'salud',    label: '🏥 Salud',          color: '#7B52AB' },
+    { id: 'cowork',   label: '💻 Coworking',      color: '#2E6FB4' },
+    { id: 'ocio',     label: '🎭 Ocio',           color: '#C0392B' },
+    { id: 'otros',    label: '📦 Otros',          color: '#5B8A5B' },
+  ];
+
+  function getValues() {
+    return categories.map(c => ({
+      ...c,
+      val: parseFloat(document.getElementById('sl-' + c.id).value)
+    }));
+  }
+
+  function fmt(usdVal) {
+    if (currency === 'usd') return '$' + Math.round(usdVal).toLocaleString('es');
+    return '$' + Math.round(usdVal * RATE).toLocaleString('es') + ' UYU';
+  }
+
+  function update() {
+    const vals = getValues();
+    const total = vals.reduce((s, v) => s + v.val, 0);
+
+    // Update individual slider displays
+    vals.forEach(v => {
+      document.getElementById('val-' + v.id).textContent = fmt(v.val);
+    });
+
+    // Update total
+    document.getElementById('result-total').textContent = fmt(total);
+    document.getElementById('result-sub').textContent =
+      (currency === 'usd' ? 'USD' : 'UYU') + ' · estimación Montevideo';
+    document.getElementById('cmp-uy').textContent = fmt(total);
+
+    // Update breakdown bars
+    const list = document.getElementById('breakdown-list');
+    list.innerHTML = vals.map(v => {
+      const pct = total > 0 ? ((v.val / total) * 100).toFixed(1) : 0;
+      return `
+        <div class="breakdown-item">
+          <div class="breakdown-item-header">
+            <span class="breakdown-name">${v.label}</span>
+            <span class="breakdown-amt">${fmt(v.val)}</span>
+          </div>
+          <div class="breakdown-bar-bg">
+            <div class="breakdown-bar-fill" style="width:${pct}%; background:${v.color};"></div>
+          </div>
+        </div>`;
+    }).join('');
+
+    // Update slider fill color
+    vals.forEach(v => {
+      const el = document.getElementById('sl-' + v.id);
+      const min = parseFloat(el.min), max = parseFloat(el.max), val = parseFloat(el.value);
+      const pct = ((val - min) / (max - min)) * 100;
+      el.style.background = `linear-gradient(to right, var(--blue) 0%, var(--blue) ${pct}%, var(--border) ${pct}%, var(--border) 100%)`;
+    });
+  }
+
+  function applyPreset(name) {
+    const presets = {
+      budget:  { alquiler:450,  comida:200, transporte:30,  salud:0,   cowork:60,  ocio:80,  otros:50  },
+      comodo:  { alquiler:800,  comida:400, transporte:60,  salud:100, cowork:120, ocio:200, otros:80  },
+      expat:   { alquiler:1400, comida:700, transporte:120, salud:200, cowork:250, ocio:350, otros:150 },
+    };
+    const p = presets[name];
+    Object.entries(p).forEach(([k, v]) => {
+      document.getElementById('sl-' + k).value = v;
+    });
+    document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('preset-' + name).classList.add('active');
+    update();
+  }
+
+  function setCurrency(cur) {
+    currency = cur;
+    document.getElementById('cur-usd').classList.toggle('active', cur === 'usd');
+    document.getElementById('cur-uyu').classList.toggle('active', cur === 'uyu');
+    update();
+  }
+
+  function exportPDF() {
+    alert('📥 Esta función estará disponible pronto — por ahora podés hacer Ctrl+P para guardar la página como PDF.');
+  }
+
+  // IntersectionObserver for tool cards
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.tool-card').forEach(c => observer.observe(c));
+
+  // Init
+  update();
+</script>
+</body>
+</html>

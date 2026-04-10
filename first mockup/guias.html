@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guías — NomadUY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:       #1B4F8A;
+      --blue-light: #2E6FB4;
+      --blue-pale:  #EBF2FB;
+      --gold:       #D4922A;
+      --gold-light: #F5C97A;
+      --green:      #2E7D52;
+      --green-pale: #EAF4EE;
+      --sand:       #F8F3EB;
+      --cream:      #FDFAF5;
+      --ink:        #1A1A2E;
+      --ink-60:     #5B5B7A;
+      --ink-30:     #ADADC4;
+      --border:     rgba(26,26,46,0.08);
+      --shadow-sm:  0 1px 4px rgba(26,26,46,0.06);
+      --shadow-md:  0 4px 20px rgba(26,26,46,0.09);
+      --radius-sm:  8px;
+      --radius-md:  14px;
+      --radius-lg:  24px;
+      --ease-out:   cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+      background: rgba(253,250,245,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--blue); text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--gold); }
+    nav ul { list-style: none; display: flex; gap: 32px; }
+    nav ul a {
+      font-size: 0.9rem; font-weight: 500;
+      color: var(--ink-60); text-decoration: none;
+      transition: color 180ms var(--ease-out);
+    }
+    nav ul a:hover { color: var(--ink); }
+    nav ul a.active { color: var(--blue); font-weight: 600; }
+    .nav-cta {
+      background: var(--blue); color: #fff !important;
+      padding: 8px 20px; border-radius: 100px;
+      font-size: 0.85rem; font-weight: 600;
+      transition: background 180ms var(--ease-out), transform 160ms var(--ease-out) !important;
+    }
+    .nav-cta:hover { background: var(--blue-light) !important; }
+    .nav-cta:active { transform: scale(0.97); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      margin-top: 68px;
+      background: linear-gradient(135deg, var(--blue) 0%, #0f3a62 100%);
+      padding: 60px 40px 52px;
+      color: #fff;
+    }
+    .page-header-inner {
+      max-width: 1100px; margin: 0 auto;
+    }
+    .page-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.9);
+      padding: 5px 12px; border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .page-header h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700; line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .page-header p {
+      font-size: 1.05rem; opacity: 0.85;
+      max-width: 560px;
+    }
+
+    /* ── CATEGORY STRIP ── */
+    .cat-strip {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 68px; z-index: 50;
+    }
+    .cat-strip-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 40px;
+      display: flex; gap: 4px; overflow-x: auto;
+    }
+    .cat-strip-inner::-webkit-scrollbar { display: none; }
+    .cat-pill {
+      flex-shrink: 0;
+      padding: 13px 18px;
+      font-size: 0.88rem; font-weight: 500;
+      color: var(--ink-60);
+      border: none; background: none; cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: color 180ms var(--ease-out), border-color 180ms var(--ease-out);
+      white-space: nowrap;
+    }
+    .cat-pill:hover { color: var(--ink); }
+    .cat-pill.active { color: var(--blue); font-weight: 600; border-bottom-color: var(--blue); }
+
+    /* ── MAIN ── */
+    .main-wrap {
+      max-width: 1100px; margin: 0 auto;
+      padding: 52px 40px 80px;
+    }
+
+    /* Section title */
+    .section-intro {
+      margin-bottom: 32px;
+    }
+    .section-intro h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem; font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .section-intro p {
+      font-size: 0.95rem; color: var(--ink-60);
+    }
+
+    /* ── GUIDE GRID ── */
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 64px;
+    }
+
+    .guide-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      text-decoration: none;
+      color: inherit;
+      display: flex; flex-direction: column;
+      transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out), border-color 200ms;
+      opacity: 0; transform: translateY(10px);
+      position: relative;
+    }
+    .guide-card.visible {
+      animation: fadeUp 380ms var(--ease-out) forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (hover: hover) {
+      .guide-card:not(.coming-soon):hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--ink-30);
+      }
+    }
+    .guide-card:not(.coming-soon):active { transform: scale(0.98); }
+
+    .guide-card.coming-soon {
+      background: var(--cream);
+      cursor: default;
+    }
+
+    .guide-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+    .guide-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem; font-weight: 600;
+      margin-bottom: 6px; line-height: 1.3;
+    }
+    .guide-card p {
+      font-size: 0.85rem; color: var(--ink-60);
+      line-height: 1.55; flex: 1;
+      margin-bottom: 16px;
+    }
+    .guide-card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: auto;
+    }
+    .guide-status {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.75rem; font-weight: 600;
+      padding: 3px 10px; border-radius: 100px;
+    }
+    .guide-status.ready {
+      background: var(--green-pale); color: var(--green);
+    }
+    .guide-status.soon {
+      background: var(--sand); color: var(--ink-60);
+    }
+    .guide-status.progress {
+      background: #FEF4E4; color: var(--gold);
+    }
+    .guide-arrow {
+      font-size: 1.1rem; color: var(--blue);
+      transition: transform 180ms var(--ease-out);
+    }
+    @media (hover: hover) {
+      .guide-card:not(.coming-soon):hover .guide-arrow {
+        transform: translateX(4px);
+      }
+    }
+    .coming-soon .guide-arrow { display: none; }
+
+    /* Duration tag */
+    .guide-meta {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .meta-tag {
+      font-size: 0.75rem; color: var(--ink-60);
+      display: flex; align-items: center; gap: 4px;
+    }
+
+    /* ── FEATURED GUIDE ── */
+    .featured-guide {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 48px;
+      box-shadow: var(--shadow-sm);
+      text-decoration: none; color: inherit;
+      display: block;
+      transition: box-shadow 200ms var(--ease-out), border-color 200ms;
+    }
+    @media (hover: hover) {
+      .featured-guide:hover {
+        box-shadow: var(--shadow-md);
+        border-color: var(--ink-30);
+      }
+    }
+    .featured-guide:active { opacity: 0.97; }
+    .featured-guide-inner {
+      display: grid; grid-template-columns: 1fr 260px;
+      align-items: center;
+    }
+    .featured-body {
+      padding: 36px 40px;
+    }
+    .featured-eyebrow {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase;
+      background: var(--green-pale); color: var(--green);
+      padding: 4px 11px; border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .featured-body h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.7rem; font-weight: 700;
+      line-height: 1.2; margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    .featured-body p {
+      font-size: 0.95rem; color: var(--ink-60);
+      line-height: 1.6; margin-bottom: 20px;
+    }
+    .featured-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--blue); color: #fff;
+      padding: 11px 22px; border-radius: var(--radius-md);
+      font-size: 0.9rem; font-weight: 600;
+      transition: background 180ms var(--ease-out), transform 160ms var(--ease-out);
+    }
+    .featured-guide:hover .featured-cta { background: var(--blue-light); }
+    .featured-guide:active .featured-cta { transform: scale(0.97); }
+
+    .featured-visual {
+      background: linear-gradient(135deg, var(--blue-pale) 0%, var(--green-pale) 100%);
+      height: 100%; min-height: 220px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem;
+    }
+
+    /* ── HELP STRIP ── */
+    .help-strip {
+      background: var(--sand);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px;
+    }
+    .help-strip p {
+      font-size: 0.9rem; color: var(--ink-60);
+    }
+    .help-strip strong { color: var(--ink); }
+    .help-link {
+      flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 18px; border-radius: var(--radius-md);
+      background: #fff; border: 1px solid var(--border);
+      font-size: 0.85rem; font-weight: 600; color: var(--blue);
+      text-decoration: none;
+      transition: border-color 180ms, box-shadow 180ms;
+    }
+    .help-link:hover { border-color: var(--blue); box-shadow: 0 2px 8px rgba(27,79,138,0.12); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 40px;
+      font-size: 0.85rem;
+    }
+    footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      nav ul { display: none; }
+      .page-header { padding: 40px 20px 36px; }
+      .cat-strip-inner { padding: 0 20px; }
+      .main-wrap { padding: 32px 20px 60px; }
+      .guide-grid { grid-template-columns: repeat(2, 1fr); }
+      .featured-guide-inner { grid-template-columns: 1fr; }
+      .featured-visual { display: none; }
+    }
+    @media (max-width: 560px) {
+      .guide-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="homepage-mockup.html" class="nav-logo">Nomad<span>UY</span></a>
+  <ul>
+    <li><a href="guias.html" class="active">Guías</a></li>
+    <li><a href="vivir-en-uruguay.html">Vivir</a></li>
+    <li><a href="conocer-uruguay.html">Conocer Uruguay</a></li>
+    <li><a href="recursos.html">Recursos</a></li>
+    <li><a href="homepage-mockup.html#community" class="nav-cta">Unirme</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="page-label">📚 Guías</div>
+    <h1>Todo lo que necesitás<br>saber para vivir acá.</h1>
+    <p>Desde el primer día hasta los trámites de residencia — guías claras, prácticas y escritas por gente que lo vivió.</p>
+  </div>
+</header>
+
+<!-- CATEGORY STRIP -->
+<div class="cat-strip">
+  <div class="cat-strip-inner">
+    <button class="cat-pill active">Todas las guías</button>
+    <button class="cat-pill">🛬 Llegada</button>
+    <button class="cat-pill">🏛 Legal & Trámites</button>
+    <button class="cat-pill">🏠 Vivienda</button>
+    <button class="cat-pill">💼 Trabajo</button>
+    <button class="cat-pill">🚌 Moverse</button>
+    <button class="cat-pill">🏥 Salud</button>
+    <button class="cat-pill">👨‍👩‍👧 Familia</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="main-wrap">
+
+  <!-- FEATURED -->
+  <a href="guia-primeras-48h.html" class="featured-guide">
+    <div class="featured-guide-inner">
+      <div class="featured-body">
+        <div class="featured-eyebrow">✅ Lista · Más leída</div>
+        <h2>Primeras 48 horas en Uruguay</h2>
+        <p>18 pasos ordenados por prioridad: SIM card, efectivo, transporte, apps esenciales y los primeros lugares a conocer. La guía que hubiésemos querido tener al aterrizar.</p>
+        <span class="featured-cta">Leer guía completa →</span>
+      </div>
+      <div class="featured-visual">🛬</div>
+    </div>
+  </a>
+
+  <!-- ALL GUIDES GRID -->
+  <div class="section-intro">
+    <h2>Todas las guías</h2>
+    <p>Hacemos las guías una por una para que sean realmente útiles — no una lista de links.</p>
+  </div>
+
+  <div class="guide-grid">
+
+    <a href="guia-primeras-48h.html" class="guide-card">
+      <div class="guide-icon">🛬</div>
+      <h3>Primeras 48 horas</h3>
+      <div class="guide-meta">
+        <span class="meta-tag">⏱ 15 min de lectura</span>
+        <span class="meta-tag">🗺 Llegada</span>
+      </div>
+      <p>La guía esencial al aterrizar: SIM, efectivo, apps, transporte y los primeros pasos en orden de prioridad.</p>
+      <div class="guide-card-footer">
+        <span class="guide-status ready">✅ Disponible</span>
+        <span class="guide-arrow">→</span>
+      </div>
+    </a>
+
+    <div class="guide-card coming-soon">
+      <div class="guide-icon">🏛</div>
+      <h3>Legal & Visas</h3>
+      <div class="guide-meta">
+        <span class="meta-tag">🏛 Trámites</span>
+      </div>
+      <p>Cédula de identidad, permiso de nómada digital, residencia fiscal — en lenguaje claro, sin abogado.</p>
+      <div class="guide-card-footer">
+        <span class="guide-status progress">🚧 En proceso</span>
+      </div>
+    </div>
+
+    <div class="guide-card coming-soon">
+      <div class="guide-icon">🏘</div>
+      <h3>Barrios de Montevideo</h3>
+      <div class="guide-meta">
+        <span class="meta-tag">🏠 Vivienda</span>
+      </div>
+      <p>Pocitos, Palermo, Ciudad Vieja, Cordón… qué esperar de cada barrio, precios y para quién sirve.</p>
+      <div class="guide-card-footer">
+        <span class="guide-status soon">🔜 Próximamente</span>
+      </div>
+    </div>
+
+    <div class="guide-card coming-soon">
+      <div class="guide-icon">🚌</div>
+      <h3>Moverse en Uruguay</h3>
+      <div class="guide-meta">
+        <span class="meta-tag">🚌 Transporte</span>
+      </div>
+      <p>STM, Uber, alquiler de auto, viajes entre ciudades — todo lo que necesitás para moverte dentro del país.</p>
+      <div class="guide-card-footer">
+        <span class="guide-status soon">🔜 Próximamente</span>
+      </div>
+    </div>
+
+    <div class="guide-card coming-soon">
+      <div class="guide-icon">🏥</div>
+      <h3>Salud & Mutualistas</h3>
+      <div class="guide-meta">
+        <span class="meta-tag">🏥 Salud</span>
+      </div>
+      <p>Cómo funciona el sistema de salud uruguayo, cómo elegir una mutualista y qué cubre cada plan.</p>
+      <div class="guide-card-footer">
+        <span class="guide-status soon">🔜 Próximamente</span>
+      </div>
+    </div>
+
+    <div class="guide-card coming-soon">
+      <div class="guide-icon">🏦</div>
+      <h3>Bancos & Finanzas</h3>
+      <div class="guide-meta">
+        <span class="meta-tag">💳 Finanzas</span>
+      </div>
+      <p>Cómo abrir una cuenta, recibir pagos internacionales, cambio de divisas y qué es Prex.</p>
+      <div class="guide-card-footer">
+        <span class="guide-status soon">🔜 Próximamente</span>
+      </div>
+    </div>
+
+    <div class="guide-card coming-soon">
+      <div class="guide-icon">💼</div>
+      <h3>Trabajar desde Uruguay</h3>
+      <div class="guide-meta">
+        <span class="meta-tag">💼 Trabajo</span>
+      </div>
+      <p>Régimen fiscal para extranjeros, facturación en USD, internet y coworkings — todo para trabajar remoto con tranquilidad.</p>
+      <div class="guide-card-footer">
+        <span class="guide-status soon">🔜 Próximamente</span>
+      </div>
+    </div>
+
+    <div class="guide-card coming-soon">
+      <div class="guide-icon">👨‍👩‍👧</div>
+      <h3>Vivir con familia</h3>
+      <div class="guide-meta">
+        <span class="meta-tag">👨‍👩‍👧 Familia</span>
+      </div>
+      <p>Colegios, jardines, seguridad, barrios familiares y todo lo que necesitás saber si venís con chicos.</p>
+      <div class="guide-card-footer">
+        <span class="guide-status soon">🔜 Próximamente</span>
+      </div>
+    </div>
+
+    <div class="guide-card coming-soon">
+      <div class="guide-icon">🗣</div>
+      <h3>Español rioplatense</h3>
+      <div class="guide-meta">
+        <span class="meta-tag">🌐 Idioma</span>
+      </div>
+      <p>Vos, che, ta, bah — el mini diccionario para entender a los uruguayos, y dónde tomar clases.</p>
+      <div class="guide-card-footer">
+        <span class="guide-status soon">🔜 Próximamente</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- HELP STRIP -->
+  <div class="help-strip">
+    <p><strong>¿Buscás algo que no está acá?</strong> La comunidad de NomadUY tiene respuestas para casi cualquier pregunta sobre vivir en Uruguay.</p>
+    <a href="homepage-mockup.html#community" class="help-link">💬 Preguntar en la comunidad →</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2024 NomadUY — Hecho con ❤️ en Montevideo · <a href="#">Contacto</a> · <a href="#">Newsletter</a></p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.guide-card').forEach(c => observer.observe(c));
+</script>
+</body>
+</html>
