@@ -271,6 +271,8 @@ For each neighborhood: personality, price range, best for which audience, walkab
 - Carrasco — luxury, families, embassies, suburban
 - Buceo / Malvín — middle-ground, quieter, local beaches
 
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
 **Beyond Montevideo:**
 - Punta del Este — wealth, beach, party, seasonal
 - Colonia del Sacramento — historic, slow, beautiful, expat retirees
