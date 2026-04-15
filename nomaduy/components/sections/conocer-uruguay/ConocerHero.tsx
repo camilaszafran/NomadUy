@@ -1,0 +1,27 @@
+export default function ConocerHero() {
+  return (
+    <div className="conocer-hero">
+      <div className="conocer-hero-inner">
+        <div>
+          <div className="hero-label">🗺 Conocer Uruguay</div>
+          <h1>Uruguay en rutas.<br />No en itinerarios de turista.</h1>
+          <p>Rutas diseñadas por gente que vive acá — para fines de semana, vacaciones cortas y salidas desde Montevideo.</p>
+        </div>
+        <div className="hero-stats">
+          <div className="hero-stat">
+            <div className="hero-stat-num">8</div>
+            <div className="hero-stat-label">rutas disponibles</div>
+          </div>
+          <div className="hero-stat">
+            <div className="hero-stat-num">14</div>
+            <div className="hero-stat-label">destinos cubiertos</div>
+          </div>
+          <div className="hero-stat">
+            <div className="hero-stat-num">3h</div>
+            <div className="hero-stat-label">máx. desde Montevideo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
