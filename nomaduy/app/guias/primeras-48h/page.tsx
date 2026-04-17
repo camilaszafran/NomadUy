@@ -14,7 +14,9 @@ export default function Primeras48hPage() {
     <>
       <Nav />
       <GuiaHero />
-      <GuiaTimeline />
+      <div className="guide-article-wrap">
+        <GuiaTimeline />
+      </div>
       <PdfBanner />
       <Footer />
     </>

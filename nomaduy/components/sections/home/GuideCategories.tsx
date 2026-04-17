@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import Link from 'next/link'
 import {
   AirplaneTakeoff,
   IdentificationCard,
@@ -19,18 +20,18 @@ import {
 import AnimateIn from '@/components/ui/AnimateIn'
 
 const categories = [
-  { Icon: AirplaneTakeoff, title: 'Primeros pasos y llegada', desc: 'Las primeras 48 horas — SIM, cambio de moneda, banco, apps esenciales.', href: '/guias#primeros-pasos' },
-  { Icon: IdentificationCard, title: 'Visas y legal', desc: 'Visa turista, permiso nómade digital, residencia — paso a paso, en lenguaje claro.', href: '/guias#visas-legal' },
-  { Icon: MapPin, title: 'Barrios', desc: 'Pocitos, Palermo, Ciudad Vieja — encontrá tu rincón en Montevideo.', href: '/guias#barrios' },
-  { Icon: House, title: 'Housing y alquiler', desc: 'Cómo encontrar depto, contratos en español, precios actualizados.', href: '/guias#housing' },
-  { Icon: Laptop, title: 'Trabajo y coworking', desc: 'Los mejores coworkings y cafés donde realmente podés trabajar.', href: '/guias#trabajo-coworking' },
-  { Icon: CurrencyDollar, title: 'Costo de vida', desc: 'Presupuestos reales, estrategia USD vs. peso, ventajas impositivas.', href: '/guias#costo-de-vida' },
-  { Icon: FirstAid, title: 'Salud y bienestar', desc: 'Mutualistas, seguro internacional, farmacias y médicos recomendados.', href: '/guias#salud' },
-  { Icon: Bus, title: 'Transporte', desc: 'STM, Uber, viajes intercity, cómo llegar a Punta del Este.', href: '/guias#transporte' },
-  { Icon: ForkKnife, title: 'Comida y restaurantes', desc: 'Del chivito a las parrillas escondidas — la guía definitiva de food.', href: '/guias#comida' },
-  { Icon: MaskHappy, title: 'Cultura e idioma', desc: 'Mate, carnaval, tango, rioplatense y cómo encajar con los locales.', href: '/guias#cultura' },
-  { Icon: Tree, title: 'Parques y naturaleza', desc: 'La Rambla, Parque Rodó y escapadas de naturaleza desde la ciudad.', href: '/guias#parques' },
-  { Icon: DiamondsFour, title: 'Gemas escondidas', desc: 'Cabo Polonio, Punta del Diablo, Salto — lo que los turistas no ven.', href: '/guias#gemas-escondidas' },
+  { Icon: AirplaneTakeoff, title: 'Primeros pasos y llegada', desc: 'Las primeras 48 horas — SIM, cambio de moneda, banco, apps esenciales.', href: '/guias/primeras-48h' },
+  { Icon: IdentificationCard, title: 'Visas y legal', desc: 'Visa turista, permiso nómade digital, residencia — paso a paso, en lenguaje claro.', href: '/guias/legal-visas' },
+  { Icon: MapPin, title: 'Barrios', desc: 'Pocitos, Palermo, Ciudad Vieja — encontrá tu rincón en Montevideo.', href: '/guias/barrios-montevideo' },
+  { Icon: House, title: 'Housing y alquiler', desc: 'Cómo encontrar depto, contratos en español, precios actualizados.', href: '/guias/encontrar-apartamento' },
+  { Icon: Laptop, title: 'Trabajo y coworking', desc: 'Los mejores coworkings y cafés donde realmente podés trabajar.', href: '/guias' },
+  { Icon: CurrencyDollar, title: 'Costo de vida', desc: 'Presupuestos reales, estrategia USD vs. peso, ventajas impositivas.', href: '/guias' },
+  { Icon: FirstAid, title: 'Salud y bienestar', desc: 'Mutualistas, seguro internacional, farmacias y médicos recomendados.', href: '/guias/salud-mutualistas' },
+  { Icon: Bus, title: 'Transporte', desc: 'STM, Uber, viajes intercity, cómo llegar a Punta del Este.', href: '/guias/moverse-uruguay' },
+  { Icon: ForkKnife, title: 'Comida y restaurantes', desc: 'Del chivito a las parrillas escondidas — la guía definitiva de food.', href: '/guias/gastronomia-uruguaya' },
+  { Icon: MaskHappy, title: 'Cultura e idioma', desc: 'Mate, carnaval, tango, rioplatense y cómo encajar con los locales.', href: '/guias/cultura-uruguay' },
+  { Icon: Tree, title: 'Parques y naturaleza', desc: 'La Rambla, Parque Rodó y escapadas de naturaleza desde la ciudad.', href: '/guias' },
+  { Icon: DiamondsFour, title: 'Gemas escondidas', desc: 'Cabo Polonio, Punta del Diablo, Salto — lo que los turistas no ven.', href: '/guias' },
 ]
 
 const gridVariants = {
@@ -72,19 +73,16 @@ export default function GuideCategories() {
         animate={inView ? 'visible' : 'hidden'}
       >
         {categories.map((cat) => (
-          <motion.a
-            key={cat.href}
-            href={cat.href}
-            className="cat-card cat-card-animated"
-            variants={cardVariants}
-          >
-            <span className="cat-icon cat-icon-blue">
-              <cat.Icon size={30} weight="light" />
-            </span>
-            <h3>{cat.title}</h3>
-            <p>{cat.desc}</p>
-            <div className="cat-arrow">Explorar →</div>
-          </motion.a>
+          <motion.div key={cat.title} variants={cardVariants}>
+            <Link href={cat.href} className="cat-card cat-card-animated">
+              <span className="cat-icon cat-icon-blue">
+                <cat.Icon size={30} weight="light" />
+              </span>
+              <h3>{cat.title}</h3>
+              <p>{cat.desc}</p>
+              <div className="cat-arrow">Explorar →</div>
+            </Link>
+          </motion.div>
         ))}
       </motion.div>
     </section>

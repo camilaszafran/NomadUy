@@ -1,7 +1,6 @@
 import Nav from '@/components/layout/Nav'
 import Hero from '@/components/sections/home/Hero'
 import CommunityBanner from '@/components/sections/home/CommunityBanner'
-import GuideCategories from '@/components/sections/home/GuideCategories'
 import FeaturedGuides from '@/components/sections/home/FeaturedGuides'
 import DirectoryPreview from '@/components/sections/home/DirectoryPreview'
 import ExploreUruguay from '@/components/sections/home/ExploreUruguay'
@@ -16,7 +15,6 @@ export default function HomePage() {
       <Nav />
       <Hero />
       <CommunityBanner />
-      <GuideCategories />
       <FeaturedGuides />
       <DirectoryPreview />
       <ExploreUruguay />
