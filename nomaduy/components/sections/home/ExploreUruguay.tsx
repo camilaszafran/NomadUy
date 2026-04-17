@@ -1,12 +1,12 @@
 'use client'
 
-import { Waves, Bank, Drop, Paw } from '@phosphor-icons/react/dist/ssr'
+import { Anchor, Bank, Drop, PawPrint } from '@phosphor-icons/react/dist/ssr'
 
 const routes = [
-  { Icon: Waves, title: 'Surf & Costa',        desc: 'Punta del Este, La Pedrera, Cabo Polonio y Punta del Diablo — la ruta atlántica completa.' },
-  { Icon: Bank,  title: 'Historia & Patrimonio', desc: 'Colonia del Sacramento, Fray Bentos y los secretos coloniales del litoral oeste.' },
-  { Icon: Drop,  title: 'Termas del norte',     desc: 'Salto, Paysandú y las termas naturales más accesibles de la región.' },
-  { Icon: Paw,   title: 'Wildlife & Naturaleza', desc: 'Cabo Polonio sin electricidad, lobos marinos, pingüinos y el cielo más estrellado.' },
+  { Icon: Anchor,   title: 'Surf & Costa',        desc: 'Punta del Este, La Pedrera, Cabo Polonio y Punta del Diablo — la ruta atlántica completa.' },
+  { Icon: Bank,     title: 'Historia & Patrimonio', desc: 'Colonia del Sacramento, Fray Bentos y los secretos coloniales del litoral oeste.' },
+  { Icon: Drop,     title: 'Termas del norte',     desc: 'Salto, Paysandú y las termas naturales más accesibles de la región.' },
+  { Icon: PawPrint, title: 'Wildlife & Naturaleza', desc: 'Cabo Polonio sin electricidad, lobos marinos, pingüinos y el cielo más estrellado.' },
 ]
 
 export default function ExploreUruguay() {
