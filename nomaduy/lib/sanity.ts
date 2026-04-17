@@ -35,6 +35,7 @@ export const guidesQuery = `
     summary,
     readTime,
     persona,
+    coverImage,
   }
 `
 
