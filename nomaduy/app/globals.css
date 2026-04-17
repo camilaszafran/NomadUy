@@ -130,6 +130,16 @@ nav {
   object-position: center;
 }
 
+.hero-video-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 25, 55, 0.72) 0%,
+    rgba(10, 25, 55, 0.45) 60%,
+    rgba(10, 25, 55, 0.25) 100%
+  );
+}
+
 /* Gradient overlay: navy left (text) → lighter right */
 .hero-overlay {
   position: absolute; inset: 0;

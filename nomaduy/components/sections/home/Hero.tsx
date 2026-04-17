@@ -1,7 +1,22 @@
+'use client'
+
+import { CalendarBlank, ChatTeardropText, Globe } from '@phosphor-icons/react/dist/ssr'
+
 export default function Hero() {
   return (
     <section className="hero">
-      <div className="hero-bg" />
+      <div className="hero-bg">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="hero-video"
+        >
+          <source src="/videos/hero-compressed.mp4" type="video/mp4" />
+        </video>
+        <div className="hero-video-overlay" />
+      </div>
       <div className="hero-shapes">
         <div className="shape shape-1" />
         <div className="shape shape-2" />
@@ -20,10 +35,10 @@ export default function Hero() {
 
         <div className="hero-actions">
           <a href="/comunidad" className="btn-primary">
-            🤝 Unirme a la comunidad →
+            Unirme a la comunidad →
           </a>
           <a href="/guias" className="btn-secondary">
-            📚 Explorar las guías
+            Explorar las guías
           </a>
           <a href="#pdf" className="btn-text">
             ↓ Descargar guía PDF gratis — &ldquo;Tus primeros 30 días en Uruguay&rdquo;
@@ -36,7 +51,7 @@ export default function Hero() {
           <div className="hero-card-label">La comunidad ahora</div>
           <div className="community-pulse">
             <div className="pulse-stat">
-              <div className="pulse-icon blue">🗓️</div>
+              <div className="pulse-icon blue"><CalendarBlank size={18} weight="thin" /></div>
               <div>
                 <div className="pulse-label">Próximo meetup</div>
                 <div className="pulse-value">Jueves 1 de mayo · Montevideo</div>
@@ -44,7 +59,7 @@ export default function Hero() {
             </div>
             <div className="pulse-divider" />
             <div className="pulse-stat">
-              <div className="pulse-icon gold">💬</div>
+              <div className="pulse-icon gold"><ChatTeardropText size={18} weight="thin" /></div>
               <div>
                 <div className="pulse-label">WhatsApp grupos activos</div>
                 <div className="pulse-value">Recién llegados · Housing · Eventos</div>
@@ -52,7 +67,7 @@ export default function Hero() {
             </div>
             <div className="pulse-divider" />
             <div className="pulse-stat">
-              <div className="pulse-icon green">🌍</div>
+              <div className="pulse-icon green"><Globe size={18} weight="thin" /></div>
               <div>
                 <div className="pulse-label">Nuevos miembros esta semana</div>
                 <div className="pulse-value">34 personas de 12 países</div>

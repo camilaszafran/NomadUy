@@ -1,8 +1,12 @@
+'use client'
+
+import { WhatsappLogo, TelegramLogo, InstagramLogo, Lock } from '@phosphor-icons/react/dist/ssr'
+
 export default function CommunityBanner() {
   return (
     <section className="community-banner" id="community">
       <div className="community-left">
-        <div className="section-eyebrow">🤝 Comunidad</div>
+        <div className="section-eyebrow">Comunidad</div>
         <h2>Encontrá tu gente en Uruguay.</h2>
         <p>
           Llegaste solo o con poca red — acá vas a encontrar respuestas, departamentos, restaurantes escondidos y amigos reales. La comunidad más cálida para personas que eligieron Uruguay.
@@ -10,23 +14,23 @@ export default function CommunityBanner() {
 
         <div className="community-channels">
           <a href="#" className="channel-pill">
-            <span className="channel-icon wa-icon">💬</span>
+            <span className="channel-icon wa-icon"><WhatsappLogo size={16} weight="fill" /></span>
             WhatsApp · Recién llegados
           </a>
           <a href="#" className="channel-pill">
-            <span className="channel-icon wa-icon">💬</span>
+            <span className="channel-icon wa-icon"><WhatsappLogo size={16} weight="fill" /></span>
             WhatsApp · Housing
           </a>
           <a href="#" className="channel-pill">
-            <span className="channel-icon wa-icon">💬</span>
+            <span className="channel-icon wa-icon"><WhatsappLogo size={16} weight="fill" /></span>
             WhatsApp · Eventos
           </a>
           <a href="#" className="channel-pill">
-            <span className="channel-icon tg-icon">✈️</span>
+            <span className="channel-icon tg-icon"><TelegramLogo size={16} weight="fill" /></span>
             Canal de Telegram
           </a>
           <a href="#" className="channel-pill">
-            <span className="channel-icon ig-icon">📸</span>
+            <span className="channel-icon ig-icon"><InstagramLogo size={16} weight="fill" /></span>
             Instagram
           </a>
         </div>
@@ -75,7 +79,7 @@ export default function CommunityBanner() {
         </div>
 
         <button className="submit-btn">Quiero mi guía de bienvenida →</button>
-        <div className="form-privacy">🔒 Tu info no se comparte jamás.</div>
+        <div className="form-privacy"><Lock size={13} weight="bold" /> Tu info no se comparte jamás.</div>
       </div>
     </section>
   )
