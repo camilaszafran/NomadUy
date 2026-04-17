@@ -1,33 +1,101 @@
 'use client'
 
-import { Anchor, Bank, Drop, PawPrint } from '@phosphor-icons/react/dist/ssr'
+import Image from 'next/image'
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
+import AnimateIn from '@/components/ui/AnimateIn'
 
 const routes = [
-  { Icon: Anchor,   title: 'Surf & Costa',        desc: 'Punta del Este, La Pedrera, Cabo Polonio y Punta del Diablo — la ruta atlántica completa.' },
-  { Icon: Bank,     title: 'Historia & Patrimonio', desc: 'Colonia del Sacramento, Fray Bentos y los secretos coloniales del litoral oeste.' },
-  { Icon: Drop,     title: 'Termas del norte',     desc: 'Salto, Paysandú y las termas naturales más accesibles de la región.' },
-  { Icon: PawPrint, title: 'Wildlife & Naturaleza', desc: 'Cabo Polonio sin electricidad, lobos marinos, pingüinos y el cielo más estrellado.' },
+  {
+    img: '/images/routes/surf.jpg.avif',
+    title: 'Surf & Costa',
+    desc: 'Punta del Este, La Pedrera, Cabo Polonio y Punta del Diablo.',
+    tag: 'Atlántico',
+  },
+  {
+    img: '/images/routes/historia.jpg',
+    title: 'Historia & Patrimonio',
+    desc: 'Colonia del Sacramento, Fray Bentos y los secretos del litoral oeste.',
+    tag: 'Cultura',
+  },
+  {
+    img: '/images/routes/temas.jpg',
+    title: 'Termas del norte',
+    desc: 'Salto, Paysandú y las termas naturales más accesibles de la región.',
+    tag: 'Relax',
+  },
+  {
+    img: '/images/routes/wildlife.webp',
+    title: 'Wildlife & Naturaleza',
+    desc: 'Cabo Polonio, lobos marinos, pingüinos y el cielo más estrellado.',
+    tag: 'Naturaleza',
+  },
 ]
 
+const gridVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+}
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 32, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { type: 'spring', stiffness: 260, damping: 24 } as object,
+  },
+}
+
 export default function ExploreUruguay() {
+  const gridRef = useRef(null)
+  const inView = useInView(gridRef, { once: true, margin: '-60px' })
+
   return (
-    <section className="categories">
+    <section className="categories explore-section">
       <div className="section-header">
-        <div className="section-eyebrow" style={{ justifyContent: 'center' }}>Descubrí Uruguay</div>
-        <h2>Conocer Uruguay</h2>
-        <p>Rutas de viaje por interés y duración — del fin de semana a la inmersión profunda.</p>
-        <a href="/conocer-uruguay" className="section-header-cta">Ver todas las rutas →</a>
+        <AnimateIn direction="reveal">
+          <h2>Conocer Uruguay</h2>
+        </AnimateIn>
+        <AnimateIn delay={0.1}>
+          <p>Rutas de viaje por interés y duración — del fin de semana a la inmersión profunda.</p>
+          <a href="/conocer-uruguay" className="section-header-cta">Ver todas las rutas →</a>
+        </AnimateIn>
       </div>
-      <div className="categories-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))' }}>
+
+      <motion.div
+        ref={gridRef}
+        className="routes-photo-grid"
+        variants={gridVariants}
+        initial="hidden"
+        animate={inView ? 'visible' : 'hidden'}
+      >
         {routes.map((route) => (
-          <a key={route.title} href="/conocer-uruguay" className="cat-card">
-            <span className="cat-icon"><route.Icon size={28} weight="thin" /></span>
-            <h3>{route.title}</h3>
-            <p>{route.desc}</p>
-            <div className="cat-arrow">Ver ruta →</div>
-          </a>
+          <motion.a
+            key={route.title}
+            href="/conocer-uruguay"
+            className="route-photo-card"
+            variants={cardVariants}
+          >
+            <div className="route-photo-img">
+              <Image
+                src={route.img}
+                alt={route.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 25vw"
+                style={{ objectFit: 'cover' }}
+              />
+              <div className="route-photo-overlay" />
+              <div className="route-photo-content">
+                <span className="route-photo-tag">{route.tag}</span>
+                <h3>{route.title}</h3>
+                <p>{route.desc}</p>
+                <span className="route-photo-cta">Ver ruta →</span>
+              </div>
+            </div>
+          </motion.a>
         ))}
-      </div>
+      </motion.div>
     </section>
   )
 }
