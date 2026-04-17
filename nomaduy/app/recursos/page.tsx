@@ -1,6 +1,7 @@
 import Nav from '@/components/layout/Nav'
 import RecursosHeader from '@/components/sections/recursos/RecursosHeader'
 import CostCalculator from '@/components/sections/recursos/CostCalculator'
+import PdfBanner from '@/components/sections/home/PdfBanner'
 import Footer from '@/components/layout/Footer'
 
 export const metadata = {
@@ -14,6 +15,7 @@ export default function RecursosPage() {
       <Nav />
       <RecursosHeader />
       <CostCalculator />
+      <PdfBanner />
       <Footer />
     </>
   )

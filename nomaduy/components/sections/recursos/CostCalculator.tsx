@@ -1,6 +1,15 @@
 'use client'
 
 import { useState } from 'react'
+import {
+  ClipboardText,
+  Bank,
+  House,
+  CurrencyDollar,
+  Globe,
+  MapTrifold,
+} from '@phosphor-icons/react'
+import type { Icon } from '@phosphor-icons/react'
 
 const UYU_TO_USD = 38.5
 
@@ -21,26 +30,26 @@ const sliders = [
 ]
 
 const colors: Record<string, string> = {
-  alquiler: '#1B4F8A', comida: '#2E7D52', transporte: '#D4922A',
+  alquiler: '#1A4B8C', comida: '#2E7D52', transporte: '#C8940F',
   ocio: '#7B3F8A', salud: '#C0392B', varios: '#5B5B7A',
 }
 
 const cities = [
-  { name: '🇺🇾 Montevideo', avg: 1630, diff: 'similar' as const },
-  { name: '🇧🇷 Buenos Aires', avg: 1100, diff: 'cheaper' as const },
-  { name: '🇵🇹 Lisboa', avg: 2800, diff: 'pricier' as const },
-  { name: '🇲🇽 Ciudad de México', avg: 1200, diff: 'cheaper' as const },
+  { name: 'Montevideo', avg: 1630, diff: 'similar' as const },
+  { name: 'Buenos Aires', avg: 1100, diff: 'cheaper' as const },
+  { name: 'Lisboa', avg: 2800, diff: 'pricier' as const },
+  { name: 'Ciudad de México', avg: 1200, diff: 'cheaper' as const },
 ]
 
 const diffLabels = { cheaper: '← Más barato', pricier: '→ Más caro', similar: '≈ Similar' }
 
-const tools = [
-  { icon: '📋', title: 'Checklist de llegada', desc: 'Todo lo que hacer en el primer mes — en orden.', badge: '📥 PDF', badgeClass: 'badge-blue' },
-  { icon: '🏛', title: 'Trámites esenciales', desc: 'Cédula, RUT, residencia — links oficiales.', badge: '🔗 Links', badgeClass: 'badge-green' },
-  { icon: '🏠', title: 'Contrato de alquiler', desc: 'Modelo de contrato en español. Revisado por abogado.', badge: '📥 DOCX', badgeClass: 'badge-blue' },
-  { icon: '💰', title: 'Guía tributaria', desc: 'Impuestos para extranjeros en lenguaje claro.', badge: 'Próximamente', badgeClass: 'badge-gold' },
-  { icon: '🌐', title: 'Comparativa de mutualistas', desc: 'Precios, cobertura y reseñas de la comunidad.', badge: 'Próximamente', badgeClass: 'badge-gold' },
-  { icon: '🗺', title: 'Mapa de coworkings', desc: 'Todos los espacios verificados en Montevideo.', badge: 'Próximamente', badgeClass: 'badge-gold' },
+const tools: { Icon: Icon; title: string; desc: string; badge: string; badgeClass: string }[] = [
+  { Icon: ClipboardText, title: 'Checklist de llegada',      desc: 'Todo lo que hacer en el primer mes — en orden.',           badge: 'PDF',           badgeClass: 'badge-blue' },
+  { Icon: Bank,          title: 'Trámites esenciales',       desc: 'Cédula, RUT, residencia — links oficiales.',               badge: 'Links',         badgeClass: 'badge-green' },
+  { Icon: House,         title: 'Contrato de alquiler',      desc: 'Modelo de contrato en español. Revisado por abogado.',    badge: 'DOCX',          badgeClass: 'badge-blue' },
+  { Icon: CurrencyDollar,title: 'Guía tributaria',           desc: 'Impuestos para extranjeros en lenguaje claro.',           badge: 'Próximamente',  badgeClass: 'badge-gold' },
+  { Icon: Globe,         title: 'Comparativa de mutualistas',desc: 'Precios, cobertura y reseñas de la comunidad.',           badge: 'Próximamente',  badgeClass: 'badge-gold' },
+  { Icon: MapTrifold,    title: 'Mapa de coworkings',        desc: 'Todos los espacios verificados en Montevideo.',           badge: 'Próximamente',  badgeClass: 'badge-gold' },
 ]
 
 export default function CostCalculator() {
@@ -132,7 +141,7 @@ export default function CostCalculator() {
               ))}
             </div>
 
-            <button className="result-cta">📥 Descargar estimación en PDF</button>
+            <button className="result-cta">Descargar estimación en PDF</button>
           </div>
         </div>
       </div>
@@ -145,7 +154,7 @@ export default function CostCalculator() {
         <div className="tools-grid">
           {tools.map((t) => (
             <a key={t.title} href="#" className="tool-card">
-              <div className="tool-icon">{t.icon}</div>
+              <div className="tool-icon"><t.Icon size={24} weight="thin" /></div>
               <h3>{t.title}</h3>
               <p>{t.desc}</p>
               <span className={`tool-badge ${t.badgeClass}`}>{t.badge}</span>

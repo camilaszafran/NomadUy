@@ -3,7 +3,9 @@ export default function ConocerHero() {
     <div className="conocer-hero">
       <div className="conocer-hero-inner">
         <div>
-          <div className="hero-label">🗺 Conocer Uruguay</div>
+          <div className="page-label" style={{ color: 'var(--gold-light)', background: 'rgba(245,200,66,0.15)', display: 'inline-block', padding: '4px 14px', borderRadius: '4px', marginBottom: '20px' }}>
+            Conocer Uruguay
+          </div>
           <h1>Uruguay en rutas.<br />No en itinerarios de turista.</h1>
           <p>Rutas diseñadas por gente que vive acá — para fines de semana, vacaciones cortas y salidas desde Montevideo.</p>
         </div>

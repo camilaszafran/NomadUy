@@ -3,7 +3,7 @@ export default function Footer() {
     <footer>
       <div className="footer-grid">
         <div className="footer-brand">
-          <h3>Nomad<span>UY</span> 🇺🇾</h3>
+          <h3>Nomad<span>UY</span></h3>
           <p>
             El recurso más completo para nómades digitales, expats e inmigrantes haciendo vida en Uruguay. Hecho con amor por personas que eligieron quedarse.
           </p>

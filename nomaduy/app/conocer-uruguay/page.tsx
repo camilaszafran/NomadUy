@@ -1,6 +1,7 @@
 import Nav from '@/components/layout/Nav'
 import ConocerHero from '@/components/sections/conocer-uruguay/ConocerHero'
 import RoutesSection from '@/components/sections/conocer-uruguay/RoutesSection'
+import PdfBanner from '@/components/sections/home/PdfBanner'
 import Footer from '@/components/layout/Footer'
 
 export const metadata = {
@@ -14,6 +15,7 @@ export default function ConocerUruguayPage() {
       <Nav />
       <ConocerHero />
       <RoutesSection />
+      <PdfBanner />
       <Footer />
     </>
   )

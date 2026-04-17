@@ -1,6 +1,7 @@
 import Nav from '@/components/layout/Nav'
 import GuiasHeader from '@/components/sections/guias/GuiasHeader'
 import GuiasGrid from '@/components/sections/guias/GuiasGrid'
+import PdfBanner from '@/components/sections/home/PdfBanner'
 import Footer from '@/components/layout/Footer'
 
 export const metadata = {
@@ -14,6 +15,7 @@ export default function GuiasPage() {
       <Nav />
       <GuiasHeader />
       <GuiasGrid />
+      <PdfBanner />
       <Footer />
     </>
   )

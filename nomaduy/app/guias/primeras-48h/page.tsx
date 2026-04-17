@@ -1,6 +1,7 @@
 import Nav from '@/components/layout/Nav'
 import GuiaHero from '@/components/sections/guias/primeras-48h/GuiaHero'
 import GuiaTimeline from '@/components/sections/guias/primeras-48h/GuiaTimeline'
+import PdfBanner from '@/components/sections/home/PdfBanner'
 import Footer from '@/components/layout/Footer'
 
 export const metadata = {
@@ -14,6 +15,7 @@ export default function Primeras48hPage() {
       <Nav />
       <GuiaHero />
       <GuiaTimeline />
+      <PdfBanner />
       <Footer />
     </>
   )

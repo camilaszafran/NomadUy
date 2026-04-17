@@ -1,12 +1,12 @@
 export default function ComunidadHero() {
   return (
     <section className="comunidad-hero">
-      <div className="page-eyebrow">🌿 Comunidad</div>
+      <div className="page-eyebrow">Comunidad</div>
       <div className="comunidad-hero-grid">
         <div>
           <h1>Una comunidad de <em>personas reales</em> haciendo vida en Uruguay.</h1>
           <p>No somos un foro de turismo. Somos expats, nómadas e inmigrantes que eligieron quedarse — y queremos que tu llegada sea más fácil que la nuestra.</p>
-          <a href="#unirme" className="btn-primary-green">🌿 Unirme gratis →</a>
+          <a href="#unirme" className="btn-primary">Unirme gratis →</a>
         </div>
         <div className="hero-form" id="unirme">
           <h3>Unirme a NomadUY</h3>
@@ -42,8 +42,8 @@ export default function ComunidadHero() {
               <option>Todavía no sé</option>
             </select>
           </div>
-          <button className="submit-btn">🌿 Unirme a la comunidad →</button>
-          <p className="form-privacy">🔒 Sin spam. Solo cosas útiles. Podés darte de baja cuando quieras.</p>
+          <button className="submit-btn">Unirme a la comunidad →</button>
+          <p className="form-privacy">Sin spam. Solo cosas útiles. Podés darte de baja cuando quieras.</p>
         </div>
       </div>
     </section>

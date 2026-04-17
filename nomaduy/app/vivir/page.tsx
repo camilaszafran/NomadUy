@@ -1,6 +1,7 @@
 import Nav from '@/components/layout/Nav'
 import VivirHeader from '@/components/sections/vivir/VivirHeader'
 import DirectoryAccordion from '@/components/sections/vivir/DirectoryAccordion'
+import CommunityBanner from '@/components/sections/home/CommunityBanner'
 import Footer from '@/components/layout/Footer'
 
 export const metadata = {
@@ -14,6 +15,7 @@ export default function VivirPage() {
       <Nav />
       <VivirHeader />
       <DirectoryAccordion />
+      <CommunityBanner />
       <Footer />
     </>
   )
