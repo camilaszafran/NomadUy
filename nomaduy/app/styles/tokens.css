@@ -1,0 +1,42 @@
+/* ─── Reset & Tokens ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Brand — Uruguayan flag palette */
+  --blue:       #1A4B8C;
+  --blue-light: #2660A8;
+  --blue-pale:  #E8F1FB;
+  --gold:       #C8940F;
+  --gold-light: #F5C842;
+  --green:      #2E7D52;
+  --green-pale: #EAF4EE;
+  /* Surfaces */
+  --surface:    #F0F5FB;   /* light blue tint — replaces sand */
+  --sand:       #F0F5FB;   /* alias for sand users */
+  --cream:      #FFFFFF;   /* was warm beige, now clean white */
+  /* Text */
+  --ink:        #0D1F3C;   /* dark navy */
+  --navy:       #0D1F3C;   /* explicit dark sections */
+  --ink-60:     #4A6280;   /* blue-slate */
+  --ink-30:     #8BA4BE;   /* blue-gray muted */
+  --white:      #FFFFFF;
+  /* Radius */
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --radius-xl:  32px;
+  --ease-out:   cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-io:    cubic-bezier(0.77, 0, 0.175, 1);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--white);
+}
+
+body { overflow-x: hidden; background: var(--cream); }
+
+/* ─── Typography ─────────────────────────────────────────────────── */
+h1, h2, h3 { font-family: var(--font-newsreader), serif; font-weight: 700; line-height: 1.12; letter-spacing: -0.025em; }
+h1 { font-size: clamp(2rem, 5.5vw, 4.5rem); }
+h2 { font-size: clamp(1.6rem, 3vw, 2.8rem); }
+h3 { font-size: 1.1rem; letter-spacing: -0.015em; }
+p  { line-height: 1.7; color: var(--ink-60); }
