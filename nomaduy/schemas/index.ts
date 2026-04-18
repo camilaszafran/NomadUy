@@ -1,3 +1,4 @@
 import { guideSchema } from './guide'
+import { placeSchema } from './place'
 
-export const schemaTypes = [guideSchema]
+export const schemaTypes = [guideSchema, placeSchema]

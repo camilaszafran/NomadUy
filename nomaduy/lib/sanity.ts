@@ -1,5 +1,4 @@
 import { createClient } from 'next-sanity'
-import { createImageUrlBuilder } from '@sanity/image-url'
 
 export const sanityClient = createClient({
   projectId: process.env.SANITY_PROJECT_ID!,
@@ -11,13 +10,6 @@ export const sanityClient = createClient({
 
 export async function sanityFetch<T>(query: string, params?: Record<string, unknown>): Promise<T> {
   return sanityClient.fetch<T>(query, params ?? {})
-}
-
-// Image URL builder
-const builder = createImageUrlBuilder(sanityClient)
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function urlFor(source: any) {
-  return builder.image(source)
 }
 
 // GROQ: all guide cards for the grid, ordered
@@ -62,6 +54,29 @@ export const guideBySlugQuery = `
 export const guideSlugQuery = `
   *[_type == "guide" && status == "ready"] {
     "slug": slug.current
+  }
+`
+
+// GROQ: all places for the vivir page matcher
+export const placesQuery = `
+  *[_type == "place"] | order(title asc) {
+    _id,
+    title,
+    slug,
+    region,
+    tagline,
+    placeholderGradient,
+    "photos": photos[] { "url": asset->url, alt },
+    costOfLiving,
+    urbanRural,
+    population,
+    facts,
+    "links": links[] {
+      label,
+      category,
+      url,
+      "logo": logo { "url": asset->url }
+    }
   }
 `
 

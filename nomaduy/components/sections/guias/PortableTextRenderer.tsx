@@ -5,7 +5,7 @@ import type {
   PortableTextMarkComponentProps,
 } from '@portabletext/react'
 import Image from 'next/image'
-import { urlFor } from '@/lib/sanity'
+import { urlFor } from '@/lib/sanity-url'
 
 type CalloutBlock = {
   _type: 'callout'
