@@ -1,8 +1,7 @@
 import Nav from '@/components/layout/Nav'
 import ComunidadHero from '@/components/sections/comunidad/ComunidadHero'
 import FeaturesSection from '@/components/sections/comunidad/FeaturesSection'
-import PlatformsSection from '@/components/sections/comunidad/PlatformsSection'
-import GroupsSection from '@/components/sections/comunidad/GroupsSection'
+import CommunityCarousel from '@/components/sections/comunidad/CommunityCarousel'
 import EventsSection from '@/components/sections/comunidad/EventsSection'
 import Footer from '@/components/layout/Footer'
 
@@ -17,8 +16,7 @@ export default function ComunidadPage() {
       <Nav />
       <ComunidadHero />
       <FeaturesSection />
-      <PlatformsSection />
-      <GroupsSection />
+      <CommunityCarousel />
       <EventsSection />
       <Footer />
     </>

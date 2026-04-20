@@ -1,93 +1,94 @@
 'use client'
 
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import {
-  ChatTeardropText,
-  CalendarBlank,
-  ChatCircle,
-  MapTrifold,
-  DownloadSimple,
-  EnvelopeSimple,
+  ChatTeardropText, CalendarBlank, ChatCircle,
+  MapTrifold, DownloadSimple, EnvelopeSimple,
 } from '@phosphor-icons/react'
 import type { Icon } from '@phosphor-icons/react'
 
-const features: {
-  Icon: Icon
-  badge: string
-  badgeClass: string
-  title: string
-  desc: string
-  items: string[]
-}[] = [
+const features: { Icon: Icon; badge: string; title: string; desc: string; items: string[] }[] = [
   {
-    Icon: ChatTeardropText,
-    badge: 'Gratis',
-    badgeClass: 'badge-free',
-    title: 'Grupos de WhatsApp',
-    desc: 'Acceso inmediato a grupos temáticos: housing, trabajo, legal, actividades sociales y newcomers.',
+    Icon: ChatTeardropText, badge: 'Gratis', title: 'Grupos de WhatsApp',
+    desc: 'Acceso inmediato a grupos temáticos: housing, trabajo, legal y newcomers.',
     items: ['Grupo general de newcomers', 'Housing & alojamiento', 'Trabajo remoto & freelance', 'Legal & trámites'],
   },
   {
-    Icon: CalendarBlank,
-    badge: 'Mensual',
-    badgeClass: 'badge-blue',
-    title: 'Eventos presenciales',
+    Icon: CalendarBlank, badge: 'Mensual', title: 'Eventos presenciales',
     desc: 'Primer jueves de cada mes en Montevideo. El evento que construye comunidad real.',
-    items: ['Primer jueves de cada mes', 'Venues rotativos en Pocitos y Palermo', 'Promedio 40–60 personas', 'Networking + drinks + buena onda'],
+    items: ['Venues rotativos en Pocitos y Palermo', 'Promedio 40–60 personas', 'Networking + drinks'],
   },
   {
-    Icon: ChatCircle,
-    badge: 'Comunidad',
-    badgeClass: 'badge-green',
-    title: 'Foro de preguntas',
-    desc: 'Un espacio para hacer preguntas y compartir experiencias sobre vivir en Uruguay.',
-    items: ['Preguntas sobre trámites y burocracia', 'Recomendaciones de barrios y vivienda', 'Tips de la vida cotidiana', 'Búsqueda de compañeros de depto'],
+    Icon: ChatCircle, badge: 'Comunidad', title: 'Foro de preguntas',
+    desc: 'Un espacio para preguntar y compartir experiencias sobre vivir en Uruguay.',
+    items: ['Trámites y burocracia', 'Barrios y vivienda', 'Búsqueda de compañeros de depto'],
   },
   {
-    Icon: MapTrifold,
-    badge: 'Próximamente',
-    badgeClass: 'badge-gold',
-    title: 'Mapa de miembros',
-    desc: 'Un mapa interactivo con la comunidad NomadUY en Uruguay y el mundo.',
-    items: ['Ver quién está cerca de vos', 'Conectar antes de llegar', 'Grupos por ciudad', 'Mapa de coworkings y cafés'],
+    Icon: MapTrifold, badge: 'Próximamente', title: 'Mapa de miembros',
+    desc: 'Mapa interactivo con la comunidad en Uruguay y el mundo.',
+    items: ['Ver quién está cerca', 'Conectar antes de llegar', 'Mapa de coworkings y cafés'],
   },
   {
-    Icon: DownloadSimple,
-    badge: 'Gratis',
-    badgeClass: 'badge-free',
-    title: 'Guía PDF de bienvenida',
-    desc: 'La guía "Tus primeras 48 horas en Uruguay" — para descargar y usar sin internet.',
-    items: ['18 pasos ordenados por prioridad', 'Funciona sin conexión', 'Actualizada cada trimestre', 'En español e inglés'],
+    Icon: DownloadSimple, badge: 'Gratis', title: 'Guía PDF de bienvenida',
+    desc: '"Tus primeras 48 horas en Uruguay" — descargable, funciona sin internet.',
+    items: ['18 pasos ordenados por prioridad', 'Actualizada cada trimestre', 'En español e inglés'],
   },
   {
-    Icon: EnvelopeSimple,
-    badge: 'Newsletter',
-    badgeClass: 'badge-blue',
-    title: 'Newsletter mensual',
-    desc: 'Una vez al mes: novedades legales, eventos de la comunidad, nuevas guías y recursos.',
-    items: ['Sin spam — una vez al mes', 'Cambios en leyes y trámites', 'Nuevos coworkings y cafés', 'Historias de la comunidad'],
+    Icon: EnvelopeSimple, badge: 'Newsletter', title: 'Newsletter mensual',
+    desc: 'Una vez al mes: novedades legales, eventos y nuevas guías.',
+    items: ['Sin spam — solo lo útil', 'Cambios en leyes y trámites', 'Historias de la comunidad'],
   },
 ]
 
 export default function FeaturesSection() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start 0.75', 'end 0.25'] })
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
+
   return (
     <section className="features-section">
-      <div className="features-section-header">
+      <div className="features-header">
         <div className="section-eyebrow">Lo que incluye</div>
         <h2>Todo lo que viene con unirte</h2>
         <p>Gratis para siempre. Premium más adelante para quien quiera más.</p>
       </div>
-      <div className="features-grid">
-        {features.map((f) => (
-          <div key={f.title} className="feature-card">
-            <span className="feature-card-icon"><f.Icon size={28} weight="thin" /></span>
-            <span className={`feature-card-badge ${f.badgeClass}`}>{f.badge}</span>
-            <h3>{f.title}</h3>
-            <p>{f.desc}</p>
-            <ul className="feature-list">
-              {f.items.map((item) => <li key={item}>{item}</li>)}
-            </ul>
-          </div>
-        ))}
+
+      <div className="features-timeline" ref={containerRef}>
+        <div className="timeline-track">
+          <motion.div className="timeline-fill" style={{ height: lineHeight }} />
+        </div>
+
+        {features.map((f, i) => {
+          const isLeft = i % 2 === 0
+          const isGold = !isLeft
+          return (
+            <motion.div
+              key={f.title}
+              className={`timeline-item ${isLeft ? 'timeline-item--left' : 'timeline-item--right'} ${isGold ? 'timeline-item--gold' : 'timeline-item--blue'}`}
+              initial={{ opacity: 0, x: isLeft ? -24 : 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, amount: 0.4 }}
+              transition={{ duration: 0.38, ease: [0.23, 1, 0.32, 1] }}
+            >
+              <div className="timeline-dot" />
+              <div className="timeline-content">
+                <div className="timeline-icon"><f.Icon size={20} weight="regular" /></div>
+                <div className="timeline-body">
+                  <div className="timeline-title-row">
+                    <span className="timeline-num">0{i + 1}</span>
+                    <h3>{f.title}</h3>
+                    <span className="timeline-badge">{f.badge}</span>
+                  </div>
+                  <p>{f.desc}</p>
+                  <ul className="timeline-items">
+                    {f.items.map(item => <li key={item}>{item}</li>)}
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+          )
+        })}
       </div>
     </section>
   )

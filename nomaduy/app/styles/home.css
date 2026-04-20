@@ -549,10 +549,10 @@
 .pdf-banner-note { color: rgba(255,255,255,0.45); font-size: 0.76rem; margin-top: 8px; }
 
 /* ─── Route photo cards (ExploreUruguay section) ─────────────────── */
-.explore-section { background: var(--ink); }
+.explore-section { background: var(--surface); }
 .explore-section .section-header h2,
-.explore-section .section-header p { color: rgba(255,255,255,0.85); }
-.explore-section .section-header p { color: rgba(255,255,255,0.6); }
+.explore-section .section-header p { color: var(--navy) }
+.explore-section .section-header p { color: var(--navy); }
 .explore-section .section-header-cta { color: var(--gold-light); }
 
 .routes-photo-grid {

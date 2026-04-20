@@ -104,7 +104,7 @@ export default function Hero() {
           <p>Unite a la comunidad y recibí la guía de bienvenida en tu inbox.</p>
           <div className="join-mini-fields">
             <input type="email" placeholder="tu@email.com" />
-            <button className="join-mini-btn">Unirme gratis</button>
+            <a href="/comunidad" className="join-mini-btn">Unirme gratis</a>
           </div>
           <div className="join-mini-note">Sin spam. Cancelá cuando quieras.</div>
         </div>
