@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
 import Nav from '@/components/layout/Nav'
+import PageSubtitle from '@/components/ui/PageSubtitle'
 import Footer from '@/components/layout/Footer'
 import CommunityBanner from '@/components/sections/home/CommunityBanner'
 import PlaceMatcher from '@/components/sections/vivir/PlaceMatcher'
@@ -22,7 +23,7 @@ export default async function VivirPage() {
         <div className="page-header-inner">
           <div className="page-label">Dónde vivir</div>
           <h1>Vivir en Uruguay</h1>
-          <p>Uruguay tiene mucho más que Montevideo. Encontrá el lugar que encaja con tu ritmo, presupuesto y forma de vida.</p>
+          <PageSubtitle>Uruguay tiene mucho más que Montevideo. Encontrá el lugar que encaja con tu ritmo, presupuesto y forma de vida.</PageSubtitle>
         </div>
       </header>
       <Suspense>

@@ -1,3 +1,5 @@
+import PageSubtitle from '@/components/ui/PageSubtitle'
+
 export default function ConocerHero() {
   return (
     <div className="conocer-hero">
@@ -7,7 +9,7 @@ export default function ConocerHero() {
             Conocer Uruguay
           </div>
           <h1>Uruguay en rutas.<br />No en itinerarios de turista.</h1>
-          <p>Rutas diseñadas por gente que vive acá — para fines de semana, vacaciones cortas y salidas desde Montevideo.</p>
+          <PageSubtitle>Rutas diseñadas por gente que vive acá — para fines de semana, vacaciones cortas y salidas desde Montevideo.</PageSubtitle>
         </div>
         <div className="hero-stats">
           <div className="hero-stat">

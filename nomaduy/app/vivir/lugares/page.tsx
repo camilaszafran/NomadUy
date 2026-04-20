@@ -1,4 +1,5 @@
 import Nav from '@/components/layout/Nav'
+import PageSubtitle from '@/components/ui/PageSubtitle'
 import Footer from '@/components/layout/Footer'
 import Link from 'next/link'
 import { sanityFetch, placesQuery } from '@/lib/sanity'
@@ -23,7 +24,7 @@ export default async function LugaresPage() {
           </Link>
           <div className="page-label">Todos los lugares</div>
           <h1>Uruguay, región por región</h1>
-          <p>Cada rincón del país tiene su carácter. Explorá todos los lugares para encontrar el tuyo.</p>
+          <PageSubtitle>Cada rincón del país tiene su carácter. Explorá todos los lugares para encontrar el tuyo.</PageSubtitle>
         </div>
       </header>
 

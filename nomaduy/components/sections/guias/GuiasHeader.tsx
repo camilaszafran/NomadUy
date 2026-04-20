@@ -1,3 +1,5 @@
+import PageSubtitle from '@/components/ui/PageSubtitle'
+
 export default function GuiasHeader() {
   return (
     <>
@@ -5,7 +7,7 @@ export default function GuiasHeader() {
         <div className="page-header-inner">
           <div className="page-label">Guías</div>
           <h1>Todo lo que necesitás<br />saber para vivir acá.</h1>
-          <p>Desde el primer día hasta los trámites de residencia — guías claras, prácticas y escritas por gente que lo vivió.</p>
+          <PageSubtitle>Desde el primer día hasta los trámites de residencia — guías claras, prácticas y escritas por gente que lo vivió.</PageSubtitle>
         </div>
       </header>
 
