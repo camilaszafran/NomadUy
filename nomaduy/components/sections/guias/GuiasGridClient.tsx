@@ -112,7 +112,7 @@ export default function GuiasGridClient({ guides }: { guides: GuideCard[] }) {
                       alt={guide.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      style={{ objectFit: 'cover', filter: 'blur(2px)', transform: 'scale(1.03)' }}
+                      style={{ objectFit: 'cover' }}
                     />
                     <div className="gcard-thumb-overlay" />
                   </>
