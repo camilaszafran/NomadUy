@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useMemo, useRef } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import PlaceCard from './PlaceCard'
@@ -48,11 +49,27 @@ function Slider({ label, value, minLabel, maxLabel, onChange }: SliderProps) {
 }
 
 export default function PlaceMatcher({ places }: { places: Place[] }) {
+  const searchParams = useSearchParams()
   const [cost, setCost] = useState(3)
   const [urban, setUrban] = useState(3)
   const [pop, setPop] = useState(3)
   const [pinnedId, setPinnedId] = useState<string | null>(null)
   const resultRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const slug = searchParams.get('place')
+    if (!slug) return
+    const found = places.find((p) => p.slug.current === slug)
+    if (!found) return
+    setCost(found.costOfLiving)
+    setUrban(found.urbanRural)
+    setPop(found.population)
+    setPinnedId(found._id)
+    setTimeout(() => {
+      resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 100)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const sorted = useMemo(() => {
     return [...places].sort((a, b) => score(a, cost, urban, pop) - score(b, cost, urban, pop))

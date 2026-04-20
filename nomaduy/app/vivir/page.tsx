@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import Nav from '@/components/layout/Nav'
 import Footer from '@/components/layout/Footer'
 import CommunityBanner from '@/components/sections/home/CommunityBanner'
@@ -24,7 +25,9 @@ export default async function VivirPage() {
           <p>Uruguay tiene mucho más que Montevideo. Encontrá el lugar que encaja con tu ritmo, presupuesto y forma de vida.</p>
         </div>
       </header>
-      <PlaceMatcher places={places} />
+      <Suspense>
+        <PlaceMatcher places={places} />
+      </Suspense>
       <PdfBanner />
       <Footer />
     </>

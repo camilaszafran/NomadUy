@@ -30,7 +30,7 @@ export default async function LugaresPage() {
       <main className="main-wrap">
         <div className="lugares-grid">
           {places.map((place) => (
-            <div key={place._id} className="lugar-card">
+            <Link key={place._id} href={`/vivir?place=${place.slug.current}`} className="lugar-card">
               <div
                 className="lugar-card-img"
                 style={{
@@ -75,7 +75,7 @@ export default async function LugaresPage() {
                   </span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </main>
