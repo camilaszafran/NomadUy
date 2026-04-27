@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
+import { resend } from '@/lib/resend'
+import { welcomeEmail } from '@/lib/emails/welcome'
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -30,6 +32,14 @@ export async function POST(request: Request) {
     console.error('Supabase error:', error)
     return NextResponse.json({ error: 'Error al registrarse. Intentá de nuevo.' }, { status: 500 })
   }
+
+  // Send welcome email — non-blocking, a failure won't break registration
+  resend.emails.send({
+    from: 'NomadUY <bienvenida@nomad.com.uy>',
+    to: email,
+    subject: '¡Bienvenido/a a NomadUY! 🇺🇾',
+    html: welcomeEmail(nombre),
+  }).catch((err) => console.error('Resend error:', err))
 
   return NextResponse.json({ success: true })
 }

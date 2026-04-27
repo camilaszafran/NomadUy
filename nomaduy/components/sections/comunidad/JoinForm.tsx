@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const COUNTRY_CODES = [
   { code: '+54',  label: '🇦🇷 +54' },
@@ -78,6 +78,15 @@ export default function JoinForm() {
   const [cuandoLlegas, setCuandoLlegas] = useState('')
   const [status, setStatus] = useState<Status>('idle')
   const [errorMsg, setErrorMsg] = useState('')
+
+  useEffect(() => {
+    if (status !== 'success') return
+    // TODO: swap 'es' for locale once i18n is implemented
+    const a = document.createElement('a')
+    a.href = '/guides/guia-es.pdf'
+    a.download = 'NomadUY - Tus primeros 30 días en Uruguay.pdf'
+    a.click()
+  }, [status])
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -208,7 +217,7 @@ export default function JoinForm() {
       <button className="submit-btn" type="submit" disabled={status === 'loading'}>
         {status === 'loading' ? 'Registrando...' : 'Unirme a la comunidad →'}
       </button>
-      <p className="form-privacy">Sin spam. Solo cosas útiles. Podés darte de baja cuando quieras.</p>
+      <p className="form-privacy">Sin spam. Accedé a nuestro Whatsapp.</p>
     </form>
   )
 }
