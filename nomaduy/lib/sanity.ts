@@ -4,12 +4,18 @@ export const sanityClient = createClient({
   projectId: process.env.SANITY_PROJECT_ID!,
   dataset: process.env.SANITY_DATASET!,
   apiVersion: '2024-01-01',
-  useCdn: true,
+  useCdn: false,
   token: process.env.SANITY_API_TOKEN,
 })
 
-export async function sanityFetch<T>(query: string, params?: Record<string, unknown>): Promise<T> {
-  return sanityClient.fetch<T>(query, params ?? {})
+export async function sanityFetch<T>(
+  query: string,
+  params?: Record<string, unknown>,
+  options?: { revalidate?: number }
+): Promise<T> {
+  return sanityClient.fetch<T>(query, params ?? {}, {
+    next: { revalidate: options?.revalidate ?? 3600 },
+  })
 }
 
 // GROQ: all guide cards for the grid, ordered
@@ -77,6 +83,27 @@ export const placesQuery = `
       url,
       "logo": logo { "url": asset->url }
     }
+  }
+`
+
+// GROQ: all rutas for the conocer page
+export const rutasQuery = `
+  *[_type == "ruta"] | order(_createdAt asc) {
+    _id,
+    title,
+    slug,
+    duration,
+    distance,
+    vibe,
+    interestLabel,
+    teaser,
+    stops,
+    "coverImage": coverImage { "url": asset->url, "alt": alt },
+    "photos": photos[] { "url": asset->url, "alt": alt },
+    itinerary,
+    stayLinks,
+    doLinks,
+    eatLinks,
   }
 `
 

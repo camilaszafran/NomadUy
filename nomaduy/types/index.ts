@@ -33,6 +33,41 @@ export type GuideCard = {
   }
 }
 
+export type ItineraryDay = {
+  _key: string
+  day: string
+  content: string
+}
+
+export type RouteLink = {
+  _key: string
+  label: string
+  url: string
+}
+
+export type RutaPhoto = {
+  url: string
+  alt?: string
+}
+
+export type Ruta = {
+  _id: string
+  title: string
+  slug: { current: string }
+  duration: '1 día' | 'Fin de semana' | '4–7 días'
+  distance?: string
+  vibe?: string
+  interestLabel?: string
+  teaser?: string
+  stops?: string[]
+  coverImage?: RutaPhoto
+  photos?: RutaPhoto[]
+  itinerary?: ItineraryDay[]
+  stayLinks?: RouteLink[]
+  doLinks?: RouteLink[]
+  eatLinks?: RouteLink[]
+}
+
 // Shape returned for full guide page
 export type GuideDetail = GuideCard & {
   body: PortableTextBlock[]

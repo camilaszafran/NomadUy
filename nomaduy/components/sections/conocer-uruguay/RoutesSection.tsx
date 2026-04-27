@@ -1,148 +1,119 @@
 'use client'
 
 import { useState } from 'react'
-
-const interests = [
-  { id: 'all',        label: 'Todo Uruguay' },
-  { id: 'playa',      label: 'Playa' },
-  { id: 'historia',   label: 'Historia & Cultura' },
-  { id: 'naturaleza', label: 'Naturaleza' },
-  { id: 'gastronomia',label: 'Gastronomía' },
-  { id: 'relax',      label: 'Relax & Termas' },
-]
+import { motion, AnimatePresence } from 'framer-motion'
+import type { Ruta } from '@/types'
+import RouteModal from './RouteModal'
 
 const durations = ['Todos', '1 día', 'Fin de semana', '4–7 días']
 
-const routes = [
-  {
-    interest: 'historia', interestLabel: 'Historia', interestBg: 'var(--blue-pale)', interestColor: 'var(--blue)',
-    title: 'Colonia del Sacramento', meta: ['2h 45min en auto', '1 día o fin de semana', 'Imperdible'],
-    teaser: 'Ciudad Patrimonio UNESCO a orillas del Río de la Plata. Calles de piedra, faro y el café más instagrameable del país.',
-    stops: ['Barrio Histórico', 'Faro', 'Calle de los Suspiros', 'Puerto'],
-    duration: '1 día',
-  },
-  {
-    interest: 'playa', interestLabel: 'Playa', interestBg: 'var(--blue-pale)', interestColor: 'var(--blue)',
-    title: 'Punta del Este & José Ignacio', meta: ['1h 20min en auto', 'Fin de semana', 'Verano'],
-    teaser: 'La costa más famosa de Sudamérica. Playas anchas, lobos marinos y la movida nocturna más elegante del Cono Sur.',
-    stops: ['La Brava', 'La Mansa', 'José Ignacio', 'Lobos marinos'],
-    duration: 'Fin de semana',
-  },
-  {
-    interest: 'naturaleza', interestLabel: 'Naturaleza', interestBg: 'var(--blue-pale)', interestColor: 'var(--blue)',
-    title: 'Cabo Polonio', meta: ['4h + jeep', 'Fin de semana', 'Impresionante'],
-    teaser: 'Sin luz eléctrica de red, sin wifi. Lobos marinos, dunas y atardeceres que no olvidás. El lado salvaje de Uruguay.',
-    stops: ['Dunas', 'Colonia de lobos', 'Faro', 'Playas vírgenes'],
-    duration: 'Fin de semana',
-  },
-  {
-    interest: 'relax', interestLabel: 'Relax & Termas', interestBg: 'var(--surface)', interestColor: 'var(--ink-60)',
-    title: 'Termas de Salto', meta: ['5h o bus nocturno', 'Fin de semana largo', 'Relax'],
-    teaser: 'Las termas más grandes de América del Sur. Aguas termales naturales, complejos familiares y la ciudad más cálida de Uruguay.',
-    stops: ['Termas del Daymán', 'Termas de Arapey', 'Ciudad de Salto', 'Río Uruguay'],
-    duration: 'Fin de semana',
-  },
-  {
-    interest: 'historia', interestLabel: 'Historia', interestBg: 'var(--blue-pale)', interestColor: 'var(--blue)',
-    title: 'Ciudad Vieja & Puerto', meta: ['A pie', '1 día', 'Montevideo'],
-    teaser: 'El corazón histórico de Montevideo. Mercado del Puerto, murales, arquitectura art-déco y el mejor chivito de la ciudad.',
-    stops: ['Mercado del Puerto', 'Plaza Independencia', 'Teatro Solís', 'Rambla Sur'],
-    duration: '1 día',
-  },
-  {
-    interest: 'playa', interestLabel: 'Playa', interestBg: 'var(--blue-pale)', interestColor: 'var(--blue)',
-    title: 'Punta del Diablo', meta: ['4h 30min en auto', 'Fin de semana', 'Verano'],
-    teaser: 'El pueblo de pescadores que se convirtió en el favorito de los viajeros. Casas de madera, olas bravas y muy buen ambiente.',
-    stops: ['Playa de los Pescadores', 'Playa Grande', 'Parque Santa Teresa', 'Laguna Negra'],
-    duration: 'Fin de semana',
-  },
-  {
-    interest: 'gastronomia', interestLabel: 'Gastronomía', interestBg: 'rgba(200,148,15,0.10)', interestColor: 'var(--gold)',
-    title: 'Carmelo & bodegas', meta: ['3h en auto', 'Fin de semana', 'Enoturismo'],
-    teaser: 'La región vitivinícola más cercana a Montevideo. Bodegas boutique, olivares y el mejor asado con maridaje que vas a tener.',
-    stops: ['Bodega Narbona', 'Bodega Irurtia', 'Colonia Estrella', 'Río de la Plata'],
-    duration: 'Fin de semana',
-  },
-  {
-    interest: 'naturaleza', interestLabel: 'Naturaleza', interestBg: 'var(--blue-pale)', interestColor: 'var(--blue)',
-    title: 'Valle del Lunarejo', meta: ['4h en auto', 'Fin de semana', 'Biodiversidad'],
-    teaser: 'El secreto mejor guardado de Uruguay. Cañones, cascadas, aves únicas y cero turistas. El Uruguay que no aparece en Instagram.',
-    stops: ['Cañón del Lunarejo', 'Pueblo de Rivera', 'Posadas rurales', 'Quebradas'],
-    duration: 'Fin de semana',
-  },
-]
+function getInterestStyle(label?: string): { bg: string; color: string } {
+  const map: Record<string, { bg: string; color: string }> = {
+    'Historia':       { bg: 'var(--blue-pale)',              color: 'var(--blue)'   },
+    'Playa':          { bg: 'var(--blue-pale)',              color: 'var(--blue)'   },
+    'Naturaleza':     { bg: 'var(--green-pale)',             color: 'var(--green)'  },
+    'Relax & Termas': { bg: 'rgba(26,26,46,0.06)',           color: 'var(--ink-60)' },
+    'Gastronomía':    { bg: 'rgba(200,148,15,0.10)',         color: 'var(--gold)'   },
+    'Montevideo':     { bg: 'var(--blue-pale)',              color: 'var(--blue)'   },
+  }
+  return map[label ?? ''] ?? { bg: 'var(--blue-pale)', color: 'var(--blue)' }
+}
 
-export default function RoutesSection() {
-  const [activeInterest, setActiveInterest] = useState('all')
+const cardVariants = {
+  hidden:  { opacity: 0, y: 18 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.38, delay: i * 0.06, ease: [0.23, 1, 0.32, 1] as const },
+  }),
+}
+
+interface RoutesSectionProps {
+  routes: Ruta[]
+}
+
+export default function RoutesSection({ routes }: RoutesSectionProps) {
   const [activeDuration, setActiveDuration] = useState('Todos')
+  const [activeRoute, setActiveRoute] = useState<Ruta | null>(null)
 
-  const filtered = routes.filter((r) => {
-    const matchInterest = activeInterest === 'all' || r.interest === activeInterest
-    const matchDuration = activeDuration === 'Todos' || r.duration === activeDuration
-    return matchInterest && matchDuration
-  })
+  const filtered = routes.filter((r) =>
+    activeDuration === 'Todos' || r.duration === activeDuration
+  )
 
   return (
     <>
-      <div className="interests-strip">
-        <div className="interests-inner">
-          {interests.map((i) => (
-            <button
-              key={i.id}
-              className={`int-btn${activeInterest === i.id ? ' active' : ''}`}
-              onClick={() => setActiveInterest(i.id)}
-            >
-              {i.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
       <main className="main-wrap">
         <section className="routes-section">
-          <h2>Rutas desde Montevideo</h2>
-          <p>Organizadas por tiempo de viaje y tipo de experiencia.</p>
-
-          <div className="duration-tabs">
-            {durations.map((d) => (
-              <button
-                key={d}
-                className={`dur-btn${activeDuration === d ? ' active' : ''}`}
-                onClick={() => setActiveDuration(d)}
-              >
-                {d}
-              </button>
-            ))}
+          <div className="routes-section-head">
+            <h2>Rutas desde Montevideo</h2>
+            <div className="duration-tabs">
+              {durations.map((d) => (
+                <button
+                  key={d}
+                  className={`dur-btn${activeDuration === d ? ' active' : ''}`}
+                  onClick={() => setActiveDuration(d)}
+                >
+                  {d}
+                </button>
+              ))}
+            </div>
           </div>
 
-          <div className="routes-grid">
-            {filtered.map((r) => (
-              <div key={r.title} className="route-card">
-                <div className="route-card-header">
-                  <div className="route-interest" style={{ background: r.interestBg, color: r.interestColor }}>
-                    {r.interestLabel}
-                  </div>
-                  <h3>{r.title}</h3>
-                  <div className="route-meta">
-                    {r.meta.map((m) => <span key={m}>{m}</span>)}
-                  </div>
-                </div>
-                <div className="route-teaser">{r.teaser}</div>
-                <div className="route-stops">
-                  {r.stops.map((s) => <span key={s} className="stop-chip">{s}</span>)}
-                </div>
-                <a href="#" className="route-cta-link">Ver ruta completa →</a>
-              </div>
-            ))}
+          <div className="routes-grid" key={activeDuration}>
+            <AnimatePresence mode="wait">
+              {filtered.map((r, i) => {
+                const style = getInterestStyle(r.interestLabel)
+                return (
+                  <motion.div
+                    key={r._id}
+                    className="route-card"
+                    custom={i}
+                    variants={cardVariants}
+                    initial="hidden"
+                    animate="visible"
+                    onClick={() => setActiveRoute(r)}
+                  >
+                    {r.coverImage?.url && (
+                      <div className="route-card-image">
+                        <img src={r.coverImage.url} alt={r.coverImage.alt ?? r.title} />
+                      </div>
+                    )}
+                    <div className="route-card-header">
+                      {r.interestLabel && (
+                        <div className="route-interest" style={{ background: style.bg, color: style.color }}>
+                          {r.interestLabel}
+                        </div>
+                      )}
+                      <h3>{r.title}</h3>
+                      <div className="route-meta">
+                        {r.distance && <span>{r.distance}</span>}
+                        {r.duration && <span>{r.duration}</span>}
+                      </div>
+                    </div>
+                    {r.teaser && <div className="route-teaser">{r.teaser}</div>}
+                    {r.stops && r.stops.length > 0 && (
+                      <div className="route-stops">
+                        {r.stops.slice(0, 3).map((s) => (
+                          <span key={s} className="stop-chip">{s}</span>
+                        ))}
+                      </div>
+                    )}
+                    <button className="route-cta-link">Ver ruta →</button>
+                  </motion.div>
+                )
+              })}
+            </AnimatePresence>
           </div>
 
           {filtered.length === 0 && (
-            <div style={{ textAlign: 'center', padding: '48px', color: 'var(--ink-60)' }}>
-              No hay rutas para esa combinación. Probá otro filtro.
-            </div>
+            <div className="routes-empty">No hay rutas para esa duración.</div>
           )}
         </section>
       </main>
+
+      {activeRoute && (
+        <RouteModal ruta={activeRoute} onClose={() => setActiveRoute(null)} />
+      )}
     </>
   )
 }

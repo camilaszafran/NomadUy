@@ -32,6 +32,7 @@
   background: var(--white);
 }
 
+html { overflow-x: hidden; }
 body { overflow-x: hidden; background: var(--cream); }
 
 /* ─── Typography ─────────────────────────────────────────────────── */
