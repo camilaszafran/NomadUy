@@ -1,0 +1,793 @@
+{
+  "8bgUEIwcO6RtWylUybbg9m": {
+    "duration": "1 day",
+    "stops": [
+      "Historic District",
+      "Far away",
+      "Sighs Street",
+      "Port"
+    ],
+    "itinerary": [
+      {
+        "day": "Directions",
+        "content": "By car from Montevideo: 2 hours 45 minutes via Route 1. By bus from Tres Cruces Terminal: COPSA or Turil, ~2 hours 30 minutes, about $400 UYU (check current prices at urubus.com.uy). You can also get there by ferry from Buenos Aires: Seacat makes the trip to Colonia in 1 hour, a popular option for those coming from Argentina. Buquebus also operates from Montevideo."
+      },
+      {
+        "day": "Tomorrow — Historic District",
+        "content": "Arrive early and take a leisurely stroll through the neighborhood. Start at the Plaza Mayor and its museum of colonial archaeology. Calle de los Suspiros (a cobblestone street lined with wrought-iron streetlamps) is the most photographed spot. The ruins of the Convent of San Francisco date back to the 17th century. The Portón de Campo—the original entrance to the walled city—gives you a sense of the city’s former grandeur. The entire historic district has been a UNESCO World Heritage Site since 1995. It takes about two hours to see it all if you walk slowly."
+      },
+      {
+        "day": "Noon — Lighthouse and Harbor",
+        "content": "I climbed up to the lighthouse (built on the ruins of a convent) for the best view of the Río de la Plata. On clear days, you can see Buenos Aires in the distance—45 km of water separates the two capitals. Head down to Puerto Viejo: the colorful boats of the local fishermen, the seagulls. The area has several restaurants with riverfront terraces; midday is the perfect time to enjoy seafood or fresh pasta."
+      },
+      {
+        "day": "Afternoon — Historic Houses and Tour",
+        "content": "Take a tour of the Portuguese Tile Museum and Casa Nacarello. Stop by the artisanal ice cream shop on Calle Real before heading out. If you’re driving and leave before 5 p.m., you’ll arrive in Montevideo before nightfall. If you’d like to stay, the sunset over the river from the Old Port is one of the best in the country. Many people make this trip as a day trip from Buenos Aires via ferry."
+      }
+    ],
+    "stayLinks": [
+      {
+        "label": "View hotels on Booking",
+        "url": "https://www.booking.com/searchresults.es.html?ss=Colonia+del+Sacramento%2C+Uruguay"
+      },
+      {
+        "label": "View rentals on Airbnb",
+        "url": "https://www.airbnb.com/s/Colonia-del-Sacramento--Uruguay/homes"
+      },
+      {
+        "label": "Colonia Tourism (Official)",
+        "url": "https://asociacionturisticacolonia.com.uy/"
+      }
+    ],
+    "doLinks": [
+      {
+        "label": "Historic District (UNESCO World Heritage Site)",
+        "url": "https://whc.unesco.org/en/list/747/"
+      },
+      {
+        "label": "Cologne Lighthouse",
+        "url": "https://www.google.com/maps/search/Faro+de+Colonia+del+Sacramento"
+      },
+      {
+        "label": "Ferry from Buenos Aires — Seacat",
+        "url": "https://www.seacatcolonia.com.uy/"
+      },
+      {
+        "label": "Buquebus Ferry",
+        "url": "https://www.buquebus.com/"
+      }
+    ],
+    "eatLinks": [
+      {
+        "label": "El Drugstore (fine dining, historic district)",
+        "url": "https://www.tripadvisor.com/Restaurant_Review-g312724-d1013543-Reviews-El_Drugstore-Colonia_del_Sacramento_Colonia_Department.html"
+      },
+      {
+        "label": "Mesón de la Plaza (traditional, outdoor seating)",
+        "url": "https://www.google.com/maps/search/Meson+de+la+Plaza+Colonia+del+Sacramento"
+      },
+      {
+        "label": "Restaurants with a view of the river",
+        "url": "https://www.tripadvisor.com/Restaurants-g312724-Colonia_del_Sacramento_Colonia_Department.html"
+      }
+    ],
+    "title": "Colonia del Sacramento",
+    "teaser": "A UNESCO World Heritage City on the banks of the Río de la Plata. Cobblestone streets, a lighthouse, and the most Instagrammable café in the country.",
+    "vibe": "UNESCO World Heritage Site",
+    "interestLabel": "History"
+  },
+  "8bgUEIwcO6RtWylUybbgNm": {
+    "duration": "Weekend",
+    "stops": [],
+    "itinerary": [
+      {
+        "day": "Directions",
+        "content": "By car: Route 3 to Salto, ~5 hours. By bus: several companies depart from Terminal Tres Cruces (EGA, Turil, Cita), with both daytime and nighttime services. The overnight bus is comfortable: you leave at 10–11 p.m. and arrive in the morning, saving you a night’s lodging. Approximate price: $800–1,100 UYU (check urubus.com.uy). Termas del Daymán is 8 km from downtown Salto—accommodations are usually located within the same complex or very close by."
+      },
+      {
+        "day": "Day 1 — Daymán Hot Springs",
+        "content": "The Termas del Daymán Resort is the largest in the country: over 11 pools with thermal water ranging from 28°C to 42°C, a children’s area, outdoor and indoor hot tubs, an adults-only section, and a restaurant. The water flows from the ground at its natural temperature. In winter (May–August), it’s the ultimate experience: cold air outside, hot water. It’s also open in summer but gets more crowded. You can stay at the complex itself (cabins, hotel) or in accommodations in the town of Daymán, 2 km away. If you’re looking for something more natural and peaceful, Termas de Salto Grande (13 km from Salto) offers a more jungle-like atmosphere next to the reservoir."
+      },
+      {
+        "day": "Day 2 — Salto",
+        "content": "Salto is Uruguay’s second-largest city and has a rhythm all its own, completely different from Montevideo. The historic district features early 20th-century architecture. The Central Market is the place to be: you can enjoy a hearty breakfast and pick up some local goods. The waterfront along the Uruguay River (the river that separates Uruguay from Argentina) is perfect for an evening stroll. Harriague Park has groves of native Yatay palms and is a great spot for a picnic. The Salto Grande Dam (12 km from downtown) is a binational engineering marvel worth visiting."
+      }
+    ],
+    "stayLinks": [
+      {
+        "label": "Daymán Hot Springs Resort (self-catering)",
+        "url": "https://www.termasdeldayman.com/"
+      },
+      {
+        "label": "Airbnb Accommodations — Salto",
+        "url": "https://www.airbnb.com/s/Salto--Uruguay/homes"
+      },
+      {
+        "label": "Hotels on Booking — Salto",
+        "url": "https://www.booking.com/searchresults.es.html?ss=Salto%2C+Uruguay"
+      }
+    ],
+    "doLinks": [
+      {
+        "label": "Daymán Hot Springs (official)",
+        "url": "https://www.termasdeldayman.com/"
+      },
+      {
+        "label": "Salto Grande Hot Springs",
+        "url": "https://turismo.salto.gub.uy/termal"
+      },
+      {
+        "label": "Salto Tourism (Official)",
+        "url": "https://turismo.salto.gub.uy/"
+      },
+      {
+        "label": "Uruguay Hot Springs Destination",
+        "url": "https://destinotermas.gub.uy/"
+      }
+    ],
+    "eatLinks": [
+      {
+        "label": "Restaurant in Termas del Daymán",
+        "url": "https://www.termasdeldayman.com/"
+      },
+      {
+        "label": "Salto Central Market",
+        "url": "https://www.google.com/maps/search/Mercado+Central+Salto+Uruguay"
+      },
+      {
+        "label": "Restaurants in Salto",
+        "url": "https://www.tripadvisor.com/Restaurants-g312734-Salto_Salto_Department.html"
+      }
+    ],
+    "title": "Salto Hot Springs",
+    "teaser": "The largest hot springs in South America. Natural hot springs, family-friendly resorts, and the warmest city in Uruguay.",
+    "vibe": "Hot Springs & Authentic City",
+    "interestLabel": "Relax & Thermal Baths"
+  },
+  "8bgUEIwcO6RtWylUybbgVm": {
+    "duration": "Weekend",
+    "stops": [
+      "Fishermen's Beach",
+      "Playa Grande",
+      "Santa Teresa Park",
+      "Black Lagoon"
+    ],
+    "itinerary": [
+      {
+        "day": "Directions",
+        "content": "By car from Montevideo: Interbalnearia Highway (Route 9) to Rocha, then Route 10 north to Punta del Diablo. Total travel time: ~4 hours 30 minutes. By bus: COPSA from Tres Cruces with a stop in Punta del Diablo, ~5 hours. The town doesn't have a reliable ATM—bring cash. It gets very crowded during peak season (January–February); the best time to visit is November–December or March–April: good weather, fewer people."
+      },
+      {
+        "day": "Day 1 — Santa Teresa National Park",
+        "content": "If you arrive early, stop first at Santa Teresa National Park (12 km before Punta del Diablo). It’s one of the best parks in Uruguay: the 18th-century colonial Santa Teresa Fortress, a native plant nursery, long, uncrowded beaches within the park, and forests of pine and eucalyptus trees. Admission is free. There is a campground. The beaches inside the park (Playa Grande de Santa Teresa) are the best in the area."
+      },
+      {
+        "day": "Day 1, afternoon — Arrival in the village",
+        "content": "The town of Punta del Diablo itself is small: just a few dirt streets, colorful wooden houses, and Playa de los Pescadores, where boats still set out at dawn. Playa Grande has good waves for surfing (there are surf schools). The nightlife during the high season is young and laid-back, with plenty of bonfires on the beach."
+      },
+      {
+        "day": "Day 2 — Laguna Negra and back",
+        "content": "Laguna Negra is 30 km north, on the way to Castillos. It’s not very well known, but it’s enormous (the second-largest lagoon in Uruguay) and offers excellent birdwatching. On the way back, stop in La Paloma or La Pedrera if you’d like to visit another beach. La Pedrera has a boutique, laid-back vibe, very different from Punta del Diablo. Both are good options for breaking up the trip home."
+      }
+    ],
+    "stayLinks": [
+      {
+        "label": "Airbnb Listings",
+        "url": "https://www.airbnb.com/s/Punta-del-Diablo--Uruguay/homes"
+      },
+      {
+        "label": "Accommodations on Booking",
+        "url": "https://www.booking.com/searchresults.es.html?ss=Punta+del+Diablo%2C+Uruguay"
+      }
+    ],
+    "doLinks": [
+      {
+        "label": "Santa Teresa National Park",
+        "url": "https://www.google.com/maps/search/Parque+Nacional+Santa+Teresa+Uruguay"
+      },
+      {
+        "label": "Turismo Rocha (official)",
+        "url": "https://turismorocha.gub.uy/"
+      },
+      {
+        "label": "Black Lagoon",
+        "url": "https://www.google.com/maps/search/Laguna+Negra+Rocha+Uruguay"
+      }
+    ],
+    "eatLinks": [
+      {
+        "label": "Restaurants in Punta del Diablo",
+        "url": "https://www.tripadvisor.com/Restaurants-g2181897-Punta_del_Diablo_Rocha_Department.html"
+      }
+    ],
+    "title": "Devil's Point",
+    "teaser": "The fishing village that has become a favorite among travelers. Wooden houses, crashing waves, and Santa Teresa Park just 12 km away. The most authentic Rocha.",
+    "vibe": "Fishing village & nature",
+    "interestLabel": "Beach"
+  },
+  "8bgUEIwcO6RtWylUybbgnm": {
+    "duration": "4–7 days",
+    "stops": [
+      "Lunarejo Canyon",
+      "Town of Rivera",
+      "Rural inns",
+      "Ravines"
+    ],
+    "itinerary": [
+      {
+        "day": "Day 1 — Travel and Tacuarembó",
+        "content": "The drive north through Uruguay is part of the experience: open fields, rolling hills, and cattle. Tacuarembó is the capital of the department and the heart of gaucho culture. The city has several well-curated gaucho museums. Spending a night in Tacuarembó before continuing on to the valley is the best plan. The Festival de la Patria Gaucha (March) is the most important event in the region: rodeo, crafts, folk music, and traditional clothing. If it coincides with your visit, don’t miss it."
+      },
+      {
+        "day": "Day 2 — Lunarejo Valley",
+        "content": "The Lunarejo Valley is an hour north of Tacuarembó, near Rivera. It’s a subtropical gorge that’s completely unexpected in Uruguay: palm trees, ferns, parrots, waterfalls. The landscape breaks with the image of the flat coastal country. There are hiking trails, natural pools for swimming, and rural inns. The bird biodiversity is exceptional—birdwatchers from all over the country come here. There aren’t many signs or maps: it’s helpful to go with a local guide or ask for detailed directions at the inn."
+      },
+      {
+        "day": "Days 3–4 — The River and the Brazilian Border",
+        "content": "Rivera is a city unlike any other in the world: the downtown area on the Uruguayan side is indistinguishable from the downtown area of Santana do Livramento (Brazil). You literally cross the street and you’re in another country, with no daily immigration checks for locals. Shops offer a mix of prices (Uruguayan duty-free shops, Brazilian markets), the cuisine is a fusion, and the language you hear is “Portuñol”—a spoken blend of Spanish and Portuguese that is the border’s own language."
+      }
+    ],
+    "stayLinks": [
+      {
+        "label": "Rural inns (Lunarejo Valley)",
+        "url": "https://www.lunarejo.uy"
+      },
+      {
+        "label": "Accommodations in Tacuarembó (Booking)",
+        "url": "https://www.booking.com/searchresults.es.html?ss=Tacuaremb%C3%B3%2C+Uruguay"
+      },
+      {
+        "label": "Airbnb — Rivera",
+        "url": "https://www.airbnb.com/s/Rivera--Uruguay/homes"
+      }
+    ],
+    "doLinks": [
+      {
+        "label": "Lunarejo Valley (official)",
+        "url": "https://www.lunarejo.uy"
+      },
+      {
+        "label": "Tacuarembó Tourism (Official)",
+        "url": "https://www.tacuaremboturismo.gub.uy/"
+      },
+      {
+        "label": "AllTrails — Trails in Uruguay",
+        "url": "https://www.alltrails.com/uruguay"
+      }
+    ],
+    "eatLinks": [
+      {
+        "label": "Restaurants in Tacuarembó",
+        "url": "https://www.tripadvisor.com/Restaurants-g312731-Tacuarembo_Tacuarembo_Department.html"
+      }
+    ],
+    "title": "Lunarejo Valley",
+    "teaser": "Uruguay's best-kept secret. Canyons, waterfalls, subtropical vegetation, and no tourists. The side of the country you won't find in any guidebook.",
+    "vibe": "Gauchos & Remote Nature",
+    "interestLabel": "Nature"
+  },
+  "8bgUEIwcO6RtWylUycCg9m": {
+    "duration": "Weekend",
+    "stops": [
+      "Guaviyú Hot Springs",
+      "Almirón Hot Springs",
+      "Historic District",
+      "International Bridge"
+    ],
+    "itinerary": [
+      {
+        "day": "Directions",
+        "content": "By car from Montevideo: Route 3 north, ~4 hours 30 minutes. By bus: Turil, Cita, or Bussur from Tres Cruces, ~4 hours. Paysandú is Uruguay’s third-largest city and the most important on the northern coast. There is an international bridge connecting to Colón, Argentina—some tourists cross over to see the hot springs on the Argentine side as well (Colón has its own hot springs)."
+      },
+      {
+        "day": "Day 1 — Guaviyú Hot Springs",
+        "content": "The Guaviyú Hot Springs are located 60 km north of Paysandú, in a forested setting along the Uruguay River. The resort is much more natural than Daymán: the pools are nestled among trees, there is less infrastructure, and it’s more peaceful. The waters flow at a natural temperature and have sulfuric properties. It’s especially nice in winter. It’s not as crowded as Salto. There are cabins on the resort grounds where you can stay."
+      },
+      {
+        "day": "Day 2 — Paysandú",
+        "content": "Paysandú hosts one of the most vibrant carnivals in Uruguay's interior (February), featuring its own dance troupes and strong local participation. The historic district features well-preserved early 20th-century Italian architecture. The Uruguay River waterfront is long and well-maintained. The General Artigas International Bridge takes you to Colón, Argentina, in just 5 minutes: a different currency, different prices, and different cuisine. The binational exchange is a special experience."
+      }
+    ],
+    "stayLinks": [
+      {
+        "label": "Cabins in Termas de Guaviyú",
+        "url": "https://www.google.com/maps/search/Termas+de+Guaviyu+Uruguay"
+      },
+      {
+        "label": "Hotels in Paysandú (Booking)",
+        "url": "https://www.booking.com/searchresults.es.html?ss=Paysand%C3%BA%2C+Uruguay"
+      },
+      {
+        "label": "Airbnb in Paysandú",
+        "url": "https://www.airbnb.com/s/Paysandú--Uruguay/homes"
+      }
+    ],
+    "doLinks": [
+      {
+        "label": "Destino Termas Uruguay (Official)",
+        "url": "https://destinotermas.gub.uy/"
+      },
+      {
+        "label": "Paysandú–Colón Binational Destination",
+        "url": "https://www.destinobinacional.uy"
+      },
+      {
+        "label": "Almirón Hot Springs",
+        "url": "https://www.google.com/maps/search/Termas+de+Almiron+Uruguay"
+      }
+    ],
+    "eatLinks": [
+      {
+        "label": "Restaurants in Paysandú",
+        "url": "https://www.tripadvisor.com/Restaurants-g312728-Paysandu_Paysandu_Department.html"
+      },
+      {
+        "label": "Dining in Colón, Argentina (across the bridge)",
+        "url": "https://www.google.com/maps/search/restaurantes+Colon+Entre+Rios+Argentina"
+      }
+    ],
+    "title": "Paysandú & Termas del Litoral",
+    "teaser": "Uruguay's lesser-known hot springs, in the city that celebrates Carnival best. Paysandú offers a coastal experience without the mass tourism of Salto, complete with a border crossing into Argentina.",
+    "vibe": "Peaceful hot springs & the Argentine border",
+    "interestLabel": "Relax & Thermal Baths"
+  },
+  "8bgUEIwcO6RtWylUycCgHm": {
+    "duration": "1 day",
+    "stops": [
+      "Winery Bouza",
+      "Pisano Winery",
+      "Juanicó Winery",
+      "De Lucca Winery"
+    ],
+    "itinerary": [
+      {
+        "day": "Uruguayan wine — background",
+        "content": "Uruguay is South America’s fourth-largest wine producer and has the highest per capita consumption in the region. The flagship grape variety is Tannat, originally from southwestern France, which has found its most renowned home in Uruguay. The department of Canelones accounts for 60% of the country’s wine production. The best part: the wineries are so close to Montevideo that you can complete the entire wine route in a single day."
+      },
+      {
+        "day": "Tomorrow — Bouza Winery and Pisano Winery",
+        "content": "Bodega Bouza (20 minutes from Montevideo) is probably the best known among international visitors: premium tastings, a collection of classic cars, and modern architecture. Reservations are required. Bodega Pisano is a family-run winery of the highest quality—less touristy and more intimate. Its Tannat wines and blends have won international awards. The tour includes the cellar and the vineyard."
+      },
+      {
+        "day": "Afternoon — Juanicó and De Lucca",
+        "content": "Bodega Juanicó (founded in 1830) is Uruguay’s largest historic winery. The main building is a heritage site. They offer tours and have a well-stocked shop. Bodega De Lucca is more artisanal and more expensive—and ranks among the most highly regarded by local sommeliers. If you only have time for one “cult” winery, this is the one. For lunch, several wineries have restaurants on the property, or there are a couple of country-style steakhouses in the area. The return to Montevideo is before sunset."
+      }
+    ],
+    "stayLinks": [
+      {
+        "label": "There's no need to stay overnight (1 day from Montevideo)",
+        "url": "https://www.booking.com/searchresults.es.html?ss=Canelones%2C+Uruguay"
+      }
+    ],
+    "doLinks": [
+      {
+        "label": "Bouza Winery (book a tour)",
+        "url": "https://www.bodegabouza.com/"
+      },
+      {
+        "label": "Juanicó Winery",
+        "url": "https://www.juanico.com/"
+      },
+      {
+        "label": "Canelones Tourism — Wine Route",
+        "url": "https://atccanelones.com.uy/"
+      },
+      {
+        "label": "Pisano Winery",
+        "url": "https://www.pisanowinery.com/"
+      }
+    ],
+    "eatLinks": [
+      {
+        "label": "Restaurant at Bodega Bouza",
+        "url": "https://www.bodegabouza.com/"
+      },
+      {
+        "label": "Outdoor Barbecues in Canelones",
+        "url": "https://www.google.com/maps/search/parrillada+Canelones+Uruguay"
+      }
+    ],
+    "title": "Wine Route — Canelones",
+    "teaser": "Uruguay's best wineries are just a half-hour drive from Montevideo. Tannat—the country's signature grape—originated in Canelones. You can visit them all in a single day without leaving the metropolitan area.",
+    "vibe": "Uruguayan wine & countryside",
+    "interestLabel": "Cuisine"
+  },
+  "d8amj47uvVBLsAtEyQR7Yi": {
+    "duration": "Weekend",
+    "stops": [
+      "Palacio Caves",
+      "Serrano Village",
+      "Cerro Arequita",
+      "Mountain Springs"
+    ],
+    "itinerary": [
+      {
+        "day": "How to get there — the advantage of Lavalleja",
+        "content": "Lavalleja is the best-kept secret near Montevideo: just a 1.5-hour drive east on Route 8. The department’s capital is Minas, a quiet, authentic town that serves as a good base. By bus: COPSA runs from Tres Cruces to Minas (~1.5 hours), with frequent service. From Minas, there are minibuses and taxis to the various attractions. Traveling by car offers much more flexibility."
+      },
+      {
+        "day": "Day 1 — Palacio Caves (Geopark)",
+        "content": "The Grutas del Palacio are one of Uruguay’s most unique geological sites: millions-of-years-old hexagonal basalt columns, similar to those found in Northern Ireland or Iceland but virtually unknown to tourists. It is a Geopark seeking UNESCO designation. Admission is affordable, and local guides are available. The surrounding landscape features low mountain ranges, native forests, and total silence. Just 15 km away is Cerro Arequita, with caves and panoramic views of the eastern mountain ranges—you can hike there with a guide."
+      },
+      {
+        "day": "Day 2 — Villa Serrana",
+        "content": "Villa Serrana is a village of 200 people designed by Uruguayan architect Julio Vilamajó in the 1940s: stone and wood houses that blend into the landscape, with no grid electricity in the most remote areas, and trails winding through streams and waterfalls. It is arguably the most beautiful place in Uruguay’s interior, yet almost no one knows about it. There are small inns, home-cooked lunches, and kayaking on the stream. The atmosphere is very peaceful: the locals themselves will show you the way."
+      },
+      {
+        "day": "Optional — Mountain Springs",
+        "content": "Located 20 km from Minas, the Manantiales Serranos resort features natural hot springs set amid native forest. It’s a world apart from the industrial hot springs in the north: here, you’ll find an open-air thermal pool with views of the mountains, free of crowds. The resort offers camping, cabins, and a restaurant. It’s highly recommended as a way to wrap up the weekend before heading back to Montevideo."
+      }
+    ],
+    "stayLinks": [
+      {
+        "label": "Guesthouses in Villa Serrana (Airbnb)",
+        "url": "https://www.airbnb.com/s/Villa-Serrana--Uruguay/homes"
+      },
+      {
+        "label": "Manantiales Serranos (hot springs + cabin)",
+        "url": "https://manantialesserranos.uy/"
+      },
+      {
+        "label": "Hotels in Minas (Booking)",
+        "url": "https://www.booking.com/searchresults.es.html?ss=Minas%2C+Uruguay"
+      }
+    ],
+    "doLinks": [
+      {
+        "label": "Grutas del Palacio Geopark",
+        "url": "https://www.geoparque.uy/"
+      },
+      {
+        "label": "Cerro Arequita",
+        "url": "https://www.google.com/maps/search/Cerro+Arequita+Lavalleja+Uruguay"
+      },
+      {
+        "label": "Lavalleja Tourism (official)",
+        "url": "https://lavalleja.uy/"
+      },
+      {
+        "label": "AllTrails — Lavalleja Trails",
+        "url": "https://www.alltrails.com/uruguay"
+      }
+    ],
+    "eatLinks": [
+      {
+        "label": "Manantiales Serranos (restaurant)",
+        "url": "https://manantialesserranos.uy/"
+      },
+      {
+        "label": "Restaurants in Minas",
+        "url": "https://www.tripadvisor.com/Restaurants-g644248-Minas_Lavalleja_Department.html"
+      }
+    ],
+    "title": "Lavalleja — Villa Serrana & Grutas del Palacio",
+    "teaser": "Just 90 minutes from Montevideo, this part of Uruguay feels like a whole different country. Columnar basalt caves, a town designed by a renowned architect, and natural hot springs hidden in the mountains.",
+    "vibe": "Geology & Mountain Village",
+    "interestLabel": "Nature"
+  },
+  "d8amj47uvVBLsAtEyQR7js": {
+    "duration": "Weekend",
+    "stops": [
+      "Main ravine",
+      "Vulture Observation Point",
+      "River",
+      "Thirty-Three"
+    ],
+    "itinerary": [
+      {
+        "day": "Directions",
+        "content": "By car: Take Route 8 east toward Treinta y Tres, then follow the signs for Route 98. Total travel time from Montevideo: ~4 hours. This is a destination that requires planning: you must contact the park rangers (SNAP) before you go, and access may vary depending on the season. There is no public transportation to the park—you’ll need a car or taxi from Treinta y Tres. The town of Treinta y Tres serves as the base: quiet, authentic, and completely free of tourist pretensions."
+      },
+      {
+        "day": "Day 1 — The Gorge",
+        "content": "The Quebrada de los Cuervos is a SNAP Protected Area. What makes this gorge unique is that, in a country of plains and gentle ridges, a deep rocky ravine suddenly appears, covered in subtropical vegetation that you wouldn’t expect to find at this latitude. Tree ferns, butiá palms, dense forests with vines. And the crows: they are actually black vultures (Coragyps atratus) that nest on the rocky walls. At dawn, they glide in groups. It is one of the best places in Uruguay for birdwatching."
+      },
+      {
+        "day": "Day 2 — Hiking and streams",
+        "content": "The park’s trails lead to the bottom of the ravine, where a stream flows through pools of clear water. In the summer, you can swim there. In the fall, the colors of the vegetation are spectacular. Camping is permitted within the park (coordinate with SNAP). The hike from the entrance to the bottom and back takes about 3–4 hours. Bring hiking boots, insect repellent, and water—there are no stores or services inside."
+      }
+    ],
+    "stayLinks": [
+      {
+        "label": "Accommodations in Treinta y Tres (Airbnb)",
+        "url": "https://www.airbnb.com/s/Treinta-y-Tres--Uruguay/homes"
+      },
+      {
+        "label": "Hotels in Treinta y Tres (Booking)",
+        "url": "https://www.booking.com/searchresults.es.html?ss=Treinta+y+Tres%2C+Uruguay"
+      }
+    ],
+    "doLinks": [
+      {
+        "label": "SNAP — National System of Protected Areas",
+        "url": "https://www.gub.uy/ministerio-ambiente/areas-protegidas"
+      },
+      {
+        "label": "Uruguayan Ministry of Tourism",
+        "url": "https://turismo.gub.uy/"
+      },
+      {
+        "label": "AllTrails Uruguay (GPS trails)",
+        "url": "https://www.alltrails.com/uruguay"
+      },
+      {
+        "label": "Xperience Uruguay (guided hiking tours)",
+        "url": "https://www.xperience.uy/"
+      }
+    ],
+    "eatLinks": [
+      {
+        "label": "Restaurants in Treinta y Tres",
+        "url": "https://www.google.com/maps/search/restaurantes+Treinta+y+Tres+Uruguay"
+      }
+    ],
+    "title": "Quebrada de los Cuervos",
+    "teaser": "Uruguay has a subtropical gorge teeming with black vultures, parrots, and vegetation typically found in other latitudes. La Quebrada de los Cuervos is the country’s most stunning natural park, and almost no one knows it exists.",
+    "vibe": "Birdwatching & subtropical rainforest",
+    "interestLabel": "Nature"
+  },
+  "fXjF6XXUamIA4mvUtRXO23": {
+    "duration": "Weekend",
+    "stops": [
+      "The Good One",
+      "The Manor",
+      "José Ignacio",
+      "Lobos Island"
+    ],
+    "itinerary": [
+      {
+        "day": "Directions",
+        "content": "By car: Interbalnearia Highway (Route 9), 1 hour 20 minutes from Montevideo. By bus from Tres Cruces: COT or Buquebus Bus, 2 hours, ~$500 UYU. High season (December–February): heavy traffic on Fridays. If possible, travel early on a Saturday or during the off-season (March–November is quieter and cheaper)."
+      },
+      {
+        "day": "Day 1 — La Mano and the beaches",
+        "content": "The first must-see stop: La Mano en la Arena, Mario Irarrázabal’s sculpture buried at Playa Brava. It’s the most photographed spot in Uruguay. Playa Brava has Atlantic waves (surfers, strong currents); Playa Mansa has calm waters on the Río de la Plata. They are literally two different seas separated by the tip of the cape. For sunset, head to Punta Ballena: Casapueblo (the work of Carlos Páez Vilaró) hosts a daily sunset ritual featuring painting and music. It’s well worth the visit."
+      },
+      {
+        "day": "Day 1, Night 1 — Port of Punta del Este",
+        "content": "The Old Port has the best restaurants in town. Lo de Tere is a classic spot: fresh seafood, no frills. In the summer, the whole area is bustling until late. Off-season, it’s much quieter—the restaurants are still open but have a different, more local vibe. The Punta Shopping mall is just a 5-minute walk away if you need anything."
+      },
+      {
+        "day": "Day 2 — José Ignacio",
+        "content": "The town has about 800 houses and a completely different vibe from Punta. Arrive before noon to stroll along the empty beach (it gets crowded during the high season). The José Ignacio lighthouse is small but offers great views. Uruguay’s most famous dining experience is right here: La Huella, with your feet in the sand. During the high season, you’ll need to make a reservation weeks in advance. There are other more affordable options in town. On the way back, Piriápolis is an interesting stop: Uruguay’s original seaside resort, with Art Deco architecture, much more family-friendly and peaceful than Punta."
+      }
+    ],
+    "stayLinks": [
+      {
+        "label": "View hotels on Booking",
+        "url": "https://www.booking.com/searchresults.es.html?ss=Punta+del+Este%2C+Uruguay"
+      },
+      {
+        "label": "View rentals on Airbnb",
+        "url": "https://www.airbnb.com/s/Punta-del-Este--Uruguay/homes"
+      },
+      {
+        "label": "Options in Piriápolis (more affordable)",
+        "url": "https://www.booking.com/searchresults.es.html?ss=Piri%C3%A1polis%2C+Uruguay"
+      }
+    ],
+    "doLinks": [
+      {
+        "label": "Casapueblo (tour + sunset)",
+        "url": "https://www.tripadvisor.com/Attraction_Review-g312740-d316792-Reviews-Casapueblo-Punta_del_Este_Maldonado_Department.html"
+      },
+      {
+        "label": "The Hand in the Sand (Brava Beach)",
+        "url": "https://www.google.com/maps/search/La+Mano+en+la+Arena+Playa+Brava+Punta+del+Este"
+      },
+      {
+        "label": "José Ignacio Lighthouse",
+        "url": "https://www.google.com/maps/search/Faro+Jose+Ignacio+Uruguay"
+      }
+    ],
+    "eatLinks": [
+      {
+        "label": "La Huella — José Ignacio (reserve)",
+        "url": "https://www.lahuella.com.uy/"
+      },
+      {
+        "label": "The Tere Thing — Puerto",
+        "url": "https://www.google.com/maps/search/Lo+de+Tere+Punta+del+Este"
+      },
+      {
+        "label": "Restaurants in Punta del Este",
+        "url": "https://www.tripadvisor.com/Restaurants-g312740-Punta_del_Este_Maldonado_Department.html"
+      }
+    ],
+    "title": "Punta del Este & José Ignacio",
+    "teaser": "South America's most famous coastline. Wide beaches, sea lions, and the most sophisticated nightlife in the Southern Cone.",
+    "vibe": "Coast & Cuisine",
+    "interestLabel": "Beach"
+  },
+  "fXjF6XXUamIA4mvUtRXOEL": {
+    "duration": "Weekend",
+    "stops": [
+      "Dunes",
+      "Wolf pack",
+      "Far away",
+      "Pristine beaches"
+    ],
+    "itinerary": [
+      {
+        "day": "Directions",
+        "content": "Take a bus from Terminal Tres Cruces to km 264 on Route 10 (COPSA or similar). From there, 4x4 trucks travel the 9 km across the dunes to the cape. The trucks leave once they’re full (~$500 UYU one way; check current prices). During high season (January–February) there are many departures; off-season schedules are more limited—check with your accommodation before going. Cabo Polonio is a Protected Area of the SNAP (National System of Protected Areas). There are no public access roads or grid electricity."
+      },
+      {
+        "day": "Day 1 — Arrival and the first few hours",
+        "content": "When you reach the cape, the first thing you notice is the silence. No traffic lights, no cars, no Wi-Fi. You leave your backpack at your lodging (hostels and simple cabins powered by solar energy or candles). The village has just a few houses, a park ranger station, and two or three food stands. The colony of South American sea lions (Arctocephalus australis) lives on the rocks next to the lighthouse: hundreds of animals just a few meters away. The Cabo Polonio Lighthouse can be visited during regular hours (check the schedule for your travel date). On the first night, if there’s a crescent or full moon, the dunes glow. If there’s no moon: the starry sky is among the best in Uruguay."
+      },
+      {
+        "day": "Day 2 — Dunes and pristine beaches",
+        "content": "In the morning, you walk north: the large dunes are about 2 km from the village. There are no marked trails; you just walk through the sand. The beaches on both sides of the cape are completely untouched. In summer, the Atlantic water is cold, but you can swim. In winter, you won’t swim, but the experience is wilder and there are far fewer people. Food options are limited: the village stalls serve simple dishes. Bring snacks. The return van ride has fixed schedules—your accommodation will tell you the times. Book your ride in advance during high season."
+      }
+    ],
+    "stayLinks": [
+      {
+        "label": "Airbnb Listings",
+        "url": "https://www.airbnb.com/s/Cabo-Polonio--Uruguay/homes"
+      },
+      {
+        "label": "Options on Booking",
+        "url": "https://www.booking.com/searchresults.es.html?ss=Cabo+Polonio%2C+Uruguay"
+      }
+    ],
+    "doLinks": [
+      {
+        "label": "SNAP — Cabo Polonio Protected Area",
+        "url": "https://vidasilvestre.org.uy"
+      },
+      {
+        "label": "Cabo Polonio Lighthouse",
+        "url": "https://www.google.com/maps/search/Faro+Cabo+Polonio"
+      },
+      {
+        "label": "Turismo Rocha (official)",
+        "url": "https://turismorocha.gub.uy/"
+      }
+    ],
+    "eatLinks": [
+      {
+        "label": "Restaurants in Cabo Polonio",
+        "url": "https://www.tripadvisor.com/Restaurants-g1808260-Cabo_Polonio_Rocha_Department.html"
+      }
+    ],
+    "title": "Cabo Polonio",
+    "teaser": "No electricity, no Wi-Fi. Sea lions, sand dunes, and sunsets you’ll never forget. The wild side of Uruguay.",
+    "vibe": "Off-grid, without grid power",
+    "interestLabel": "Nature"
+  },
+  "fXjF6XXUamIA4mvUtRXOMX": {
+    "duration": "1 day",
+    "stops": [
+      "Port Market",
+      "Independence Square",
+      "Solís Theater",
+      "Rambla Sur"
+    ],
+    "itinerary": [
+      {
+        "day": "Tomorrow — Old Town",
+        "content": "Start at Plaza Independencia: the Palacio Salvo (Uruguay’s most iconic building, an Art Deco structure completed in 1928), the equestrian statue of Artigas, and the mausoleum beneath it. Walk along the Sarandí pedestrian street toward Ciudad Vieja: the Teatro Solís—one of the most important theaters in South America—offers free guided tours on certain days. Ciudad Vieja is full of high-quality street murals. The Torres García Museum (Sarandí 683) is one of the best museums in the country—small, easy to navigate, and free on Sundays."
+      },
+      {
+        "day": "Noon — Port Market",
+        "content": "On Saturday at noon, the Mercado del Puerto is the place to be. Grills blazing, smoke filling the air, the sizzle of meat, and milonga music playing in the background. It’s not cheap, but it’s the most quintessentially Uruguayan culinary experience you’ll find: a small platter with grilled meat, chorizo, and blood sausage, plus a “medio y medio” (champagne and white wine). It’s also open during the week, with a less lively atmosphere but the same quality. The early hours following Saturday are when the Market is at its liveliest. If you’re looking for something cheaper: the Tristán Narvaja Fair (Sundays in the Cordón neighborhood) is Montevideo’s most famous flea market."
+      },
+      {
+        "day": "Afternoon — Rambla and Cerro",
+        "content": "Montevideo’s Rambla is a 22-kilometer-long coastal promenade. From Old Town, you can walk east along the Rambla Sur. Cerro de Montevideo (across the bay) is home to the country’s only military fortress and offers panoramic views of the city. You can get there by bus from Old Town (~30 min). For sunset, stay at the Old Town pier or walk toward the new port—there are casual bars with great views."
+      }
+    ],
+    "stayLinks": [
+      {
+        "label": "Hotels in Montevideo (Booking)",
+        "url": "https://www.booking.com/searchresults.es.html?ss=Ciudad+Vieja%2C+Montevideo%2C+Uruguay"
+      },
+      {
+        "label": "Airbnb in Old Town and the surrounding area",
+        "url": "https://www.airbnb.com/s/Ciudad-Vieja--Montevideo--Uruguay/homes"
+      }
+    ],
+    "doLinks": [
+      {
+        "label": "Port Market",
+        "url": "https://www.mercadodelpuerto.com/"
+      },
+      {
+        "label": "Solís Theater (guided tours)",
+        "url": "https://www.teatrosolis.org.uy/"
+      },
+      {
+        "label": "Torres García Museum",
+        "url": "https://www.torresgarcia.org.uy/"
+      },
+      {
+        "label": "Rambla de Montevideo",
+        "url": "https://www.google.com/maps/search/Rambla+Montevideo"
+      }
+    ],
+    "eatLinks": [
+      {
+        "label": "Mercado del Puerto (barbecue)",
+        "url": "https://www.mercadodelpuerto.com/"
+      },
+      {
+        "label": "Montevideo Agricultural Market (MAM)",
+        "url": "https://mam.com.uy/"
+      },
+      {
+        "label": "Restaurants in Old Town",
+        "url": "https://www.tripadvisor.com/Restaurants-g312741-Montevideo_Montevideo_Department.html"
+      }
+    ],
+    "title": "Old Town & Harbor",
+    "teaser": "The historic heart of Montevideo. The Mercado del Puerto, murals, Art Deco architecture, and the best chivito in town. A perfect day out without leaving the capital.",
+    "vibe": "History, murals, and the market",
+    "interestLabel": "History"
+  },
+  "fXjF6XXUamIA4mvUtRXOas": {
+    "duration": "Weekend",
+    "stops": [
+      "Narbonne Winery",
+      "Winery Irurtia",
+      "Colonia Estrella",
+      "River Plate"
+    ],
+    "itinerary": [
+      {
+        "day": "Directions and the route",
+        "content": "By car: Take Route 1 toward Colonia, then Route 21 toward Carmelo (~3 hours). The drive along Route 21 takes you through a landscape of vineyards and ranches. A more unique option: take the ferry from Tigre (Buenos Aires) to Carmelo—a one-of-a-kind experience that connects Argentina and Uruguay in an unconventional way."
+      },
+      {
+        "day": "Day 1 — Wineries and Vineyards",
+        "content": "Bodega Narbona is the best known: a country estate featuring a boutique winery, olive grove, restaurant, and hotel. Lunch at Narbona (lamb, fresh pasta, cheese platter) paired with their Tannat is a top-notch dining experience. Be sure to make a reservation in advance. Bodega Irurtia is more austere but historic—one of the oldest in the country. Colonia Estrella makes artisanal cheeses in the same area: it’s worth stopping by to buy some."
+      },
+      {
+        "day": "Day 2 — Carmelo and the River",
+        "content": "Carmelo is a small, quiet town on the banks of the Río de la Plata (known locally as \"Arroyo Las Vacas\"). It has a colonial charm and very few tourists. The casino, the river port, and the central square are the main gathering spots. From the port, you can take the ferry to Martín García Island (Argentina), a historic site in the La Plata region. On your way back to Montevideo, you can stop in Colonia del Sacramento (1 hour) to complete the loop."
+      }
+    ],
+    "stayLinks": [
+      {
+        "label": "Narbona Wine Lodge (wine tourism)",
+        "url": "https://www.narbona.com.uy/"
+      },
+      {
+        "label": "Airbnb Listings — Carmelo",
+        "url": "https://www.airbnb.com/s/Carmelo--Uruguay/homes"
+      },
+      {
+        "label": "Hotels on Booking — Carmelo",
+        "url": "https://www.booking.com/searchresults.es.html?ss=Carmelo%2C+Uruguay"
+      }
+    ],
+    "doLinks": [
+      {
+        "label": "Narbonne Winery",
+        "url": "https://www.narbona.com.uy/"
+      },
+      {
+        "label": "Winery Irurtia",
+        "url": "https://www.google.com/maps/search/Bodega+Irurtia+Uruguay"
+      },
+      {
+        "label": "Tourism in the Colonia Region",
+        "url": "https://asociacionturisticacolonia.com.uy/"
+      }
+    ],
+    "eatLinks": [
+      {
+        "label": "Narbona Restaurant (make a reservation)",
+        "url": "https://www.narbona.com.uy/"
+      },
+      {
+        "label": "Colonia Estrella — Artisanal Cheeses",
+        "url": "https://www.google.com/maps/search/Colonia+Estrella+Quesos+Uruguay"
+      }
+    ],
+    "title": "Carmelo & Wineries",
+    "teaser": "The wine region closest to Montevideo. Boutique wineries, olive groves, and the country’s best barbecue paired with wine. Uruguayan Tannat in its natural setting.",
+    "vibe": "Wine Tourism & the Río de la Plata",
+    "interestLabel": "Cuisine"
+  }
+}

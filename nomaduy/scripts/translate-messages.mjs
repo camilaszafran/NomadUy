@@ -25,8 +25,11 @@ const TARGETS = [
 ]
 
 async function deeplTranslate(texts, targetLang) {
+  const authKey = DEEPL_KEY.startsWith('DeepL-Auth-Key ')
+    ? DEEPL_KEY
+    : `DeepL-Auth-Key ${DEEPL_KEY}`
+
   const body = new URLSearchParams()
-  body.append('auth_key', DEEPL_KEY.replace('DeepL-Auth-Key ', ''))
   body.append('target_lang', targetLang)
   body.append('preserve_formatting', '1')
   body.append('tag_handling', 'xml')
@@ -35,6 +38,7 @@ async function deeplTranslate(texts, targetLang) {
 
   const res = await fetch('https://api-free.deepl.com/v2/translate', {
     method: 'POST',
+    headers: { Authorization: authKey },
     body,
   })
 

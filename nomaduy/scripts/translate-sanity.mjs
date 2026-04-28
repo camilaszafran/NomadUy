@@ -37,19 +37,17 @@ const DURATION_MAP = {
 
 async function deeplTranslate(texts, targetLang) {
   const authKey = DEEPL_KEY.startsWith('DeepL-Auth-Key ')
-    ? DEEPL_KEY.replace('DeepL-Auth-Key ', '')
-    : DEEPL_KEY
+    ? DEEPL_KEY
+    : `DeepL-Auth-Key ${DEEPL_KEY}`
 
   const body = new URLSearchParams()
-  body.append('auth_key', authKey)
   body.append('target_lang', targetLang)
   body.append('preserve_formatting', '1')
-  body.append('tag_handling', 'xml')
-  body.append('ignore_tags', 'em,br')
   texts.forEach(t => body.append('text', t))
 
   const res = await fetch('https://api-free.deepl.com/v2/translate', {
     method: 'POST',
+    headers: { Authorization: authKey },
     body,
   })
   if (!res.ok) throw new Error(`DeepL ${res.status}: ${await res.text()}`)

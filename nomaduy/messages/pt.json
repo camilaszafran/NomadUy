@@ -1,131 +1,131 @@
 {
   "nav": {
-    "guias": "Guías",
-    "vivir": "Vivir",
-    "conocer": "Conocer Uruguay",
+    "guias": "Guias",
+    "vivir": "Viver",
+    "conocer": "Conhecer o Uruguai",
     "recursos": "Recursos",
-    "unirme": "Unirme"
+    "unirme": "Inscrever-me"
   },
   "footer": {
-    "tagline": "La comunidad de nómadas, expats e inmigrantes en Uruguay.",
-    "site": "El sitio",
-    "community": "Comunidad",
-    "guias": "Guías",
-    "vivir": "Vivir en Uruguay",
-    "conocer": "Conocer Uruguay",
+    "tagline": "A comunidade de nômades, expatriados e imigrantes no Uruguai.",
+    "site": "O site",
+    "community": "Comunidade",
+    "guias": "Guias",
+    "vivir": "Viver no Uruguai",
+    "conocer": "Conhecer o Uruguai",
     "recursos": "Recursos",
-    "unirme": "Unirme gratis",
-    "galeria": "Galería",
+    "unirme": "Inscreva-se gratuitamente",
+    "galeria": "Galeria",
     "eventos": "Eventos",
-    "rights": "Todos los derechos reservados."
+    "rights": "Todos os direitos reservados."
   },
   "home": {
     "hero": {
-      "eyebrow": "Comunidad de Nómadas en Uruguay",
-      "h1": "Tu próximo hogar<br/>es <em>Uruguay</em>.",
-      "subtitle": "Guías prácticas, comunidad activa y todo lo que necesitás para vivir, trabajar y echar raíces en Uruguay.",
-      "cta_primary": "Unirme a la comunidad",
-      "cta_secondary": "Explorar guías",
-      "cta_pdf": "Descargar guía gratis",
-      "event_fallback": "Primer jueves de cada mes · Montevideo",
-      "stat_guides": "Guías",
-      "stat_members": "Miembros",
-      "stat_events": "Eventos / año"
+      "eyebrow": "Comunidade de Nômades no Uruguai",
+      "h1": "Seu próximo lar <br/> é <em>Uruguay</em>.",
+      "subtitle": "Guias práticos, uma comunidade ativa e tudo o que você precisa para morar, trabalhar e se estabelecer no Uruguai.",
+      "cta_primary": "Juntar-me à comunidade",
+      "cta_secondary": "Explorar guias",
+      "cta_pdf": "Baixe o guia gratuitamente",
+      "event_fallback": "Primeira quinta-feira de cada mês · Montevidéu",
+      "stat_guides": "Guias",
+      "stat_members": "Membros",
+      "stat_events": "Eventos / ano"
     },
     "featured_guides": {
-      "label": "Guías destacadas",
-      "title": "Todo lo que necesitás<br/>para arrancar.",
-      "subtitle": "Desde encontrar alojamiento hasta entender el sistema de salud — guías escritas por personas que ya pasaron por esto.",
-      "cta": "Ver todas las guías →"
+      "label": "Guias em destaque",
+      "title": "Tudo o que você precisa <br/> para começar.",
+      "subtitle": "Desde encontrar um lugar para morar até entender o sistema de saúde — guias escritos por pessoas que já passaram por isso.",
+      "cta": "Ver todos os guias →"
     },
     "directory": {
-      "label": "Directorio de lugares",
-      "title": "Espacios probados por<br/>la comunidad.",
-      "subtitle": "Coworkings, coliving, médicos de confianza y cafés con buena conexión — recomendados por quienes ya viven acá.",
-      "cta": "Ver directorio completo →",
-      "empty": "Próximamente"
+      "label": "Lista de locais",
+      "title": "Espaços testados por <br/> a comunidade.",
+      "subtitle": "Espaços de coworking, coliving, médicos de confiança e cafés com boa conexão à internet — recomendados por quem já mora aqui.",
+      "cta": "Ver diretório completo →",
+      "empty": "Em breve"
     },
     "explore": {
-      "label": "Conocer Uruguay",
-      "title": "Descubrí rincones que<br/>te van a sorprender.",
-      "subtitle": "Uruguay es pequeño, pero tiene mucho para explorar. Desde la costa atlántica hasta el litoral termal.",
-      "cta": "Ver todas las rutas →"
+      "label": "Conhecer o Uruguai",
+      "title": "Descubra recantos que <br/> vão te surpreender.",
+      "subtitle": "O Uruguai é pequeno, mas tem muito para explorar. Da costa atlântica até o litoral termal.",
+      "cta": "Ver todas as rotas →"
     },
     "resources": {
       "label": "Recursos",
-      "title": "Calculá tu costo de<br/>vida en Uruguay.",
-      "subtitle": "Estimá cuánto necesitás para vivir bien según tu estilo de vida: alquiler, comida, transporte y más.",
+      "title": "Calcule o custo de vida em <br/> no Uruguai.",
+      "subtitle": "Calcule quanto você precisa para viver bem, de acordo com seu estilo de vida: aluguel, alimentação, transporte e muito mais.",
       "cta": "Abrir calculadora →",
-      "bar_rent": "Alquiler (Pocitos 2 amb.)",
-      "bar_food": "Comida y salidas",
+      "bar_rent": "Aluguel (Pocitos, 2 quartos)",
+      "bar_food": "Refeições e passeios",
       "bar_transport": "Transporte",
-      "bar_health": "Salud (mutualista)"
+      "bar_health": "Saúde (mutualista)"
     },
     "testimonials": {
-      "label": "Comunidad",
-      "title": "Historias reales de<br/>personas como vos."
+      "label": "Comunidade",
+      "title": "Histórias reais de <br/> pessoas como você."
     },
     "pdf_banner": {
-      "title": "Tu guía para los primeros 30 días.",
-      "subtitle": "Todo lo que necesitás saber antes de llegar: trámites, barrios, apps esenciales y consejos de la comunidad.",
-      "cta": "Descargar gratis (PDF)"
+      "title": "Seu guia para os primeiros 30 dias.",
+      "subtitle": "Tudo o que você precisa saber antes de chegar: trâmites, bairros, aplicativos essenciais e dicas da comunidade.",
+      "cta": "Baixe gratuitamente (PDF)"
     }
   },
   "guias": {
-    "label": "Guías",
-    "title": "Todo lo que necesitás<br/>para vivir en Uruguay.",
-    "subtitle": "Desde los primeros trámites hasta encontrar tu barrio ideal — guías escritas por personas que ya hicieron el camino.",
-    "read_time": "min de lectura",
+    "label": "Guias",
+    "title": "Tudo o que você precisa <br/> para morar no Uruguai.",
+    "subtitle": "Desde os primeiros trâmites até encontrar o bairro ideal para você — guias escritos por pessoas que já passaram por isso.",
+    "read_time": "Tempo de leitura:",
     "all": "Todas",
-    "back": "← Volver a guías"
+    "back": "← Voltar aos guias"
   },
   "vivir": {
-    "label": "Vivir en Uruguay",
-    "title": "Encontrá tu lugar<br/>en Uruguay.",
-    "subtitle": "Barrios, ciudades y rincones — todo lo que necesitás para elegir dónde plantar raíces.",
+    "label": "Viver no Uruguai",
+    "title": "Encontre o seu lugar no <br/> no Uruguai.",
+    "subtitle": "Bairros, cidades e recantos — tudo o que você precisa para decidir onde se estabelecer.",
     "filter_all": "Todos",
-    "filter_montevideo": "Montevideo",
+    "filter_montevideo": "Montevidéu",
     "filter_interior": "Interior",
     "filter_costa": "Costa"
   },
   "conocer": {
-    "label": "Conocer Uruguay",
-    "title": "Rutas y destinos<br/>para explorar.",
-    "subtitle": "Diseñadas por personas que viven acá — desde escapadas de un día hasta recorridos de una semana.",
+    "label": "Conhecer o Uruguai",
+    "title": "Rotas e destinos <br/> para explorar.",
+    "subtitle": "Planejadas por quem mora aqui — desde passeios de um dia até itinerários de uma semana.",
     "filter_all": "Todos",
-    "filter_1dia": "1 día",
-    "filter_finde": "Fin de semana",
-    "filter_semana": "4–7 días",
-    "modal_itinerary": "Itinerario",
-    "modal_stay": "Dónde dormir",
-    "modal_do": "Qué hacer",
-    "modal_eat": "Dónde comer",
-    "modal_close": "Cerrar",
-    "modal_distance": "Distancia",
-    "modal_duration": "Duración"
+    "filter_1dia": "1 dia",
+    "filter_finde": "Fim de semana",
+    "filter_semana": "4 a 7 dias",
+    "modal_itinerary": "Itinerário",
+    "modal_stay": "Onde se hospedar",
+    "modal_do": "O que fazer",
+    "modal_eat": "Onde comer",
+    "modal_close": "Fechar",
+    "modal_distance": "Distância",
+    "modal_duration": "Duração"
   },
   "comunidad": {
-    "label": "Comunidad",
-    "title": "Un lugar donde<br/>sentirte en casa.",
-    "subtitle": "Conocé gente, compartí experiencias y construí tu red en Uruguay.",
-    "join_title": "Unirme a NomadUY",
-    "join_name": "Tu nombre",
-    "join_email": "Tu email",
-    "join_city": "¿Dónde estás ahora?",
-    "join_cta": "Unirme gratis",
-    "join_success": "¡Bienvenido/a! Revisá tu email.",
-    "join_error": "Algo salió mal. Intentá de nuevo.",
+    "label": "Comunidade",
+    "title": "Um lugar onde <br/> você se sinta em casa.",
+    "subtitle": "Conheça pessoas, compartilhe experiências e construa sua rede de contatos no Uruguai.",
+    "join_title": "Inscrever-me no NomadUY",
+    "join_name": "O número",
+    "join_email": "Seu e-mail",
+    "join_city": "Onde você está agora?",
+    "join_cta": "Inscreva-se gratuitamente",
+    "join_success": "Seja bem-vindo(a)! Verifique seu e-mail.",
+    "join_error": "Houve um erro. Tente novamente.",
     "events_title": "Próximos eventos",
-    "events_empty": "No hay eventos programados por ahora.",
-    "events_calendar": "Ver todo el calendario →"
+    "events_empty": "Não há eventos programados no momento.",
+    "events_calendar": "Ver todo o calendário →"
   },
   "recursos": {
     "label": "Recursos",
-    "title": "Herramientas para<br/>planear tu vida en Uruguay.",
-    "subtitle": "Calculadora de costo de vida, checklists descargables y links a trámites oficiales — todo en un lugar.",
-    "calculator_title": "Calculadora de costo de vida",
-    "calculator_subtitle": "Estimá tu presupuesto mensual en Uruguay",
-    "links_title": "Links útiles",
-    "links_subtitle": "Recursos externos seleccionados por la comunidad."
+    "title": "Ferramentas para <br/> planejar sua vida no Uruguai.",
+    "subtitle": "Calculadora do custo de vida, listas de verificação para download e links para trâmites oficiais — tudo em um só lugar.",
+    "calculator_title": "Calculadora do custo de vida",
+    "calculator_subtitle": "Calcule seu orçamento mensal no Uruguai",
+    "links_title": "Links úteis",
+    "links_subtitle": "Recursos externos selecionados pela comunidade."
   }
 }
