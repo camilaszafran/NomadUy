@@ -11,14 +11,6 @@ export default function RecursosHeader() {
         </div>
       </header>
 
-      <div className="resource-tabs">
-        <div className="resource-tabs-inner">
-          <button className="tab-pill active">Costo de vida</button>
-          <button className="tab-pill">Checklists</button>
-          <button className="tab-pill">Trámites oficiales</button>
-          <button className="tab-pill">Descargas</button>
-        </div>
-      </div>
     </>
   )
 }

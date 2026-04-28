@@ -11,24 +11,28 @@ const routes = [
     title: 'Surf & Costa',
     desc: 'Punta del Este, La Pedrera, Cabo Polonio y Punta del Diablo.',
     tag: 'Atlántico',
+    href: '/conocer-uruguay?ruta=punta-del-diablo',
   },
   {
     img: '/images/routes/historia.jpg',
     title: 'Historia & Patrimonio',
     desc: 'Colonia del Sacramento, Fray Bentos y los secretos del litoral oeste.',
     tag: 'Cultura',
+    href: '/conocer-uruguay?ruta=colonia-del-sacramento',
   },
   {
     img: '/images/routes/temas.jpg',
     title: 'Termas del norte',
     desc: 'Salto, Paysandú y las termas naturales más accesibles de la región.',
     tag: 'Relax',
+    href: '/conocer-uruguay?ruta=termas-de-salto',
   },
   {
     img: '/images/routes/wildlife.webp',
     title: 'Wildlife & Naturaleza',
     desc: 'Cabo Polonio, lobos marinos, pingüinos y el cielo más estrellado.',
     tag: 'Naturaleza',
+    href: '/conocer-uruguay?ruta=cabo-polonio',
   },
 ]
 
@@ -73,7 +77,7 @@ export default function ExploreUruguay() {
         {routes.map((route) => (
           <motion.a
             key={route.title}
-            href="/conocer-uruguay"
+            href={route.href}
             className="route-photo-card"
             variants={cardVariants}
           >

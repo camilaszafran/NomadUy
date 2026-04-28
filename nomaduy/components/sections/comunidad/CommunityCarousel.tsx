@@ -50,7 +50,7 @@ export default function CommunityCarousel() {
   }
 
   return (
-    <section className="carousel-section">
+    <section className="carousel-section" id="galeria">
       <div className="carousel-header">
         <div className="section-eyebrow">Comunidad</div>
         <h2>Personas reales haciendo vida aquí</h2>

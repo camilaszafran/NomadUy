@@ -146,22 +146,6 @@ export default function CostCalculator() {
         </div>
       </div>
 
-      <div className="tools-section">
-        <div className="section-heading">
-          <h2>Más herramientas</h2>
-          <p>Recursos para planear, llegar y asentarte en Uruguay.</p>
-        </div>
-        <div className="tools-grid">
-          {tools.map((t) => (
-            <a key={t.title} href="#" className="tool-card">
-              <div className="tool-icon"><t.Icon size={24} weight="thin" /></div>
-              <h3>{t.title}</h3>
-              <p>{t.desc}</p>
-              <span className={`tool-badge ${t.badgeClass}`}>{t.badge}</span>
-            </a>
-          ))}
-        </div>
-      </div>
     </main>
   )
 }

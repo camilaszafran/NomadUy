@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { Ruta } from '@/types'
 import RouteModal from './RouteModal'
@@ -35,6 +36,15 @@ interface RoutesSectionProps {
 export default function RoutesSection({ routes }: RoutesSectionProps) {
   const [activeDuration, setActiveDuration] = useState('Todos')
   const [activeRoute, setActiveRoute] = useState<Ruta | null>(null)
+  const searchParams = useSearchParams()
+
+  useEffect(() => {
+    const slug = searchParams.get('ruta')
+    if (slug) {
+      const match = routes.find((r) => r.slug?.current === slug)
+      if (match) setActiveRoute(match)
+    }
+  }, [searchParams, routes])
 
   const filtered = routes.filter((r) =>
     activeDuration === 'Todos' || r.duration === activeDuration

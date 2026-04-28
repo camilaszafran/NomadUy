@@ -1,6 +1,7 @@
 import Nav from '@/components/layout/Nav'
 import RecursosHeader from '@/components/sections/recursos/RecursosHeader'
 import CostCalculator from '@/components/sections/recursos/CostCalculator'
+import ExternalLinks from '@/components/sections/recursos/ExternalLinks'
 import PdfBanner from '@/components/sections/home/PdfBanner'
 import Footer from '@/components/layout/Footer'
 
@@ -15,6 +16,7 @@ export default function RecursosPage() {
       <Nav />
       <RecursosHeader />
       <CostCalculator />
+      <ExternalLinks />
       <PdfBanner />
       <Footer />
     </>

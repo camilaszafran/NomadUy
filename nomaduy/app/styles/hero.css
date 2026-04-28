@@ -286,6 +286,13 @@
 .pulse-stat {
   display: flex; align-items: center; gap: 14px;
 }
+.pulse-stat-link {
+  text-decoration: none; color: inherit;
+  border-radius: var(--radius-sm);
+  transition: background 150ms;
+  padding: 4px 6px; margin: -4px -6px;
+}
+.pulse-stat-link:hover { background: rgba(255,255,255,0.08); }
 
 .pulse-icon {
   width: 40px; height: 40px; border-radius: var(--radius-sm);
@@ -359,3 +366,33 @@
 }
 
 .join-mini-note { font-size: 0.76rem; color: rgba(255,255,255,0.5); margin-top: 10px; }
+
+/* ── Hero responsive ──────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-left: 6vw; padding-right: 6vw;
+    padding-bottom: 56px;
+    align-items: flex-start;
+    padding-top: 100px;
+  }
+  .hero-visual { display: none; }
+  .hero-actions { max-width: 100%; }
+  .hero-sub { max-width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-left: 20px; padding-right: 20px;
+    padding-top: 88px; padding-bottom: 48px;
+  }
+  .hero-actions {
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .btn-hero-primary, .btn-hero-secondary {
+    width: 100%; padding: 14px 20px; font-size: 0.95rem;
+  }
+  .btn-hero-text { font-size: 0.85rem; }
+}

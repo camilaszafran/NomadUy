@@ -2,6 +2,12 @@
 
 import { motion } from 'framer-motion'
 import { Calendar, ChatsCircle, Globe } from '@phosphor-icons/react'
+import type { CalendarEvent } from '@/lib/calendar'
+
+function formatEventDate(dateStr: string): string {
+  const d = new Date(dateStr)
+  return d.toLocaleDateString('es-UY', { weekday: 'short', day: 'numeric', month: 'short' })
+}
 
 const ease = [0.23, 1, 0.32, 1] as [number, number, number, number]
 
@@ -11,7 +17,11 @@ const textItem = (delay: number) => ({
   transition: { duration: 0.65, delay, ease },
 })
 
-export default function Hero() {
+interface HeroProps {
+  events: CalendarEvent[]
+}
+
+export default function Hero({ events }: HeroProps) {
   return (
     <section className="hero hero-video-mode">
       {/* Video background — drop hero.mp4 in /public/videos/ */}
@@ -67,15 +77,32 @@ export default function Hero() {
         <div className="hero-card">
           <div className="hero-card-label">La comunidad ahora</div>
           <div className="community-pulse">
-            <div className="pulse-stat">
-              <div className="pulse-icon blue">
-                <Calendar size={20} weight="duotone" />
+            {events.length > 0 ? (
+              events.slice(0, 1).map((e, i) => (
+                <div key={e.id}>
+                  <a href="/comunidad#eventos" className="pulse-stat pulse-stat-link">
+                    <div className="pulse-icon blue">
+                      <Calendar size={20} weight="duotone" />
+                    </div>
+                    <div>
+                      <div className="pulse-label">{formatEventDate(e.start)}</div>
+                      <div className="pulse-value">{e.title}{e.location ? ` · ${e.location}` : ''}</div>
+                    </div>
+                  </a>
+                  {i < events.slice(0, 1).length - 1 && <div className="pulse-divider" />}
+                </div>
+              ))
+            ) : (
+              <div className="pulse-stat">
+                <div className="pulse-icon blue">
+                  <Calendar size={20} weight="duotone" />
+                </div>
+                <div>
+                  <div className="pulse-label">Próximo meetup</div>
+                  <div className="pulse-value">Primer jueves de cada mes · Montevideo</div>
+                </div>
               </div>
-              <div>
-                <div className="pulse-label">Próximo meetup</div>
-                <div className="pulse-value">Jueves 1 de mayo · Montevideo</div>
-              </div>
-            </div>
+            )}
             <div className="pulse-divider" />
             <div className="pulse-stat">
               <div className="pulse-icon gold">
