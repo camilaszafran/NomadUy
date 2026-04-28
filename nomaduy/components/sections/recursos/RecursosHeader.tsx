@@ -1,16 +1,16 @@
+import { getTranslations } from 'next-intl/server'
 import PageSubtitle from '@/components/ui/PageSubtitle'
 
-export default function RecursosHeader() {
-  return (
-    <>
-      <header className="page-header page-header-blue">
-        <div className="page-header-inner">
-          <div className="page-label">Recursos</div>
-          <h1>Herramientas para<br />planear tu vida en Uruguay.</h1>
-          <PageSubtitle>Calculadora de costo de vida, checklists descargables y links a trámites oficiales — todo en un lugar.</PageSubtitle>
-        </div>
-      </header>
+export default async function RecursosHeader() {
+  const t = await getTranslations('recursos')
 
-    </>
+  return (
+    <header className="page-header page-header-blue">
+      <div className="page-header-inner">
+        <div className="page-label">{t('label')}</div>
+        <h1>Herramientas para<br />planear tu vida en Uruguay.</h1>
+        <PageSubtitle>{t('subtitle')}</PageSubtitle>
+      </div>
+    </header>
   )
 }

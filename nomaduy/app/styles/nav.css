@@ -144,6 +144,55 @@ nav {
   animation: none !important;
 }
 
+/* ── Locale switcher ─────────────────────────────────────────────── */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.locale-switcher {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: rgba(26,26,46,0.05);
+  border-radius: var(--radius-sm);
+  padding: 3px;
+}
+
+.locale-btn {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 4px 7px;
+  border: none;
+  background: none;
+  color: var(--ink-60);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 150ms ease, background 150ms ease;
+}
+
+.locale-btn:hover { color: var(--ink); }
+.locale-btn.active {
+  background: var(--white);
+  color: var(--blue);
+  box-shadow: 0 1px 4px rgba(26,26,46,0.1);
+}
+.locale-btn:disabled { cursor: default; }
+
+.nav-drawer-locale {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(26,26,46,0.07);
+  display: flex;
+  justify-content: center;
+}
+
+.nav-drawer-locale .locale-switcher {
+  background: rgba(26,26,46,0.04);
+}
+
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }

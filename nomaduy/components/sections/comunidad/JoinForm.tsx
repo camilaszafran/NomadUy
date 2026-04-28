@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useLocale } from 'next-intl'
 
 const COUNTRY_CODES = [
   { code: '+54',  label: '🇦🇷 +54' },
@@ -67,7 +68,14 @@ const COUNTRIES = [
 
 type Status = 'idle' | 'loading' | 'success' | 'error' | 'duplicate'
 
+const PDF_BY_LOCALE: Record<string, string> = {
+  es: '/guides/guia-es.pdf',
+  en: '/guides/guia-en.pdf',
+  pt: '/guides/guia-pt.pdf',
+}
+
 export default function JoinForm() {
+  const locale = useLocale()
   const [nombre, setNombre] = useState('')
   const [apellido, setApellido] = useState('')
   const [email, setEmail] = useState('')
@@ -81,12 +89,12 @@ export default function JoinForm() {
 
   useEffect(() => {
     if (status !== 'success') return
-    // TODO: swap 'es' for locale once i18n is implemented
+    const pdfPath = PDF_BY_LOCALE[locale] ?? PDF_BY_LOCALE.es
     const a = document.createElement('a')
-    a.href = '/guides/guia-es.pdf'
-    a.download = 'NomadUY - Tus primeros 30 días en Uruguay.pdf'
+    a.href = pdfPath
+    a.download = 'NomadUY.pdf'
     a.click()
-  }, [status])
+  }, [status, locale])
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
