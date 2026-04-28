@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import Nav from '@/components/layout/Nav'
 import ConocerHero from '@/components/sections/conocer-uruguay/ConocerHero'
 import RoutesSection from '@/components/sections/conocer-uruguay/RoutesSection'
@@ -23,7 +24,9 @@ export default async function ConocerUruguayPage() {
     <>
       <Nav />
       <ConocerHero />
-      <RoutesSection routes={routes} />
+      <Suspense fallback={null}>
+        <RoutesSection routes={routes} />
+      </Suspense>
       <PdfBanner />
       <Footer />
     </>
