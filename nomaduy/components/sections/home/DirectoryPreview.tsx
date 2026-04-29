@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { useTranslations, useLocale } from 'next-intl'
+import { localizeHref } from '@/lib/locale'
 
 const SILHOUETTES = [
   { xDur: 7,  yDur: 11, xDelay: -2,  yDelay: -5  },
@@ -19,6 +21,8 @@ const SILHOUETTES = [
 export default function DirectoryPreview() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, amount: 0.25 })
+  const t = useTranslations('home.directory')
+  const locale = useLocale()
 
   return (
     <section
@@ -77,7 +81,7 @@ export default function DirectoryPreview() {
               marginBottom: '28px',
             }}
           >
-            Dónde vivir
+            {t('label')}
           </div>
 
           <h2
@@ -90,9 +94,8 @@ export default function DirectoryPreview() {
               marginBottom: '28px',
             }}
           >
-            ¿No sabés dónde<br />
-            quedarte en Uruguay?<br />
-            <span style={{ color: 'var(--gold-light)' }}>Nosotros te recomendamos.</span>
+            {t('title')}<br />
+            <span style={{ color: 'var(--gold-light)' }}>{t('title_highlight')}</span>
           </h2>
 
           <p
@@ -104,11 +107,11 @@ export default function DirectoryPreview() {
               marginBottom: '40px',
             }}
           >
-            Respondé unas pocas preguntas sobre tu estilo de vida y presupuesto. Te mostramos los lugares que más encajan con vos — desde Montevideo hasta Cabo Polonio.
+            {t('desc')}
           </p>
 
           <Link
-            href="/vivir"
+            href={localizeHref('/vivir', locale)}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -132,7 +135,7 @@ export default function DirectoryPreview() {
               e.currentTarget.style.transform = 'translateY(0)'
             }}
           >
-            Hacé el Test
+            {t('cta')}
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>

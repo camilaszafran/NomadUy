@@ -1,0 +1,163 @@
+{
+  "label": "Guías",
+  "title": "Todo lo que necesitás saber para vivir acá.",
+  "subtitle": "Desde el primer día hasta los trámites de residencia — guías claras, prácticas y escritas por gente que lo vivió.",
+  "read_time": "min de lectura",
+  "all": "Todas",
+  "back": "← Volver a guías",
+  "read": "Leer →",
+  "help_title": "¿Buscás algo que no está acá?",
+  "help_desc": "La comunidad tiene respuestas para casi cualquier pregunta sobre vivir en Uruguay.",
+  "help_cta": "Preguntar en la comunidad →",
+  "cat_llegada": "Llegada",
+  "cat_legal": "Legal & Trámites",
+  "cat_vivienda": "Vivienda",
+  "cat_trabajo": "Trabajo",
+  "cat_moverse": "Moverse",
+  "cat_salud": "Salud",
+  "cat_familia": "Familia",
+  "cat_finanzas": "Finanzas",
+  "cat_idioma": "Idioma",
+  "status_ready": "Disponible",
+  "status_progress": "En proceso",
+  "status_soon": "Próximamente",
+  "primeras48": {
+    "breadcrumb_label": "Guías",
+    "breadcrumb_current": "Primeras 48 horas",
+    "h1": "Tus primeras 48 horas en Uruguay.",
+    "subtitle": "Llegaste. Respirá. Este checklist cubre todo lo que necesitás hacer — en orden de prioridad, con los links y números útiles.",
+    "tag_airport": "Aeropuerto Carrasco",
+    "tag_steps": "18 pasos",
+    "tag_time": "~2 horas para lo esencial",
+    "stat_count": "18",
+    "stat_label": "cosas que hacer al llegar",
+    "check_1": "SIM card en el aeropuerto",
+    "check_2": "Cambio de moneda",
+    "check_3": "Llegar al alojamiento",
+    "check_4": "Abrir billetera digital (Prex)",
+    "check_5": "Unirte a la comunidad NomadUY",
+    "toc_label": "En esta guía",
+    "pdf_cta_title": "Descargar PDF",
+    "pdf_cta_desc": "Guía completa para llevar",
+    "footer_title": "¿Querés la guía completa en PDF?",
+    "footer_desc": "Descargala gratis — funciona sin conexión a internet.",
+    "footer_download": "Descargar gratis",
+    "footer_community": "Unirme a la comunidad",
+    "phases": [
+      {
+        "badgeNum": "1",
+        "badgeColor": "blue",
+        "time": "Primeras 2 horas — Al aterrizar",
+        "timeColor": "blue",
+        "title": "En el aeropuerto",
+        "steps": [
+          {
+            "num": 1,
+            "icon": "DeviceMobile",
+            "title": "Comprá una SIM card",
+            "subtitle": "Antel o Claro — en el mismo aeropuerto",
+            "priorityLabel": "Ahora",
+            "body": "Hay locales de Antel y Claro en la zona de llegadas. Un plan de 30 días con datos ilimitados cuesta entre $400–600 UYU (~$10–15 USD).",
+            "tips": ["Pedí plan con datos, no solo voz", "Antel tiene mejor cobertura en interior", "Llevá efectivo — no siempre aceptan tarjeta"]
+          },
+          {
+            "num": 2,
+            "icon": "CurrencyDollar",
+            "title": "Cambiá dinero",
+            "subtitle": "Casa de cambio en Carrasco",
+            "priorityLabel": "Ahora",
+            "body": "Hay una casa de cambio en el aeropuerto. El tipo de cambio no es el mejor, pero cambiá lo suficiente para el taxi y los primeros días (~$100 USD).",
+            "tips": ["Tasa aeropuerto es 5–8% peor que en ciudad", "Llevar USD es la mejor opción al llegar", "Los cajeros (ATM) dan pesos — buscar \"Scotiabank\" o \"BROU\""]
+          },
+          {
+            "num": 3,
+            "icon": "Car",
+            "title": "Transporte al centro",
+            "subtitle": "Taxi, Uber o bus",
+            "priorityLabel": "Ahora",
+            "body": "Uber funciona perfecto desde Carrasco. El taxi oficial cuesta ~$1,500 UYU (~$37 USD) al centro/Pocitos. El bus 700 llega a Ciudad Vieja por ~$50 UYU pero tarda 1h30.",
+            "infoType": "blue",
+            "infoTitle": "Tip de la comunidad",
+            "infoBody": "Uber es confiable, más barato que taxi y el conductor ya sabe adónde vas. Descargalo antes de aterrizar."
+          }
+        ]
+      },
+      {
+        "badgeNum": "2",
+        "badgeColor": "gold",
+        "time": "Primer día",
+        "timeColor": "gold",
+        "title": "Instalarate",
+        "steps": [
+          {
+            "num": 4,
+            "icon": "CreditCard",
+            "title": "Descargá Prex",
+            "subtitle": "Billetera digital uruguaya",
+            "priorityLabel": "Día 1",
+            "body": "Prex es la billetera digital más usada en Uruguay. Podés cargarla con efectivo en cualquier RedPagos, y usarla para pagar en comercios, delivery y servicios.",
+            "tips": ["Descargá la app y registrate con tu pasaporte", "Cargala en cualquier RedPagos o Abitab", "Funciona para pagar Uber, Pedidos Ya, etc."]
+          },
+          {
+            "num": 5,
+            "icon": "DeviceMobile",
+            "title": "Instalá las apps esenciales",
+            "subtitle": "Taxi, delivery, mapas",
+            "priorityLabel": "Día 1",
+            "body": "Las apps que vas a usar todos los días en Uruguay:",
+            "tips": ["Uber — transporte de punto a punto", "Pedidos Ya — delivery de comida", "Google Maps — funciona perfecto en Montevideo", "Urufarma — encontrar farmacias y precios de remedios"]
+          },
+          {
+            "num": 6,
+            "icon": "Buildings",
+            "title": "Orientate en tu barrio",
+            "subtitle": "Supermercado, farmacia, cajero",
+            "priorityLabel": "Día 1",
+            "body": "Lo primero que necesitás encontrar cerca de tu alojamiento: supermercado (Tienda Inglesa, Disco, Ta-Ta), farmacia, cajero automático y una panadería.",
+            "infoType": "green",
+            "infoTitle": "Supermercados principales",
+            "infoBody": "Tienda Inglesa (premium), Disco/Devoto (medio), Ta-Ta (económico). Todos tienen buenos productos y aceptan tarjeta."
+          }
+        ]
+      },
+      {
+        "badgeNum": "3",
+        "badgeColor": "green",
+        "time": "Día 2 — Primeros trámites",
+        "timeColor": "green",
+        "title": "Primeros pasos burocráticos",
+        "steps": [
+          {
+            "num": 7,
+            "icon": "IdentificationCard",
+            "title": "Cédula de identidad",
+            "subtitle": "Correo Uruguayo o DNIC",
+            "priorityLabel": "Día 2+",
+            "body": "Si vas a vivir más de 90 días, empezá el trámite de cédula. Necesitás pasaporte y dirección. El trámite se hace en Correo Uruguayo y tarda 2–4 semanas.",
+            "tips": ["Llevá pasaporte original + fotocopia", "Necesitás dirección uruguaya (puede ser alojamiento temporal)", "El costo es ~$700 UYU"]
+          },
+          {
+            "num": 8,
+            "icon": "FirstAid",
+            "title": "Mutualista o DISSE",
+            "subtitle": "Sistema de salud",
+            "priorityLabel": "Día 2+",
+            "body": "Uruguay tiene un sistema de salud público-privado. Si trabajás de forma dependiente, DISSE te asigna una mutualista. Si sos freelance/nómada, podés contratar una directamente.",
+            "infoType": "gold",
+            "infoTitle": "Para nómadas digitales",
+            "infoBody": "Podés contratar una mutualista privada (Médica Uruguaya, CASMU, etc.) por ~$80–120 USD/mes. Cubre médicos, urgencias y estudios básicos."
+          },
+          {
+            "num": 9,
+            "icon": "Globe",
+            "title": "Unirte a NomadUY",
+            "subtitle": "La comunidad que hace más fácil todo esto",
+            "priorityLabel": "Día 2+",
+            "body": "La comunidad de NomadUY tiene grupos de WhatsApp por tema (housing, trabajo, legal, social), un foro de preguntas y respuestas, y eventos mensuales en Montevideo.",
+            "tips": ["WhatsApp group: acceso inmediato", "Foro: buscar antes de preguntar", "Evento mensual: primer jueves de cada mes"]
+          }
+        ]
+      }
+    ]
+  }
+}

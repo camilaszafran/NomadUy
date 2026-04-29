@@ -3,37 +3,15 @@
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { useTranslations, useLocale } from 'next-intl'
+import { localizeHref } from '@/lib/locale'
 import AnimateIn from '@/components/ui/AnimateIn'
 
-const routes = [
-  {
-    img: '/images/routes/surf.jpg.avif',
-    title: 'Surf & Costa',
-    desc: 'Punta del Este, La Pedrera, Cabo Polonio y Punta del Diablo.',
-    tag: 'Atlántico',
-    href: '/conocer-uruguay?ruta=punta-del-diablo',
-  },
-  {
-    img: '/images/routes/historia.jpg',
-    title: 'Historia & Patrimonio',
-    desc: 'Colonia del Sacramento, Fray Bentos y los secretos del litoral oeste.',
-    tag: 'Cultura',
-    href: '/conocer-uruguay?ruta=colonia-del-sacramento',
-  },
-  {
-    img: '/images/routes/temas.jpg',
-    title: 'Termas del norte',
-    desc: 'Salto, Paysandú y las termas naturales más accesibles de la región.',
-    tag: 'Relax',
-    href: '/conocer-uruguay?ruta=termas-de-salto',
-  },
-  {
-    img: '/images/routes/wildlife.webp',
-    title: 'Wildlife & Naturaleza',
-    desc: 'Cabo Polonio, lobos marinos, pingüinos y el cielo más estrellado.',
-    tag: 'Naturaleza',
-    href: '/conocer-uruguay?ruta=cabo-polonio',
-  },
+const routeImages = [
+  { img: '/images/routes/surf.jpg.avif', href: '/conocer-uruguay?ruta=punta-del-diablo' },
+  { img: '/images/routes/historia.jpg',  href: '/conocer-uruguay?ruta=colonia-del-sacramento' },
+  { img: '/images/routes/temas.jpg',     href: '/conocer-uruguay?ruta=termas-de-salto' },
+  { img: '/images/routes/wildlife.webp', href: '/conocer-uruguay?ruta=cabo-polonio' },
 ]
 
 const gridVariants = {
@@ -54,16 +32,20 @@ const cardVariants = {
 export default function ExploreUruguay() {
   const gridRef = useRef(null)
   const inView = useInView(gridRef, { once: true, margin: '-60px' })
+  const t = useTranslations('home.explore')
+  const locale = useLocale()
+
+  const items = t.raw('items') as { title: string; desc: string; tag: string }[]
 
   return (
     <section className="categories explore-section">
       <div className="section-header">
         <AnimateIn direction="reveal">
-          <h2>Conocer Uruguay</h2>
+          <h2>{t('title')}</h2>
         </AnimateIn>
         <AnimateIn delay={0.1}>
-          <p>Rutas de viaje por interés y duración — del fin de semana a la inmersión profunda.</p>
-          <a href="/conocer-uruguay" className="section-header-cta">Ver todas las rutas →</a>
+          <p>{t('subtitle')}</p>
+          <a href={localizeHref('/conocer-uruguay', locale)} className="section-header-cta">{t('cta')}</a>
         </AnimateIn>
       </div>
 
@@ -74,16 +56,16 @@ export default function ExploreUruguay() {
         initial="hidden"
         animate={inView ? 'visible' : 'hidden'}
       >
-        {routes.map((route) => (
+        {items.map((route, i) => (
           <motion.a
-            key={route.title}
-            href={route.href}
+            key={i}
+            href={localizeHref(routeImages[i].href, locale)}
             className="route-photo-card"
             variants={cardVariants}
           >
             <div className="route-photo-img">
               <Image
-                src={route.img}
+                src={routeImages[i].img}
                 alt={route.title}
                 fill
                 sizes="(max-width: 768px) 100vw, 25vw"
@@ -94,7 +76,7 @@ export default function ExploreUruguay() {
                 <span className="route-photo-tag">{route.tag}</span>
                 <h3>{route.title}</h3>
                 <p>{route.desc}</p>
-                <span className="route-photo-cta">Ver ruta →</span>
+                <span className="route-photo-cta">{t('see_route')}</span>
               </div>
             </div>
           </motion.a>

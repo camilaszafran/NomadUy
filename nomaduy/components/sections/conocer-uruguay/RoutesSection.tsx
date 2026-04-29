@@ -3,19 +3,18 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 import type { Ruta } from '@/types'
 import RouteModal from './RouteModal'
 
-const durations = ['Todos', '1 día', 'Fin de semana', '4–7 días']
-
 function getInterestStyle(label?: string): { bg: string; color: string } {
   const map: Record<string, { bg: string; color: string }> = {
-    'Historia':       { bg: 'var(--blue-pale)',              color: 'var(--blue)'   },
-    'Playa':          { bg: 'var(--blue-pale)',              color: 'var(--blue)'   },
-    'Naturaleza':     { bg: 'var(--green-pale)',             color: 'var(--green)'  },
-    'Relax & Termas': { bg: 'rgba(26,26,46,0.06)',           color: 'var(--ink-60)' },
-    'Gastronomía':    { bg: 'rgba(200,148,15,0.10)',         color: 'var(--gold)'   },
-    'Montevideo':     { bg: 'var(--blue-pale)',              color: 'var(--blue)'   },
+    'Historia':       { bg: 'var(--blue-pale)',      color: 'var(--blue)'   },
+    'Playa':          { bg: 'var(--blue-pale)',      color: 'var(--blue)'   },
+    'Naturaleza':     { bg: 'var(--green-pale)',     color: 'var(--green)'  },
+    'Relax & Termas': { bg: 'rgba(26,26,46,0.06)',   color: 'var(--ink-60)' },
+    'Gastronomía':    { bg: 'rgba(200,148,15,0.10)', color: 'var(--gold)'   },
+    'Montevideo':     { bg: 'var(--blue-pale)',      color: 'var(--blue)'   },
   }
   return map[label ?? ''] ?? { bg: 'var(--blue-pale)', color: 'var(--blue)' }
 }
@@ -34,9 +33,17 @@ interface RoutesSectionProps {
 }
 
 export default function RoutesSection({ routes }: RoutesSectionProps) {
-  const [activeDuration, setActiveDuration] = useState('Todos')
+  const t = useTranslations('conocer')
   const [activeRoute, setActiveRoute] = useState<Ruta | null>(null)
   const searchParams = useSearchParams()
+
+  const durations = [
+    t('duration_all'),
+    t('duration_1day'),
+    t('duration_weekend'),
+    t('duration_4to7'),
+  ]
+  const [activeDuration, setActiveDuration] = useState(durations[0])
 
   useEffect(() => {
     const slug = searchParams.get('ruta')
@@ -46,8 +53,15 @@ export default function RoutesSection({ routes }: RoutesSectionProps) {
     }
   }, [searchParams, routes])
 
+  // Map translated tab label back to Sanity duration value
+  const durationValueMap: Record<string, string> = {
+    [t('duration_1day')]:    '1 día',
+    [t('duration_weekend')]: 'Fin de semana',
+    [t('duration_4to7')]:    '4–7 días',
+  }
+
   const filtered = routes.filter((r) =>
-    activeDuration === 'Todos' || r.duration === activeDuration
+    activeDuration === durations[0] || r.duration === durationValueMap[activeDuration]
   )
 
   return (
@@ -55,7 +69,7 @@ export default function RoutesSection({ routes }: RoutesSectionProps) {
       <main className="main-wrap">
         <section className="routes-section">
           <div className="routes-section-head">
-            <h2>Rutas desde Montevideo</h2>
+            <h2>{t('routes_heading')}</h2>
             <div className="duration-tabs">
               {durations.map((d) => (
                 <button
@@ -108,7 +122,7 @@ export default function RoutesSection({ routes }: RoutesSectionProps) {
                         ))}
                       </div>
                     )}
-                    <button className="route-cta-link">Ver ruta →</button>
+                    <button className="route-cta-link">{t('view_route')}</button>
                   </motion.div>
                 )
               })}
@@ -116,7 +130,7 @@ export default function RoutesSection({ routes }: RoutesSectionProps) {
           </div>
 
           {filtered.length === 0 && (
-            <div className="routes-empty">No hay rutas para esa duración.</div>
+            <div className="routes-empty">{t('no_routes')}</div>
           )}
         </section>
       </main>

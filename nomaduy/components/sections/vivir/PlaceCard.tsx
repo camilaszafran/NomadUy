@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
 import { CaretLeft, CaretRight, Coffee, Buildings, ArrowSquareOut } from '@phosphor-icons/react'
+import { useTranslations } from 'next-intl'
 import PortableTextRenderer from '@/components/sections/guias/PortableTextRenderer'
 import type { Place, PlaceLink } from '@/types/place'
 import type { PortableTextBlock } from '@portabletext/react'
@@ -34,6 +35,7 @@ function LinkButton({ link }: { link: PlaceLink }) {
 }
 
 export default function PlaceCard({ place }: { place: Place }) {
+  const t = useTranslations('vivir')
   const slides = place.photos?.length ? place.photos : null
   const [current, setCurrent] = useState(0)
   const total = slides ? slides.length : 1
@@ -97,10 +99,10 @@ export default function PlaceCard({ place }: { place: Place }) {
 
         {total > 1 && (
           <>
-            <button className="carousel-btn carousel-btn-prev" onClick={prev} aria-label="Anterior">
+            <button className="carousel-btn carousel-btn-prev" onClick={prev} aria-label={t('place_prev')}>
               <CaretLeft size={18} weight="bold" />
             </button>
-            <button className="carousel-btn carousel-btn-next" onClick={next} aria-label="Siguiente">
+            <button className="carousel-btn carousel-btn-next" onClick={next} aria-label={t('place_next')}>
               <CaretRight size={18} weight="bold" />
             </button>
             <div className="carousel-dots">
@@ -109,7 +111,7 @@ export default function PlaceCard({ place }: { place: Place }) {
                   key={i}
                   className={`carousel-dot${i === current ? ' active' : ''}`}
                   onClick={() => setCurrent(i)}
-                  aria-label={`Foto ${i + 1}`}
+                  aria-label={t('place_photo_dot', { n: i + 1 })}
                 />
               ))}
             </div>
@@ -129,7 +131,7 @@ export default function PlaceCard({ place }: { place: Place }) {
           <div className="place-links">
             {coworkings.length > 0 && (
               <div className="place-links-group">
-                <span className="place-links-label">Coworkings</span>
+                <span className="place-links-label">{t('links_coworkings')}</span>
                 <div className="place-links-row">
                   {coworkings.map((l, i) => <LinkButton key={i} link={l} />)}
                 </div>
@@ -137,7 +139,7 @@ export default function PlaceCard({ place }: { place: Place }) {
             )}
             {cafes.length > 0 && (
               <div className="place-links-group">
-                <span className="place-links-label">Cafés para trabajar</span>
+                <span className="place-links-label">{t('links_cafes')}</span>
                 <div className="place-links-row">
                   {cafes.map((l, i) => <LinkButton key={i} link={l} />)}
                 </div>
@@ -145,7 +147,7 @@ export default function PlaceCard({ place }: { place: Place }) {
             )}
             {others.length > 0 && (
               <div className="place-links-group">
-                <span className="place-links-label">Otros</span>
+                <span className="place-links-label">{t('links_otros')}</span>
                 <div className="place-links-row">
                   {others.map((l, i) => <LinkButton key={i} link={l} />)}
                 </div>

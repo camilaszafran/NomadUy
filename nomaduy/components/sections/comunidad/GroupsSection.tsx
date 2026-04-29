@@ -7,62 +7,45 @@ import {
   House,
 } from '@phosphor-icons/react'
 import type { Icon } from '@phosphor-icons/react'
+import { useTranslations } from 'next-intl'
 
-const groups: {
-  Icon: Icon
-  name: string
-  desc: string
-  tags: string[]
-}[] = [
-  {
-    Icon: Lightning,
-    name: 'Deportes & Actividad',
-    desc: 'Fútbol, running, yoga, padel, ciclismo urbano y más.',
-    tags: ['Fútbol amateur', 'Running Rambla', 'Yoga', 'Pádel', 'Ciclismo'],
-  },
-  {
-    Icon: UsersThree,
-    name: 'Social & Cultura',
-    desc: 'Intercambio de idiomas, asados comunitarios, tango y salidas culturales.',
-    tags: ['Language exchange', 'Asado mensual', 'Tango', 'Cine & Teatro'],
-  },
-  {
-    Icon: Laptop,
-    name: 'Profesional & Startup',
-    desc: 'Para emprendedores, freelancers y trabajadores remotos.',
-    tags: ['Emprendedores', 'Tech & Startup', 'Remote workers', 'Co-founders'],
-  },
-  {
-    Icon: House,
-    name: 'Vida & Familia',
-    desc: 'Newcomers en general, familias, mujeres y búsqueda de compañeros de depto.',
-    tags: ['Newcomers', 'Familias con hijos', 'Mujeres expats', 'Roommates'],
-  },
-]
+const groupIcons: Icon[] = [Lightning, UsersThree, Laptop, House]
 
 export default function GroupsSection() {
+  const t = useTranslations('comunidad')
+
+  const groups = [
+    { name: t('group_sports_name'),       desc: t('group_sports_desc'),       tags: t.raw('group_sports_tags') as string[] },
+    { name: t('group_social_name'),       desc: t('group_social_desc'),       tags: t.raw('group_social_tags') as string[] },
+    { name: t('group_professional_name'), desc: t('group_professional_desc'), tags: t.raw('group_professional_tags') as string[] },
+    { name: t('group_life_name'),         desc: t('group_life_desc'),         tags: t.raw('group_life_tags') as string[] },
+  ]
+
   return (
     <section className="groups-section">
       <div className="groups-header">
-        <div className="section-eyebrow">Grupos de interés</div>
-        <h2>Encontrá tu grupo</h2>
-        <p>La gente se queda en la comunidad porque encuentra personas con intereses parecidos — no solo conexión de wifi.</p>
+        <div className="section-eyebrow">{t('groups_eyebrow')}</div>
+        <h2>{t('groups_heading')}</h2>
+        <p>{t('groups_desc')}</p>
       </div>
       <div className="groups-grid">
-        {groups.map((g) => (
-          <a key={g.name} href="#" className="group-card">
-            <div className="group-card-header">
-              <div className="group-icon">
-                <g.Icon size={24} weight="thin" />
+        {groups.map((g, i) => {
+          const GIcon = groupIcons[i]
+          return (
+            <a key={g.name} href="#" className="group-card">
+              <div className="group-card-header">
+                <div className="group-icon">
+                  <GIcon size={24} weight="thin" />
+                </div>
+                <h3>{g.name}</h3>
               </div>
-              <h3>{g.name}</h3>
-            </div>
-            <p>{g.desc}</p>
-            <div className="group-tags">
-              {g.tags.map((t) => <span key={t} className="group-tag">{t}</span>)}
-            </div>
-          </a>
-        ))}
+              <p>{g.desc}</p>
+              <div className="group-tags">
+                {g.tags.map((tag) => <span key={tag} className="group-tag">{tag}</span>)}
+              </div>
+            </a>
+          )
+        })}
       </div>
     </section>
   )

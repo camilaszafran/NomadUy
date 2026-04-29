@@ -17,6 +17,8 @@ const _client = createClient({ projectId: 'ohjste83', dataset: 'production', api
 const _builder = createImageUrlBuilder(_client)
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const urlFor = (source: any) => _builder.image(source)
+import { useTranslations, useLocale } from 'next-intl'
+import { localizeHref } from '@/lib/locale'
 import type { GuideCard } from '@/types'
 
 const iconMap: Record<string, Icon> = {
@@ -64,11 +66,13 @@ type Props = { guides: GuideCard[] }
 export default function FeaturedGuidesClient({ guides }: Props) {
   const gridRef = useRef(null)
   const inView = useInView(gridRef, { once: true, margin: '-60px' })
+  const t = useTranslations('home.featured_guides')
+  const locale = useLocale()
 
   return (
     <section className="featured">
       <div className="section-header">
-        <h2>Las guías más leídas</h2>
+        <h2>{t('title')}</h2>
       </div>
 
       <motion.div
@@ -79,7 +83,7 @@ export default function FeaturedGuidesClient({ guides }: Props) {
         animate={inView ? 'visible' : 'hidden'}
       >
         {guides.map((g) => {
-          const href = `/guias/${g.slug.current}`
+          const href = localizeHref(`/guias/${g.slug.current}`, locale)
           const GIcon = iconMap[g.icon] ?? Laptop
           const bg = categoryColors[g.category] ?? categoryColors.llegada
 
@@ -115,8 +119,8 @@ export default function FeaturedGuidesClient({ guides }: Props) {
       </motion.div>
 
       <div className="featured-cta">
-        <Link href="/guias" className="featured-cta-btn">
-          Ver todas las guías →
+        <Link href={localizeHref('/guias', locale)} className="featured-cta-btn">
+          {t('cta')}
         </Link>
       </div>
     </section>

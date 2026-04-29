@@ -3,18 +3,17 @@
 import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { routing } from '@/i18n/routing'
 
-const links = [
-  { href: '/guias', label: 'Guías' },
-  { href: '/vivir', label: 'Vivir' },
-  { href: '/conocer-uruguay', label: 'Conocer Uruguay' },
-  { href: '/recursos', label: 'Recursos' },
-]
+const linkHrefs = [
+  { href: '/guias',          key: 'guias' },
+  { href: '/vivir',          key: 'vivir' },
+  { href: '/conocer-uruguay', key: 'conocer' },
+  { href: '/recursos',       key: 'recursos' },
+] as const
 
 function buildLocalePath(fullPath: string, targetLocale: string): string {
-  // Strip existing non-default locale prefix (/en/... or /pt/...)
   const stripped = fullPath.replace(/^\/(en|pt)(\/|$)/, '/') || '/'
   if (targetLocale === routing.defaultLocale) return stripped
   return `/${targetLocale}${stripped === '/' ? '' : stripped}`
@@ -49,6 +48,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
   const locale = useLocale()
+  const t = useTranslations('nav')
 
   useEffect(() => { setOpen(false) }, [pathname])
 
@@ -65,10 +65,10 @@ export default function Nav() {
         </a>
 
         <ul className="nav-links">
-          {links.map(l => (
-            <li key={l.href}><a href={localizeHref(l.href, locale)}>{l.label}</a></li>
+          {linkHrefs.map(l => (
+            <li key={l.href}><a href={localizeHref(l.href, locale)}>{t(l.key)}</a></li>
           ))}
-          <li><a href={localizeHref('/comunidad', locale)} className="nav-cta">Unirme</a></li>
+          <li><a href={localizeHref('/comunidad', locale)} className="nav-cta">{t('unirme')}</a></li>
         </ul>
 
         <div className="nav-right">
@@ -76,7 +76,7 @@ export default function Nav() {
           <button
             className="nav-hamburger"
             onClick={() => setOpen(v => !v)}
-            aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+            aria-label={open ? t('close_menu') : t('open_menu')}
             aria-expanded={open}
           >
             <span className={`hbar${open ? ' open' : ''}`} />
@@ -105,14 +105,14 @@ export default function Nav() {
               transition={{ type: 'spring', stiffness: 300, damping: 32 }}
             >
               <div className="nav-drawer-links">
-                {links.map(l => (
+                {linkHrefs.map(l => (
                   <a key={l.href} href={localizeHref(l.href, locale)} className="nav-drawer-link">
-                    {l.label}
+                    {t(l.key)}
                   </a>
                 ))}
               </div>
               <a href={localizeHref('/comunidad', locale)} className="nav-drawer-cta">
-                Unirme a la comunidad →
+                {t('join_community')}
               </a>
               <div className="nav-drawer-locale">
                 <LocaleSwitcher />

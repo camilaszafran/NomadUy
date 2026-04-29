@@ -1,0 +1,144 @@
+{
+  "hero": {
+    "eyebrow": "Uruguai, América do Sul",
+    "h1_line1": "Hacé do Uruguai",
+    "h1_em": "sua casa.",
+    "subtitle": "O guia mais completo para morar, trabalhar e criar raízes no Uruguai — elaborado por pessoas que decidiram ficar.",
+    "cta_primary": "Juntar-me à comunidade →",
+    "cta_secondary": "Explorar os guias",
+    "cta_pdf": "Baixe o guia em PDF gratuitamente",
+    "card_now": "A comunidade agora",
+    "event_next": "Próximo meetup",
+    "event_fallback": "Primeira quinta-feira de cada mês · Montevidéu",
+    "whatsapp_label": "Grupos ativos do WhatsApp",
+    "whatsapp_desc": "Recém-chegados · Alojamento · Eventos",
+    "members_label": "Novos membros desta semana",
+    "members_desc": "34 pessoas de 12 países",
+    "join_mini_title": "Comece antes de chegar.",
+    "join_mini_desc": "Junte-se à comunidade e receba o guia de boas-vindas na sua caixa de entrada.",
+    "join_mini_email": "tu@email.com",
+    "join_mini_btn": "Inscreva-se gratuitamente",
+    "join_mini_note": "Sem spam. Cancele quando quiser."
+  },
+  "featured_guides": {
+    "title": "Os guias mais lidos",
+    "cta": "Ver todos os guias →"
+  },
+  "categories": {
+    "title": "Tudo o que você precisa, organizado.",
+    "desc": "Dezesseis seções com guias detalhados sobre todos os aspectos da vida no Uruguai.",
+    "cta": "Ver o guia completo →",
+    "explore": "Explorar →",
+    "items": [
+      {
+        "title": "Primeiros passos e chegada",
+        "desc": "As primeiras 48 horas — SIM, câmbio, banco, aplicativos essenciais."
+      },
+      {
+        "title": "Vistos e questões jurídicas",
+        "desc": "Visto de turista, autorização para nômades digitais, residência — passo a passo, em linguagem simples."
+      },
+      {
+        "title": "Bairros",
+        "desc": "Pocitos, Palermo, Cidade Velha — encontre o seu cantinho em Montevidéu."
+      },
+      {
+        "title": "Moradia e aluguel",
+        "desc": "Como encontrar um apartamento, contratos em espanhol, preços atualizados."
+      },
+      {
+        "title": "Trabalho e coworking",
+        "desc": "Os melhores espaços de coworking e cafés onde você realmente consegue trabalhar."
+      },
+      {
+        "title": "Custo de vida",
+        "desc": "Orçamentos reais, estratégia do dólar americano em relação ao peso, vantagens fiscais."
+      },
+      {
+        "title": "Saúde e bem-estar",
+        "desc": "Mutualidades, seguro internacional, farmácias e médicos recomendados."
+      },
+      {
+        "title": "Transporte",
+        "desc": "STM, Uber, viagens intermunicipais, como chegar a Punta del Este."
+      },
+      {
+        "title": "Comida e restaurantes",
+        "desc": "Do cabrito às churrasqueiras escondidas — o guia definitivo da gastronomia."
+      },
+      {
+        "title": "Cultura e idioma",
+        "desc": "Mate, carnaval, tango, a cultura do Rio da Prata e como se integrar com os locais."
+      },
+      {
+        "title": "Parques e natureza",
+        "desc": "A Rambla, o Parque Rodó e passeios pela natureza saindo da cidade."
+      },
+      {
+        "title": "Gemas escondidas",
+        "desc": "Cabo Polonio, Punta del Diablo, Salto — o que os turistas não veem."
+      }
+    ]
+  },
+  "directory": {
+    "label": "Onde morar",
+    "title": "Não sabe onde se hospedar no Uruguai?",
+    "title_highlight": "Nós recomendamos.",
+    "desc": "Responda a algumas perguntas sobre seu estilo de vida e seu orçamento. Mostramos os lugares que mais combinam com você — de Montevidéu a Cabo Polonio.",
+    "cta": "Faça o teste"
+  },
+  "explore": {
+    "title": "Conhecer o Uruguai",
+    "subtitle": "Itinerários de viagem por interesse e duração — desde uma viagem de fim de semana até uma imersão completa.",
+    "cta": "Ver todas as rotas →",
+    "see_route": "Ver rota →",
+    "items": [
+      {
+        "title": "Surf e Costa",
+        "desc": "Punta del Este, La Pedrera, Cabo Polonio e Punta del Diablo.",
+        "tag": "Atlântico"
+      },
+      {
+        "title": "História e Patrimônio",
+        "desc": "Colônia do Sacramento, Fray Bentos e os segredos do litoral oeste.",
+        "tag": "Cultura"
+      },
+      {
+        "title": "Termas do Norte",
+        "desc": "Salto, Paysandú e as fontes termais naturais mais acessíveis da região.",
+        "tag": "Relaxe"
+      },
+      {
+        "title": "Vida Selvagem e Natureza",
+        "desc": "Cabo Polonio, leões-marinhos, pinguins e o céu mais estrelado.",
+        "tag": "Natureza"
+      }
+    ]
+  },
+  "resources": {
+    "title": "Recursos para planejar sua vida no Uruguai",
+    "desc": "Calculadora do custo de vida e links para os melhores recursos externos — tudo em um só lugar.",
+    "cta": "Ver recursos →",
+    "card_label": "Custo mensal estimado",
+    "card_total": "$1.630",
+    "card_sub": "USD · perfil confortável · Montevidéu",
+    "bar_rent": "Aluguel",
+    "bar_food": "Comida",
+    "bar_transport": "Transporte",
+    "bar_ocio": "Lazer",
+    "bar_health": "Saúde",
+    "bar_varios": "Diversos",
+    "external_count": "+ 9 recursos externos",
+    "open_calc": "Abrir calculadora →"
+  },
+  "testimonials": {
+    "title": "De pessoas como você"
+  },
+  "pdf_banner": {
+    "title": "Baixe o guia gratuitamente",
+    "desc": "&quot;Seus primeiros 30 dias no Uruguai&quot; — tudo o que você precisa saber antes e depois de chegar, em um PDF que você pode levar com você.",
+    "email_placeholder": "tu@email.com",
+    "cta": "Baixe gratuitamente →",
+    "note": "Sem spam. Apenas o guia. Prometido."
+  }
+}

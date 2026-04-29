@@ -11,6 +11,8 @@ import {
 import type { Icon } from '@phosphor-icons/react'
 import { createClient } from 'next-sanity'
 import { createImageUrlBuilder } from '@sanity/image-url'
+import { useTranslations, useLocale } from 'next-intl'
+import { localizeHref } from '@/lib/locale'
 import type { GuideCard, GuideIcon } from '@/types'
 
 const _client = createClient({ projectId: 'ohjste83', dataset: 'production', apiVersion: '2024-01-01', useCdn: true })
@@ -45,27 +47,29 @@ const categoryGradients: Record<string, string> = {
   idioma:   '#D4922A',
 }
 
-const categoryLabels: Record<string, string> = {
-  llegada:  'Llegada',
-  legal:    'Legal & Trámites',
-  vivienda: 'Vivienda',
-  trabajo:  'Trabajo',
-  moverse:  'Moverse',
-  salud:    'Salud',
-  familia:  'Familia',
-  finanzas: 'Finanzas',
-  idioma:   'Idioma',
-}
-
-const statusConfig = {
-  ready:    { label: 'Disponible',    className: 'ready' },
-  progress: { label: 'En proceso',   className: 'progress' },
-  soon:     { label: 'Próximamente', className: 'soon' },
-}
-
 export default function GuiasGridClient({ guides }: { guides: GuideCard[] }) {
+  const t = useTranslations('guias')
+  const locale = useLocale()
   const categories = Array.from(new Set(guides.map((g) => g.category).filter(Boolean))) as string[]
   const [active, setActive] = useState<string | null>(null)
+
+  const categoryLabels: Record<string, string> = {
+    llegada:  t('cat_llegada'),
+    legal:    t('cat_legal'),
+    vivienda: t('cat_vivienda'),
+    trabajo:  t('cat_trabajo'),
+    moverse:  t('cat_moverse'),
+    salud:    t('cat_salud'),
+    familia:  t('cat_familia'),
+    finanzas: t('cat_finanzas'),
+    idioma:   t('cat_idioma'),
+  }
+
+  const statusConfig = {
+    ready:    { label: t('status_ready'),    className: 'ready' },
+    progress: { label: t('status_progress'), className: 'progress' },
+    soon:     { label: t('status_soon'),     className: 'soon' },
+  }
 
   const filtered = active ? guides.filter((g) => g.category === active) : guides
 
@@ -75,7 +79,7 @@ export default function GuiasGridClient({ guides }: { guides: GuideCard[] }) {
       {/* Cat strip */}
       <div className="cat-strip-inline">
         <button className={`cat-pill${active === null ? ' active' : ''}`} onClick={() => setActive(null)}>
-          Todas
+          {t('all')}
         </button>
         {categories.map((cat) => (
           <button
@@ -139,7 +143,7 @@ export default function GuiasGridClient({ guides }: { guides: GuideCard[] }) {
                   </div>
                 )}
                 <p>{guide.summary}</p>
-                {href && <span className="gcard-arrow">Leer →</span>}
+                {href && <span className="gcard-arrow">{t('read')}</span>}
               </div>
             </>
           )
@@ -153,8 +157,8 @@ export default function GuiasGridClient({ guides }: { guides: GuideCard[] }) {
       </div>
 
       <div className="help-strip">
-        <p><strong>¿Buscás algo que no está acá?</strong> La comunidad tiene respuestas para casi cualquier pregunta sobre vivir en Uruguay.</p>
-        <Link href="/comunidad" className="help-link">Preguntar en la comunidad →</Link>
+        <p><strong>{t('help_title')}</strong> {t('help_desc')}</p>
+        <Link href={localizeHref('/comunidad', locale)} className="help-link">{t('help_cta')}</Link>
       </div>
     </main>
   )

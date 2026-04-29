@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 const COUNTRY_CODES = [
   { code: '+54',  label: '🇦🇷 +54' },
@@ -76,6 +76,7 @@ const PDF_BY_LOCALE: Record<string, string> = {
 
 export default function JoinForm() {
   const locale = useLocale()
+  const t = useTranslations('comunidad')
   const [nombre, setNombre] = useState('')
   const [apellido, setApellido] = useState('')
   const [email, setEmail] = useState('')
@@ -117,7 +118,7 @@ export default function JoinForm() {
       setStatus('duplicate')
     } else {
       setStatus('error')
-      setErrorMsg(data.error ?? 'Error inesperado.')
+      setErrorMsg(data.error ?? t('form_error_default'))
     }
   }
 
@@ -125,57 +126,57 @@ export default function JoinForm() {
     return (
       <div className="hero-form hero-form--success">
         <div className="form-success-icon">✓</div>
-        <h3>¡Bienvenido/a a NomadUY!</h3>
-        <p>Ya sos parte de la comunidad. Te mandamos un email de bienvenida en breve.</p>
+        <h3>{t('form_success_heading')}</h3>
+        <p>{t('form_success_msg')}</p>
       </div>
     )
   }
 
   return (
     <form className="hero-form" id="unirme" onSubmit={handleSubmit} noValidate>
-      <h3>Unirme a NomadUY</h3>
-      <p>Gratis para siempre. Sin spam.</p>
+      <h3>{t('form_title')}</h3>
+      <p>{t('form_subtitle')}</p>
 
       <div className="form-row">
         <div className="form-field">
-          <label htmlFor="nombre">Nombre *</label>
+          <label htmlFor="nombre">{t('form_nombre_label')}</label>
           <input
-            id="nombre" type="text" placeholder="Tu nombre"
+            id="nombre" type="text" placeholder={t('form_nombre_placeholder')}
             value={nombre} onChange={e => setNombre(e.target.value)} required
           />
         </div>
         <div className="form-field">
-          <label htmlFor="apellido">Apellido *</label>
+          <label htmlFor="apellido">{t('form_apellido_label')}</label>
           <input
-            id="apellido" type="text" placeholder="Tu apellido"
+            id="apellido" type="text" placeholder={t('form_apellido_placeholder')}
             value={apellido} onChange={e => setApellido(e.target.value)} required
           />
         </div>
       </div>
 
       <div className="form-field">
-        <label htmlFor="email">Email *</label>
+        <label htmlFor="email">{t('form_email_label')}</label>
         <input
-          id="email" type="email" placeholder="tu@email.com"
+          id="email" type="email" placeholder={t('form_email_placeholder')}
           value={email} onChange={e => setEmail(e.target.value)} required
         />
       </div>
 
       <div className="form-field">
-        <label htmlFor="telefono-numero">Teléfono</label>
+        <label htmlFor="telefono-numero">{t('form_telefono_label')}</label>
         <div className="phone-row">
           <select
             className="phone-prefix"
             value={telefonoPrefijo}
             onChange={e => setTelefonoPrefijo(e.target.value)}
-            aria-label="Código de país"
+            aria-label={t('form_country_code_aria')}
           >
             {COUNTRY_CODES.map((c, i) => (
               <option key={i} value={c.code}>{c.label}</option>
             ))}
           </select>
           <input
-            id="telefono-numero" type="tel" placeholder="091 234 567"
+            id="telefono-numero" type="tel" placeholder={t('form_telefono_placeholder')}
             value={telefonoNumero} onChange={e => setTelefonoNumero(e.target.value)}
             className="phone-number"
           />
@@ -183,39 +184,39 @@ export default function JoinForm() {
       </div>
 
       <div className="form-field">
-        <label htmlFor="pais">País de origen</label>
+        <label htmlFor="pais">{t('form_pais_label')}</label>
         <select id="pais" value={paisDeOrigen} onChange={e => setPaisDeOrigen(e.target.value)}>
-          <option value="">Seleccioná tu país</option>
+          <option value="">{t('form_pais_placeholder')}</option>
           {COUNTRIES.map(c => <option key={c} value={c}>{c}</option>)}
         </select>
       </div>
 
       <div className="form-field">
-        <label htmlFor="situacion">¿Cuál es tu situación? *</label>
+        <label htmlFor="situacion">{t('form_situacion_label')}</label>
         <select id="situacion" value={situacion} onChange={e => setSituacion(e.target.value)} required>
-          <option value="">Seleccioná una opción</option>
-          <option value="nomada">Nómada digital (corto plazo)</option>
-          <option value="expat">Expat (largo plazo, trabajo)</option>
-          <option value="inmigrante">Inmigrante (permanente)</option>
-          <option value="planeando">Todavía planeando mi llegada</option>
+          <option value="">{t('form_situacion_placeholder')}</option>
+          <option value="nomada">{t('form_situacion_nomada')}</option>
+          <option value="expat">{t('form_situacion_expat')}</option>
+          <option value="inmigrante">{t('form_situacion_inmigrante')}</option>
+          <option value="planeando">{t('form_situacion_planning')}</option>
         </select>
       </div>
 
       <div className="form-field">
-        <label htmlFor="cuando">¿Cuándo llegás? *</label>
+        <label htmlFor="cuando">{t('form_cuando_label')}</label>
         <select id="cuando" value={cuandoLlegas} onChange={e => setCuandoLlegas(e.target.value)} required>
-          <option value="">Seleccioná una opción</option>
-          <option value="ya_estoy">Ya estoy en Uruguay</option>
-          <option value="menos_1_mes">En menos de 1 mes</option>
-          <option value="1_3_meses">En 1–3 meses</option>
-          <option value="3_6_meses">En 3–6 meses</option>
-          <option value="no_se">Todavía no sé</option>
+          <option value="">{t('form_cuando_placeholder')}</option>
+          <option value="ya_estoy">{t('form_cuando_here')}</option>
+          <option value="menos_1_mes">{t('form_cuando_1month')}</option>
+          <option value="1_3_meses">{t('form_cuando_1to3')}</option>
+          <option value="3_6_meses">{t('form_cuando_3to6')}</option>
+          <option value="no_se">{t('form_cuando_unsure')}</option>
         </select>
       </div>
 
       {status === 'duplicate' && (
         <p className="form-message form-message--error">
-          Este email ya está registrado. ¿Ya sos parte de la comunidad?
+          {t('form_error_duplicate')}
         </p>
       )}
       {status === 'error' && (
@@ -223,9 +224,9 @@ export default function JoinForm() {
       )}
 
       <button className="submit-btn" type="submit" disabled={status === 'loading'}>
-        {status === 'loading' ? 'Registrando...' : 'Unirme a la comunidad →'}
+        {status === 'loading' ? t('form_loading') : t('form_submit')}
       </button>
-      <p className="form-privacy">Sin spam. Accedé a nuestro Whatsapp.</p>
+      <p className="form-privacy">{t('form_privacy')}</p>
     </form>
   )
 }

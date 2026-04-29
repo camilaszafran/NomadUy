@@ -1,0 +1,92 @@
+{
+  "hero": {
+    "eyebrow": "Uruguay, América del Sur",
+    "h1_line1": "Hacé de Uruguay",
+    "h1_em": "tu hogar.",
+    "subtitle": "La guía más completa para vivir, trabajar y echar raíces en Uruguay — hecha por personas que eligieron quedarse.",
+    "cta_primary": "Unirme a la comunidad →",
+    "cta_secondary": "Explorar las guías",
+    "cta_pdf": "↓ Descargar guía PDF gratis",
+    "card_now": "La comunidad ahora",
+    "event_next": "Próximo meetup",
+    "event_fallback": "Primer jueves de cada mes · Montevideo",
+    "whatsapp_label": "WhatsApp grupos activos",
+    "whatsapp_desc": "Recién llegados · Housing · Eventos",
+    "members_label": "Nuevos miembros esta semana",
+    "members_desc": "34 personas de 12 países",
+    "join_mini_title": "Empezá antes de llegar.",
+    "join_mini_desc": "Unite a la comunidad y recibí la guía de bienvenida en tu inbox.",
+    "join_mini_email": "tu@email.com",
+    "join_mini_btn": "Unirme gratis",
+    "join_mini_note": "Sin spam. Cancelá cuando quieras."
+  },
+  "featured_guides": {
+    "title": "Las guías más leídas",
+    "cta": "Ver todas las guías →"
+  },
+  "categories": {
+    "title": "Todo lo que necesitás, organizado.",
+    "desc": "Dieciséis secciones con guías en profundidad sobre cada aspecto de vivir en Uruguay.",
+    "cta": "Ver toda la guía →",
+    "explore": "Explorar →",
+    "items": [
+      { "title": "Primeros pasos y llegada", "desc": "Las primeras 48 horas — SIM, cambio de moneda, banco, apps esenciales." },
+      { "title": "Visas y legal", "desc": "Visa turista, permiso nómade digital, residencia — paso a paso, en lenguaje claro." },
+      { "title": "Barrios", "desc": "Pocitos, Palermo, Ciudad Vieja — encontrá tu rincón en Montevideo." },
+      { "title": "Housing y alquiler", "desc": "Cómo encontrar depto, contratos en español, precios actualizados." },
+      { "title": "Trabajo y coworking", "desc": "Los mejores coworkings y cafés donde realmente podés trabajar." },
+      { "title": "Costo de vida", "desc": "Presupuestos reales, estrategia USD vs. peso, ventajas impositivas." },
+      { "title": "Salud y bienestar", "desc": "Mutualistas, seguro internacional, farmacias y médicos recomendados." },
+      { "title": "Transporte", "desc": "STM, Uber, viajes intercity, cómo llegar a Punta del Este." },
+      { "title": "Comida y restaurantes", "desc": "Del chivito a las parrillas escondidas — la guía definitiva de food." },
+      { "title": "Cultura e idioma", "desc": "Mate, carnaval, tango, rioplatense y cómo encajar con los locales." },
+      { "title": "Parques y naturaleza", "desc": "La Rambla, Parque Rodó y escapadas de naturaleza desde la ciudad." },
+      { "title": "Gemas escondidas", "desc": "Cabo Polonio, Punta del Diablo, Salto — lo que los turistas no ven." }
+    ]
+  },
+  "directory": {
+    "label": "Dónde vivir",
+    "title": "¿No sabés dónde quedarte en Uruguay?",
+    "title_highlight": "Nosotros te recomendamos.",
+    "desc": "Respondé unas pocas preguntas sobre tu estilo de vida y presupuesto. Te mostramos los lugares que más encajan con vos — desde Montevideo hasta Cabo Polonio.",
+    "cta": "Hacé el Test"
+  },
+  "explore": {
+    "title": "Conocer Uruguay",
+    "subtitle": "Rutas de viaje por interés y duración — del fin de semana a la inmersión profunda.",
+    "cta": "Ver todas las rutas →",
+    "see_route": "Ver ruta →",
+    "items": [
+      { "title": "Surf & Costa", "desc": "Punta del Este, La Pedrera, Cabo Polonio y Punta del Diablo.", "tag": "Atlántico" },
+      { "title": "Historia & Patrimonio", "desc": "Colonia del Sacramento, Fray Bentos y los secretos del litoral oeste.", "tag": "Cultura" },
+      { "title": "Termas del norte", "desc": "Salto, Paysandú y las termas naturales más accesibles de la región.", "tag": "Relax" },
+      { "title": "Wildlife & Naturaleza", "desc": "Cabo Polonio, lobos marinos, pingüinos y el cielo más estrellado.", "tag": "Naturaleza" }
+    ]
+  },
+  "resources": {
+    "title": "Recursos para planear tu vida en Uruguay",
+    "desc": "Calculadora de costo de vida y links a los mejores recursos externos — todo en un lugar.",
+    "cta": "Ver recursos →",
+    "card_label": "Costo mensual estimado",
+    "card_total": "$1.630",
+    "card_sub": "USD · perfil cómodo · Montevideo",
+    "bar_rent": "Alquiler",
+    "bar_food": "Comida",
+    "bar_transport": "Transporte",
+    "bar_ocio": "Ocio",
+    "bar_health": "Salud",
+    "bar_varios": "Varios",
+    "external_count": "+ 9 recursos externos",
+    "open_calc": "Abrir calculadora →"
+  },
+  "testimonials": {
+    "title": "De personas como vos"
+  },
+  "pdf_banner": {
+    "title": "Descargá la guía gratis",
+    "desc": "\"Tus primeros 30 días en Uruguay\" — todo lo que necesitás saber antes y después de llegar, en un PDF que podés llevar con vos.",
+    "email_placeholder": "tu@email.com",
+    "cta": "Descargar gratis →",
+    "note": "Sin spam. Solo la guía. Prometido."
+  }
+}

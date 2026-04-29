@@ -8,7 +8,7 @@ export default async function RecursosHeader() {
     <header className="page-header page-header-blue">
       <div className="page-header-inner">
         <div className="page-label">{t('label')}</div>
-        <h1>Herramientas para<br />planear tu vida en Uruguay.</h1>
+        <h1>{t.rich('heading', { br: () => <br /> })}</h1>
         <PageSubtitle>{t('subtitle')}</PageSubtitle>
       </div>
     </header>

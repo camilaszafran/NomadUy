@@ -4,6 +4,7 @@ import { useState, useMemo, useRef, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
+import { useTranslations, useLocale } from 'next-intl'
 import PlaceCard from './PlaceCard'
 import PlaceGridCard from './PlaceGridCard'
 import type { Place } from '@/types/place'
@@ -49,6 +50,9 @@ function Slider({ label, value, minLabel, maxLabel, onChange }: SliderProps) {
 }
 
 export default function PlaceMatcher({ places }: { places: Place[] }) {
+  const t = useTranslations('vivir')
+  const locale = useLocale()
+  const lugaresHref = locale === 'es' ? '/vivir/lugares' : `/${locale}/vivir/lugares`
   const searchParams = useSearchParams()
   const [cost, setCost] = useState(3)
   const [urban, setUrban] = useState(3)
@@ -90,46 +94,44 @@ export default function PlaceMatcher({ places }: { places: Place[] }) {
 
   return (
     <div className="matcher-wrap">
-      {/* Sliders */}
       <section className="matcher-section">
         <div className="matcher-inner">
           <div className="matcher-intro">
-            <span className="section-eyebrow">Encontrá tu lugar</span>
-            <h2>¿Cómo imaginás tu vida en Uruguay?</h2>
-            <p>Mové los filtros y te mostramos el lugar que mejor encaja con lo que buscás.</p>
+            <span className="section-eyebrow">{t('matcher_eyebrow')}</span>
+            <h2>{t('matcher_heading')}</h2>
+            <p>{t('matcher_desc')}</p>
           </div>
           <div className="matcher-sliders">
             <Slider
-              label="Costo de vida"
+              label={t('slider_costo')}
               value={cost}
-              minLabel="Muy barato"
-              maxLabel="Caro"
+              minLabel={t('slider_costo_min')}
+              maxLabel={t('slider_costo_max')}
               onChange={handleSlider(setCost)}
             />
             <Slider
-              label="Entorno"
+              label={t('slider_entorno')}
               value={urban}
-              minLabel="Rural profundo"
-              maxLabel="Ciudad grande"
+              minLabel={t('slider_entorno_min')}
+              maxLabel={t('slider_entorno_max')}
               onChange={handleSlider(setUrban)}
             />
             <Slider
-              label="Tamaño"
+              label={t('slider_tamano')}
               value={pop}
-              minLabel="Aldea pequeña"
-              maxLabel="Gran ciudad"
+              minLabel={t('slider_tamano_min')}
+              maxLabel={t('slider_tamano_max')}
               onChange={handleSlider(setPop)}
             />
           </div>
         </div>
       </section>
 
-      {/* Best match */}
       {featured && (
         <section className="match-result-section" ref={resultRef}>
           <div className="match-result-inner">
             <div className="match-result-label">
-              <span className="match-badge">Tu match ideal</span>
+              <span className="match-badge">{t('match_badge')}</span>
             </div>
             <AnimatePresence mode="wait">
               <motion.div
@@ -146,11 +148,10 @@ export default function PlaceMatcher({ places }: { places: Place[] }) {
         </section>
       )}
 
-      {/* Others */}
       {others.length > 0 && (
         <section className="otros-section">
           <div className="otros-inner">
-            <h2 className="otros-title">Otros lugares que te pueden interesar</h2>
+            <h2 className="otros-title">{t('others_heading')}</h2>
             <div className="otros-grid">
               {others.map((place) => (
                 <PlaceGridCard
@@ -162,8 +163,8 @@ export default function PlaceMatcher({ places }: { places: Place[] }) {
               ))}
             </div>
             <div className="otros-cta">
-              <Link href="/vivir/lugares" className="btn-mostrar-todos">
-                Mostrar todos los lugares
+              <Link href={lugaresHref} className="btn-mostrar-todos">
+                {t('show_all')}
               </Link>
             </div>
           </div>

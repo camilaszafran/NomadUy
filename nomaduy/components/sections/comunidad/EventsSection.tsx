@@ -1,3 +1,4 @@
+import { getTranslations } from 'next-intl/server'
 import type { CalendarEvent } from '@/lib/calendar'
 
 function formatDate(dateStr: string): { day: string; month: string } {
@@ -18,20 +19,22 @@ interface EventsSectionProps {
   calendarUrl: string
 }
 
-export default function EventsSection({ events, calendarUrl }: EventsSectionProps) {
+export default async function EventsSection({ events, calendarUrl }: EventsSectionProps) {
+  const t = await getTranslations('comunidad')
+
   return (
     <section className="events-section" id="eventos">
       <div className="events-inner">
         <div className="events-text">
-          <h2>Eventos que crean comunidad real.</h2>
-          <p>Nos juntamos en persona todos los meses. El primer jueves de cada mes en Montevideo — venues rotativos, siempre con buena onda.</p>
+          <h2>{t('events_heading')}</h2>
+          <p>{t('events_desc')}</p>
           <a href={calendarUrl} target="_blank" rel="noopener noreferrer" className="btn-white">
-            Ver todo el calendario →
+            {t('events_calendar')}
           </a>
         </div>
         <div className="events-list">
           {events.length === 0 && (
-            <p style={{ color: 'var(--ink-60)', fontSize: '0.9rem' }}>No hay eventos próximos cargados todavía.</p>
+            <p style={{ color: 'var(--ink-60)', fontSize: '0.9rem' }}>{t('events_empty')}</p>
           )}
           {events.map((e) => {
             const { day, month } = formatDate(e.start)

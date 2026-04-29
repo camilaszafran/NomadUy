@@ -1,0 +1,188 @@
+{
+  "label": "Guias",
+  "title": "Tudo o que você precisa saber para morar aqui.",
+  "subtitle": "Desde o primeiro dia até os trâmites de residência — guias claros, práticos e escritos por pessoas que já passaram por isso.",
+  "read_time": "Tempo de leitura:",
+  "all": "Todas",
+  "back": "← Voltar aos guias",
+  "read": "Aprenda →",
+  "help_title": "Você está procurando algo que não está aqui?",
+  "help_desc": "A comunidade tem respostas para praticamente qualquer pergunta sobre a vida no Uruguai.",
+  "help_cta": "Fazer uma pergunta na comunidade →",
+  "cat_llegada": "Chegada",
+  "cat_legal": "Questões jurídicas e trâmites",
+  "cat_vivienda": "Habitação",
+  "cat_trabajo": "Trabalho",
+  "cat_moverse": "Movimentar-se",
+  "cat_salud": "Saúde",
+  "cat_familia": "Família",
+  "cat_finanzas": "Finanças",
+  "cat_idioma": "Idioma",
+  "status_ready": "Disponível",
+  "status_progress": "Em andamento",
+  "status_soon": "Em breve",
+  "primeras48": {
+    "breadcrumb_label": "Guias",
+    "breadcrumb_current": "Primeiras 48 horas",
+    "h1": "Suas primeiras 48 horas no Uruguai.",
+    "subtitle": "Você chegou. Respire fundo. Esta lista de verificação abrange tudo o que você precisa fazer — por ordem de prioridade, com links e números úteis.",
+    "tag_airport": "Aeroporto Carrasco",
+    "tag_steps": "18 passos",
+    "tag_time": "~2 horas para o essencial",
+    "stat_count": "18",
+    "stat_label": "coisas para fazer ao chegar",
+    "check_1": "Cartão SIM no aeroporto",
+    "check_2": "Câmbio",
+    "check_3": "Como chegar ao alojamento",
+    "check_4": "Abrir carteira digital (Prex)",
+    "check_5": "Junte-se à comunidade NomadUY",
+    "toc_label": "Neste guia",
+    "pdf_cta_title": "Baixar PDF",
+    "pdf_cta_desc": "Guia completo para levar",
+    "footer_title": "Quer o guia completo em PDF?",
+    "footer_desc": "Baixe gratuitamente — funciona sem conexão com a internet.",
+    "footer_download": "Baixe gratuitamente",
+    "footer_community": "Juntar-me à comunidade",
+    "phases": [
+      {
+        "badgeNum": "1",
+        "badgeColor": "azul",
+        "time": "Primeiras 2 horas — Ao pousar",
+        "timeColor": "azul",
+        "title": "No aeroporto",
+        "steps": [
+          {
+            "num": 1,
+            "icon": "Dispositivo móvel",
+            "title": "Comprá una SIM card",
+            "subtitle": "Antel ou Claro — no mesmo aeroporto",
+            "priorityLabel": "Agora",
+            "body": "Há lojas da Antel e da Claro na área de desembarque. Um plano de 30 dias com dados ilimitados custa entre $400 e $600 UYU (~$10–15 USD).",
+            "tips": [
+              "Pedi um plano com dados, não só de voz",
+              "A Antel tem melhor cobertura em ambientes fechados",
+              "Leve dinheiro — nem sempre aceitam cartão"
+            ]
+          },
+          {
+            "num": 2,
+            "icon": "Moeda: Dólar",
+            "title": "Trocar dinheiro",
+            "subtitle": "Casa de câmbio em Carrasco",
+            "priorityLabel": "Agora",
+            "body": "Há uma casa de câmbio no aeroporto. A taxa de câmbio não é das melhores, mas troque o suficiente para o táxi e os primeiros dias (~US$ 100).",
+            "tips": [
+              "A taxa aeroportuária é 5–8% mais cara do que na cidade",
+              "Levar dólares americanos é a melhor opção ao chegar",
+              "Os caixas eletrônicos (ATM) distribuem pesos — procure por &quot;Scotiabank&quot; ou &quot;BROU&quot;"
+            ]
+          },
+          {
+            "num": 3,
+            "icon": "Carro",
+            "title": "Transporte para o centro",
+            "subtitle": "Táxi, Uber ou ônibus",
+            "priorityLabel": "Agora",
+            "body": "O Uber funciona perfeitamente a partir de Carrasco. O táxi oficial custa cerca de 1.500 UYU (cerca de 37 USD) até o centro/Pocitos. O ônibus 700 chega à Cidade Velha por cerca de 50 UYU, mas leva 1h30.",
+            "infoType": "azul",
+            "infoTitle": "Dica da comunidade",
+            "infoBody": "O Uber é confiável, mais barato que o táxi e o motorista já sabe para onde você vai. Baixe o aplicativo antes de pousar."
+          }
+        ]
+      },
+      {
+        "badgeNum": "2",
+        "badgeColor": "ouro",
+        "time": "Primeiro dia",
+        "timeColor": "ouro",
+        "title": "Instalarate",
+        "steps": [
+          {
+            "num": 4,
+            "icon": "Cartão de crédito",
+            "title": "Descargá Prex",
+            "subtitle": "Porta-moedas digital uruguaio",
+            "priorityLabel": "Dia 1",
+            "body": "O Prex é a carteira digital mais usada no Uruguai. Você pode recarregá-la com dinheiro em qualquer ponto de atendimento da RedPagos e usá-la para pagar em lojas, serviços de entrega e outros serviços.",
+            "tips": [
+              "Baixe o aplicativo e cadastre-se com seu passaporte",
+              "Recarregue em qualquer loja RedPagos ou Abitab",
+              "Funciona para pagar o Uber, o Pedidos Ya, etc."
+            ]
+          },
+          {
+            "num": 5,
+            "icon": "Dispositivo móvel",
+            "title": "Instale os aplicativos essenciais",
+            "subtitle": "Táxi, entrega, mapas",
+            "priorityLabel": "Dia 1",
+            "body": "Os aplicativos que você vai usar todos os dias no Uruguai:",
+            "tips": [
+              "Uber — transporte de ponto a ponto",
+              "Pedidos Ya — entrega de comida",
+              "Google Maps — funciona perfeitamente em Montevidéu",
+              "Urufarma — encontre farmácias e preços de medicamentos"
+            ]
+          },
+          {
+            "num": 6,
+            "icon": "Edifícios",
+            "title": "Oriente-se no seu bairro",
+            "subtitle": "Supermercado, farmácia, caixa eletrônico",
+            "priorityLabel": "Dia 1",
+            "body": "O primeiro que você precisa encontrar perto do seu alojamento: supermercado (Tienda Inglesa, Disco, Ta-Ta), farmácia, caixa eletrônico e uma padaria.",
+            "infoType": "verde",
+            "infoTitle": "Principais supermercados",
+            "infoBody": "Tienda Inglesa (premium), Disco/Devoto (médio), Ta-Ta (econômico). Todas oferecem bons produtos e aceitam cartão de crédito."
+          }
+        ]
+      },
+      {
+        "badgeNum": "3",
+        "badgeColor": "verde",
+        "time": "Dia 2 — Primeiros trâmites",
+        "timeColor": "verde",
+        "title": "Primeiros trâmites burocráticos",
+        "steps": [
+          {
+            "num": 7,
+            "icon": "Cartão de Identificação",
+            "title": "Carteira de identidade",
+            "subtitle": "Correio Uruguayo ou DNIC",
+            "priorityLabel": "Dia 2+",
+            "body": "Se você for ficar mais de 90 dias, dê início ao processo de obtenção da carteira de identidade. Você precisará do passaporte e de um endereço. O processo é feito nos Correios do Uruguai e leva de 2 a 4 semanas.",
+            "tips": [
+              "Traga o passaporte original + uma cópia",
+              "Você precisa de um endereço no Uruguai (pode ser um alojamento temporário)",
+              "O custo é de cerca de US$ 700"
+            ]
+          },
+          {
+            "num": 8,
+            "icon": "Primeiros Socorros",
+            "title": "Mutualista o DISSE",
+            "subtitle": "Sistema de saúde",
+            "priorityLabel": "Dia 2+",
+            "body": "O Uruguai possui um sistema de saúde público-privado. Se você trabalha como empregado, o DISSE designa uma operadora de saúde para você. Se você é freelancer ou trabalha remotamente, pode contratar uma diretamente.",
+            "infoType": "ouro",
+            "infoTitle": "Para nômades digitais",
+            "infoBody": "Você pode contratar um plano de saúde privado (Médica Uruguaya, CASMU, etc.) por cerca de US$ 80–120 por mês. Ele cobre consultas médicas, atendimento de urgência e exames básicos."
+          },
+          {
+            "num": 9,
+            "icon": "Globo",
+            "title": "Junte-se ao NomadUY",
+            "subtitle": "A comunidade que facilita tudo isso",
+            "priorityLabel": "Dia 2+",
+            "body": "A comunidade NomadUY possui grupos do WhatsApp organizados por tema (moradia, trabalho, questões jurídicas, social), um fórum de perguntas e respostas e eventos mensais em Montevidéu.",
+            "tips": [
+              "Grupo do WhatsApp: acesso imediato",
+              "Fórum: pesquise antes de perguntar",
+              "Evento mensal: primeira quinta-feira de cada mês"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

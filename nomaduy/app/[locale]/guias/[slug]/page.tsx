@@ -6,6 +6,8 @@ import PdfBanner from '@/components/sections/home/PdfBanner'
 import PortableTextRenderer from '@/components/sections/guias/PortableTextRenderer'
 import { sanityFetch, guideBySlugQuery, guideSlugQuery } from '@/lib/sanity'
 import type { GuideDetail } from '@/types'
+import { getLocale } from 'next-intl/server'
+import { localizeHref } from '@/lib/locale'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -27,7 +29,7 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function GuidePage({ params }: Props) {
-  const { slug } = await params
+  const [{ slug }, locale] = await Promise.all([params, getLocale()])
   const guide = await sanityFetch<GuideDetail | null>(guideBySlugQuery, { slug })
 
   if (!guide) notFound()
@@ -40,7 +42,7 @@ export default async function GuidePage({ params }: Props) {
         <div className="guia-hero-inner">
           <div>
             <div className="guia-breadcrumb">
-              <Link href="/guias" style={{ color: 'inherit', textDecoration: 'none' }}>Guías</Link>
+              <Link href={localizeHref('/guias', locale)} style={{ color: 'inherit', textDecoration: 'none' }}>Guías</Link>
               <span>›</span> {guide.title}
             </div>
             <h1>{guide.title}</h1>

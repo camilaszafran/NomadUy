@@ -1,3 +1,5 @@
+import { getTranslations, getLocale } from 'next-intl/server'
+import { localizeHref } from '@/lib/locale'
 import Nav from '@/components/layout/Nav'
 import PageSubtitle from '@/components/ui/PageSubtitle'
 import Footer from '@/components/layout/Footer'
@@ -12,19 +14,23 @@ export const metadata = {
 }
 
 export default async function LugaresPage() {
-  const places = await sanityFetch<Place[]>(placesQuery)
+  const [places, t, locale] = await Promise.all([
+    sanityFetch<Place[]>(placesQuery),
+    getTranslations('vivir'),
+    getLocale(),
+  ])
 
   return (
     <>
       <Nav />
       <header className="page-header page-header-blue">
         <div className="page-header-inner">
-          <Link href="/vivir" className="lugares-back">
-            <ArrowLeft size={14} weight="bold" /> Volver al buscador
+          <Link href={localizeHref('/vivir', locale)} className="lugares-back">
+            <ArrowLeft size={14} weight="bold" /> {t('lugares_back')}
           </Link>
-          <div className="page-label">Todos los lugares</div>
-          <h1>Uruguay, región por región</h1>
-          <PageSubtitle>Cada rincón del país tiene su carácter. Explorá todos los lugares para encontrar el tuyo.</PageSubtitle>
+          <div className="page-label">{t('lugares_label')}</div>
+          <h1>{t('lugares_heading')}</h1>
+          <PageSubtitle>{t('lugares_subtitle')}</PageSubtitle>
         </div>
       </header>
 
@@ -51,7 +57,7 @@ export default async function LugaresPage() {
                 <p className="lugar-tagline">{place.tagline}</p>
                 <div className="lugar-scores">
                   <span className="lugar-score-item">
-                    <span className="lugar-score-label">Costo</span>
+                    <span className="lugar-score-label">{t('score_costo')}</span>
                     <span className="lugar-score-dots">
                       {Array.from({ length: 5 }).map((_, i) => (
                         <span key={i} className={`score-dot${i < place.costOfLiving ? ' on' : ''}`} />
@@ -59,7 +65,7 @@ export default async function LugaresPage() {
                     </span>
                   </span>
                   <span className="lugar-score-item">
-                    <span className="lugar-score-label">Urbano</span>
+                    <span className="lugar-score-label">{t('score_urbano')}</span>
                     <span className="lugar-score-dots">
                       {Array.from({ length: 5 }).map((_, i) => (
                         <span key={i} className={`score-dot${i < place.urbanRural ? ' on' : ''}`} />
@@ -67,7 +73,7 @@ export default async function LugaresPage() {
                     </span>
                   </span>
                   <span className="lugar-score-item">
-                    <span className="lugar-score-label">Tamaño</span>
+                    <span className="lugar-score-label">{t('score_tamano')}</span>
                     <span className="lugar-score-dots">
                       {Array.from({ length: 5 }).map((_, i) => (
                         <span key={i} className={`score-dot${i < place.population ? ' on' : ''}`} />

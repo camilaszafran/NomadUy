@@ -1,0 +1,18 @@
+{
+  "label": "Discover Uruguay",
+  "hero_heading": "Uruguay by road.<br />Not on tourist itineraries.",
+  "hero_subtitle": "Itineraries designed by locals—for weekends, short getaways, and day trips from Montevideo.",
+  "routes_heading": "Tours from Montevideo",
+  "duration_all": "Everyone",
+  "duration_1day": "1 day",
+  "duration_weekend": "Weekend",
+  "duration_4to7": "4–7 days",
+  "view_route": "View route →",
+  "no_routes": "There are no routes of that duration.",
+  "modal_close": "Close",
+  "modal_itinerary": "Itinerary",
+  "modal_stops": "Stops",
+  "modal_stay": "Where to stay",
+  "modal_do": "What to do",
+  "modal_eat": "Where to eat"
+}

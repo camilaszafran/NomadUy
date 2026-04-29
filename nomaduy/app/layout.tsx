@@ -1,9 +1,6 @@
-// Minimal root layout — only applies to routes outside [locale] (e.g. /studio)
-// All user-facing pages use app/[locale]/layout.tsx
+// Root layout — returns children directly.
+// [locale]/layout.tsx provides <html>/<body> for all user pages.
+// /studio uses app/studio/layout.tsx.
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html>
-      <body>{children}</body>
-    </html>
-  )
+  return children
 }

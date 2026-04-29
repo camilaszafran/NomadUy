@@ -1,40 +1,48 @@
 import Link from 'next/link'
+import { getTranslations, getLocale } from 'next-intl/server'
+import { localizeHref } from '@/lib/locale'
 
-export default function GuiaHero() {
+export default async function GuiaHero() {
+  const [t, locale] = await Promise.all([getTranslations('guias.primeras48'), getLocale()])
+
+  const checks = [
+    { done: true,  key: 'check_1' },
+    { done: true,  key: 'check_2' },
+    { done: false, key: 'check_3',  num: '3' },
+    { done: false, key: 'check_4',  num: '4' },
+    { done: false, key: 'check_5',  num: '5' },
+  ] as const
+
   return (
     <div className="guia-page-hero">
       <div className="guia-hero-inner">
         <div>
           <div className="guia-breadcrumb">
-            <Link href="/guias" style={{ color: 'inherit', textDecoration: 'none' }}>Guías</Link>
-            <span>›</span> Primeras 48 horas
+            <Link href={localizeHref('/guias', locale)} style={{ color: 'inherit', textDecoration: 'none' }}>
+              {t('breadcrumb_label')}
+            </Link>
+            <span>›</span> {t('breadcrumb_current')}
           </div>
-          <h1>Tus primeras 48 horas<br />en Uruguay.</h1>
-          <p>Llegaste. Respirá. Este checklist cubre todo lo que necesitás hacer — en orden de prioridad, con los links y números útiles.</p>
+          <h1>{t('h1')}</h1>
+          <p>{t('subtitle')}</p>
           <div className="hero-tags">
-            <span className="hero-tag">Aeropuerto Carrasco</span>
-            <span className="hero-tag">18 pasos</span>
-            <span className="hero-tag">~2 horas para lo esencial</span>
+            <span className="hero-tag">{t('tag_airport')}</span>
+            <span className="hero-tag">{t('tag_steps')}</span>
+            <span className="hero-tag">{t('tag_time')}</span>
           </div>
         </div>
         <div className="hero-checklist-card">
           <div className="checklist-stat">
-            <strong>18</strong>
-            <span>cosas que hacer al llegar</span>
+            <strong>{t('stat_count')}</strong>
+            <span>{t('stat_label')}</span>
           </div>
           <div className="mini-checklist">
-            {[
-              { done: true,  label: 'SIM card en el aeropuerto' },
-              { done: true,  label: 'Cambio de moneda' },
-              { done: false, label: 'Llegar al alojamiento',          num: '3' },
-              { done: false, label: 'Abrir billetera digital (Prex)', num: '4' },
-              { done: false, label: 'Unirte a la comunidad NomadUY', num: '5' },
-            ].map((item) => (
-              <div key={item.label} className="mini-check-item">
+            {checks.map((item) => (
+              <div key={item.key} className="mini-check-item">
                 <div className={`mini-check-dot${item.done ? ' done' : ''}`}>
                   {item.done ? '✓' : item.num}
                 </div>
-                <span>{item.label}</span>
+                <span>{t(item.key)}</span>
               </div>
             ))}
           </div>

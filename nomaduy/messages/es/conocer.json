@@ -1,0 +1,18 @@
+{
+  "label": "Conocer Uruguay",
+  "hero_heading": "Uruguay en rutas.<br />No en itinerarios de turista.",
+  "hero_subtitle": "Rutas diseñadas por gente que vive acá — para fines de semana, vacaciones cortas y salidas desde Montevideo.",
+  "routes_heading": "Rutas desde Montevideo",
+  "duration_all": "Todos",
+  "duration_1day": "1 día",
+  "duration_weekend": "Fin de semana",
+  "duration_4to7": "4–7 días",
+  "view_route": "Ver ruta →",
+  "no_routes": "No hay rutas para esa duración.",
+  "modal_close": "Cerrar",
+  "modal_itinerary": "Itinerario",
+  "modal_stops": "Paradas",
+  "modal_stay": "Dónde dormir",
+  "modal_do": "Qué hacer",
+  "modal_eat": "Dónde comer"
+}

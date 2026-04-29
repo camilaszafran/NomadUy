@@ -39,7 +39,7 @@ export default async function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <span>© {year} NomadUY · Hecho en Montevideo</span>
+        <span>© {year} NomadUY · {t('made_in')}</span>
       </div>
     </footer>
   )

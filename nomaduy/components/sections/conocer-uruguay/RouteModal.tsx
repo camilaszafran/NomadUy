@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useTranslations } from 'next-intl'
 import type { Ruta } from '@/types'
 
 interface RouteModalProps {
@@ -9,6 +10,7 @@ interface RouteModalProps {
 }
 
 export default function RouteModal({ ruta, onClose }: RouteModalProps) {
+  const t = useTranslations('conocer')
   const [photoIndex, setPhotoIndex] = useState(0)
   const photos = ruta.photos ?? []
 
@@ -27,7 +29,7 @@ export default function RouteModal({ ruta, onClose }: RouteModalProps) {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-panel" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose} aria-label="Cerrar">✕</button>
+        <button className="modal-close" onClick={onClose} aria-label={t('modal_close')}>✕</button>
 
         {/* Header */}
         <div className="modal-header">
@@ -77,7 +79,7 @@ export default function RouteModal({ ruta, onClose }: RouteModalProps) {
           {/* Itinerary */}
           {ruta.itinerary && ruta.itinerary.length > 0 && (
             <div className="modal-section">
-              <h3 className="modal-section-title">Itinerario</h3>
+              <h3 className="modal-section-title">{t('modal_itinerary')}</h3>
               <div className="itinerary-list">
                 {ruta.itinerary.map((day) => (
                   <div key={day._key} className="itinerary-day">
@@ -93,13 +95,13 @@ export default function RouteModal({ ruta, onClose }: RouteModalProps) {
           {(ruta.stayLinks?.length || ruta.doLinks?.length || ruta.eatLinks?.length) ? (
             <div className="modal-section modal-links-section">
               {ruta.stayLinks && ruta.stayLinks.length > 0 && (
-                <LinkGroup title="Dónde dormir" emoji="🏨" links={ruta.stayLinks} />
+                <LinkGroup title={t('modal_stay')} emoji="🏨" links={ruta.stayLinks} />
               )}
               {ruta.doLinks && ruta.doLinks.length > 0 && (
-                <LinkGroup title="Qué hacer" emoji="🗺" links={ruta.doLinks} />
+                <LinkGroup title={t('modal_do')} emoji="🗺" links={ruta.doLinks} />
               )}
               {ruta.eatLinks && ruta.eatLinks.length > 0 && (
-                <LinkGroup title="Dónde comer" emoji="🍽" links={ruta.eatLinks} />
+                <LinkGroup title={t('modal_eat')} emoji="🍽" links={ruta.eatLinks} />
               )}
             </div>
           ) : null}
@@ -107,7 +109,7 @@ export default function RouteModal({ ruta, onClose }: RouteModalProps) {
           {/* Stops */}
           {ruta.stops && ruta.stops.length > 0 && (
             <div className="modal-section">
-              <h3 className="modal-section-title">Paradas</h3>
+              <h3 className="modal-section-title">{t('modal_stops')}</h3>
               <div className="route-stops">
                 {ruta.stops.map((s) => (
                   <span key={s} className="stop-chip">{s}</span>

@@ -1,4 +1,5 @@
 import { Suspense } from 'react'
+import { getTranslations } from 'next-intl/server'
 import Nav from '@/components/layout/Nav'
 import PageSubtitle from '@/components/ui/PageSubtitle'
 import Footer from '@/components/layout/Footer'
@@ -14,16 +15,19 @@ export const metadata = {
 }
 
 export default async function VivirPage() {
-  const places = await sanityFetch<Place[]>(placesQuery)
+  const [places, t] = await Promise.all([
+    sanityFetch<Place[]>(placesQuery),
+    getTranslations('vivir'),
+  ])
 
   return (
     <>
       <Nav />
       <header className="page-header page-header-blue">
         <div className="page-header-inner">
-          <div className="page-label">Dónde vivir</div>
-          <h1>Vivir en Uruguay</h1>
-          <PageSubtitle>Uruguay tiene mucho más que Montevideo. Encontrá el lugar que encaja con tu ritmo, presupuesto y forma de vida.</PageSubtitle>
+          <div className="page-label">{t('label')}</div>
+          <h1>{t('heading')}</h1>
+          <PageSubtitle>{t('subtitle')}</PageSubtitle>
         </div>
       </header>
       <Suspense>

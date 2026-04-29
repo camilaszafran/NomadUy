@@ -3,36 +3,13 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
-const slides = [
-  {
-    type: 'photo' as const,
-    src: '/images/community/WhatsApp Image 2026-04-14 at 10.03.54.jpeg',
-  },
-  {
-    type: 'quote' as const,
-    quote: 'Llegué sin conocer a nadie. A los 15 días ya tenía grupo de running, compañeros de coworking y dos amigos para el asado del fin de semana.',
-    author: 'Martina R.',
-    origin: 'Buenos Aires → Pocitos',
-  },
-  {
-    type: 'photo' as const,
-    src: '/images/community/WhatsApp Image 2026-04-14 at 10.03.54 (1).jpeg',
-  },
-  {
-    type: 'quote' as const,
-    quote: 'NomadUY me ayudó a encontrar depto, entender los trámites de residencia y conectar con otros freelancers. Todo en la misma semana.',
-    author: 'Carlos M.',
-    origin: 'Ciudad de México → Palermo',
-  },
-  {
-    type: 'photo' as const,
-    src: '/images/community/WhatsApp Image 2026-04-14 at 10.03.54 (2).jpeg',
-  },
-  {
-    type: 'photo' as const,
-    src: '/images/community/WhatsApp Image 2026-04-14 at 10.03.54 (3).jpeg',
-  },
+const photoSlides = [
+  '/images/community/WhatsApp Image 2026-04-14 at 10.03.54.jpeg',
+  '/images/community/WhatsApp Image 2026-04-14 at 10.03.54 (1).jpeg',
+  '/images/community/WhatsApp Image 2026-04-14 at 10.03.54 (2).jpeg',
+  '/images/community/WhatsApp Image 2026-04-14 at 10.03.54 (3).jpeg',
 ]
 
 function getOffset(i: number, current: number, total: number) {
@@ -43,7 +20,17 @@ function getOffset(i: number, current: number, total: number) {
 }
 
 export default function CommunityCarousel() {
+  const t = useTranslations('comunidad')
   const [index, setIndex] = useState(0)
+
+  const slides = [
+    { type: 'photo' as const, src: photoSlides[0] },
+    { type: 'quote' as const, quote: t('quote_martina'), author: 'Martina R.', origin: t('origin_martina') },
+    { type: 'photo' as const, src: photoSlides[1] },
+    { type: 'quote' as const, quote: t('quote_carlos'), author: 'Carlos M.', origin: t('origin_carlos') },
+    { type: 'photo' as const, src: photoSlides[2] },
+    { type: 'photo' as const, src: photoSlides[3] },
+  ]
 
   function go(next: number) {
     setIndex((next + slides.length) % slides.length)
@@ -52,8 +39,8 @@ export default function CommunityCarousel() {
   return (
     <section className="carousel-section" id="galeria">
       <div className="carousel-header">
-        <div className="section-eyebrow">Comunidad</div>
-        <h2>Personas reales haciendo vida aquí</h2>
+        <div className="section-eyebrow">{t('carousel_eyebrow')}</div>
+        <h2>{t('carousel_heading')}</h2>
       </div>
 
       <div className="carousel-stage">
@@ -80,7 +67,7 @@ export default function CommunityCarousel() {
                   <div className="carousel-photo-card">
                     <Image
                       src={slide.src}
-                      alt="Comunidad NomadUY"
+                      alt={t('carousel_alt')}
                       fill
                       style={{ objectFit: 'cover' }}
                       sizes="(max-width: 768px) 90vw, 560px"
@@ -103,18 +90,18 @@ export default function CommunityCarousel() {
       </div>
 
       <div className="carousel-controls">
-        <button className="carousel-arrow" onClick={() => go(index - 1)} aria-label="Anterior">←</button>
+        <button className="carousel-arrow" onClick={() => go(index - 1)} aria-label={t('carousel_prev')}>←</button>
         <div className="carousel-dots">
           {slides.map((_, i) => (
             <button
               key={i}
               className={`carousel-dot ${i === index ? 'carousel-dot--active' : ''}`}
               onClick={() => go(i)}
-              aria-label={`Slide ${i + 1}`}
+              aria-label={t('carousel_slide', { n: i + 1 })}
             />
           ))}
         </div>
-        <button className="carousel-arrow" onClick={() => go(index + 1)} aria-label="Siguiente">→</button>
+        <button className="carousel-arrow" onClick={() => go(index + 1)} aria-label={t('carousel_next')}>→</button>
       </div>
     </section>
   )

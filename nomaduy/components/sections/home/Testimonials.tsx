@@ -1,3 +1,4 @@
+import { getTranslations } from 'next-intl/server'
 import AnimateIn from '@/components/ui/AnimateIn'
 import type { Direction } from '@/components/ui/AnimateIn'
 
@@ -31,11 +32,13 @@ const testimonials = [
 // Alternating approach directions for a dynamic wave feel
 const directions: Direction[] = ['left', 'up', 'right']
 
-export default function Testimonials() {
+export default async function Testimonials() {
+  const t = await getTranslations('home.testimonials')
+
   return (
     <section className="testimonials">
       <AnimateIn direction="reveal">
-        <h2>De personas como vos</h2>
+        <h2>{t('title')}</h2>
       </AnimateIn>
 
       <div className="testimonials-grid">

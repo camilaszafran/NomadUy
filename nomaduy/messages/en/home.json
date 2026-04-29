@@ -1,0 +1,144 @@
+{
+  "hero": {
+    "eyebrow": "Uruguay, South America",
+    "h1_line1": "From Uruguay",
+    "h1_em": "your home.",
+    "subtitle": "The most comprehensive guide to living, working, and settling down in Uruguay—created by people who chose to stay.",
+    "cta_primary": "Join the community →",
+    "cta_secondary": "Browse the guides",
+    "cta_pdf": "↓ Download free PDF guide",
+    "card_now": "The community now",
+    "event_next": "Next meetup",
+    "event_fallback": "First Thursday of every month · Montevideo",
+    "whatsapp_label": "Active WhatsApp groups",
+    "whatsapp_desc": "Newcomers · Housing · Events",
+    "members_label": "New members this week",
+    "members_desc": "34 people from 12 countries",
+    "join_mini_title": "Get started before you arrive.",
+    "join_mini_desc": "Join the community and get the welcome guide sent to your inbox.",
+    "join_mini_email": "tu@email.com",
+    "join_mini_btn": "Join for free",
+    "join_mini_note": "No spam. Cancel anytime."
+  },
+  "featured_guides": {
+    "title": "The most-read guides",
+    "cta": "See all guides →"
+  },
+  "categories": {
+    "title": "Everything you need, all in one place.",
+    "desc": "Sixteen sections with in-depth guides on every aspect of living in Uruguay.",
+    "cta": "View the entire guide →",
+    "explore": "Explore →",
+    "items": [
+      {
+        "title": "Getting Started and Arrival",
+        "desc": "The First 48 Hours — SIM card, currency exchange, bank, essential apps."
+      },
+      {
+        "title": "Visas and Legal Matters",
+        "desc": "Tourist visa, digital nomad permit, residency — step by step, in plain language."
+      },
+      {
+        "title": "Neighborhoods",
+        "desc": "Pocitos, Palermo, Old Town — find your perfect spot in Montevideo."
+      },
+      {
+        "title": "Housing and Rentals",
+        "desc": "How to find an apartment, lease agreements in Spanish, up-to-date prices."
+      },
+      {
+        "title": "Work and coworking",
+        "desc": "The best coworking spaces and cafés where you can actually get some work done."
+      },
+      {
+        "title": "Cost of living",
+        "desc": "Actual budgets, USD vs. peso strategy, tax advantages."
+      },
+      {
+        "title": "Health and Wellness",
+        "desc": "Health insurance providers, international insurance, pharmacies, and recommended doctors."
+      },
+      {
+        "title": "Transportation",
+        "desc": "STM, Uber, intercity travel, how to get to Punta del Este."
+      },
+      {
+        "title": "Food and Restaurants",
+        "desc": "From Goat to Hidden Grills — The Ultimate Food Guide"
+      },
+      {
+        "title": "Culture and language",
+        "desc": "Mate, Carnival, tango, the River Plate region, and how to fit in with the locals."
+      },
+      {
+        "title": "Parks and Nature",
+        "desc": "La Rambla, Parque Rodó, and nature getaways from the city."
+      },
+      {
+        "title": "Hidden gems",
+        "desc": "Cabo Polonio, Punta del Diablo, Salto — what tourists don&#x27;t see."
+      }
+    ]
+  },
+  "directory": {
+    "label": "Where to live",
+    "title": "Not sure where to stay in Uruguay?",
+    "title_highlight": "We recommend it.",
+    "desc": "Answer a few questions about your lifestyle and budget. We&#x27;ll show you the places that best suit you—from Montevideo to Cabo Polonio.",
+    "cta": "Take the Test"
+  },
+  "explore": {
+    "title": "Discover Uruguay",
+    "subtitle": "Travel itineraries by interest and duration — from weekend getaways to in-depth experiences.",
+    "cta": "See all routes →",
+    "see_route": "View route →",
+    "items": [
+      {
+        "title": "Surfing &amp; Coast",
+        "desc": "Punta del Este, La Pedrera, Cabo Polonio, and Punta del Diablo.",
+        "tag": "Atlantic"
+      },
+      {
+        "title": "History &amp; Heritage",
+        "desc": "Colonia del Sacramento, Fray Bentos, and the secrets of the western coast.",
+        "tag": "Culture"
+      },
+      {
+        "title": "Northern Hot Springs",
+        "desc": "Salto, Paysandú, and the region’s most accessible natural hot springs.",
+        "tag": "Relax"
+      },
+      {
+        "title": "Wildlife &amp; Nature",
+        "desc": "Cabo Polonio, sea lions, penguins, and the starriest sky.",
+        "tag": "Nature"
+      }
+    ]
+  },
+  "resources": {
+    "title": "Resources for planning your life in Uruguay",
+    "desc": "Cost of living calculator and links to the best external resources—all in one place.",
+    "cta": "See resources →",
+    "card_label": "Estimated monthly cost",
+    "card_total": "$1.630",
+    "card_sub": "USD · Comfortable profile · Montevideo",
+    "bar_rent": "Rental",
+    "bar_food": "Food",
+    "bar_transport": "Transportation",
+    "bar_ocio": "Leisure",
+    "bar_health": "Health",
+    "bar_varios": "Miscellaneous",
+    "external_count": "+ 9 external resources",
+    "open_calc": "Open calculator →"
+  },
+  "testimonials": {
+    "title": "From people like you"
+  },
+  "pdf_banner": {
+    "title": "Download the free guide",
+    "desc": "&quot;Your First 30 Days in Uruguay&quot; — everything you need to know before and after you arrive, in a PDF you can take with you.",
+    "email_placeholder": "tu@email.com",
+    "cta": "Download for free →",
+    "note": "No spam. Just the guide. Promise."
+  }
+}

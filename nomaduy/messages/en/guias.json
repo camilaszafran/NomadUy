@@ -1,0 +1,188 @@
+{
+  "label": "Guides",
+  "title": "Everything you need to know about living here.",
+  "subtitle": "From day one to the residency application process—clear, practical guides written by people who’ve been through it.",
+  "read_time": "min read",
+  "all": "All",
+  "back": "← Back to guides",
+  "read": "Learn →",
+  "help_title": "Can&#x27;t find what you&#x27;re looking for?",
+  "help_desc": "The community has answers to almost any question about living in Uruguay.",
+  "help_cta": "Ask the community →",
+  "cat_llegada": "Arrival",
+  "cat_legal": "Legal &amp; Administrative Procedures",
+  "cat_vivienda": "Housing",
+  "cat_trabajo": "Job",
+  "cat_moverse": "Get moving",
+  "cat_salud": "Health",
+  "cat_familia": "Family",
+  "cat_finanzas": "Finance",
+  "cat_idioma": "Language",
+  "status_ready": "Available",
+  "status_progress": "In progress",
+  "status_soon": "Coming soon",
+  "primeras48": {
+    "breadcrumb_label": "Guides",
+    "breadcrumb_current": "The first 48 hours",
+    "h1": "Your first 48 hours in Uruguay.",
+    "subtitle": "You&#x27;re here. Take a deep breath. This checklist covers everything you need to do—in order of priority, with helpful links and numbers.",
+    "tag_airport": "Carrasco Airport",
+    "tag_steps": "18 steps",
+    "tag_time": "~2 hours for the essentials",
+    "stat_count": "18",
+    "stat_label": "Things to do when you arrive",
+    "check_1": "SIM card at the airport",
+    "check_2": "Currency exchange",
+    "check_3": "Getting to the accommodation",
+    "check_4": "Open a digital wallet (Prex)",
+    "check_5": "Join the NomadUY community",
+    "toc_label": "In this guide",
+    "pdf_cta_title": "Download PDF",
+    "pdf_cta_desc": "Complete Guide to Bringing",
+    "footer_title": "Would you like the complete guide in PDF format?",
+    "footer_desc": "Download it for free — it works offline.",
+    "footer_download": "Download for free",
+    "footer_community": "Join the community",
+    "phases": [
+      {
+        "badgeNum": "1",
+        "badgeColor": "blue",
+        "time": "First 2 hours — Upon landing",
+        "timeColor": "blue",
+        "title": "At the airport",
+        "steps": [
+          {
+            "num": 1,
+            "icon": "DeviceMobile",
+            "title": "Buy a SIM card",
+            "subtitle": "Antel or Claro — at the same airport",
+            "priorityLabel": "Now",
+            "body": "There are Antel and Claro stores in the arrivals area. A 30-day plan with unlimited data costs between $400–600 UYU (~$10–15 USD).",
+            "tips": [
+              "I signed up for a data plan, not just voice service",
+              "Antel has better indoor coverage",
+              "Bring cash—they don&#x27;t always accept cards"
+            ]
+          },
+          {
+            "num": 2,
+            "icon": "CurrencyDollar",
+            "title": "Exchange money",
+            "subtitle": "Currency exchange in Carrasco",
+            "priorityLabel": "Now",
+            "body": "There&#x27;s a currency exchange booth at the airport. The exchange rate isn&#x27;t the best, but exchange enough for the taxi and your first few days (~$100 USD).",
+            "tips": [
+              "Airport rates are 5–8% higher than in the city",
+              "Bringing US dollars is the best option when you arrive",
+              "ATMs dispense pesos — look for &quot;Scotiabank&quot; or &quot;BROU&quot;"
+            ]
+          },
+          {
+            "num": 3,
+            "icon": "Because",
+            "title": "Transportation to downtown",
+            "subtitle": "Taxi, Uber, or bus",
+            "priorityLabel": "Now",
+            "body": "Uber works perfectly from Carrasco. An official taxi costs about $1,500 UYU (~$37 USD) to downtown/Pocitos. Bus 700 goes to Ciudad Vieja for about $50 UYU but takes 1 hour and 30 minutes.",
+            "infoType": "blue",
+            "infoTitle": "Community Tip",
+            "infoBody": "Uber is reliable, cheaper than a taxi, and the driver already knows where you&#x27;re going. Download the app before you land."
+          }
+        ]
+      },
+      {
+        "badgeNum": "2",
+        "badgeColor": "gold",
+        "time": "First day",
+        "timeColor": "gold",
+        "title": "Install it",
+        "steps": [
+          {
+            "num": 4,
+            "icon": "Credit Card",
+            "title": "Download Prex",
+            "subtitle": "Uruguayan digital wallet",
+            "priorityLabel": "Day 1",
+            "body": "Prex is the most widely used digital wallet in Uruguay. You can load it with cash at any RedPagos location and use it to pay at stores, for delivery, and for services.",
+            "tips": [
+              "Download the app and sign up using your passport",
+              "Top it up at any RedPagos or Abitab location",
+              "It works for paying for Uber, Pedidos Ya, etc."
+            ]
+          },
+          {
+            "num": 5,
+            "icon": "DeviceMobile",
+            "title": "Install the essential apps",
+            "subtitle": "Taxis, delivery, maps",
+            "priorityLabel": "Day 1",
+            "body": "The apps you&#x27;ll use every day in Uruguay:",
+            "tips": [
+              "Uber — door-to-door transportation",
+              "Order Now — Food Delivery",
+              "Google Maps — works perfectly in Montevideo",
+              "Urufarma — Find pharmacies and medication prices"
+            ]
+          },
+          {
+            "num": 6,
+            "icon": "Buildings",
+            "title": "Get to know your neighborhood",
+            "subtitle": "Supermarket, pharmacy, ATM",
+            "priorityLabel": "Day 1",
+            "body": "The first things you&#x27;ll want to find near your accommodation are a supermarket (Tienda Inglesa, Disco, Ta-Ta), a pharmacy, an ATM, and a bakery.",
+            "infoType": "green",
+            "infoTitle": "Major supermarkets",
+            "infoBody": "Tienda Inglesa (premium), Disco/Devoto (mid-range), Ta-Ta (budget). All of them carry good products and accept credit cards."
+          }
+        ]
+      },
+      {
+        "badgeNum": "3",
+        "badgeColor": "green",
+        "time": "Day 2 — Initial paperwork",
+        "timeColor": "green",
+        "title": "First administrative steps",
+        "steps": [
+          {
+            "num": 7,
+            "icon": "ID Card",
+            "title": "Identity card",
+            "subtitle": "Uruguayan email address or DNIC",
+            "priorityLabel": "Day 2+",
+            "body": "If you plan to stay for more than 90 days, start the process of obtaining an ID card. You’ll need your passport and a proof of address. You can apply at Correo Uruguayo, and it takes 2–4 weeks.",
+            "tips": [
+              "Bring your original passport and a photocopy",
+              "You need a Uruguayan address (it can be a temporary residence)",
+              "The cost is approximately $700 UYU"
+            ]
+          },
+          {
+            "num": 8,
+            "icon": "First Aid",
+            "title": "Mutualista said",
+            "subtitle": "Healthcare system",
+            "priorityLabel": "Day 2+",
+            "body": "Uruguay has a public-private healthcare system. If you are an employee, DISSE assigns you a health insurance provider. If you are a freelancer or remote worker, you can sign up for one directly.",
+            "infoType": "gold",
+            "infoTitle": "For digital nomads",
+            "infoBody": "You can sign up for private health insurance (Médica Uruguaya, CASMU, etc.) for about $80–120 USD per month. It covers doctors&#x27; visits, emergency care, and basic tests."
+          },
+          {
+            "num": 9,
+            "icon": "Globe",
+            "title": "Join NomadUY",
+            "subtitle": "The community that makes all of this easier",
+            "priorityLabel": "Day 2+",
+            "body": "The NomadUY community has WhatsApp groups organized by topic (housing, work, legal, social), a Q&amp;A forum, and monthly events in Montevideo.",
+            "tips": [
+              "WhatsApp group: instant access",
+              "Forum: Search before asking",
+              "Monthly event: the first Thursday of every month"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -2,11 +2,18 @@
 
 import { motion } from 'framer-motion'
 import { Calendar, ChatsCircle, Globe } from '@phosphor-icons/react'
+import { useTranslations, useLocale } from 'next-intl'
+import { routing } from '@/i18n/routing'
 import type { CalendarEvent } from '@/lib/calendar'
 
-function formatEventDate(dateStr: string): string {
+function formatEventDate(dateStr: string, locale: string): string {
   const d = new Date(dateStr)
-  return d.toLocaleDateString('es-UY', { weekday: 'short', day: 'numeric', month: 'short' })
+  return d.toLocaleDateString(locale === 'es' ? 'es-UY' : locale, { weekday: 'short', day: 'numeric', month: 'short' })
+}
+
+function localizeHref(href: string, locale: string): string {
+  if (locale === routing.defaultLocale) return href
+  return `/${locale}${href}`
 }
 
 const ease = [0.23, 1, 0.32, 1] as [number, number, number, number]
@@ -22,9 +29,11 @@ interface HeroProps {
 }
 
 export default function Hero({ events }: HeroProps) {
+  const t = useTranslations('home.hero')
+  const locale = useLocale()
+
   return (
     <section className="hero hero-video-mode">
-      {/* Video background — drop hero.mp4 in /public/videos/ */}
       <div className="hero-media">
         <video
           autoPlay
@@ -36,33 +45,32 @@ export default function Hero({ events }: HeroProps) {
         >
           <source src="/videos/hero-compressed.mp4" type="video/mp4" />
         </video>
-        {/* Dark gradient — heavier left (text), lighter right (card) */}
         <div className="hero-overlay" />
       </div>
 
       <motion.div className="hero-text" style={{ position: 'relative', zIndex: 1 }}>
         <motion.div className="hero-eyebrow hero-eyebrow-light" {...textItem(0.1)}>
-          Uruguay, América del Sur
+          {t('eyebrow')}
         </motion.div>
 
         <motion.h1 className="hero-h1-light" {...textItem(0.22)}>
-          Hacé de Uruguay<br />
-          <em>tu hogar.</em>
+          {t('h1_line1')}<br />
+          <em>{t('h1_em')}</em>
         </motion.h1>
 
         <motion.p className="hero-sub hero-sub-light" {...textItem(0.34)}>
-          La guía más completa para vivir, trabajar y echar raíces en Uruguay — hecha por personas que eligieron quedarse.
+          {t('subtitle')}
         </motion.p>
 
         <motion.div className="hero-actions" {...textItem(0.46)}>
-          <a href="/comunidad" className="btn-hero-primary">
-            Unirme a la comunidad →
+          <a href={localizeHref('/comunidad', locale)} className="btn-hero-primary">
+            {t('cta_primary')}
           </a>
-          <a href="/guias" className="btn-hero-secondary">
-            Explorar las guías
+          <a href={localizeHref('/guias', locale)} className="btn-hero-secondary">
+            {t('cta_secondary')}
           </a>
           <a href="#pdf" className="btn-hero-text">
-            ↓ Descargar guía PDF gratis
+            {t('cta_pdf')}
           </a>
         </motion.div>
       </motion.div>
@@ -75,17 +83,17 @@ export default function Hero({ events }: HeroProps) {
         transition={{ duration: 0.8, delay: 0.3, ease }}
       >
         <div className="hero-card">
-          <div className="hero-card-label">La comunidad ahora</div>
+          <div className="hero-card-label">{t('card_now')}</div>
           <div className="community-pulse">
             {events.length > 0 ? (
               events.slice(0, 1).map((e, i) => (
                 <div key={e.id}>
-                  <a href="/comunidad#eventos" className="pulse-stat pulse-stat-link">
+                  <a href={localizeHref('/comunidad#eventos', locale)} className="pulse-stat pulse-stat-link">
                     <div className="pulse-icon blue">
                       <Calendar size={20} weight="duotone" />
                     </div>
                     <div>
-                      <div className="pulse-label">{formatEventDate(e.start)}</div>
+                      <div className="pulse-label">{formatEventDate(e.start, locale)}</div>
                       <div className="pulse-value">{e.title}{e.location ? ` · ${e.location}` : ''}</div>
                     </div>
                   </a>
@@ -98,8 +106,8 @@ export default function Hero({ events }: HeroProps) {
                   <Calendar size={20} weight="duotone" />
                 </div>
                 <div>
-                  <div className="pulse-label">Próximo meetup</div>
-                  <div className="pulse-value">Primer jueves de cada mes · Montevideo</div>
+                  <div className="pulse-label">{t('event_next')}</div>
+                  <div className="pulse-value">{t('event_fallback')}</div>
                 </div>
               </div>
             )}
@@ -109,8 +117,8 @@ export default function Hero({ events }: HeroProps) {
                 <ChatsCircle size={20} weight="duotone" />
               </div>
               <div>
-                <div className="pulse-label">WhatsApp grupos activos</div>
-                <div className="pulse-value">Recién llegados · Housing · Eventos</div>
+                <div className="pulse-label">{t('whatsapp_label')}</div>
+                <div className="pulse-value">{t('whatsapp_desc')}</div>
               </div>
             </div>
             <div className="pulse-divider" />
@@ -119,21 +127,21 @@ export default function Hero({ events }: HeroProps) {
                 <Globe size={20} weight="duotone" />
               </div>
               <div>
-                <div className="pulse-label">Nuevos miembros esta semana</div>
-                <div className="pulse-value">34 personas de 12 países</div>
+                <div className="pulse-label">{t('members_label')}</div>
+                <div className="pulse-value">{t('members_desc')}</div>
               </div>
             </div>
           </div>
         </div>
 
         <div className="join-mini">
-          <h3>Empezá antes de llegar.</h3>
-          <p>Unite a la comunidad y recibí la guía de bienvenida en tu inbox.</p>
+          <h3>{t('join_mini_title')}</h3>
+          <p>{t('join_mini_desc')}</p>
           <div className="join-mini-fields">
-            <input type="email" placeholder="tu@email.com" />
-            <a href="/comunidad" className="join-mini-btn">Unirme gratis</a>
+            <input type="email" placeholder={t('join_mini_email')} />
+            <a href={localizeHref('/comunidad', locale)} className="join-mini-btn">{t('join_mini_btn')}</a>
           </div>
-          <div className="join-mini-note">Sin spam. Cancelá cuando quieras.</div>
+          <div className="join-mini-note">{t('join_mini_note')}</div>
         </div>
       </motion.div>
     </section>

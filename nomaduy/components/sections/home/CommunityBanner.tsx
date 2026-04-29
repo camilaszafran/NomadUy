@@ -1,5 +1,7 @@
 import AnimateIn from '@/components/ui/AnimateIn'
 import { Lock } from '@phosphor-icons/react/dist/ssr'
+import { getLocale } from 'next-intl/server'
+import { localizeHref } from '@/lib/locale'
 
 function WhatsAppIcon() {
   return (
@@ -25,7 +27,8 @@ function InstagramIcon() {
   )
 }
 
-export default function CommunityBanner() {
+export default async function CommunityBanner() {
+  const locale = await getLocale()
   return (
     <section className="community-banner" id="community">
       <AnimateIn className="community-left" direction="left">
@@ -58,7 +61,7 @@ export default function CommunityBanner() {
           </a>
         </div>
 
-        <a href="/comunidad" className="community-cta-btn">Ver todo sobre la comunidad →</a>
+        <a href={localizeHref('/comunidad', locale)} className="community-cta-btn">Ver todo sobre la comunidad →</a>
       </AnimateIn>
 
       <AnimateIn className="community-form community-form-simple" direction="right" delay={0.1}>
@@ -75,7 +78,7 @@ export default function CommunityBanner() {
         <div className="form-privacy">
           <Lock size={12} /> Sin spam. Cancelá cuando quieras.
         </div>
-        <a href="/comunidad" className="community-form-full-link">Ver todo sobre la comunidad →</a>
+        <a href={localizeHref('/comunidad', locale)} className="community-form-full-link">Ver todo sobre la comunidad →</a>
       </AnimateIn>
     </section>
   )
