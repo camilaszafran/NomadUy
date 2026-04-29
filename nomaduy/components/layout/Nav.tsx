@@ -14,7 +14,7 @@ const linkHrefs = [
 ] as const
 
 function buildLocalePath(fullPath: string, targetLocale: string): string {
-  const stripped = fullPath.replace(/^\/(en|pt)(\/|$)/, '/') || '/'
+  const stripped = fullPath.replace(/^\/(es|en|pt)(\/|$)/, '/') || '/'
   if (targetLocale === routing.defaultLocale) return stripped
   return `/${targetLocale}${stripped === '/' ? '' : stripped}`
 }
