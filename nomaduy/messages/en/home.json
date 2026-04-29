@@ -76,7 +76,7 @@
       },
       {
         "title": "Hidden gems",
-        "desc": "Cabo Polonio, Punta del Diablo, Salto — what tourists don&#x27;t see."
+        "desc": "Cabo Polonio, Punta del Diablo, Salto — what tourists don´t see."
       }
     ]
   },
@@ -84,7 +84,7 @@
     "label": "Where to live",
     "title": "Not sure where to stay in Uruguay?",
     "title_highlight": "We recommend it.",
-    "desc": "Answer a few questions about your lifestyle and budget. We&#x27;ll show you the places that best suit you—from Montevideo to Cabo Polonio.",
+    "desc": "Answer a few questions about your lifestyle and budget. We´ll show you the places that best suit you—from Montevideo to Cabo Polonio.",
     "cta": "Take the Test"
   },
   "explore": {
@@ -132,7 +132,16 @@
     "open_calc": "Open calculator →"
   },
   "testimonials": {
-    "title": "From people like you"
+    "title": "From people like you",
+    "q1": "I moved to Montevideo from Berlin with no plan. This site was the first thing I bookmarked. The neighborhoods guide alone saved me weeks of confusion.",
+    "name1": "Jonas W.",
+    "meta1": "Remote dev · Pocitos",
+    "q2": "The WhatsApp group for newcomers was a lifesaver. Someone from the community helped me find an apartment in 3 days.",
+    "name2": "Mariana C.",
+    "meta2": "Expat · Punta Carretas",
+    "q3": "Finally a guide that doesn't treat Uruguay as a stopover. The visa section is the clearest explanation I found anywhere online.",
+    "name3": "Rachel T.",
+    "meta3": "Nomad · 3 months in Montevideo"
   },
   "pdf_banner": {
     "title": "Download the free guide",

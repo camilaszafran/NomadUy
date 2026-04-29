@@ -5,7 +5,7 @@
   "groups_eyebrow": "Stakeholder groups",
   "groups_heading": "Find your group",
   "groups_desc": "People stay in the community because they find others with similar interests—not just Wi-Fi.",
-  "group_sports_name": "Sports &amp; Activities",
+  "group_sports_name": "Sports & Activities",
   "group_sports_desc": "Soccer, running, yoga, padel, urban cycling, and more.",
   "group_sports_tags": [
     "Amateur soccer",
@@ -14,23 +14,23 @@
     "Paddles",
     "Cycling"
   ],
-  "group_social_name": "Social &amp; Culture",
+  "group_social_name": "Social &; Culture",
   "group_social_desc": "Language exchanges, community barbecues, tango, and cultural outings.",
   "group_social_tags": [
     "Language exchange",
     "Monthly barbecue",
     "When",
-    "Movies &amp; Theater"
+    "Movies & Theater"
   ],
-  "group_professional_name": "Professionals &amp; Startups",
+  "group_professional_name": "Professionals & Startups",
   "group_professional_desc": "For entrepreneurs, freelancers, and remote workers.",
   "group_professional_tags": [
     "Entrepreneurs",
-    "Tech &amp; Startup",
+    "Tech & Startup",
     "Remote workers",
     "Co-founders"
   ],
-  "group_life_name": "Life &amp; Family",
+  "group_life_name": "Life & Family",
   "group_life_desc": "Newcomers in general, families, women, and people looking for roommates.",
   "group_life_tags": [
     "Newcomers",
@@ -40,12 +40,12 @@
   ],
   "platforms_eyebrow": "Where We Are",
   "platforms_heading": "Choose how to connect",
-  "platforms_desc": "We&#x27;re right where you are—without forcing you to use a platform you don&#x27;t use.",
+  "platforms_desc": "We´re right where you are—without forcing you to use a platform you don´t use.",
   "platform_whatsapp_desc": "Active thematic groups",
   "platform_newsletter_desc": "Once a month",
   "platform_instagram_desc": "@nomaduy — Life in Uruguay",
   "platform_telegram_desc": "News Channel",
-  "platform_forum_desc": "Questions &amp; Answers",
+  "platform_forum_desc": "Questions & Answers",
   "platform_available": "Available",
   "platform_coming_soon": "Coming soon",
   "carousel_eyebrow": "Community",
@@ -65,9 +65,9 @@
   "feature_whatsapp_desc": "Instant access to topic-based groups: housing, employment, legal, and newcomers.",
   "feature_whatsapp_items": [
     "Grupo general de newcomers",
-    "Housing &amp; Accommodation",
-    "Remote work &amp; freelancing",
-    "Legal &amp; Administrative Procedures"
+    "Housing & Accommodation",
+    "Remote work & freelancing",
+    "Legal & Administrative Procedures"
   ],
   "feature_events_title": "In-person events",
   "feature_events_desc": "The first Thursday of every month in Montevideo. The event that builds a real community.",
@@ -76,7 +76,7 @@
     "Average of 40–60 people",
     "Networking + drinks"
   ],
-  "feature_forum_title": "Q&amp;A Forum",
+  "feature_forum_title": "Q&A Forum",
   "feature_forum_desc": "A place to ask questions and share experiences about living in Uruguay.",
   "feature_forum_items": [
     "Paperwork and bureaucracy",
@@ -86,7 +86,7 @@
   "feature_map_title": "Member Directory",
   "feature_map_desc": "Interactive map showing the community in Uruguay and around the world.",
   "feature_map_items": [
-    "See who&#x27;s nearby",
+    "See who´s nearby",
     "Connect before you arrive",
     "Map of coworking spaces and cafés"
   ],
@@ -127,21 +127,21 @@
   "form_situacion_nomada": "Digital nomad (short-term)",
   "form_situacion_expat": "Expat (long-term, work)",
   "form_situacion_inmigrante": "Immigrant (permanent)",
-  "form_situacion_planning": "I&#x27;m still planning my arrival",
+  "form_situacion_planning": "I´m still planning my arrival",
   "form_cuando_label": "When are you coming? *",
   "form_cuando_placeholder": "Select an option",
-  "form_cuando_here": "I&#x27;m already in Uruguay",
+  "form_cuando_here": "I´m already in Uruguay",
   "form_cuando_1month": "In less than a month",
   "form_cuando_1to3": "In 1–3 months",
   "form_cuando_3to6": "In 3–6 months",
-  "form_cuando_unsure": "I still don&#x27;t know",
+  "form_cuando_unsure": "I still don´t know",
   "form_error_duplicate": "This email address is already registered. Are you already part of the community?",
   "form_error_default": "Unexpected error.",
   "form_loading": "Recording...",
   "form_submit": "Join the community →",
   "form_privacy": "No spam. Join our WhatsApp group.",
   "form_success_heading": "Welcome to NomadUY!",
-  "form_success_msg": "You&#x27;re now part of the community. We&#x27;ll send you a welcome email shortly.",
+  "form_success_msg": "You´re now part of the community. We´ll send you a welcome email shortly.",
   "events_heading": "Events that build a real sense of community.",
   "events_desc": "We meet in person every month. On the first Thursday of every month in Montevideo—at different venues, always in a friendly atmosphere.",
   "events_calendar": "View the full calendar →",

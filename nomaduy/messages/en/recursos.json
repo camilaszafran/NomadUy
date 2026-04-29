@@ -1,6 +1,6 @@
 {
   "label": "Resources",
-  "heading": "Tools to help you plan your life in Uruguay<br />.",
+  "heading": "Tools to help you plan your life in Uruguay.",
   "subtitle": "Cost-of-living calculator, downloadable checklist, and links to the best external resources.",
   "calc_heading": "How much does it cost to live in Uruguay?",
   "calc_desc": "Adjust the sliders to match your lifestyle to see your estimated monthly budget.",
@@ -58,8 +58,8 @@
   "external_link_3": "Paraguay",
   "external_link_4": "Mateo Experience",
   "external_link_5": "Family Outings",
-  "external_link_6": "What&#x27;s On Today in Montevideo",
-  "external_link_7": "I&#x27;m going",
+  "external_link_6": "What´s On Today in Montevideo",
+  "external_link_7": "I´m going",
   "external_link_8": "Atlantic Mountains",
   "external_link_9": "Map of Cafés in Montevideo",
   "per_month": "/we"

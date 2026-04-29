@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server'
 import Nav from '@/components/layout/Nav'
 import GuiaHero from '@/components/sections/guias/primeras-48h/GuiaHero'
 import GuiaTimeline from '@/components/sections/guias/primeras-48h/GuiaTimeline'
@@ -9,7 +10,14 @@ export const metadata = {
   description: '18 pasos ordenados por prioridad para tus primeras 48 horas en Uruguay.',
 }
 
-export default function Primeras48hPage() {
+export default async function Primeras48hPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  setRequestLocale(locale)
+
   return (
     <>
       <Nav />

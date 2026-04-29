@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server'
 import Nav from '@/components/layout/Nav'
 import Hero from '@/components/sections/home/Hero'
 import FeaturedGuides from '@/components/sections/home/FeaturedGuides'
@@ -10,7 +11,14 @@ import Footer from '@/components/layout/Footer'
 import { getUpcomingEvents } from '@/lib/calendar'
 import type { CalendarEvent } from '@/lib/calendar'
 
-export default async function HomePage() {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  setRequestLocale(locale)
+
   let events: CalendarEvent[] = []
   try {
     events = await getUpcomingEvents()

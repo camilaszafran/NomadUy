@@ -1,4 +1,5 @@
 import { Suspense } from 'react'
+import { setRequestLocale } from 'next-intl/server'
 import Nav from '@/components/layout/Nav'
 import ConocerHero from '@/components/sections/conocer-uruguay/ConocerHero'
 import RoutesSection from '@/components/sections/conocer-uruguay/RoutesSection'
@@ -12,7 +13,14 @@ export const metadata = {
   description: 'Rutas y destinos en Uruguay diseñados por personas que viven acá.',
 }
 
-export default async function ConocerUruguayPage() {
+export default async function ConocerUruguayPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  setRequestLocale(locale)
+
   let routes: Ruta[] = []
   try {
     routes = await sanityFetch<Ruta[]>(rutasQuery)

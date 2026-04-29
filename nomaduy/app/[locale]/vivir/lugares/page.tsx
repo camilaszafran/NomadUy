@@ -1,4 +1,4 @@
-import { getTranslations, getLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { localizeHref } from '@/lib/locale'
 import Nav from '@/components/layout/Nav'
 import PageSubtitle from '@/components/ui/PageSubtitle'
@@ -13,11 +13,17 @@ export const metadata = {
   description: 'Explorá todos los lugares donde podés vivir en Uruguay.',
 }
 
-export default async function LugaresPage() {
-  const [places, t, locale] = await Promise.all([
+export default async function LugaresPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  setRequestLocale(locale)
+
+  const [places, t] = await Promise.all([
     sanityFetch<Place[]>(placesQuery),
     getTranslations('vivir'),
-    getLocale(),
   ])
 
   return (

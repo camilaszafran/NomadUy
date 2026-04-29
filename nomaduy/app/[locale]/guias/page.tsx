@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server'
 import Nav from '@/components/layout/Nav'
 import GuiasHeader from '@/components/sections/guias/GuiasHeader'
 import GuiasGrid from '@/components/sections/guias/GuiasGrid'
@@ -9,7 +10,14 @@ export const metadata = {
   description: 'Guías claras y prácticas sobre vivir en Uruguay — escritas por gente que lo vivió.',
 }
 
-export default function GuiasPage() {
+export default async function GuiasPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  setRequestLocale(locale)
+
   return (
     <>
       <Nav />

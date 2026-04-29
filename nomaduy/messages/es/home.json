@@ -80,7 +80,16 @@
     "open_calc": "Abrir calculadora →"
   },
   "testimonials": {
-    "title": "De personas como vos"
+    "title": "De personas como vos",
+    "q1": "Me mudé a Montevideo desde Berlín sin plan. Esta página fue lo primero que guardé. La guía de barrios sola me ahorró semanas de confusión.",
+    "name1": "Jonas W.",
+    "meta1": "Dev remoto · Pocitos",
+    "q2": "El grupo de WhatsApp para recién llegados fue un salvavidas. Alguien de la comunidad me ayudó a encontrar departamento en 3 días.",
+    "name2": "Mariana C.",
+    "meta2": "Expat · Punta Carretas",
+    "q3": "Por fin una guía que no trata a Uruguay como algo de paso. La sección de visas es la explicación más clara que encontré en internet.",
+    "name3": "Rachel T.",
+    "meta3": "Nómade · 3 meses en Montevideo"
   },
   "pdf_banner": {
     "title": "Descargá la guía gratis",

@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server'
 import Nav from '@/components/layout/Nav'
 import ComunidadHero from '@/components/sections/comunidad/ComunidadHero'
 import FeaturesSection from '@/components/sections/comunidad/FeaturesSection'
@@ -11,7 +12,14 @@ export const metadata = {
   description: 'Unirte a la comunidad de nómadas, expats e inmigrantes en Uruguay.',
 }
 
-export default async function ComunidadPage() {
+export default async function ComunidadPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  setRequestLocale(locale)
+
   const events = await getUpcomingEvents()
   const calendarUrl = calendarPublicUrl()
 

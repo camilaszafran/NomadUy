@@ -6,7 +6,7 @@
   "all": "All",
   "back": "← Back to guides",
   "read": "Learn →",
-  "help_title": "Can&#x27;t find what you&#x27;re looking for?",
+  "help_title": "Can´t find what you´re looking for?",
   "help_desc": "The community has answers to almost any question about living in Uruguay.",
   "help_cta": "Ask the community →",
   "cat_llegada": "Arrival",
@@ -25,7 +25,7 @@
     "breadcrumb_label": "Guides",
     "breadcrumb_current": "The first 48 hours",
     "h1": "Your first 48 hours in Uruguay.",
-    "subtitle": "You&#x27;re here. Take a deep breath. This checklist covers everything you need to do—in order of priority, with helpful links and numbers.",
+    "subtitle": "You´re here. Take a deep breath. This checklist covers everything you need to do—in order of priority, with helpful links and numbers.",
     "tag_airport": "Carrasco Airport",
     "tag_steps": "18 steps",
     "tag_time": "~2 hours for the essentials",
@@ -61,7 +61,7 @@
             "tips": [
               "I signed up for a data plan, not just voice service",
               "Antel has better indoor coverage",
-              "Bring cash—they don&#x27;t always accept cards"
+              "Bring cash—they don´t always accept cards"
             ]
           },
           {
@@ -70,7 +70,7 @@
             "title": "Exchange money",
             "subtitle": "Currency exchange in Carrasco",
             "priorityLabel": "Now",
-            "body": "There&#x27;s a currency exchange booth at the airport. The exchange rate isn&#x27;t the best, but exchange enough for the taxi and your first few days (~$100 USD).",
+            "body": "There´s a currency exchange booth at the airport. The exchange rate isn´t the best, but exchange enough for the taxi and your first few days (~$100 USD).",
             "tips": [
               "Airport rates are 5–8% higher than in the city",
               "Bringing US dollars is the best option when you arrive",
@@ -86,7 +86,7 @@
             "body": "Uber works perfectly from Carrasco. An official taxi costs about $1,500 UYU (~$37 USD) to downtown/Pocitos. Bus 700 goes to Ciudad Vieja for about $50 UYU but takes 1 hour and 30 minutes.",
             "infoType": "blue",
             "infoTitle": "Community Tip",
-            "infoBody": "Uber is reliable, cheaper than a taxi, and the driver already knows where you&#x27;re going. Download the app before you land."
+            "infoBody": "Uber is reliable, cheaper than a taxi, and the driver already knows where you´re going. Download the app before you land."
           }
         ]
       },
@@ -116,7 +116,7 @@
             "title": "Install the essential apps",
             "subtitle": "Taxis, delivery, maps",
             "priorityLabel": "Day 1",
-            "body": "The apps you&#x27;ll use every day in Uruguay:",
+            "body": "The apps you´ll use every day in Uruguay:",
             "tips": [
               "Uber — door-to-door transportation",
               "Order Now — Food Delivery",
@@ -130,7 +130,7 @@
             "title": "Get to know your neighborhood",
             "subtitle": "Supermarket, pharmacy, ATM",
             "priorityLabel": "Day 1",
-            "body": "The first things you&#x27;ll want to find near your accommodation are a supermarket (Tienda Inglesa, Disco, Ta-Ta), a pharmacy, an ATM, and a bakery.",
+            "body": "The first things you´ll want to find near your accommodation are a supermarket (Tienda Inglesa, Disco, Ta-Ta), a pharmacy, an ATM, and a bakery.",
             "infoType": "green",
             "infoTitle": "Major supermarkets",
             "infoBody": "Tienda Inglesa (premium), Disco/Devoto (mid-range), Ta-Ta (budget). All of them carry good products and accept credit cards."
@@ -166,7 +166,7 @@
             "body": "Uruguay has a public-private healthcare system. If you are an employee, DISSE assigns you a health insurance provider. If you are a freelancer or remote worker, you can sign up for one directly.",
             "infoType": "gold",
             "infoTitle": "For digital nomads",
-            "infoBody": "You can sign up for private health insurance (Médica Uruguaya, CASMU, etc.) for about $80–120 USD per month. It covers doctors&#x27; visits, emergency care, and basic tests."
+            "infoBody": "You can sign up for private health insurance (Médica Uruguaya, CASMU, etc.) for about $80–120 USD per month. It covers doctors´ visits, emergency care, and basic tests."
           },
           {
             "num": 9,

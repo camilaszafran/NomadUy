@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Nav from '@/components/layout/Nav'
 import PageSubtitle from '@/components/ui/PageSubtitle'
 import Footer from '@/components/layout/Footer'
@@ -14,7 +14,14 @@ export const metadata = {
   description: 'Encontrá tu lugar ideal en Uruguay según tu estilo de vida y presupuesto.',
 }
 
-export default async function VivirPage() {
+export default async function VivirPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  setRequestLocale(locale)
+
   const [places, t] = await Promise.all([
     sanityFetch<Place[]>(placesQuery),
     getTranslations('vivir'),

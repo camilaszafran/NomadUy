@@ -6,11 +6,11 @@ import PdfBanner from '@/components/sections/home/PdfBanner'
 import PortableTextRenderer from '@/components/sections/guias/PortableTextRenderer'
 import { sanityFetch, guideBySlugQuery, guideSlugQuery } from '@/lib/sanity'
 import type { GuideDetail } from '@/types'
-import { getLocale } from 'next-intl/server'
+import { setRequestLocale } from 'next-intl/server'
 import { localizeHref } from '@/lib/locale'
 
 type Props = {
-  params: Promise<{ slug: string }>
+  params: Promise<{ locale: string; slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -29,7 +29,8 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function GuidePage({ params }: Props) {
-  const [{ slug }, locale] = await Promise.all([params, getLocale()])
+  const { locale, slug } = await params
+  setRequestLocale(locale)
   const guide = await sanityFetch<GuideDetail | null>(guideBySlugQuery, { slug })
 
   if (!guide) notFound()

@@ -1,3 +1,4 @@
+import { setRequestLocale } from 'next-intl/server'
 import Nav from '@/components/layout/Nav'
 import RecursosHeader from '@/components/sections/recursos/RecursosHeader'
 import CostCalculator from '@/components/sections/recursos/CostCalculator'
@@ -10,7 +11,14 @@ export const metadata = {
   description: 'Calculadora de costo de vida, checklists y herramientas para planear tu vida en Uruguay.',
 }
 
-export default function RecursosPage() {
+export default async function RecursosPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  setRequestLocale(locale)
+
   return (
     <>
       <Nav />

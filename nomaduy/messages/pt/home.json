@@ -132,7 +132,16 @@
     "open_calc": "Abrir calculadora →"
   },
   "testimonials": {
-    "title": "De pessoas como você"
+    "title": "De pessoas como você",
+    "q1": "Me mudei para Montevidéu de Berlim sem plano. Este site foi a primeira coisa que salvei. O guia de bairros sozinho me poupou semanas de confusão.",
+    "name1": "Jonas W.",
+    "meta1": "Dev remoto · Pocitos",
+    "q2": "O grupo de WhatsApp para recém-chegados foi um salva-vidas. Alguém da comunidade me ajudou a encontrar um apartamento em 3 dias.",
+    "name2": "Mariana C.",
+    "meta2": "Expat · Punta Carretas",
+    "q3": "Finalmente um guia que não trata o Uruguai como uma parada. A seção de vistos é a explicação mais clara que encontrei na internet.",
+    "name3": "Rachel T.",
+    "meta3": "Nômade · 3 meses em Montevidéu"
   },
   "pdf_banner": {
     "title": "Baixe o guia gratuitamente",
