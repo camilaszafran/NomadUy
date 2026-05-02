@@ -19,8 +19,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const { slug } = await params
-  const guide = await sanityFetch<GuideDetail | null>(guideBySlugQuery, { slug })
+  const { slug, locale } = await params
+  const guide = await sanityFetch<GuideDetail | null>(guideBySlugQuery, { slug, locale: locale || 'es' })
   if (!guide) return {}
   return {
     title: `${guide.title} — NomadUY`,
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props) {
 export default async function GuidePage({ params }: Props) {
   const { locale, slug } = await params
   setRequestLocale(locale)
-  const guide = await sanityFetch<GuideDetail | null>(guideBySlugQuery, { slug })
+  const guide = await sanityFetch<GuideDetail | null>(guideBySlugQuery, { slug, locale })
 
   if (!guide) notFound()
 

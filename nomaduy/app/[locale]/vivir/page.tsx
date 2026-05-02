@@ -23,7 +23,7 @@ export default async function VivirPage({
   setRequestLocale(locale)
 
   const [places, t] = await Promise.all([
-    sanityFetch<Place[]>(placesQuery),
+    sanityFetch<Place[]>(placesQuery, { locale }),
     getTranslations('vivir'),
   ])
 

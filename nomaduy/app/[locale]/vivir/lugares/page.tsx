@@ -22,7 +22,7 @@ export default async function LugaresPage({
   setRequestLocale(locale)
 
   const [places, t] = await Promise.all([
-    sanityFetch<Place[]>(placesQuery),
+    sanityFetch<Place[]>(placesQuery, { locale }),
     getTranslations('vivir'),
   ])
 

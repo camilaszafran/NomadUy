@@ -23,7 +23,7 @@ export default async function ConocerUruguayPage({
 
   let routes: Ruta[] = []
   try {
-    routes = await sanityFetch<Ruta[]>(rutasQuery)
+    routes = await sanityFetch<Ruta[]>(rutasQuery, { locale })
   } catch {
     // Sanity unreachable — page renders with empty state
   }

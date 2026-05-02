@@ -1,27 +1,25 @@
 /**
- * Translates Sanity content (rutas, guides) via DeepL and outputs JSON files.
- * Output: translations/en/rutas.json, translations/pt/rutas.json, etc. (keyed by _id)
+ * Translates Sanity content (rutas, guides, places) via DeepL and patches
+ * documents directly in Sanity. Runs as part of the Vercel build.
  *
  * Run with: node --env-file=.env.local scripts/translate-sanity.mjs
- * Requires: DEEPL_API_KEY, SANITY_PROJECT_ID, SANITY_DATASET in .env.local
+ * Requires: DEEPL_API_KEY, SANITY_API_TOKEN (write token), SANITY_PROJECT_ID, SANITY_DATASET
  */
 
 import { createClient } from '@sanity/client'
-import { readFileSync, writeFileSync, mkdirSync } from 'fs'
-import { resolve, dirname } from 'path'
-import { fileURLToPath } from 'url'
-
-const __dirname = dirname(fileURLToPath(import.meta.url))
-const ROOT = resolve(__dirname, '..')
 
 const DEEPL_KEY = process.env.DEEPL_API_KEY
+const SANITY_TOKEN = process.env.SANITY_API_TOKEN
+
 if (!DEEPL_KEY) { console.error('Missing DEEPL_API_KEY'); process.exit(1) }
+if (!SANITY_TOKEN) { console.error('Missing SANITY_API_TOKEN'); process.exit(1) }
 
 const sanity = createClient({
-  projectId: 'ohjste83',
-  dataset: 'production',
+  projectId: process.env.SANITY_PROJECT_ID || 'ohjste83',
+  dataset: process.env.SANITY_DATASET || 'production',
   useCdn: false,
   apiVersion: '2024-01-01',
+  token: SANITY_TOKEN,
 })
 
 const TARGETS = [
@@ -29,7 +27,6 @@ const TARGETS = [
   { locale: 'pt', deeplLang: 'PT-BR' },
 ]
 
-// Finite lookup tables — never send these to DeepL
 const DURATION_MAP = {
   en: { '1 día': '1 day', 'Fin de semana': 'Weekend', '4–7 días': '4–7 days' },
   pt: { '1 día': '1 dia', 'Fin de semana': 'Fim de semana', '4–7 días': '4–7 dias' },
@@ -72,109 +69,211 @@ async function translateRutas(locale, deeplLang) {
   const rutas = await sanity.fetch(`*[_type == "ruta"]{
     _id, title, teaser, vibe, interestLabel, duration,
     stops,
-    "itinerary": itinerary[]{ day, content },
-    stayLinks[]{ label, url },
-    doLinks[]{ label, url },
-    eatLinks[]{ label, url }
+    "itinerary": itinerary[]{ _key, day, content },
+    "stayLinks": stayLinks[]{ _key, label, url },
+    "doLinks": doLinks[]{ _key, label, url },
+    "eatLinks": eatLinks[]{ _key, label, url }
   }`)
 
+  if (!rutas.length) { console.log('No rutas found.'); return }
   console.log(`\nTranslating ${rutas.length} rutas to ${deeplLang}...`)
 
-  // Collect all translatable strings with their ruta index and field path
-  const entries = [] // { rutaIndex, field, subIndex?, value }
+  const entries = []
   rutas.forEach((r, ri) => {
-    entries.push({ rutaIndex: ri, field: 'title', value: r.title })
-    if (r.teaser) entries.push({ rutaIndex: ri, field: 'teaser', value: r.teaser })
-    if (r.vibe) entries.push({ rutaIndex: ri, field: 'vibe', value: r.vibe })
-    if (r.interestLabel) entries.push({ rutaIndex: ri, field: 'interestLabel', value: r.interestLabel })
+    entries.push({ idx: ri, field: 'title', value: r.title })
+    if (r.teaser) entries.push({ idx: ri, field: 'teaser', value: r.teaser })
+    if (r.vibe) entries.push({ idx: ri, field: 'vibe', value: r.vibe })
+    if (r.interestLabel) entries.push({ idx: ri, field: 'interestLabel', value: r.interestLabel })
     if (r.stops) r.stops.forEach((s, si) =>
-      entries.push({ rutaIndex: ri, field: 'stops', subIndex: si, value: s })
+      entries.push({ idx: ri, field: 'stops', sub: si, value: s })
     )
     if (r.itinerary) r.itinerary.forEach((day, si) => {
-      entries.push({ rutaIndex: ri, field: 'itinerary_day', subIndex: si, value: day.day })
-      if (day.content) entries.push({ rutaIndex: ri, field: 'itinerary_content', subIndex: si, value: day.content })
+      if (day.day) entries.push({ idx: ri, field: 'itinerary_day', sub: si, value: day.day })
+      if (day.content) entries.push({ idx: ri, field: 'itinerary_content', sub: si, value: day.content })
     })
-    // Link labels
     ;['stayLinks', 'doLinks', 'eatLinks'].forEach(linkField => {
       if (r[linkField]) r[linkField].forEach((link, si) => {
-        if (link.label) entries.push({ rutaIndex: ri, field: `${linkField}_label`, subIndex: si, value: link.label })
+        if (link.label) entries.push({ idx: ri, field: `${linkField}_label`, sub: si, value: link.label })
       })
     })
   })
 
-  const texts = entries.map(e => e.value)
-  const translated = await translateChunked(texts, deeplLang)
+  const translated = await translateChunked(entries.map(e => e.value), deeplLang)
 
-  // Build output keyed by _id
-  const output = {}
-  rutas.forEach((r, ri) => {
-    output[r._id] = {
-      duration: DURATION_MAP[locale][r.duration] || r.duration,
-      stops: r.stops ? [...r.stops] : [],
-      itinerary: r.itinerary ? r.itinerary.map(d => ({ day: d.day, content: d.content })) : [],
-      stayLinks: r.stayLinks ? r.stayLinks.map(l => ({ label: l.label, url: l.url })) : [],
-      doLinks: r.doLinks ? r.doLinks.map(l => ({ label: l.label, url: l.url })) : [],
-      eatLinks: r.eatLinks ? r.eatLinks.map(l => ({ label: l.label, url: l.url })) : [],
-    }
-  })
+  // Build patch data per ruta
+  const patches = rutas.map((r, ri) => ({
+    [`duration_${locale}`]: DURATION_MAP[locale][r.duration] || r.duration,
+    [`stops_${locale}`]: r.stops ? [...r.stops] : [],
+    [`itinerary_${locale}`]: r.itinerary
+      ? r.itinerary.map(d => ({ _key: d._key, day: d.day || '', content: d.content || '' }))
+      : [],
+    [`stayLinks_${locale}`]: r.stayLinks
+      ? r.stayLinks.map(l => ({ _key: l._key, label: l.label || '', url: l.url || '' }))
+      : [],
+    [`doLinks_${locale}`]: r.doLinks
+      ? r.doLinks.map(l => ({ _key: l._key, label: l.label || '', url: l.url || '' }))
+      : [],
+    [`eatLinks_${locale}`]: r.eatLinks
+      ? r.eatLinks.map(l => ({ _key: l._key, label: l.label || '', url: l.url || '' }))
+      : [],
+  }))
 
   entries.forEach((entry, i) => {
-    const { rutaIndex, field, subIndex } = entry
-    const id = rutas[rutaIndex]._id
+    const { idx, field, sub } = entry
     const t = translated[i]
-    if (field === 'title') output[id].title = t
-    else if (field === 'teaser') output[id].teaser = t
-    else if (field === 'vibe') output[id].vibe = t
-    else if (field === 'interestLabel') output[id].interestLabel = t
-    else if (field === 'stops') output[id].stops[subIndex] = t
-    else if (field === 'itinerary_day') output[id].itinerary[subIndex].day = t
-    else if (field === 'itinerary_content') output[id].itinerary[subIndex].content = t
-    else if (field === 'stayLinks_label') output[id].stayLinks[subIndex].label = t
-    else if (field === 'doLinks_label') output[id].doLinks[subIndex].label = t
-    else if (field === 'eatLinks_label') output[id].eatLinks[subIndex].label = t
+    const p = patches[idx]
+    if (field === 'title') p[`title_${locale}`] = t
+    else if (field === 'teaser') p[`teaser_${locale}`] = t
+    else if (field === 'vibe') p[`vibe_${locale}`] = t
+    else if (field === 'interestLabel') p[`interestLabel_${locale}`] = t
+    else if (field === 'stops') p[`stops_${locale}`][sub] = t
+    else if (field === 'itinerary_day') p[`itinerary_${locale}`][sub].day = t
+    else if (field === 'itinerary_content') p[`itinerary_${locale}`][sub].content = t
+    else if (field === 'stayLinks_label') p[`stayLinks_${locale}`][sub].label = t
+    else if (field === 'doLinks_label') p[`doLinks_${locale}`][sub].label = t
+    else if (field === 'eatLinks_label') p[`eatLinks_${locale}`][sub].label = t
   })
 
-  const dir = resolve(ROOT, `translations/${locale}`)
-  mkdirSync(dir, { recursive: true })
-  const outPath = resolve(dir, 'rutas.json')
-  writeFileSync(outPath, JSON.stringify(output, null, 2) + '\n')
-  console.log(`✓ ${rutas.length} rutas → translations/${locale}/rutas.json`)
+  for (let i = 0; i < rutas.length; i++) {
+    await sanity.patch(rutas[i]._id).set(patches[i]).commit()
+    process.stdout.write(`  patched ${i + 1}/${rutas.length}\r`)
+  }
+  console.log(`\n✓ ${rutas.length} rutas patched (${locale})`)
+}
+
+// Collect all translatable text refs from a Portable Text body.
+// Each entry is { node, key } — a direct reference to mutate after translation.
+function collectPortableTextEntries(body) {
+  const entries = []
+  if (!Array.isArray(body)) return entries
+  for (const block of body) {
+    if (!block || typeof block !== 'object') continue
+    if (block._type === 'block' && Array.isArray(block.children)) {
+      for (const child of block.children) {
+        if (child._type === 'span' && child.text && child.text.trim()) {
+          entries.push({ node: child, key: 'text' })
+        }
+      }
+    } else if (block._type === 'callout') {
+      if (block.title) entries.push({ node: block, key: 'title' })
+      if (block.body) entries.push({ node: block, key: 'body' })
+    }
+    // images and other block types: skip
+  }
+  return entries
 }
 
 async function translateGuides(locale, deeplLang) {
-  const guides = await sanity.fetch(`*[_type == "guide"]{
-    _id, title, excerpt,
-    "body": pt::text(body)
-  }`)
+  const guides = await sanity.fetch(`*[_type == "guide"]{ _id, title, summary, body }`)
 
   if (!guides.length) { console.log('No guides found.'); return }
-
   console.log(`\nTranslating ${guides.length} guides to ${deeplLang}...`)
 
-  const entries = []
+  // Collect flat entries + body entries per guide
+  const flatEntries = [] // { guideIdx, field, value }
   guides.forEach((g, gi) => {
-    entries.push({ guideIndex: gi, field: 'title', value: g.title })
-    if (g.excerpt) entries.push({ guideIndex: gi, field: 'excerpt', value: g.excerpt })
+    flatEntries.push({ guideIdx: gi, field: 'title', value: g.title })
+    if (g.summary) flatEntries.push({ guideIdx: gi, field: 'summary', value: g.summary })
   })
 
-  const texts = entries.map(e => e.value)
-  const translated = await translateChunked(texts, deeplLang)
-
-  const output = {}
-  guides.forEach(g => { output[g._id] = {} })
-  entries.forEach((entry, i) => {
-    output[guides[entry.guideIndex]._id][entry.field] = translated[i]
+  // Clone bodies and collect span refs
+  const clonedBodies = guides.map(g => g.body ? JSON.parse(JSON.stringify(g.body)) : null)
+  const bodyEntries = [] // { guideIdx, node, key }
+  clonedBodies.forEach((body, gi) => {
+    if (!body) return
+    collectPortableTextEntries(body).forEach(entry => {
+      bodyEntries.push({ guideIdx: gi, node: entry.node, key: entry.key })
+    })
   })
 
-  const dir = resolve(ROOT, `translations/${locale}`)
-  mkdirSync(dir, { recursive: true })
-  writeFileSync(resolve(dir, 'guides.json'), JSON.stringify(output, null, 2) + '\n')
-  console.log(`✓ ${guides.length} guides → translations/${locale}/guides.json`)
+  const allValues = [
+    ...flatEntries.map(e => e.value),
+    ...bodyEntries.map(e => e.node[e.key]),
+  ]
+
+  console.log(`  ${allValues.length} strings (incl. ${bodyEntries.length} body spans)`)
+  const translated = await translateChunked(allValues, deeplLang)
+
+  const patches = guides.map(() => ({}))
+
+  // Apply flat field translations
+  flatEntries.forEach((entry, i) => {
+    patches[entry.guideIdx][`${entry.field}_${locale}`] = translated[i]
+  })
+
+  // Apply body span translations
+  const bodyOffset = flatEntries.length
+  bodyEntries.forEach((entry, i) => {
+    entry.node[entry.key] = translated[bodyOffset + i]
+  })
+
+  // Assign cloned translated bodies
+  clonedBodies.forEach((body, gi) => {
+    if (body) patches[gi][`body_${locale}`] = body
+  })
+
+  for (let i = 0; i < guides.length; i++) {
+    await sanity.patch(guides[i]._id).set(patches[i]).commit()
+    process.stdout.write(`  patched ${i + 1}/${guides.length}\r`)
+  }
+  console.log(`\n✓ ${guides.length} guides patched (${locale})`)
+}
+
+async function translatePlaces(locale, deeplLang) {
+  const places = await sanity.fetch(`*[_type == "place"]{ _id, title, tagline, facts }`)
+
+  if (!places.length) { console.log('No places found.'); return }
+  console.log(`\nTranslating ${places.length} places to ${deeplLang}...`)
+
+  const flatEntries = []
+  places.forEach((p, pi) => {
+    flatEntries.push({ idx: pi, field: 'title', value: p.title })
+    if (p.tagline) flatEntries.push({ idx: pi, field: 'tagline', value: p.tagline })
+  })
+
+  const clonedFacts = places.map(p => p.facts ? JSON.parse(JSON.stringify(p.facts)) : null)
+  const factsEntries = []
+  clonedFacts.forEach((facts, pi) => {
+    if (!facts) return
+    collectPortableTextEntries(facts).forEach(entry => {
+      factsEntries.push({ idx: pi, node: entry.node, key: entry.key })
+    })
+  })
+
+  const allValues = [
+    ...flatEntries.map(e => e.value),
+    ...factsEntries.map(e => e.node[e.key]),
+  ]
+
+  console.log(`  ${allValues.length} strings (incl. ${factsEntries.length} facts spans)`)
+  const translated = await translateChunked(allValues, deeplLang)
+
+  const patches = places.map(() => ({}))
+
+  flatEntries.forEach((entry, i) => {
+    patches[entry.idx][`${entry.field}_${locale}`] = translated[i]
+  })
+
+  const factsOffset = flatEntries.length
+  factsEntries.forEach((entry, i) => {
+    entry.node[entry.key] = translated[factsOffset + i]
+  })
+
+  clonedFacts.forEach((facts, pi) => {
+    if (facts) patches[pi][`facts_${locale}`] = facts
+  })
+
+  for (let i = 0; i < places.length; i++) {
+    await sanity.patch(places[i]._id).set(patches[i]).commit()
+    process.stdout.write(`  patched ${i + 1}/${places.length}\r`)
+  }
+  console.log(`\n✓ ${places.length} places patched (${locale})`)
 }
 
 for (const { locale, deeplLang } of TARGETS) {
   await translateRutas(locale, deeplLang)
   await translateGuides(locale, deeplLang)
+  await translatePlaces(locale, deeplLang)
 }
 
-console.log('\nAll Sanity content translated.')
+console.log('\nAll Sanity content translated and patched.')

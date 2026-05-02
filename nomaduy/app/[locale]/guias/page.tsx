@@ -22,7 +22,7 @@ export default async function GuiasPage({
     <>
       <Nav />
       <GuiasHeader />
-      <GuiasGrid />
+      <GuiasGrid locale={locale} />
       <PdfBanner />
       <Footer />
     </>

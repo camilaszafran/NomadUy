@@ -127,6 +127,49 @@ export const guideSchema = defineType({
       type: 'image',
       options: { hotspot: true },
     }),
+    // Auto-generated translation fields — hidden from Studio UI
+    defineField({ name: 'title_en', type: 'string', title: 'Title (EN)', hidden: true }),
+    defineField({ name: 'title_pt', type: 'string', title: 'Title (PT)', hidden: true }),
+    defineField({ name: 'summary_en', type: 'text', title: 'Summary (EN)', hidden: true }),
+    defineField({ name: 'summary_pt', type: 'text', title: 'Summary (PT)', hidden: true }),
+    defineField({
+      name: 'body_en',
+      type: 'array',
+      title: 'Body (EN)',
+      hidden: true,
+      of: [
+        { type: 'block' },
+        { type: 'image', options: { hotspot: true } },
+        {
+          type: 'object',
+          name: 'calloutEn',
+          fields: [
+            { name: 'type', type: 'string' },
+            { name: 'title', type: 'string' },
+            { name: 'body', type: 'text' },
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: 'body_pt',
+      type: 'array',
+      title: 'Body (PT)',
+      hidden: true,
+      of: [
+        { type: 'block' },
+        { type: 'image', options: { hotspot: true } },
+        {
+          type: 'object',
+          name: 'calloutPt',
+          fields: [
+            { name: 'type', type: 'string' },
+            { name: 'title', type: 'string' },
+            { name: 'body', type: 'text' },
+          ],
+        },
+      ],
+    }),
     defineField({
       name: 'body',
       title: 'Contenido',

@@ -54,7 +54,7 @@ export type Ruta = {
   _id: string
   title: string
   slug: { current: string }
-  duration: '1 día' | 'Fin de semana' | '4–7 días'
+  duration: string
   distance?: string
   vibe?: string
   interestLabel?: string

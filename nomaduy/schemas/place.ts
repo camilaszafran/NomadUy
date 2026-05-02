@@ -91,6 +91,25 @@ export const placeSchema = defineType({
         },
       ],
     }),
+    // Auto-generated translation fields — hidden from Studio UI
+    defineField({ name: 'title_en', type: 'string', title: 'Title (EN)', hidden: true }),
+    defineField({ name: 'title_pt', type: 'string', title: 'Title (PT)', hidden: true }),
+    defineField({ name: 'tagline_en', type: 'string', title: 'Tagline (EN)', hidden: true }),
+    defineField({ name: 'tagline_pt', type: 'string', title: 'Tagline (PT)', hidden: true }),
+    defineField({
+      name: 'facts_en',
+      type: 'array',
+      title: 'Facts (EN)',
+      hidden: true,
+      of: [{ type: 'block' }],
+    }),
+    defineField({
+      name: 'facts_pt',
+      type: 'array',
+      title: 'Facts (PT)',
+      hidden: true,
+      of: [{ type: 'block' }],
+    }),
     defineField({
       name: 'links',
       title: 'Lugares recomendados (cafés, coworkings)',
