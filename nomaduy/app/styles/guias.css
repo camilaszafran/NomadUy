@@ -533,3 +533,66 @@
   transition: background 160ms ease, transform 160ms var(--ease-out);
 }
 .btn-ghost:hover { background: rgba(255,255,255,0.22); }
+
+/* ─── Mobile: Primeras 48h ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Hero: stack checklist card below text */
+  .guia-hero-inner {
+    grid-template-columns: 1fr;
+    padding: 40px 20px 0;
+    gap: 28px;
+  }
+  .hero-checklist-card {
+    min-width: unset;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    padding: 22px 24px;
+  }
+  .checklist-stat strong { font-size: 2.4rem; }
+
+  /* Collapse sidebar, full-width content */
+  .guide-layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .guide-toc { display: none; }
+
+  /* Step cards: tighter padding */
+  .step-header {
+    padding: 14px 16px;
+    gap: 10px;
+  }
+  .step-body { padding: 0 16px 18px 16px; }
+
+  /* CTA bar: stack vertically */
+  .guide-cta-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 24px;
+    gap: 20px;
+  }
+  .cta-bar-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+  .btn-primary,
+  .btn-ghost {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .guia-hero-inner { padding: 28px 16px 0; }
+  .guia-page-hero > .guia-hero-inner > div > p { font-size: 0.95rem; }
+  .hero-tags { gap: 6px; }
+  .hero-tag { font-size: 0.75rem; padding: 5px 10px; }
+
+  /* On very small screens, hide step number (icon is enough) and priority badge */
+  .step-num { display: none; }
+  .step-priority { display: none; }
+  .step-header { gap: 8px; padding: 12px 14px; }
+  .step-body { padding: 0 14px 16px 14px; }
+  .phase-meta h2 { font-size: 1.3rem; }
+  .guide-cta-bar { padding: 22px 18px; }
+}

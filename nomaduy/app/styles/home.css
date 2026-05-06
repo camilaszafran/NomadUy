@@ -528,7 +528,8 @@
 .pdf-banner-form input::placeholder { color: rgba(255,255,255,0.55); }
 .pdf-banner-form input:focus { border-color: rgba(255,255,255,0.7); }
 
-.pdf-banner-form button {
+.pdf-banner-form button,
+.pdf-banner-form a {
   padding: 13px 22px;
   background: var(--gold);
   color: var(--white);
@@ -538,12 +539,15 @@
   white-space: nowrap;
   transition: background 160ms ease, transform 160ms var(--ease-out);
   box-shadow: 0 4px 14px rgba(212,146,42,0.35);
+  display: inline-flex; align-items: center;
 }
 
-.pdf-banner-form button:active { transform: scale(0.97); }
+.pdf-banner-form button:active,
+.pdf-banner-form a:active { transform: scale(0.97); }
 
 @media (hover: hover) and (pointer: fine) {
-  .pdf-banner-form button:hover { background: #b97a1e; }
+  .pdf-banner-form button:hover,
+  .pdf-banner-form a:hover { background: #b97a1e; }
 }
 
 .pdf-banner-note { color: rgba(255,255,255,0.45); font-size: 0.76rem; margin-top: 8px; }

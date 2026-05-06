@@ -1,9 +1,11 @@
 import Image from 'next/image'
-import { getTranslations } from 'next-intl/server'
+import Link from 'next/link'
+import { getTranslations, getLocale } from 'next-intl/server'
 import AnimateIn from '@/components/ui/AnimateIn'
+import { localizeHref } from '@/lib/locale'
 
 export default async function PdfBanner() {
-  const t = await getTranslations('home.pdf_banner')
+  const [t, locale] = await Promise.all([getTranslations('home.pdf_banner'), getLocale()])
 
   return (
     <section className="pdf-banner pdf-banner-photo" id="pdf">
@@ -25,7 +27,7 @@ export default async function PdfBanner() {
       <AnimateIn direction="right" delay={0.1}>
         <div className="pdf-banner-form">
           <input type="email" placeholder={t('email_placeholder')} />
-          <button>{t('cta')}</button>
+          <Link href={localizeHref('/comunidad', locale)}>{t('cta')}</Link>
         </div>
         <div className="pdf-banner-note">{t('note')}</div>
       </AnimateIn>

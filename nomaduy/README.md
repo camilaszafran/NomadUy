@@ -1,36 +1,146 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NomadUY — Guía de operación
 
-## Getting Started
+Sitio web para nómadas digitales que se mudan a Uruguay. Construido con Next.js, Sanity, Supabase y Resend.
 
-First, run the development server:
+---
+
+## Correr el proyecto en local
+
+### Requisitos previos
+- Node.js instalado
+- Archivo `.env.local` en la raíz del proyecto con las variables de entorno (Sanity, Supabase, Resend)
+
+### Pasos
 
 ```bash
+# Desde la carpeta nomaduy/
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir [http://localhost:3000](http://localhost:3000) en el navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+El servidor se recarga automáticamente cada vez que se guarda un archivo de código.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Editar contenido en Sanity (CMS)
 
-To learn more about Next.js, take a look at the following resources:
+Sanity es el gestor de contenido del sitio. Desde el studio se pueden editar guías, rutas y lugares.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Con el servidor local corriendo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Ir a [http://localhost:3000/studio](http://localhost:3000/studio)
 
-## Deploy on Vercel
+### En producción
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Ir a [https://www.nomaduy.com/studio](https://www.nomaduy.com/studio) (o el dominio de Vercel correspondiente).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Qué se puede editar
+
+| Tipo | Qué es |
+|------|--------|
+| **Guías** | Artículos de la sección Guías (texto, imágenes, categoría) |
+| **Rutas** | Rutas de la página Conocer Uruguay (itinerarios, fotos, links) |
+| **Lugares** | Lugares de la sección Vivir (descripción, fotos, scores) |
+
+### Notas importantes
+- Los cambios en Sanity se reflejan en el sitio **sin necesidad de redesplegar**. El sitio hace refetch del contenido automáticamente cada hora.
+- Si se necesita ver el cambio de inmediato en producción, se puede forzar un revalidado o simplemente esperar unos minutos.
+
+---
+
+## Ver datos en Supabase
+
+Supabase almacena los registros del formulario de la comunidad (emails de personas que se unen).
+
+1. Ir a [https://supabase.com](https://supabase.com) e iniciar sesión
+2. La cuenta está vinculada a **info@villapancha.uy** — la primera vez hay que aceptar la invitación al equipo que llega por email
+3. Dentro del proyecto, ir a **Table Editor** para ver los registros
+4. La tabla principal es `community_members` (o similar) con los emails y fechas de registro
+
+---
+
+## Agregar eventos al calendario de NomadUY
+
+Los eventos de la comunidad se gestionan desde Google Calendar.
+
+- **Cuenta:** info@nodolunarejo.uy
+- Iniciar sesión en Google con esa cuenta
+- Abrir Google Calendar y buscar el calendario **Nomad UY**
+- Crear eventos ahí — aparecerán en la sección Comunidad del sitio
+
+> Los eventos no requieren redesplegar el sitio.
+
+---
+
+## Deployar en Vercel
+
+El sitio está hosteado en Vercel bajo la cuenta de **camilaszafran**.
+
+### Cuándo hace falta redesplegar
+
+| Situación | ¿Hay que redesplegar? |
+|-----------|----------------------|
+| Se editó contenido en Sanity | No |
+| Se agregaron eventos al calendario | No |
+| Se modificó código (componentes, CSS, lógica) | Sí |
+
+### Cómo redesplegar
+
+**Opción A — automática (recomendada):**
+Hacer `git push` a la rama `main`. Vercel detecta el push y despliega automáticamente.
+
+```bash
+git add .
+git commit -m "descripción del cambio"
+git push origin main
+```
+
+**Opción B — manual desde el dashboard:**
+1. Ir a [https://vercel.com](https://vercel.com) e iniciar sesión con la cuenta de camilaszafran
+2. Seleccionar el proyecto **nomaduy**
+3. Ir a la pestaña **Deployments**
+4. Click en **Redeploy** sobre el último deployment
+
+### Variables de entorno en Vercel
+Si se agregan nuevas variables al `.env.local`, hay que agregarlas también en Vercel:
+- Dashboard del proyecto → **Settings** → **Environment Variables**
+
+---
+
+## Gestión de emails (Resend)
+
+Los emails transaccionales (confirmación al unirse a la comunidad, etc.) se envían a través de **Resend**.
+
+- **Cuenta:** nodolunarejo
+- Ir a [https://resend.com](https://resend.com) e iniciar sesión
+- Desde el dashboard se pueden ver los emails enviados, el historial y posibles errores de entrega
+
+---
+
+## Stack técnico (referencia rápida)
+
+| Servicio | Para qué | Acceso |
+|----------|----------|--------|
+| **Next.js** | Framework del sitio | Código en este repo |
+| **Sanity** | CMS de contenido | `/studio` |
+| **Supabase** | Base de datos (registros comunidad) | info@villapancha.uy |
+| **Resend** | Envío de emails | cuenta nodolunarejo |
+| **Vercel** | Hosting y deploy | cuenta camilaszafran |
+| **Google Calendar** | Eventos de comunidad | info@nodolunarejo.uy |
+
+---
+
+## Estructura de carpetas (referencia)
+
+```
+nomaduy/
+├── app/               # Páginas (Next.js App Router)
+│   └── styles/        # CSS dividido por página
+├── components/        # Componentes React
+│   └── sections/      # Secciones por página
+├── lib/               # Clientes de Sanity, Supabase y Resend
+├── schemas/           # Schemas de Sanity (tipos de contenido)
+├── messages/          # Traducciones (ES / EN / PT)
+└── scripts/           # Scripts de seed de datos (no correr sin revisar)
+```
