@@ -110,6 +110,13 @@ export default function Nav() {
                     {t(l.key)}
                   </a>
                 ))}
+                <a
+                  href="https://asados.nomad.com.uy"
+                  className="nav-drawer-link"
+                  onClick={() => setOpen(false)}
+                >
+                  Asados Random
+                </a>
               </div>
               <a href={localizeHref('/comunidad', locale)} className="nav-drawer-cta">
                 {t('join_community')}
