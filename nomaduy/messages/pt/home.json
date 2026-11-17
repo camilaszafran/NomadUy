@@ -91,6 +91,11 @@
     "title": "Conhecer o Uruguai",
     "subtitle": "Itinerários de viagem por interesse e duração — desde uma viagem de fim de semana até uma imersão completa.",
     "cta": "Ver todas as rotas →",
+    "rural_tourism": {
+      "title": "Turismo Rural e Natural",
+      "description": "Descubra o Uruguai rural e encontre ideias para sua próxima viagem.",
+      "cta": "Explorar o turismo rural e natural"
+    },
     "see_route": "Ver rota →",
     "items": [
       {

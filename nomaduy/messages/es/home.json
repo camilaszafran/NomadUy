@@ -55,6 +55,11 @@
     "title": "Conocer Uruguay",
     "subtitle": "Rutas de viaje por interés y duración — del fin de semana a la inmersión profunda.",
     "cta": "Ver todas las rutas →",
+    "rural_tourism": {
+      "title": "Turismo Rural y Natural",
+      "description": "Descubrí el Uruguay rural y encontrá ideas para tu próxima escapada.",
+      "cta": "Explorar turismo rural y natural"
+    },
     "see_route": "Ver ruta →",
     "items": [
       { "title": "Surf & Costa", "desc": "Punta del Este, La Pedrera, Cabo Polonio y Punta del Diablo.", "tag": "Atlántico" },

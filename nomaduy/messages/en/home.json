@@ -91,6 +91,11 @@
     "title": "Discover Uruguay",
     "subtitle": "Travel itineraries by interest and duration — from weekend getaways to in-depth experiences.",
     "cta": "See all routes →",
+    "rural_tourism": {
+      "title": "Rural and Nature Tourism",
+      "description": "Discover rural Uruguay and find ideas for your next getaway.",
+      "cta": "Explore rural and nature tourism"
+    },
     "see_route": "View route →",
     "items": [
       {

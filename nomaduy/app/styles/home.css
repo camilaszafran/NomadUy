@@ -884,3 +884,42 @@
 @media (max-width: 480px) {
   .resources-preview-section { padding: 48px 20px; }
 }
+
+.rural-tourism-card {
+  display: grid;
+  grid-template-columns: minmax(180px, 30%) minmax(0, 1fr);
+  margin-top: 20px;
+  overflow: hidden;
+  border: 1px solid var(--blue-pale);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.rural-tourism-image {
+  position: relative;
+  min-height: 160px;
+}
+
+.rural-tourism-copy {
+  display: grid;
+  gap: 8px;
+  align-content: center;
+  padding: clamp(18px, 3vw, 32px);
+}
+
+.rural-tourism-copy h3 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  line-height: 1.15;
+}
+
+.rural-tourism-copy p { color: var(--ink-60); }
+.rural-tourism-copy > span { color: var(--blue); font-weight: 700; }
+.rural-tourism-card:hover .rural-tourism-copy > span,
+.rural-tourism-card:focus-visible .rural-tourism-copy > span { text-decoration: underline; }
+
+@media (max-width: 560px) {
+  .rural-tourism-card { grid-template-columns: 1fr; }
+  .rural-tourism-image { aspect-ratio: 16 / 7; min-height: 0; }
+}

@@ -82,6 +82,23 @@ export default function ExploreUruguay() {
           </motion.a>
         ))}
       </motion.div>
+
+      <a href="https://turismoruralynatural.uy/" className="rural-tourism-card">
+        <div className="rural-tourism-image">
+          <Image
+            src="/images/routes/temas.jpg"
+            alt=""
+            fill
+            sizes="(max-width: 560px) 100vw, 320px"
+            style={{ objectFit: 'cover' }}
+          />
+        </div>
+        <div className="rural-tourism-copy">
+          <h3>{t('rural_tourism.title')}</h3>
+          <p>{t('rural_tourism.description')}</p>
+          <span>{t('rural_tourism.cta')} <span aria-hidden="true">↗</span></span>
+        </div>
+      </a>
     </section>
   )
 }
