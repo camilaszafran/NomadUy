@@ -68,6 +68,7 @@ export default function Nav() {
           {linkHrefs.map(l => (
             <li key={l.href}><a href={localizeHref(l.href, locale)}>{t(l.key)}</a></li>
           ))}
+          <li><a href="https://asados.nomad.com.uy">Asados Random</a></li>
           <li><a href={localizeHref('/comunidad', locale)} className="nav-cta">{t('unirme')}</a></li>
         </ul>
 
