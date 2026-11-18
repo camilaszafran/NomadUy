@@ -4,10 +4,12 @@ import { Suitcase, Compass, UsersThree, Palette, Briefcase, MusicNotes, CaretDow
 import Nav from '@/components/layout/Nav'
 import Footer from '@/components/layout/Footer'
 import { localizeHref } from '@/lib/locale'
+import { linkTarget } from '@/lib/link-target'
+import { tourism, transport } from '@/lib/discover'
 
 const categories = [
   { id: 'llegada', icon: Suitcase, links: ['/guias/primeras-48h#fase-1', '/guias/primeras-48h#fase-2', '/vivir#alojamiento', '/recursos#delivery', '/recursos#costo-de-vida', '/recursos#tramites-y-guias', '/recursos#live-in-uruguay'] },
-  { id: 'paseos', icon: Compass, links: ['/conocer-uruguay#cafes', '/conocer-uruguay#sin-auto', '/conocer-uruguay', '/conocer-uruguay#apps-turismo', '/conocer-uruguay#un-sabado'] },
+  { id: 'paseos', icon: Compass, links: ['/conocer-uruguay#cafes', '/conocer-uruguay#sin-auto', '/conocer-uruguay', '/conocer-uruguay#un-sabado'] },
   { id: 'gente', icon: UsersThree, links: ['/comunidad#conocer-gente', '/comunidad#cursos-y-talleres', '/comunidad#recomendado'] },
   { id: 'cursos', icon: Palette, links: ['/comunidad#cursos-y-talleres', '/comunidad#recomendar'] },
   { id: 'trabajo', icon: Briefcase, links: ['/recursos#coworks', '/recursos#emprender'] },
@@ -17,10 +19,12 @@ const categories = [
 const messages = {
   es: {
     title: 'Explorá Uruguay',
+    transport: 'Transporte y alquiler de autos',
+    tourism: 'Turismo y guías oficiales',
     intro: 'Encontrá lo que necesitás para instalarte, hacer planes y conocer gente.',
     categories: [
-      ['Recién llegué', 'Chip, tarjetas, alojamiento y trámites.', ['Chip y eSIM', 'Prex y Midinero', 'Buscar alojamiento', 'Pedir comida', 'Calculadora de costo de vida', 'Trámites y guías', 'Live in Uruguay']],
-      ['Paseos y escapadas', 'Cafés, rutas y formas de llegar sin auto.', ['Cafés de Uruguay', 'Escapadas sin auto', 'Rutas para recorrer Uruguay', 'Turisteando y turismo rural', 'Un sábado en Montevideo']],
+      ['Recién llegué', 'Chip, tarjetas, alojamiento y transporte.', ['Chip y eSIM', 'Prex y Midinero', 'Buscar alojamiento', 'Pedir comida', 'Calculadora de costo de vida', 'Trámites y guías', 'Live in Uruguay']],
+      ['Paseos y escapadas', 'Cafés, rutas y formas de llegar sin auto.', ['Cafés de Uruguay', 'Escapadas sin auto', 'Rutas para recorrer Uruguay', 'Un sábado en Montevideo']],
       ['Conocer gente', 'Cenas, asados, deporte y actividades en grupo.', ['Encuentros y actividades', 'Idiomas y talleres', 'Recomendado por la comunidad']],
       ['Cursos y talleres', 'Idiomas, cerámica, música, pintura y cocina.', ['Buscar clases y talleres por departamento', 'Recomendar un taller']],
       ['Trabajar y emprender', 'Coworks, incubadoras y apoyo para empezar.', ['Buscar un cowork', 'Apoyo para emprender']],
@@ -29,10 +33,12 @@ const messages = {
   },
   en: {
     title: 'Explore Uruguay',
+    transport: 'Transport and car rentals',
+    tourism: 'Tourism and official guides',
     intro: 'Find what you need to settle in, make plans and meet people.',
     categories: [
-      ['Just arrived', 'SIM cards, prepaid cards, accommodation and paperwork.', ['SIM cards and eSIM', 'Prex and Midinero', 'Find accommodation', 'Order food', 'Cost of living calculator', 'Paperwork and guides', 'Live in Uruguay']],
-      ['Trips and getaways', 'Cafés, itineraries and ways to travel without a car.', ['Cafés in Uruguay', 'Getaways without a car', 'Itineraries around Uruguay', 'Turisteando and rural tourism', 'A Saturday in Montevideo']],
+      ['Just arrived', 'SIM cards, prepaid cards, accommodation and transport.', ['SIM cards and eSIM', 'Prex and Midinero', 'Find accommodation', 'Order food', 'Cost of living calculator', 'Paperwork and guides', 'Live in Uruguay']],
+      ['Trips and getaways', 'Cafés, itineraries and ways to travel without a car.', ['Cafés in Uruguay', 'Getaways without a car', 'Itineraries around Uruguay', 'A Saturday in Montevideo']],
       ['Meet people', 'Dinners, asados, sports and group activities.', ['Meetups and activities', 'Languages and workshops', 'Community recommendations']],
       ['Classes and workshops', 'Languages, ceramics, music, painting and cooking.', ['Find classes and workshops by department', 'Recommend a workshop']],
       ['Work and start a business', 'Coworking spaces, incubators and startup support.', ['Find a coworking space', 'Support for entrepreneurs']],
@@ -41,10 +47,12 @@ const messages = {
   },
   pt: {
     title: 'Explore o Uruguai',
+    transport: 'Transporte e aluguel de carros',
+    tourism: 'Turismo e guias oficiais',
     intro: 'Encontre o que precisa para se instalar, fazer planos e conhecer pessoas.',
     categories: [
-      ['Acabei de chegar', 'Chip, cartões, hospedagem e documentos.', ['Chip e eSIM', 'Prex e Midinero', 'Buscar hospedagem', 'Pedir comida', 'Calculadora do custo de vida', 'Documentos e guias', 'Live in Uruguay']],
-      ['Passeios e viagens', 'Cafés, roteiros e formas de viajar sem carro.', ['Cafés no Uruguai', 'Passeios sem carro', 'Roteiros pelo Uruguai', 'Turisteando e turismo rural', 'Um sábado em Montevidéu']],
+      ['Acabei de chegar', 'Chip, cartões, hospedagem e transporte.', ['Chip e eSIM', 'Prex e Midinero', 'Buscar hospedagem', 'Pedir comida', 'Calculadora do custo de vida', 'Documentos e guias', 'Live in Uruguay']],
+      ['Passeios e viagens', 'Cafés, roteiros e formas de viajar sem carro.', ['Cafés no Uruguai', 'Passeios sem carro', 'Roteiros pelo Uruguai', 'Um sábado em Montevidéu']],
       ['Conhecer pessoas', 'Jantares, churrascos, esportes e atividades em grupo.', ['Encontros e atividades', 'Idiomas e oficinas', 'Recomendações da comunidade']],
       ['Cursos e oficinas', 'Idiomas, cerâmica, música, pintura e culinária.', ['Buscar aulas e oficinas por departamento', 'Recomendar uma oficina']],
       ['Trabalhar e empreender', 'Coworkings, incubadoras e apoio para começar.', ['Buscar um coworking', 'Apoio para empreender']],
@@ -92,6 +100,33 @@ export default async function ExplorePage({ params }: Props) {
                   <li key={href}><a href={localizeHref(href, locale)}>{labels[i]} <ArrowRight size={16} aria-hidden="true" /></a></li>
                 ))}
               </ul>
+              {id === 'llegada' && (
+                <section className="explore-extra">
+                  <h2>{copy.transport}</h2>
+                  <ul lang="es-UY">
+                    {transport.map(item => (
+                      <li key={item.title}>
+                        <a href={item.href} {...linkTarget(item.href)}>{item.title} <span aria-hidden="true">↗</span></a>
+                        <p>{item.description}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+              {id === 'paseos' && (
+                <section className="explore-extra">
+                  <h2>{copy.tourism}</h2>
+                  <ul>
+                    {[
+                      ['Turismo Rural y Natural', 'https://turismoruralynatural.uy/'],
+                      ...tourism,
+                      ['Descubrí Montevideo', 'https://www.descubrimontevideo.uy/'],
+                    ].map(([title, href]) => (
+                      <li key={href}><a href={href} {...linkTarget(href)}>{title} <span aria-hidden="true">↗</span></a></li>
+                    ))}
+                  </ul>
+                </section>
+              )}
             </details>
           )
         })}

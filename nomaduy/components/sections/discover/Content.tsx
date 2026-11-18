@@ -58,9 +58,6 @@ export function TravelContent({ locale }: { locale: string }) {
         <RecommendLink locale={locale} text="Recomendá un café de tu ciudad" />
       </Section>
       <Section id="sin-auto" title="Escapadas sin auto" intro="Elegí un destino, confirmá los horarios de ida y vuelta y revisá cómo hacer el último tramo.">
-        <nav aria-label="Pasajes y horarios" className="discovery-actions discovery-travel-links">
-          {transport.slice(0, 3).map(item => <a key={item.title} href={item.href} {...linkTarget(item.href)}>{item.title === 'URUBUS' ? 'URUBUS · Pasajes a destinos de todo Uruguay' : item.title + ' · ' + item.label} ↗</a>)}
-        </nav>
         <Directory items={trips} />
         <RecommendLink locale={locale} text="Recomendá una escapada" />
       </Section>
@@ -75,11 +72,6 @@ export function TravelContent({ locale }: { locale: string }) {
             <h3>Turismo Rural y Natural</h3>
             <p>Buscá alojamientos y experiencias de naturaleza por región.</p>
             <div className="discovery-actions"><a href="https://turismoruralynatural.uy/" {...linkTarget("https://turismoruralynatural.uy/")}>Explorar experiencias ↗</a></div>
-          </article>
-          <article className="discovery-card">
-            <h3>¿Necesitás alquilar un auto?</h3>
-            <p>Con TripWip podés reservar un vehículo para manejar vos. Revisá requisitos y lugar de retiro.</p>
-            <div className="discovery-actions"><a href="https://tripwip.app/" {...linkTarget("https://tripwip.app/")}>Buscar autos en TripWip ↗</a></div>
           </article>
         </div>
       </Section>
