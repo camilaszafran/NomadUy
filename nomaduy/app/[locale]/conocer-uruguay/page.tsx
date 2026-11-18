@@ -9,19 +9,20 @@ import PdfBanner from '@/components/sections/home/PdfBanner'
 import Footer from '@/components/layout/Footer'
 import { sanityFetch, rutasQuery } from '@/lib/sanity'
 import type { Ruta } from '@/types'
+import { regionalRoutes } from '@/lib/regional-routes'
 
 const searchCopy = {
   "es": [
     "Qué hacer y dónde pasear en Uruguay",
-    "Rutas, cafés, turismo rural y escapadas por Uruguay con y sin auto."
+    "Itinerarios y escapadas en Uruguay: vino, quesos, senderos, áreas protegidas, playas, náutica y fronteras."
   ],
   "en": [
     "Things to do and places to visit in Uruguay",
-    "Itineraries, cafés, rural tourism and getaways across Uruguay with or without a car."
+    "Uruguay itineraries for wine, cheese, hiking, protected areas, beaches, boating and border towns."
   ],
   "pt": [
     "O que fazer e visitar no Uruguai",
-    "Roteiros, cafés, turismo rural e passeios pelo Uruguai com ou sem carro."
+    "Roteiros pelo Uruguai de vinhos, queijos, trilhas, áreas protegidas, praias, náutica e fronteiras."
   ]
 }
 
@@ -43,8 +44,11 @@ export default async function ConocerUruguayPage({
   try {
     routes = await sanityFetch<Ruta[]>(rutasQuery, { locale })
   } catch {
-    // Sanity unreachable — page renders with empty state
+    // The regional routes remain available while Sanity is unreachable.
   }
+
+  const existingSlugs = new Set(routes.map(route => route.slug?.current))
+  routes = [...routes, ...regionalRoutes(locale).filter(route => !existingSlugs.has(route.slug.current))]
 
   return (
     <>

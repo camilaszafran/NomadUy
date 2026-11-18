@@ -55,6 +55,7 @@ export type Ruta = {
   title: string
   slug: { current: string }
   duration: string
+  durationKey?: string
   distance?: string
   vibe?: string
   interestLabel?: string

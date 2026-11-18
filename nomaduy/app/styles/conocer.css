@@ -292,3 +292,6 @@
 @media (max-width: 380px) {
   .route-card { width: 155px; }
 }
+
+.route-activity-filter { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-block: 0 16px; font-weight: 600; color: var(--ink); }
+.route-activity-filter select { max-width: 100%; min-height: 44px; padding: 8px 10px; border: 1px solid var(--ink-30); border-radius: var(--radius-sm); background: var(--white); color: var(--ink); font: inherit; }

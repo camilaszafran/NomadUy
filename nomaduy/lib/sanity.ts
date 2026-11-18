@@ -131,6 +131,7 @@ export const rutasQuery = `
       title
     ),
     slug,
+    "durationKey": duration,
     "duration": select(
       $locale == "en" => coalesce(duration_en, duration),
       $locale == "pt" => coalesce(duration_pt, duration),

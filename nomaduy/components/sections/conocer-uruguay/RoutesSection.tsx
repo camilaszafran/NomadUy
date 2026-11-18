@@ -24,7 +24,7 @@ const cardVariants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.38, delay: i * 0.06, ease: [0.23, 1, 0.32, 1] as const },
+    transition: { duration: 0.38, delay: Math.min(i, 5) * 0.06, ease: [0.23, 1, 0.32, 1] as const },
   }),
 }
 
@@ -44,6 +44,8 @@ export default function RoutesSection({ routes }: RoutesSectionProps) {
     t('duration_4to7'),
   ]
   const [activeDuration, setActiveDuration] = useState(durations[0])
+  const [activity, setActivity] = useState('')
+  const activities = [...new Set(routes.flatMap(route => route.interestLabel ? [route.interestLabel] : []))].sort()
 
   useEffect(() => {
     const slug = searchParams.get('ruta')
@@ -61,7 +63,8 @@ export default function RoutesSection({ routes }: RoutesSectionProps) {
   }
 
   const filtered = routes.filter((r) =>
-    activeDuration === durations[0] || r.duration === durationValueMap[activeDuration]
+    (activeDuration === durations[0] || (r.durationKey ?? r.duration) === durationValueMap[activeDuration]) &&
+    (!activity || r.interestLabel === activity)
   )
 
   return (
@@ -75,6 +78,7 @@ export default function RoutesSection({ routes }: RoutesSectionProps) {
                 <button
                   key={d}
                   className={`dur-btn${activeDuration === d ? ' active' : ''}`}
+                  aria-pressed={activeDuration === d}
                   onClick={() => setActiveDuration(d)}
                 >
                   {d}
@@ -83,7 +87,15 @@ export default function RoutesSection({ routes }: RoutesSectionProps) {
             </div>
           </div>
 
-          <div className="routes-grid" key={activeDuration}>
+          <label className="route-activity-filter">
+            <span>{t('routes_activity')}</span>
+            <select value={activity} onChange={event => setActivity(event.target.value)}>
+              <option value="">{t('routes_all_activities')}</option>
+              {activities.map(label => <option key={label}>{label}</option>)}
+            </select>
+          </label>
+
+          <div className="routes-grid" key={activeDuration + activity}>
             <AnimatePresence mode="wait">
               {filtered.map((r, i) => {
                 const style = getInterestStyle(r.interestLabel)
