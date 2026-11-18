@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { Suspense, useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslations } from 'next-intl'
@@ -32,10 +32,20 @@ interface RoutesSectionProps {
   routes: Ruta[]
 }
 
+function RouteFromQuery({ routes, onSelect }: RoutesSectionProps & { onSelect: (route: Ruta) => void }) {
+  const searchParams = useSearchParams()
+  useEffect(() => {
+    const slug = searchParams.get('ruta')
+    if (!slug) return
+    const route = routes.find(item => item.slug?.current === slug)
+    if (route) onSelect(route)
+  }, [searchParams, routes, onSelect])
+  return null
+}
+
 export default function RoutesSection({ routes }: RoutesSectionProps) {
   const t = useTranslations('conocer')
   const [activeRoute, setActiveRoute] = useState<Ruta | null>(null)
-  const searchParams = useSearchParams()
 
   const durations = [
     t('duration_all'),
@@ -46,14 +56,6 @@ export default function RoutesSection({ routes }: RoutesSectionProps) {
   const [activeDuration, setActiveDuration] = useState(durations[0])
   const [activity, setActivity] = useState('')
   const activities = [...new Set(routes.flatMap(route => route.interestLabel ? [route.interestLabel] : []))].sort()
-
-  useEffect(() => {
-    const slug = searchParams.get('ruta')
-    if (slug) {
-      const match = routes.find((r) => r.slug?.current === slug)
-      if (match) setActiveRoute(match)
-    }
-  }, [searchParams, routes])
 
   // Map translated tab label back to Sanity duration value
   const durationValueMap: Record<string, string> = {
@@ -69,6 +71,9 @@ export default function RoutesSection({ routes }: RoutesSectionProps) {
 
   return (
     <>
+      <Suspense fallback={null}>
+        <RouteFromQuery routes={routes} onSelect={setActiveRoute} />
+      </Suspense>
       <main className="main-wrap">
         <section className="routes-section">
           <div className="routes-section-head">
