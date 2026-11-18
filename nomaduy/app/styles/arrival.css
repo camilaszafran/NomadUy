@@ -28,3 +28,8 @@
 
 .explore-service-link { grid-column: 1 / -1; display: block; padding: 16px; color: var(--blue); font-weight: 700; background: var(--surface); }
 .arrival-shortcuts { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+
+.home-guide-paths { padding-block: clamp(28px, 5vw, 54px); }
+.home-guide-paths h2 { margin-bottom: 14px; }
+@media (min-width: 760px) { .home-guide-paths .services-shortcuts { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 559px) { .home-guide-paths .services-shortcuts { grid-template-columns: minmax(0, 1fr); } }

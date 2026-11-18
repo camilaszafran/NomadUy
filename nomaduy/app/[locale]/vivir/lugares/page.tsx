@@ -5,8 +5,7 @@ import Nav from '@/components/layout/Nav'
 import PageSubtitle from '@/components/ui/PageSubtitle'
 import Footer from '@/components/layout/Footer'
 import Link from 'next/link'
-import { sanityFetch, placesQuery } from '@/lib/sanity'
-import type { Place } from '@/types/place'
+import { allPlaces, featuredPlaceSlugs } from '@/lib/regional-places'
 import { ArrowLeft } from '@phosphor-icons/react/dist/ssr'
 
 const searchCopy = {
@@ -39,7 +38,7 @@ export default async function LugaresPage({
   setRequestLocale(locale)
 
   const [places, t] = await Promise.all([
-    sanityFetch<Place[]>(placesQuery, { locale }),
+    allPlaces(locale),
     getTranslations('vivir'),
   ])
 
@@ -60,7 +59,12 @@ export default async function LugaresPage({
       <main className="main-wrap">
         <div className="lugares-grid">
           {places.map((place) => (
-            <Link key={place._id} href={`/vivir?place=${place.slug.current}`} className="lugar-card">
+            <Link key={place._id} href={localizeHref(
+              featuredPlaceSlugs.some(slug => slug === place.slug.current)
+                ? '/vivir/lugares/' + place.slug.current
+                : '/vivir?place=' + place.slug.current,
+              locale,
+            )} className="lugar-card">
               <div
                 className="lugar-card-img"
                 style={{
@@ -81,7 +85,7 @@ export default async function LugaresPage({
                 <div className="lugar-scores">
                   <span className="lugar-score-item">
                     <span className="lugar-score-label">{t('score_costo')}</span>
-                    <span className="lugar-score-dots">
+                    <span className="lugar-score-dots" role="img" aria-label={`${place.costOfLiving}/5`}>
                       {Array.from({ length: 5 }).map((_, i) => (
                         <span key={i} className={`score-dot${i < place.costOfLiving ? ' on' : ''}`} />
                       ))}
@@ -89,7 +93,7 @@ export default async function LugaresPage({
                   </span>
                   <span className="lugar-score-item">
                     <span className="lugar-score-label">{t('score_urbano')}</span>
-                    <span className="lugar-score-dots">
+                    <span className="lugar-score-dots" role="img" aria-label={`${place.urbanRural}/5`}>
                       {Array.from({ length: 5 }).map((_, i) => (
                         <span key={i} className={`score-dot${i < place.urbanRural ? ' on' : ''}`} />
                       ))}
@@ -97,7 +101,7 @@ export default async function LugaresPage({
                   </span>
                   <span className="lugar-score-item">
                     <span className="lugar-score-label">{t('score_tamano')}</span>
-                    <span className="lugar-score-dots">
+                    <span className="lugar-score-dots" role="img" aria-label={`${place.population}/5`}>
                       {Array.from({ length: 5 }).map((_, i) => (
                         <span key={i} className={`score-dot${i < place.population ? ' on' : ''}`} />
                       ))}

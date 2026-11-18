@@ -8,8 +8,7 @@ import Footer from '@/components/layout/Footer'
 import CommunityBanner from '@/components/sections/home/CommunityBanner'
 import PlaceMatcher from '@/components/sections/vivir/PlaceMatcher'
 import PdfBanner from '@/components/sections/home/PdfBanner'
-import { sanityFetch, placesQuery } from '@/lib/sanity'
-import type { Place } from '@/types/place'
+import { allPlaces } from '@/lib/regional-places'
 
 const searchCopy = {
   "es": [
@@ -41,7 +40,7 @@ export default async function VivirPage({
   setRequestLocale(locale)
 
   const [places, t] = await Promise.all([
-    sanityFetch<Place[]>(placesQuery, { locale }),
+    allPlaces(locale),
     getTranslations('vivir'),
   ])
 

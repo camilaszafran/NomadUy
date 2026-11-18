@@ -121,6 +121,7 @@ export default function PlaceCard({ place }: { place: Place }) {
 
       {/* Content */}
       <div className="place-content">
+        {place.description && <p>{place.description}</p>}
         {place.facts && (place.facts as PortableTextBlock[]).length > 0 && (
           <div className="place-facts">
             <PortableTextRenderer value={place.facts as PortableTextBlock[]} />

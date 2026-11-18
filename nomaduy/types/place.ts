@@ -11,6 +11,7 @@ export type Place = {
   slug: { current: string }
   region: string
   tagline: string
+  description?: string
   placeholderGradient: string
   photos?: Array<{ url: string; alt?: string }> | null
   costOfLiving: number

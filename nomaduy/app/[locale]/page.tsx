@@ -1,4 +1,6 @@
 import { pageSeo, siteOrigin } from '@/lib/seo'
+import { localizeHref } from '@/lib/locale'
+import { arrivalLocale } from '@/lib/arrival-links'
 import { setRequestLocale } from 'next-intl/server'
 import Nav from '@/components/layout/Nav'
 import Hero from '@/components/sections/home/Hero'
@@ -39,6 +41,14 @@ export default async function HomePage({
       }) }} />
       <Nav />
       <Hero events={events} />
+      <section className="main-wrap home-guide-paths" aria-label={journeys[arrivalLocale(locale)][0]}>
+        <h2>{journeys[arrivalLocale(locale)][0]}</h2>
+        <div className="services-shortcuts">
+          {['viajar', 'estadia-temporal', 'mudarse'].map((slug, index) => (
+            <a key={slug} href={localizeHref('/uruguay/' + slug, locale)}>{journeys[arrivalLocale(locale)][index + 1]} →</a>
+          ))}
+        </div>
+      </section>
       <FeaturedGuides />
       <DirectoryPreview />
       <ExploreUruguay />
@@ -48,6 +58,12 @@ export default async function HomePage({
       <Footer />
     </>
   )
+}
+
+const journeys = {
+  es: ['Guías para viajar o vivir en Uruguay', 'Viajar a Uruguay', 'Vivir unos meses en Uruguay', 'Mudarse a Uruguay'],
+  en: ['Guides to visiting and living in Uruguay', 'Travel to Uruguay', 'Live in Uruguay short-term', 'Move to Uruguay'],
+  pt: ['Guias para viajar ou morar no Uruguai', 'Viajar ao Uruguai', 'Morar alguns meses no Uruguai', 'Mudar para o Uruguai'],
 }
 
 const searchCopy = {

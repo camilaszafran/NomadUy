@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { localizeHref } from '@/lib/locale'
 
 export const siteOrigin = 'https://www.nomad.com.uy'
-export const publicPaths = ['/', '/explora', '/servicios', '/llegada', '/ayuda', '/guias', '/guias/primeras-48h', '/vivir', '/vivir/lugares', '/conocer-uruguay', '/recursos', '/comunidad']
+export const publicPaths = ['/', '/explora', '/uruguay/viajar', '/uruguay/estadia-temporal', '/uruguay/mudarse', '/servicios', '/llegada', '/ayuda', '/guias', '/guias/primeras-48h', '/vivir', '/vivir/lugares', '/conocer-uruguay', '/recursos', '/comunidad']
 
 export function siteUrl(path: string, locale: string) {
   return new URL(localizeHref(path, locale).replace(/\/$/, '') || '/', siteOrigin).href
