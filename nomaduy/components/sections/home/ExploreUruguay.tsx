@@ -1,5 +1,6 @@
 'use client'
 
+import { linkTarget } from '@/lib/link-target'
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
@@ -83,7 +84,7 @@ export default function ExploreUruguay() {
         ))}
       </motion.div>
 
-      <a href="https://turismoruralynatural.uy/" className="rural-tourism-card">
+      <a href="https://turismoruralynatural.uy/" {...linkTarget("https://turismoruralynatural.uy/")} className="rural-tourism-card">
         <div className="rural-tourism-image">
           <Image
             src="/images/routes/temas.jpg"

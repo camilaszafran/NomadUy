@@ -1,5 +1,6 @@
 'use client'
 
+import { linkTarget } from '@/lib/link-target'
 import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
@@ -68,7 +69,7 @@ export default function Nav() {
           {linkHrefs.map(l => (
             <li key={l.href}><a href={localizeHref(l.href, locale)}>{t(l.key)}</a></li>
           ))}
-          <li><a href="https://asados.nomad.com.uy">Asados Random</a></li>
+          <li><a href="https://asados.nomad.com.uy" {...linkTarget("https://asados.nomad.com.uy")}>Asados Random</a></li>
           <li><a href={localizeHref('/comunidad', locale)} className="nav-cta">{t('unirme')}</a></li>
         </ul>
 
@@ -112,7 +113,7 @@ export default function Nav() {
                   </a>
                 ))}
                 <a
-                  href="https://asados.nomad.com.uy"
+                  href="https://asados.nomad.com.uy" {...linkTarget("https://asados.nomad.com.uy")}
                   className="nav-drawer-link"
                   onClick={() => setOpen(false)}
                 >

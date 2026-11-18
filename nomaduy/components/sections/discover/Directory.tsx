@@ -1,5 +1,6 @@
 'use client'
 
+import { linkTarget } from '@/lib/link-target'
 import { useId, useState } from 'react'
 import type { Listing } from '@/lib/discover'
 
@@ -51,11 +52,11 @@ export default function Directory({ items, filter = false, map = false }: {
             <h3>{item.title}</h3>
             <p>{item.description}</p>
             <div className="discovery-actions">
-              {item.href && <a href={item.href}>{item.label ?? 'Conocer el lugar'} <span aria-hidden="true">↗</span></a>}
+              {item.href && <a href={item.href} {...linkTarget(item.href)}>{item.label ?? 'Conocer el lugar'} <span aria-hidden="true">↗</span></a>}
               {item.map && (map ? <>
                 <button type="button" onClick={() => setSelected(item.map!)} aria-pressed={point?.map === item.map}>Ver en el mapa</button>
-                <a href={mapUrl(item.map)}>Cómo llegar <span aria-hidden="true">↗</span></a>
-              </> : <a href={mapUrl(item.map)}>Ver ubicación <span aria-hidden="true">↗</span></a>)}
+                <a href={mapUrl(item.map)} {...linkTarget(mapUrl(item.map))}>Cómo llegar <span aria-hidden="true">↗</span></a>
+              </> : <a href={mapUrl(item.map)} {...linkTarget(mapUrl(item.map))}>Ver ubicación <span aria-hidden="true">↗</span></a>)}
             </div>
           </article>
         ))}

@@ -1,5 +1,6 @@
 'use client'
 
+import { linkTarget } from '@/lib/link-target'
 import { useState } from 'react'
 import {
   ClipboardText,
@@ -175,7 +176,7 @@ export default function CostCalculator() {
         {toolKeys.map((keys, i) => {
           const TIcon = toolIcons[i]
           return (
-            <a key={keys.title} className="tool-card" href={toolLinks[i]}>
+            <a key={keys.title} className="tool-card" href={toolLinks[i]} {...linkTarget(toolLinks[i])}>
               <div className="tool-icon" aria-hidden="true"><TIcon size={22} weight="regular" /></div>
               <div className="tool-body">
                 <div className="tool-title-row">

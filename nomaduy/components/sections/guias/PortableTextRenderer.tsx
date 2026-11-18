@@ -1,3 +1,4 @@
+import { linkTarget } from '@/lib/link-target'
 import { PortableText } from '@portabletext/react'
 import type {
   PortableTextBlock,
@@ -52,8 +53,7 @@ const components = {
     link: ({ value, children }: PortableTextMarkComponentProps<LinkMark>) => (
       <a
         href={value?.href ?? '#'}
-        target={value?.blank ? '_blank' : undefined}
-        rel={value?.blank ? 'noopener noreferrer' : undefined}
+        {...linkTarget(value?.href)}
       >
         {children}
       </a>

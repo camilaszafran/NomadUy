@@ -1,3 +1,4 @@
+import { linkTarget } from '@/lib/link-target'
 import type { ReactNode } from 'react'
 import { localizeHref } from '@/lib/locale'
 import { agenda, arrivalLinks, cafes, cowork, founders, creators, football, interiorAgenda, social, stays, tourism, transport, trips } from '@/lib/discover'
@@ -31,9 +32,9 @@ export function ArrivalDetails({ step }: { step: number }) {
       <h4>Chip o eSIM, según tu celular</h4>
       <p>Verificá que el celular esté liberado y sea compatible con eSIM. Una línea local puede darte número uruguayo; las eSIM de viaje suelen ofrecer solo datos. Tené el documento a mano y confirmá con la compañía si admite tu pasaporte para el alta que elegiste.</p>
       <dl>
-        <dt>Antel</dt><dd>Elegí chip físico o eSIM en la <a href={arrivalLinks.antel}>oferta prepago de Antel</a>. Registrá el número siguiendo las instrucciones de la compra y recargá desde los canales de Antel.</dd>
-        <dt>Claro</dt><dd>Consultá dónde conseguir el <a href={arrivalLinks.claro}>chip Claro</a> y si tu línea puede usar <a href={arrivalLinks.claroEsim}>eSIM</a>. Usá Mi Claro para gestionar recargas y paquetes.</dd>
-        <dt>Tigo</dt><dd>Consultá cómo <a href={arrivalLinks.tigo}>comprar, registrar y activar un chip o eSIM</a> en línea, en comercios autorizados o en tienda. Podés gestionar paquetes desde Mi Tigo.</dd>
+        <dt>Antel</dt><dd>Elegí chip físico o eSIM en la <a href={arrivalLinks.antel} {...linkTarget(arrivalLinks.antel)}>oferta prepago de Antel</a>. Registrá el número siguiendo las instrucciones de la compra y recargá desde los canales de Antel.</dd>
+        <dt>Claro</dt><dd>Consultá dónde conseguir el <a href={arrivalLinks.claro} {...linkTarget(arrivalLinks.claro)}>chip Claro</a> y si tu línea puede usar <a href={arrivalLinks.claroEsim} {...linkTarget(arrivalLinks.claroEsim)}>eSIM</a>. Usá Mi Claro para gestionar recargas y paquetes.</dd>
+        <dt>Tigo</dt><dd>Consultá cómo <a href={arrivalLinks.tigo} {...linkTarget(arrivalLinks.tigo)}>comprar, registrar y activar un chip o eSIM</a> en línea, en comercios autorizados o en tienda. Podés gestionar paquetes desde Mi Tigo.</dd>
       </dl>
     </div>
   )
@@ -41,8 +42,8 @@ export function ArrivalDetails({ step }: { step: number }) {
     <div className="arrival-details" lang="es-UY">
       <h4>¿Qué puedo tramitar con pasaporte?</h4>
       <dl>
-        <dt><a href={arrivalLinks.prex}>Prex</a></dt><dd>Prex lista el pasaporte vigente entre los documentos aceptados para solicitar la cuenta. Iniciá la solicitud en sus canales y consultá dónde retirar y cargar la tarjeta. Verificá los costos de retiro y transferencias.</dd>
-        <dt><a href={arrivalLinks.midinero}>Midinero</a></dt><dd>Para el producto, el emisor lista documentos de Uruguay, Argentina, Brasil y Paraguay. Si solo tenés pasaporte o tu documento es de otro país, confirmá qué admite la modalidad que vas a pedir. Consultá en Midinero o Redpagos por retiro, recarga y comisiones.</dd>
+        <dt><a href={arrivalLinks.prex} {...linkTarget(arrivalLinks.prex)}>Prex</a></dt><dd>Prex lista el pasaporte vigente entre los documentos aceptados para solicitar la cuenta. Iniciá la solicitud en sus canales y consultá dónde retirar y cargar la tarjeta. Verificá los costos de retiro y transferencias.</dd>
+        <dt><a href={arrivalLinks.midinero} {...linkTarget(arrivalLinks.midinero)}>Midinero</a></dt><dd>Para el producto, el emisor lista documentos de Uruguay, Argentina, Brasil y Paraguay. Si solo tenés pasaporte o tu documento es de otro país, confirmá qué admite la modalidad que vas a pedir. Consultá en Midinero o Redpagos por retiro, recarga y comisiones.</dd>
       </dl>
     </div>
   )
@@ -58,7 +59,7 @@ export function TravelContent({ locale }: { locale: string }) {
       </Section>
       <Section id="sin-auto" title="Escapadas sin auto" intro="Elegí un destino, confirmá los horarios de ida y vuelta y revisá cómo hacer el último tramo.">
         <nav aria-label="Pasajes y horarios" className="discovery-actions discovery-travel-links">
-          {transport.slice(0, 3).map(item => <a key={item.title} href={item.href}>{item.title === 'URUBUS' ? 'URUBUS · Pasajes a destinos de todo Uruguay' : item.title + ' · ' + item.label} ↗</a>)}
+          {transport.slice(0, 3).map(item => <a key={item.title} href={item.href} {...linkTarget(item.href)}>{item.title === 'URUBUS' ? 'URUBUS · Pasajes a destinos de todo Uruguay' : item.title + ' · ' + item.label} ↗</a>)}
         </nav>
         <Directory items={trips} />
         <RecommendLink locale={locale} text="Recomendá una escapada" />
@@ -68,17 +69,17 @@ export function TravelContent({ locale }: { locale: string }) {
           <article className="discovery-card discovery-highlight">
             <h3>Turisteando</h3>
             <p>App uruguaya para explorar rutas temáticas, actividades e historias de cada destino.</p>
-            <div className="discovery-actions">{tourism.map(([title, href]) => <a key={href} href={href}>{title} ↗</a>)}</div>
+            <div className="discovery-actions">{tourism.map(([title, href]) => <a key={href} href={href} {...linkTarget(href)}>{title} ↗</a>)}</div>
           </article>
           <article className="discovery-card">
             <h3>Turismo Rural y Natural</h3>
             <p>Buscá alojamientos y experiencias de naturaleza por región.</p>
-            <div className="discovery-actions"><a href="https://turismoruralynatural.uy/">Explorar experiencias ↗</a></div>
+            <div className="discovery-actions"><a href="https://turismoruralynatural.uy/" {...linkTarget("https://turismoruralynatural.uy/")}>Explorar experiencias ↗</a></div>
           </article>
           <article className="discovery-card">
             <h3>¿Necesitás alquilar un auto?</h3>
             <p>Con TripWip podés reservar un vehículo para manejar vos. Revisá requisitos y lugar de retiro.</p>
-            <div className="discovery-actions"><a href="https://tripwip.app/">Buscar autos en TripWip ↗</a></div>
+            <div className="discovery-actions"><a href="https://tripwip.app/" {...linkTarget("https://tripwip.app/")}>Buscar autos en TripWip ↗</a></div>
           </article>
         </div>
       </Section>
@@ -135,15 +136,15 @@ export function CultureContent() {
           <li><strong>Colocá la bombilla y cebá.</strong> Apoyala en el hueco húmedo y verté el agua ahí, de a poco. Dejá una parte de la yerba seca para seguir cebando.</li>
         </ol>
         <p className="discovery-lede">En una ronda, quien ceba sirve y recibe el mate de vuelta. La bombilla se deja quieta y decir «gracias» suele indicar que no querés otro.</p>
-        <div className="discovery-actions"><a href="https://uruguaynatural.com/es/masqueunpais/el-mate-2/">El mate en Uruguay Natural ↗</a><a href="https://www.laselva.com.uy/blog/ver/3/asi-se-prepara-el-mate-perfecto">Ver cómo se prepara ↗</a></div>
+        <div className="discovery-actions"><a href="https://uruguaynatural.com/es/masqueunpais/el-mate-2/" {...linkTarget("https://uruguaynatural.com/es/masqueunpais/el-mate-2/")}>El mate en Uruguay Natural ↗</a><a href="https://www.laselva.com.uy/blog/ver/3/asi-se-prepara-el-mate-perfecto" {...linkTarget("https://www.laselva.com.uy/blog/ver/3/asi-se-prepara-el-mate-perfecto")}>Ver cómo se prepara ↗</a></div>
       </Section>
       <Section id="futbol-uruguayo" title="Uruguay también se entiende en la cancha" intro="Del baby fútbol de barrio a la Celeste, el fútbol es parte de la vida de clubes, familias e hinchadas. Estos son cuatro puntos de partida para conocerla.">
         <Directory items={football} />
       </Section>
       <Section id="curiosidades" title="Dos historias para entender el país">
         <div className="discovery-grid">
-          <article className="discovery-card"><p className="discovery-meta">Frontera norte</p><h3>El portuñol de Rivera</h3><p>En la frontera con Brasil conviven el español y el portugués. La Ley General de Educación menciona al portugués del Uruguay entre las lenguas maternas del país. Un paseo por Rivera y la Plaza Internacional permite escuchar esa convivencia en la vida cotidiana.</p><div className="discovery-actions"><a href="https://www.impo.com.uy/bases/leyes/18437-2008/40">Leer el artículo 40 ↗</a></div></article>
-          <article className="discovery-card"><p className="discovery-meta">1913–1915</p><h3>Reformas del ciclo batllista</h3><p>En 1913, durante el segundo gobierno de José Batlle y Ordóñez, se autorizó el divorcio por sola voluntad de la mujer. En 1915, ya bajo Feliciano Viera, la ley de ocho horas limitó la jornada para los trabajadores comprendidos por la norma.</p><div className="discovery-actions"><a href="https://www.impo.com.uy/bases/leyes/4802-1913">Divorcio, 1913 ↗</a><a href="https://www.impo.com.uy/bases/leyes/5350-1915">Ocho horas, 1915 ↗</a></div></article>
+          <article className="discovery-card"><p className="discovery-meta">Frontera norte</p><h3>El portuñol de Rivera</h3><p>En la frontera con Brasil conviven el español y el portugués. La Ley General de Educación menciona al portugués del Uruguay entre las lenguas maternas del país. Un paseo por Rivera y la Plaza Internacional permite escuchar esa convivencia en la vida cotidiana.</p><div className="discovery-actions"><a href="https://www.impo.com.uy/bases/leyes/18437-2008/40" {...linkTarget("https://www.impo.com.uy/bases/leyes/18437-2008/40")}>Leer el artículo 40 ↗</a></div></article>
+          <article className="discovery-card"><p className="discovery-meta">1913–1915</p><h3>Reformas del ciclo batllista</h3><p>En 1913, durante el segundo gobierno de José Batlle y Ordóñez, se autorizó el divorcio por sola voluntad de la mujer. En 1915, ya bajo Feliciano Viera, la ley de ocho horas limitó la jornada para los trabajadores comprendidos por la norma.</p><div className="discovery-actions"><a href="https://www.impo.com.uy/bases/leyes/4802-1913" {...linkTarget("https://www.impo.com.uy/bases/leyes/4802-1913")}>Divorcio, 1913 ↗</a><a href="https://www.impo.com.uy/bases/leyes/5350-1915" {...linkTarget("https://www.impo.com.uy/bases/leyes/5350-1915")}>Ocho horas, 1915 ↗</a></div></article>
         </div>
       </Section>
     </>
@@ -154,7 +155,7 @@ export function WorkContent({ locale }: { locale: string }) {
   return (
     <>
       <Section id="live-in-uruguay" title="Live in Uruguay" intro="El portal de Uruguay XXI reúne información para instalarte, buscar alojamiento, aprender español y trabajar en Uruguay.">
-        <div className="discovery-actions"><a href="https://www.liveinuruguay.uy/">Abrir Live in Uruguay ↗</a></div>
+        <div className="discovery-actions"><a href="https://www.liveinuruguay.uy/" {...linkTarget("https://www.liveinuruguay.uy/")}>Abrir Live in Uruguay ↗</a></div>
       </Section>
       <Section id="delivery" title="Apps para pedir comida" intro="Ingresá la dirección de entrega para consultar qué comercios llegan a tu zona.">
         <Directory items={[
@@ -182,8 +183,8 @@ export function MontevideoContent({ locale }: { locale: string }) {
     <h3>Descubrí Montevideo</h3>
     <p>La guía turística de la Intendencia reúne la agenda, los paseos y la información para recorrer la ciudad.</p>
     <div className="discovery-actions">
-      <a href="https://www.descubrimontevideo.uy/">Abrir agenda y guía oficial ↗</a>
-      <a href="https://www.descubrimontevideo.uy/que-hacer">Ver qué hacer ↗</a>
+      <a href="https://www.descubrimontevideo.uy/" {...linkTarget("https://www.descubrimontevideo.uy/")}>Abrir agenda y guía oficial ↗</a>
+      <a href="https://www.descubrimontevideo.uy/que-hacer" {...linkTarget("https://www.descubrimontevideo.uy/que-hacer")}>Ver qué hacer ↗</a>
       <a href={localizeHref('/guias/cultura-uruguay#futbol-uruguayo', locale)}>Ruta futbolera →</a>
     </div>
   </aside>
