@@ -16,8 +16,12 @@ export function searchScore(item: SearchItem, query: string) {
   const title = normalizeSearch(item.title)
   const text = normalizeSearch([item.title, item.summary, item.keywords, item.kind].join(' '))
   return terms.reduce((sum, term) => {
-    if (title.includes(term)) return sum + 6
-    if (text.includes(term)) return sum + 3
+    const variants = [term]
+    if (term.length > 4 && term.endsWith('ies')) variants.push(term.slice(0, -3) + 'y')
+    if (term.length > 4 && term.endsWith('s')) variants.push(term.slice(0, -1))
+    if (term.length > 5 && term.endsWith('es')) variants.push(term.slice(0, -2))
+    if (variants.some(value => title.includes(value))) return sum + 6
+    if (variants.some(value => text.includes(value))) return sum + 3
     const group = concepts.find(words => words.includes(term))
     return sum + (group?.some(word => text.includes(word)) ? 1 : 0)
   }, 0)

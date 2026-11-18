@@ -204,3 +204,12 @@ export const featuredGuidesQuery = `
     coverImage,
   }
 `
+
+export const searchGuidesQuery = `
+  *[_type == "guide" && status == "ready"] {
+    _id, slug, status, tags,
+    "title": select($locale == "en" => coalesce(title_en, title), $locale == "pt" => coalesce(title_pt, title), title),
+    "summary": select($locale == "en" => coalesce(summary_en, summary), $locale == "pt" => coalesce(summary_pt, summary), summary),
+    "body": select($locale == "en" => coalesce(body_en, body), $locale == "pt" => coalesce(body_pt, body), body)
+  }
+`

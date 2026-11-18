@@ -22,3 +22,6 @@
 @media(max-width:620px) { .planner-results { grid-template-columns:minmax(0,1fr); } }
 @media(min-width:1021px) and (max-width:1300px) { .site-nav .nav-links { display:none; } .site-nav .nav-hamburger { display:flex; } }
 @media print { .site-nav, .search-entry, .save-place, .planner-tabs, .planner-prompts, .planner-actions { display:none; } .planner-results { display:block; } .arrival-card { break-inside:avoid; } }
+
+.planner-search-form > div { display:flex; gap:8px; align-items:stretch; margin-top:8px; }
+.planner-search-form button { flex-shrink:0; background:var(--blue); color:white; }

@@ -14,19 +14,19 @@ const copy = {
  pt: { search: 'O que você precisa resolver?', placeholder: 'Ex.: aluguel por três meses, cheguei com cachorro, passeios sem carro', all: 'Buscar no site', saved: 'Meus favoritos', empty: 'Você ainda não salvou nada. Toque em Salvar em um guia, roteiro, lugar ou serviço.', none: 'Nenhum resultado. Tente uma cidade ou uma palavra como aluguel, animais ou trilhas.', share: 'Compartilhar lista', download: 'Baixar lista', copied: 'Link copiado', failed: 'Copie este link para compartilhar sua lista', shared: 'Lista compartilhada', local: 'Os favoritos ficam salvos neste dispositivo. Compartilhe por link ou baixe sua lista.', storage: 'O navegador bloqueou o armazenamento. As alterações duram enquanto a página estiver aberta. Baixe sua lista para guardar.', results: 'resultados', open: 'Abrir', prompts: ['Aluguel por três meses', 'Cheguei com cachorro', 'Passeios sem carro', 'Conhecer pessoas'] },
 }
 
-export default function Planner({ catalog }: { catalog: SearchItem[] }) {
+export default function Planner({ catalog, initialQuery, initialSaved }: {
+  catalog: SearchItem[]; initialQuery: string; initialSaved: boolean
+}) {
   const locale = useLocale()
   const t = copy[locale === 'en' || locale === 'pt' ? locale : 'es']
   const { items, ready, error } = useFavorites()
-  const [mode, setMode] = useState<'search' | 'saved'>('search')
-  const [query, setQuery] = useState('')
+  const [mode, setMode] = useState<'search' | 'saved'>(initialSaved ? 'saved' : 'search')
+  const [query, setQuery] = useState(initialQuery)
   const [shared, setShared] = useState<SavedItem[]>([])
   const [message, setMessage] = useState('')
   const [shareUrl, setShareUrl] = useState('')
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
-    setQuery(params.get('q')?.slice(0, 250) ?? '')
-    if (params.get('favoritos') === '1') setMode('saved')
     function loadShared() {
       const list = new URLSearchParams(window.location.hash.slice(1)).get('lista') ?? params.get('lista')
       setShared(list && list.length <= 250000 ? readItems(list) : [])
@@ -66,8 +66,11 @@ export default function Planner({ catalog }: { catalog: SearchItem[] }) {
       <button type="button" aria-pressed={mode === 'saved'} onClick={() => setMode('saved')}>{t.saved} {ready ? '(' + items.length + ')' : ''}</button>
     </div>
     {mode === 'search' ? <>
-      <label htmlFor="nomad-query">{t.search}</label>
-      <input id="nomad-query" type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder={t.placeholder} maxLength={250} />
+      <form className="planner-search-form" action={localizeHref('/mi-uruguay', locale)} role="search" aria-label={t.search}>
+        <label htmlFor="nomad-query">{t.search}</label>
+        <div><input id="nomad-query" name="q" type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder={t.placeholder} maxLength={250} />
+          <button type="submit">{locale === 'en' ? 'Search' : 'Buscar'}</button></div>
+      </form>
       <div className="planner-prompts">{t.prompts.map(prompt => <button type="button" key={prompt} onClick={() => setQuery(prompt)}>{prompt}</button>)}</div>
     </> : <>
       <p>{t.local}</p>
