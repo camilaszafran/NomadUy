@@ -1,5 +1,5 @@
 import { setRequestLocale } from 'next-intl/server'
-import { DiscoveryLinks, AgendaContent, SocialContent } from '@/components/sections/discover/Content'
+import { AgendaContent, SocialContent } from '@/components/sections/discover/Content'
 import Recommendations from '@/components/sections/discover/Recommendations'
 import Nav from '@/components/layout/Nav'
 import ComunidadHero from '@/components/sections/comunidad/ComunidadHero'
@@ -29,7 +29,6 @@ export default async function ComunidadPage({
     <>
       <Nav />
       <ComunidadHero />
-      <DiscoveryLinks items={[["espectaculos","Espectáculos"],["conocer-gente","Conocer gente"],["recomendado","Recomendaciones"]]} />
       <FeaturesSection />
       <CommunityCarousel />
       <EventsSection events={events} calendarUrl={calendarUrl} />

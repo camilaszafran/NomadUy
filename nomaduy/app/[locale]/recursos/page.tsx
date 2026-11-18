@@ -1,5 +1,5 @@
 import { setRequestLocale } from 'next-intl/server'
-import { DiscoveryLinks, CreatorContent, WorkContent } from '@/components/sections/discover/Content'
+import { CreatorContent, WorkContent } from '@/components/sections/discover/Content'
 import Nav from '@/components/layout/Nav'
 import RecursosHeader from '@/components/sections/recursos/RecursosHeader'
 import CostCalculator from '@/components/sections/recursos/CostCalculator'
@@ -24,7 +24,6 @@ export default async function RecursosPage({
     <>
       <Nav />
       <RecursosHeader />
-      <DiscoveryLinks items={[["live-in-uruguay","Live in Uruguay"],["delivery","Pedir comida"],["coworks","Coworks"],["emprender","Emprender"],["creadores","Creadores"]]} />
       <CostCalculator />
       <ExternalLinks />
       <WorkContent locale={locale} />
