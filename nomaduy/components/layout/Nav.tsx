@@ -47,6 +47,17 @@ function LocaleSwitcher() {
   )
 }
 
+function NavSearch() {
+  const locale = useLocale()
+  const t = useTranslations('nav')
+  return (
+    <form className="nav-search" role="search" action={localizeHref('/mi-uruguay', locale)} aria-label={t('search')}>
+      <input type="search" name="q" placeholder={t('search')} aria-label={t('search')} maxLength={250} />
+      <button type="submit" aria-label={t('search')}>→</button>
+    </form>
+  )
+}
+
 export default function Nav() {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
@@ -69,7 +80,10 @@ export default function Nav() {
 
         <ul className="nav-links">
           {linkHrefs.map(l => (
-            <li key={l.href}><a href={localizeHref(l.href, locale)}>{t(l.key)}</a></li>
+            <li key={l.href} className={l.key === 'mi_uruguay' ? 'nav-my-uruguay' : undefined}>
+              <a href={localizeHref(l.href, locale)}>{t(l.key)}</a>
+              {l.key === 'mi_uruguay' && <NavSearch />}
+            </li>
           ))}
           <li><a href="https://asados.nomad.com.uy" {...linkTarget("https://asados.nomad.com.uy")}>Asados Random</a></li>
           <li><a href={localizeHref('/comunidad', locale)} className="nav-cta">{t('unirme')}</a></li>
@@ -111,9 +125,12 @@ export default function Nav() {
             >
               <div className="nav-drawer-links">
                 {linkHrefs.map(l => (
-                  <a key={l.href} href={localizeHref(l.href, locale)} className="nav-drawer-link" onClick={() => setOpen(false)}>
-                    {t(l.key)}
-                  </a>
+                  <div key={l.href} className={l.key === 'mi_uruguay' ? 'nav-my-uruguay' : undefined}>
+                    <a href={localizeHref(l.href, locale)} className="nav-drawer-link" onClick={() => setOpen(false)}>
+                      {t(l.key)}
+                    </a>
+                    {l.key === 'mi_uruguay' && <NavSearch />}
+                  </div>
                 ))}
                 <a
                   href="https://asados.nomad.com.uy" {...linkTarget("https://asados.nomad.com.uy")}
