@@ -1336,7 +1336,7 @@
     "pt": "Documentação"
   },
   "Legal": {
-    "en": "Legal",
+    "en": "Legal matters",
     "pt": "Questões legais"
   },
   "Visas": {
@@ -1434,5 +1434,217 @@
   "Gales → Uruguay": {
     "en": "Wales → Uruguay",
     "pt": "País de Gales → Uruguai"
+  },
+  "Llegada": {
+    "en": "Arrival",
+    "pt": "Chegada"
+  },
+  "LLEGADA": {
+    "en": "Arrival",
+    "pt": "Chegada"
+  },
+  "LEGAL": {
+    "en": "Legal matters",
+    "pt": "Questões legais"
+  },
+  "Vivienda": {
+    "en": "Housing",
+    "pt": "Moradia"
+  },
+  "VIVIENDA": {
+    "en": "Housing",
+    "pt": "Moradia"
+  },
+  "Trabajo": {
+    "en": "Work",
+    "pt": "Trabalho"
+  },
+  "TRABAJO": {
+    "en": "Work",
+    "pt": "Trabalho"
+  },
+  "Moverse": {
+    "en": "Getting around",
+    "pt": "Transporte"
+  },
+  "MOVERSE": {
+    "en": "Getting around",
+    "pt": "Transporte"
+  },
+  "Salud": {
+    "en": "Healthcare",
+    "pt": "Saúde"
+  },
+  "SALUD": {
+    "en": "Healthcare",
+    "pt": "Saúde"
+  },
+  "Familia": {
+    "en": "Family",
+    "pt": "Família"
+  },
+  "FAMILIA": {
+    "en": "Family",
+    "pt": "Família"
+  },
+  "Finanzas": {
+    "en": "Finances",
+    "pt": "Finanças"
+  },
+  "FINANZAS": {
+    "en": "Finances",
+    "pt": "Finanças"
+  },
+  "Idioma": {
+    "en": "Language",
+    "pt": "Idioma"
+  },
+  "IDIOMA": {
+    "en": "Language",
+    "pt": "Idioma"
+  },
+  "Alemania": {
+    "en": "Germany",
+    "pt": "Alemanha"
+  },
+  "Bélgica": {
+    "en": "Belgium",
+    "pt": "Bélgica"
+  },
+  "Bolivia": {
+    "en": "Bolivia",
+    "pt": "Bolívia"
+  },
+  "Brasil": {
+    "en": "Brazil",
+    "pt": "Brasil"
+  },
+  "Canadá": {
+    "en": "Canada",
+    "pt": "Canadá"
+  },
+  "Colombia": {
+    "en": "Colombia",
+    "pt": "Colômbia"
+  },
+  "Dinamarca": {
+    "en": "Denmark",
+    "pt": "Dinamarca"
+  },
+  "Ecuador": {
+    "en": "Ecuador",
+    "pt": "Equador"
+  },
+  "España": {
+    "en": "Spain",
+    "pt": "Espanha"
+  },
+  "Estados Unidos": {
+    "en": "United States",
+    "pt": "Estados Unidos"
+  },
+  "Finlandia": {
+    "en": "Finland",
+    "pt": "Finlândia"
+  },
+  "Francia": {
+    "en": "France",
+    "pt": "França"
+  },
+  "Haití": {
+    "en": "Haiti",
+    "pt": "Haiti"
+  },
+  "Italia": {
+    "en": "Italy",
+    "pt": "Itália"
+  },
+  "Japón": {
+    "en": "Japan",
+    "pt": "Japão"
+  },
+  "Corea del Sur": {
+    "en": "South Korea",
+    "pt": "Coreia do Sul"
+  },
+  "México": {
+    "en": "Mexico",
+    "pt": "México"
+  },
+  "Nicaragua": {
+    "en": "Nicaragua",
+    "pt": "Nicarágua"
+  },
+  "Noruega": {
+    "en": "Norway",
+    "pt": "Noruega"
+  },
+  "Nueva Zelanda": {
+    "en": "New Zealand",
+    "pt": "Nova Zelândia"
+  },
+  "Países Bajos": {
+    "en": "Netherlands",
+    "pt": "Países Baixos"
+  },
+  "Panamá": {
+    "en": "Panama",
+    "pt": "Panamá"
+  },
+  "Paraguay": {
+    "en": "Paraguay",
+    "pt": "Paraguai"
+  },
+  "Perú": {
+    "en": "Peru",
+    "pt": "Peru"
+  },
+  "Polonia": {
+    "en": "Poland",
+    "pt": "Polônia"
+  },
+  "Puerto Rico": {
+    "en": "Puerto Rico",
+    "pt": "Porto Rico"
+  },
+  "Reino Unido": {
+    "en": "United Kingdom",
+    "pt": "Reino Unido"
+  },
+  "República Dominicana": {
+    "en": "Dominican Republic",
+    "pt": "República Dominicana"
+  },
+  "Rusia": {
+    "en": "Russia",
+    "pt": "Rússia"
+  },
+  "Sudáfrica": {
+    "en": "South Africa",
+    "pt": "África do Sul"
+  },
+  "Suecia": {
+    "en": "Sweden",
+    "pt": "Suécia"
+  },
+  "Suiza": {
+    "en": "Switzerland",
+    "pt": "Suíça"
+  },
+  "Turquía": {
+    "en": "Türkiye",
+    "pt": "Turquia"
+  },
+  "Ucrania": {
+    "en": "Ukraine",
+    "pt": "Ucrânia"
+  },
+  "Emiratos Árabes Unidos": {
+    "en": "United Arab Emirates",
+    "pt": "Emirados Árabes Unidos"
+  },
+  "Otro": {
+    "en": "Other",
+    "pt": "Outro"
   }
 }

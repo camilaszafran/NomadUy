@@ -32,7 +32,7 @@ function LocaleSwitcher() {
   const pathname = usePathname()
 
   return (
-    <div className="locale-switcher" aria-label="Idioma">
+    <div className="locale-switcher" aria-label={locale === 'en' ? 'Language' : 'Idioma'}>
       {routing.locales.map((l) => (
         <a
           key={l}

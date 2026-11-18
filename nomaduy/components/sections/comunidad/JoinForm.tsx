@@ -1,5 +1,7 @@
 'use client'
 
+import { discoveryCopy } from '@/lib/discovery-copy'
+
 import { useState, useEffect } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 
@@ -118,7 +120,7 @@ export default function JoinForm() {
       setStatus('duplicate')
     } else {
       setStatus('error')
-      setErrorMsg(data.error ?? t('form_error_default'))
+      setErrorMsg(locale === 'es' ? data.error ?? t('form_error_default') : t('form_error_default'))
     }
   }
 
@@ -187,7 +189,7 @@ export default function JoinForm() {
         <label htmlFor="pais">{t('form_pais_label')}</label>
         <select id="pais" value={paisDeOrigen} onChange={e => setPaisDeOrigen(e.target.value)}>
           <option value="">{t('form_pais_placeholder')}</option>
-          {COUNTRIES.map(c => <option key={c} value={c}>{c}</option>)}
+          {COUNTRIES.map(c => <option key={c} value={c}>{discoveryCopy(c, locale)}</option>)}
         </select>
       </div>
 
