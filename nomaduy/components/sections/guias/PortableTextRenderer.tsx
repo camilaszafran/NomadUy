@@ -1,3 +1,7 @@
+'use client'
+
+import { useLocale } from 'next-intl'
+import { localizeHref } from '@/lib/locale'
 import { linkTarget } from '@/lib/link-target'
 import { PortableText } from '@portabletext/react'
 import type {
@@ -28,6 +32,12 @@ type LinkMark = {
   blank?: boolean
 }
 
+function LocalizedContentLink({ value, children }: PortableTextMarkComponentProps<LinkMark>) {
+  const locale = useLocale()
+  const href = localizeHref(value?.href ?? '#', locale)
+  return <a href={href} {...linkTarget(href)}>{children}</a>
+}
+
 const components = {
   types: {
     image: ({ value }: { value: ImageBlock }) => (
@@ -50,14 +60,7 @@ const components = {
     ),
   },
   marks: {
-    link: ({ value, children }: PortableTextMarkComponentProps<LinkMark>) => (
-      <a
-        href={value?.href ?? '#'}
-        {...linkTarget(value?.href)}
-      >
-        {children}
-      </a>
-    ),
+    link: LocalizedContentLink,
     code: ({ children }: PortableTextMarkComponentProps) => <code>{children}</code>,
   },
   block: {

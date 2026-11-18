@@ -1,9 +1,6 @@
 import { getTranslations, getLocale } from 'next-intl/server'
+import { localizeHref } from '@/lib/locale'
 
-function localizeHref(href: string, locale: string): string {
-  if (locale === 'es') return href
-  return `/${locale}${href}`
-}
 
 export default async function Footer() {
   const t = await getTranslations('footer')

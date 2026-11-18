@@ -5,12 +5,14 @@ import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
 import { CaretLeft, CaretRight, Coffee, Buildings, ArrowSquareOut } from '@phosphor-icons/react'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
+import { localizeHref } from '@/lib/locale'
 import PortableTextRenderer from '@/components/sections/guias/PortableTextRenderer'
 import type { Place, PlaceLink } from '@/types/place'
 import type { PortableTextBlock } from '@portabletext/react'
 
 function LinkButton({ link }: { link: PlaceLink }) {
+  const locale = useLocale()
   const icon =
     link.category === 'coworking' ? <Buildings size={15} weight="bold" /> :
     link.category === 'cafe' ? <Coffee size={15} weight="bold" /> :
@@ -18,7 +20,7 @@ function LinkButton({ link }: { link: PlaceLink }) {
 
   return (
     <a
-      href={link.url}
+      href={localizeHref(link.url, locale)}
       target="_blank"
       rel="noopener noreferrer"
       className="place-link-btn"

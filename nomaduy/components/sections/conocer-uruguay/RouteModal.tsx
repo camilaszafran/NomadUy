@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
+import { localizeHref } from '@/lib/locale'
 import SaveButton from '@/components/planner/Favorites'
 import type { Ruta } from '@/types'
 
@@ -126,13 +127,14 @@ export default function RouteModal({ ruta, onClose }: RouteModalProps) {
 }
 
 function LinkGroup({ title, emoji, links }: { title: string; emoji: string; links: { _key: string; label: string; url: string }[] }) {
+  const locale = useLocale()
   return (
     <div className="link-group">
       <div className="link-group-title">{emoji} {title}</div>
       <ul className="link-list">
         {links.map((l) => (
           <li key={l._key}>
-            <a href={l.url} target="_blank" rel="noopener noreferrer" className="route-link">
+            <a href={localizeHref(l.url, locale)} target="_blank" rel="noopener noreferrer" className="route-link">
               {l.label} →
             </a>
           </li>

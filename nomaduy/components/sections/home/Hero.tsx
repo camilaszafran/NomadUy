@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Calendar, ChatsCircle, Globe } from '@phosphor-icons/react'
 import { useTranslations, useLocale } from 'next-intl'
-import { routing } from '@/i18n/routing'
+import { localizeHref } from '@/lib/locale'
 import type { CalendarEvent } from '@/lib/calendar'
 
 function formatEventDate(dateStr: string, locale: string): string {
@@ -11,10 +11,6 @@ function formatEventDate(dateStr: string, locale: string): string {
   return d.toLocaleDateString(locale === 'es' ? 'es-UY' : locale, { weekday: 'short', day: 'numeric', month: 'short' })
 }
 
-function localizeHref(href: string, locale: string): string {
-  if (locale === routing.defaultLocale) return href
-  return `/${locale}${href}`
-}
 
 const ease = [0.23, 1, 0.32, 1] as [number, number, number, number]
 

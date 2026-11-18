@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'
+import { localizeHref } from '@/lib/locale'
 import { routing } from '@/i18n/routing'
 
 const linkHrefs = [
@@ -18,13 +19,8 @@ const linkHrefs = [
 
 function buildLocalePath(fullPath: string, targetLocale: string): string {
   const stripped = fullPath.replace(/^\/(es|en|pt)(\/|$)/, '/') || '/'
-  if (targetLocale === routing.defaultLocale) return stripped
+  if (targetLocale === routing.defaultLocale) return `/es${stripped === '/' ? '' : stripped}`
   return `/${targetLocale}${stripped === '/' ? '' : stripped}`
-}
-
-function localizeHref(href: string, locale: string): string {
-  if (locale === routing.defaultLocale) return href
-  return `/${locale}${href}`
 }
 
 function LocaleSwitcher() {
@@ -74,7 +70,7 @@ export default function Nav() {
   return (
     <>
       <nav className="site-nav">
-        <a href="/" className="nav-logo">
+        <a href={localizeHref('/', locale)} className="nav-logo">
           Nomad<span>UY</span>
         </a>
 
