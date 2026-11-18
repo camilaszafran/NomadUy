@@ -1,3 +1,4 @@
+import { pageSeo, siteOrigin } from '@/lib/seo'
 import { setRequestLocale } from 'next-intl/server'
 import Nav from '@/components/layout/Nav'
 import Hero from '@/components/sections/home/Hero'
@@ -28,6 +29,14 @@ export default async function HomePage({
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'NomadUY',
+        alternateName: 'Nomad UY',
+        url: siteOrigin,
+        inLanguage: ['es', 'en', 'pt'],
+      }) }} />
       <Nav />
       <Hero events={events} />
       <FeaturedGuides />
@@ -39,4 +48,25 @@ export default async function HomePage({
       <Footer />
     </>
   )
+}
+
+const searchCopy = {
+  "es": [
+    "Vivir y trabajar en Uruguay",
+    "Guías para mudarte a Uruguay, resolver trámites, encontrar alquiler y conocer gente. Para nómadas digitales y personas recién llegadas."
+  ],
+  "en": [
+    "Living and working in Uruguay",
+    "Guides to moving to Uruguay, getting set up, renting a home and meeting people. For digital nomads and newcomers."
+  ],
+  "pt": [
+    "Morar e trabalhar no Uruguai",
+    "Guias para mudar para o Uruguai, resolver documentos, encontrar aluguel e conhecer pessoas. Para nômades digitais e recém-chegados."
+  ]
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  const [title, description] = searchCopy[locale === 'en' || locale === 'pt' ? locale : 'es']
+  return pageSeo('/', locale, title, description)
 }

@@ -8,6 +8,12 @@ const defaultLocale = 'es'
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
+  if (pathname === '/es' || pathname.startsWith('/es/')) {
+    const canonical = request.nextUrl.clone()
+    canonical.pathname = pathname.slice(3) || '/'
+    return NextResponse.redirect(canonical, 308)
+  }
+
   // Check if URL already has a non-default locale prefix
   const localeInPath = prefixedLocales.find(
     (loc) => pathname === `/${loc}` || pathname.startsWith(`/${loc}/`)

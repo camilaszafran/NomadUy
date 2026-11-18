@@ -1,3 +1,4 @@
+import { pageSeo } from '@/lib/seo'
 import { Suspense } from 'react'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { StayContent } from '@/components/sections/discover/Content'
@@ -10,9 +11,25 @@ import PdfBanner from '@/components/sections/home/PdfBanner'
 import { sanityFetch, placesQuery } from '@/lib/sanity'
 import type { Place } from '@/types/place'
 
-export const metadata = {
-  title: 'Vivir en Uruguay — NomadUY',
-  description: 'Encontrá tu lugar ideal en Uruguay según tu estilo de vida y presupuesto.',
+const searchCopy = {
+  "es": [
+    "Dónde vivir en Uruguay",
+    "Explorá ciudades y barrios de Uruguay y encontrá opciones de alojamiento según tu estilo de vida."
+  ],
+  "en": [
+    "Where to live in Uruguay",
+    "Explore cities and neighbourhoods in Uruguay and find accommodation options for your lifestyle."
+  ],
+  "pt": [
+    "Onde morar no Uruguai",
+    "Explore cidades e bairros do Uruguai e encontre opções de hospedagem para o seu estilo de vida."
+  ]
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  const [title, description] = searchCopy[locale === 'en' || locale === 'pt' ? locale : 'es']
+  return pageSeo('/vivir', locale, title, description)
 }
 
 export default async function VivirPage({

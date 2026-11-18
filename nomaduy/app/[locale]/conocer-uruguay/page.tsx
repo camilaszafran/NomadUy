@@ -1,3 +1,4 @@
+import { pageSeo } from '@/lib/seo'
 import { Suspense } from 'react'
 import { setRequestLocale } from 'next-intl/server'
 import { DiscoveryLinks, TravelContent } from '@/components/sections/discover/Content'
@@ -9,9 +10,25 @@ import Footer from '@/components/layout/Footer'
 import { sanityFetch, rutasQuery } from '@/lib/sanity'
 import type { Ruta } from '@/types'
 
-export const metadata = {
-  title: 'Conocer Uruguay — NomadUY',
-  description: 'Rutas y destinos en Uruguay diseñados por personas que viven acá.',
+const searchCopy = {
+  "es": [
+    "Qué hacer y dónde pasear en Uruguay",
+    "Rutas, cafés, turismo rural y escapadas por Uruguay con y sin auto."
+  ],
+  "en": [
+    "Things to do and places to visit in Uruguay",
+    "Itineraries, cafés, rural tourism and getaways across Uruguay with or without a car."
+  ],
+  "pt": [
+    "O que fazer e visitar no Uruguai",
+    "Roteiros, cafés, turismo rural e passeios pelo Uruguai com ou sem carro."
+  ]
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  const [title, description] = searchCopy[locale === 'en' || locale === 'pt' ? locale : 'es']
+  return pageSeo('/conocer-uruguay', locale, title, description)
 }
 
 export default async function ConocerUruguayPage({

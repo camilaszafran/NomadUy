@@ -64,10 +64,10 @@
             "num": 2,
             "icon": "CurrencyDollar",
             "title": "Cambiá dinero",
-            "subtitle": "Casa de cambio en Carrasco",
+            "subtitle": "Moneda, cajeros y casas de cambio",
             "priorityLabel": "Ahora",
-            "body": "Hay una casa de cambio en el aeropuerto. El tipo de cambio no es el mejor, pero cambiá lo suficiente para el taxi y los primeros días (~$100 USD).",
-            "tips": ["Tasa aeropuerto es 5–8% peor que en ciudad", "Llevar USD es la mejor opción al llegar", "Los cajeros (ATM) dan pesos — buscar \"Scotiabank\" o \"BROU\""]
+            "body": "Si necesitás pesos al llegar, compará el importe final antes de cambiar o retirar. La cotización, los cargos y las monedas disponibles dependen del operador.",
+            "tips": ["Confirmá la moneda y la comisión antes de aceptar un retiro.", "Preguntá cuántos pesos vas a recibir en total."]
           },
           {
             "num": 3,

@@ -1,3 +1,4 @@
+import { pageSeo } from '@/lib/seo'
 import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import { Suitcase, Compass, UsersThree, Palette, Briefcase, MusicNotes, CaretDown, ArrowRight } from '@phosphor-icons/react/dist/ssr'
@@ -20,7 +21,9 @@ const categories = [
 const messages = {
   es: {
     title: 'Explorá Uruguay',
+    services: 'Servicios del día a día',
     arrival: 'Guía de llegada por etapas',
+    rent: 'Comparar alquiler de autos',
     transport: 'Transporte y alquiler de autos',
     tourism: 'Turismo y guías oficiales',
     intro: 'Encontrá lo que necesitás para instalarte, hacer planes y conocer gente.',
@@ -35,7 +38,9 @@ const messages = {
   },
   en: {
     title: 'Explore Uruguay',
+    services: 'Everyday services',
     arrival: 'Step-by-step arrival guide',
+    rent: 'Compare car rental options',
     transport: 'Transport and car rentals',
     tourism: 'Tourism and official guides',
     intro: 'Find what you need to settle in, make plans and meet people.',
@@ -50,7 +55,9 @@ const messages = {
   },
   pt: {
     title: 'Explore o Uruguai',
+    services: 'Serviços do dia a dia',
     arrival: 'Guia de chegada por etapas',
+    rent: 'Comparar aluguel de carros',
     transport: 'Transporte e aluguel de carros',
     tourism: 'Turismo e guias oficiais',
     intro: 'Encontre o que precisa para se instalar, fazer planos e conhecer pessoas.',
@@ -72,8 +79,9 @@ function getCopy(locale: string) {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const copy = getCopy((await params).locale)
-  return { title: copy.title + ' — NomadUY', description: copy.intro }
+  const { locale } = await params
+  const copy = getCopy(locale)
+  return pageSeo('/explora', locale, copy.title, copy.intro)
 }
 
 export default async function ExplorePage({ params }: Props) {
@@ -91,6 +99,7 @@ export default async function ExplorePage({ params }: Props) {
       </header>
       <main className="main-wrap explore-index">
         <OpenLinkedSection />
+        <a className="explore-entry explore-service-link" href={localizeHref('/servicios', locale)}>{copy.services} →</a>
         {categories.map(({ id, icon: Icon, links }, index) => {
           const [title, description, labels] = copy.categories[index]
           return (
@@ -109,6 +118,7 @@ export default async function ExplorePage({ params }: Props) {
               {id === 'llegada' && (
                 <section className="explore-extra" id="apps-transporte">
                   <h2>{copy.transport}</h2>
+                  <p><a href={localizeHref('/servicios#autos', locale)}>{copy.rent} →</a></p>
                   <ul lang="es-UY">
                     {transport.map(item => (
                       <li key={item.title}>

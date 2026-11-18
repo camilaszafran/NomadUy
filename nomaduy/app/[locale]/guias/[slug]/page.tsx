@@ -1,3 +1,4 @@
+import { pageSeo } from '@/lib/seo'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { CultureContent } from '@/components/sections/discover/Content'
@@ -24,14 +25,11 @@ export async function generateMetadata({ params }: Props) {
   const { slug, locale } = await params
   if (slug === 'legal-visas') {
     const { title, summary } = guideUpdates(locale)
-    return { title: title + ' — NomadUY', description: summary }
+    return pageSeo('/guias/' + slug, locale, title, summary)
   }
   const guide = await sanityFetch<GuideDetail | null>(guideBySlugQuery, { slug, locale: locale || 'es' })
   if (!guide) return {}
-  return {
-    title: `${guide.title} — NomadUY`,
-    description: guide.summary,
-  }
+  return pageSeo('/guias/' + slug, locale, guide.title, guide.summary ?? '')
 }
 
 export default async function GuidePage({ params }: Props) {
@@ -74,6 +72,11 @@ export default async function GuidePage({ params }: Props) {
           {slug === 'salud-mutualistas' && <HealthSources locale={locale} />}
           {slug === 'moverse-uruguay' && (
             <p id="apps-transporte"><Link href={localizeHref('/explora#apps-transporte', locale)}>{updates.transport} →</Link></p>
+          )}
+          {slug === 'encontrar-apartamento' && (
+            <p><Link href={localizeHref('/servicios#vivienda', locale)}>
+              {locale === 'en' ? 'Rental portals and real estate agencies' : locale === 'pt' ? 'Portais de aluguel e imobiliárias' : 'Portales de alquiler e inmobiliarias'} →
+            </Link></p>
           )}
           {isLegal ? <UpdatedLegalGuide locale={locale} /> : guide.body ? (
             <PortableTextRenderer value={guide.body} />

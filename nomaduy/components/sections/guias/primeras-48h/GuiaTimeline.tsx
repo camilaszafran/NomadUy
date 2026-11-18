@@ -101,6 +101,7 @@ export default async function GuiaTimeline() {
                       <div className="step-body">
                         <p>{step.body}</p>
                         <ArrivalDetails step={step.num} />
+                        {step.num === 2 && <p className="discovery-actions"><Link href={localizeHref('/servicios#dinero', locale)}>{locale === 'en' ? 'Cash, ATMs and exchange offices' : locale === 'pt' ? 'Dinheiro, caixas e casas de câmbio' : 'Efectivo, cajeros y casas de cambio'} →</Link></p>}
                         {step.num === 3 && <p className="discovery-actions"><Link href={localizeHref('/explora#apps-transporte', locale)}>Uber, Cabify, taxis y otras apps →</Link><Link href={localizeHref('/vivir#alojamiento', locale)}>Dónde quedarte al llegar →</Link></p>}
                         {step.tips && step.num !== 1 && step.num !== 4 && (
                           <div className="step-tips">

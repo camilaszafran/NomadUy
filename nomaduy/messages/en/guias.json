@@ -68,14 +68,10 @@
             "num": 2,
             "icon": "CurrencyDollar",
             "title": "Exchange money",
-            "subtitle": "Currency exchange in Carrasco",
+            "subtitle": "Currency, ATMs and exchange offices",
             "priorityLabel": "Now",
-            "body": "There´s a currency exchange booth at the airport. The exchange rate isn´t the best, but exchange enough for the taxi and your first few days (~$100 USD).",
-            "tips": [
-              "Airport rates are 5–8% higher than in the city",
-              "Bringing US dollars is the best option when you arrive",
-              "ATMs dispense pesos — look for &quot;Scotiabank&quot; or &quot;BROU&quot;"
-            ]
+            "body": "If you need pesos on arrival, compare the total before exchanging or withdrawing. Exchange rates, fees and available currencies vary by operator.",
+            "tips": ["Check the currency and fee before accepting a withdrawal.", "Ask how many pesos you will receive in total."]
           },
           {
             "num": 3,

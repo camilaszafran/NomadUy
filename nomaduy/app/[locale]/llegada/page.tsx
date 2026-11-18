@@ -1,3 +1,4 @@
+import { pageSeo } from '@/lib/seo'
 import { setRequestLocale } from 'next-intl/server'
 import Nav from '@/components/layout/Nav'
 import Footer from '@/components/layout/Footer'
@@ -15,6 +16,7 @@ const copy = {
   es: {
     title: 'Recién llegué',
     intro: 'Una lista para preparar tu mudanza y resolver lo esencial durante tu primer mes en Uruguay.',
+    services: 'Servicios del día a día',
     help: 'Necesito ayuda',
     phases: [
       ['Antes de viajar', 'Confirmá qué documentos necesitás y si requieren apostilla o traducción. Si viajás con una mascota o vas a traer una mudanza, consultá los requisitos de ingreso. Reservá cómo vas a llegar a tu alojamiento si aterrizás de noche.', 'Requisitos para venir a vivir a Uruguay', 'Ingreso de mascotas', 'Aduanas y equipaje'],
@@ -25,6 +27,7 @@ const copy = {
   en: {
     title: 'Just arrived',
     intro: 'A checklist for planning your move and getting settled during your first month in Uruguay.',
+    services: 'Everyday services',
     help: 'I need help',
     phases: [
       ['Before you travel', 'Check which documents you need and whether they require apostilles or translations. If you are bringing a pet or shipping household goods, check the entry rules. Book a ride to your accommodation if you arrive late at night.', 'Requirements for moving to Uruguay', 'Bringing a pet', 'Customs and luggage'],
@@ -35,6 +38,7 @@ const copy = {
   pt: {
     title: 'Acabei de chegar',
     intro: 'Uma lista para preparar a mudança e resolver o essencial durante seu primeiro mês no Uruguai.',
+    services: 'Serviços do dia a dia',
     help: 'Preciso de ajuda',
     phases: [
       ['Antes de viajar', 'Confira os documentos necessários e se precisam de apostila ou tradução. Se for levar um animal de estimação ou enviar a mudança, consulte as regras de entrada. Reserve o transporte para a hospedagem se chegar tarde da noite.', 'Requisitos para morar no Uruguai', 'Entrada de animais de estimação', 'Alfândega e bagagem'],
@@ -46,8 +50,9 @@ const copy = {
 type Props = { params: Promise<{ locale: string }> }
 
 export async function generateMetadata({ params }: Props) {
-  const { title, intro } = copy[arrivalLocale((await params).locale)]
-  return { title: title + ' — NomadUY', description: intro }
+  const { locale } = await params
+  const { title, intro } = copy[arrivalLocale(locale)]
+  return pageSeo('/llegada', locale, title, intro)
 }
 
 export default async function ArrivalPage({ params }: Props) {
@@ -61,7 +66,10 @@ export default async function ArrivalPage({ params }: Props) {
       <div className="page-header-inner"><h1>{t.title}</h1><p>{t.intro}</p></div>
     </header>
     <main className="main-wrap arrival-wrap">
-      <p><a href={localizeHref('/ayuda', locale)}>{t.help} →</a></p>
+      <div className="arrival-shortcuts">
+        <a href={localizeHref('/servicios', locale)}>{t.services} →</a>
+        <a href={localizeHref('/ayuda', locale)}>{t.help} →</a>
+      </div>
       <div className="arrival-grid">
         {t.phases.map(([title, description, ...labels], index) => (
           <section className="arrival-card" key={title}>

@@ -1,3 +1,4 @@
+import { pageSeo } from '@/lib/seo'
 import { setRequestLocale } from 'next-intl/server'
 import Nav from '@/components/layout/Nav'
 import Footer from '@/components/layout/Footer'
@@ -67,8 +68,9 @@ const destinations = [
 type Props = { params: Promise<{ locale: string }> }
 
 export async function generateMetadata({ params }: Props) {
-  const { title, intro } = copy[arrivalLocale((await params).locale)]
-  return { title: title + ' — NomadUY', description: intro }
+  const { locale } = await params
+  const { title, intro } = copy[arrivalLocale(locale)]
+  return pageSeo('/ayuda', locale, title, intro)
 }
 
 export default async function HelpPage({ params }: Props) {

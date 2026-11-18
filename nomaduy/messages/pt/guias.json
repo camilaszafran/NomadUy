@@ -68,14 +68,10 @@
             "num": 2,
             "icon": "Moeda: Dólar",
             "title": "Trocar dinheiro",
-            "subtitle": "Casa de câmbio em Carrasco",
+            "subtitle": "Moeda, caixas eletrônicos e casas de câmbio",
             "priorityLabel": "Agora",
-            "body": "Há uma casa de câmbio no aeroporto. A taxa de câmbio não é das melhores, mas troque o suficiente para o táxi e os primeiros dias (~US$ 100).",
-            "tips": [
-              "A taxa aeroportuária é 5–8% mais cara do que na cidade",
-              "Levar dólares americanos é a melhor opção ao chegar",
-              "Os caixas eletrônicos (ATM) distribuem pesos — procure por &quot;Scotiabank&quot; ou &quot;BROU&quot;"
-            ]
+            "body": "Se precisar de pesos na chegada, compare o valor final antes de trocar ou sacar. A cotação, as tarifas e as moedas disponíveis variam conforme o operador.",
+            "tips": ["Confira a moeda e as tarifas antes de aceitar o saque.", "Pergunte quantos pesos vai receber no total."]
           },
           {
             "num": 3,

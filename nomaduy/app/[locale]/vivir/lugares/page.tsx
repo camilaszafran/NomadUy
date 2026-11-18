@@ -1,3 +1,4 @@
+import { pageSeo } from '@/lib/seo'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { localizeHref } from '@/lib/locale'
 import Nav from '@/components/layout/Nav'
@@ -8,9 +9,25 @@ import { sanityFetch, placesQuery } from '@/lib/sanity'
 import type { Place } from '@/types/place'
 import { ArrowLeft } from '@phosphor-icons/react/dist/ssr'
 
-export const metadata = {
-  title: 'Todos los lugares — Vivir en Uruguay | NomadUY',
-  description: 'Explorá todos los lugares donde podés vivir en Uruguay.',
+const searchCopy = {
+  "es": [
+    "Ciudades y barrios para vivir en Uruguay",
+    "Compará lugares para vivir en Uruguay, desde Montevideo hasta las ciudades del interior."
+  ],
+  "en": [
+    "Cities and neighbourhoods to live in Uruguay",
+    "Compare places to live in Uruguay, from Montevideo to cities around the country."
+  ],
+  "pt": [
+    "Cidades e bairros para morar no Uruguai",
+    "Compare lugares para morar no Uruguai, de Montevidéu às cidades do interior."
+  ]
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  const [title, description] = searchCopy[locale === 'en' || locale === 'pt' ? locale : 'es']
+  return pageSeo('/vivir/lugares', locale, title, description)
 }
 
 export default async function LugaresPage({

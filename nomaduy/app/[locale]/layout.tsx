@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import { Newsreader, Inter } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, setRequestLocale } from 'next-intl/server'
@@ -19,11 +18,6 @@ const inter = Inter({
 
 export function generateStaticParams() {
   return [{ locale: 'es' }, { locale: 'en' }, { locale: 'pt' }]
-}
-
-export const metadata: Metadata = {
-  title: 'NomadUY — Hacé de Uruguay tu hogar',
-  description: 'La guía más completa para vivir, trabajar y echar raíces en Uruguay — hecha por personas que eligieron quedarse.',
 }
 
 export default async function LocaleLayout({
