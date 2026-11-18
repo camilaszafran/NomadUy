@@ -1,7 +1,7 @@
 import { linkTarget } from '@/lib/link-target'
 import type { ReactNode } from 'react'
 import { localizeHref } from '@/lib/locale'
-import { agenda, arrivalLinks, cafes, cowork, founders, creators, football, interiorAgenda, social, stays, tourism, transport, trips } from '@/lib/discover'
+import { agenda, arrivalLinks, cafes, cowork, founders, creators, football, interiorAgenda, social, stays, tourism, trips } from '@/lib/discover'
 import Directory from './Directory'
 
 function Section({ id, title, intro, children }: { id: string; title: string; intro?: string; children: ReactNode }) {
@@ -111,10 +111,6 @@ export function SocialContent({ locale }: { locale: string }) {
 
 export function CreatorContent() {
   return <Section id="creadores" title="Uruguay en Instagram y TikTok" intro="Personas que muestran sus lugares favoritos y cuentan cómo es hacer vida en Uruguay."><Directory items={creators} filter /></Section>
-}
-
-export function TransportContent() {
-  return <Section id="apps-transporte" title="Apps para moverte por Uruguay" intro="Desde un taxi en Montevideo hasta un ómnibus al interior. Revisá la cobertura en el lugar donde estás."><Directory items={transport} /></Section>
 }
 
 export function CultureContent() {

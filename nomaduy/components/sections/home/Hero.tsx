@@ -66,7 +66,7 @@ export default function Hero({ events }: HeroProps) {
           <a href={localizeHref('/comunidad', locale)} className="btn-hero-primary">
             {t('cta_primary')}
           </a>
-          <a href={localizeHref('/guias', locale)} className="btn-hero-secondary">
+          <a href={localizeHref('/llegada', locale)} className="btn-hero-secondary">
             {t('cta_secondary')}
           </a>
           <a href="#pdf" className="btn-hero-text">

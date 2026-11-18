@@ -4,7 +4,6 @@ import { useTranslations } from 'next-intl'
 
 const linkHrefs = [
   'https://www.instagram.com/turistaenuruguay/',
-  'https://turismoruralynatural.uy',
   'https://www.guruguay.com/es/',
   'https://www.instagram.com/mateoexperience/',
   'https://www.instagram.com/paseos_en_familia/',
@@ -15,7 +14,7 @@ const linkHrefs = [
 ]
 
 const titleKeys = [
-  'external_link_1', 'external_link_2', 'external_link_3', 'external_link_4',
+  'external_link_1', 'external_link_3', 'external_link_4',
   'external_link_5', 'external_link_6', 'external_link_7', 'external_link_8',
   'external_link_9',
 ] as const

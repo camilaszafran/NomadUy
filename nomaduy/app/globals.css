@@ -11,3 +11,22 @@
 @import "./styles/conocer.css";
 @import "./styles/article.css";
 @import "./styles/discover.css";
+
+.arrival-wrap { display: grid; gap: 20px; padding-block: 40px 64px; }
+.arrival-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.arrival-card { min-width: 0; padding: clamp(18px, 3.5vw, 30px); border: 1px solid #dce5ef; border-radius: 16px; background: #fff; }
+.arrival-card h2 { margin: 0 0 8px; font-size: clamp(1.3rem, 2.6vw, 1.7rem); }
+.arrival-card p { margin: 0 0 12px; }
+.arrival-card ul { padding-inline-start: 1.2rem; margin: 0; }
+.arrival-wrap a { color: #1c4d81; font-weight: 600; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.arrival-card li a { display: inline-block; padding-block: 7px; }
+.arrival-emergency { background: #fff6f4; border-color: #efc7bf; }
+.arrival-emergency li:first-child a { color: #94281d; font-weight: 700; }
+.arrival-lookup { margin-block: 16px; }
+.arrival-lookup label { display: block; margin-bottom: 6px; font-weight: 600; }
+.arrival-lookup input { display: block; width: min(100%, 420px); margin-bottom: 8px; padding: 11px; border: 1px solid #7a8da3; border-radius: 8px; font: inherit; }
+.arrival-checked { color: var(--ink-60); font-size: .9rem; }
+#consulados, #apps-transporte, .explore-entry { scroll-margin-top: 84px; }
+.nav-help { display: inline-flex; align-items: center; min-height: 44px; color: var(--blue); font-size: .9rem; font-weight: 700; white-space: nowrap; }
+@media (max-width: 920px) { .site-nav .nav-links { display: none; } .site-nav .nav-hamburger { display: flex; } .site-nav .locale-switcher { display: none; } }
+@media (max-width: 620px) { .arrival-grid { grid-template-columns: minmax(0, 1fr); } }

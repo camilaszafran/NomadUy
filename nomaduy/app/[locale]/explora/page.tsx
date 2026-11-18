@@ -3,6 +3,7 @@ import { setRequestLocale } from 'next-intl/server'
 import { Suitcase, Compass, UsersThree, Palette, Briefcase, MusicNotes, CaretDown, ArrowRight } from '@phosphor-icons/react/dist/ssr'
 import Nav from '@/components/layout/Nav'
 import Footer from '@/components/layout/Footer'
+import OpenLinkedSection from '@/components/sections/arrival/OpenLinkedSection'
 import { localizeHref } from '@/lib/locale'
 import { linkTarget } from '@/lib/link-target'
 import { tourism, transport } from '@/lib/discover'
@@ -19,6 +20,7 @@ const categories = [
 const messages = {
   es: {
     title: 'Explorá Uruguay',
+    arrival: 'Guía de llegada por etapas',
     transport: 'Transporte y alquiler de autos',
     tourism: 'Turismo y guías oficiales',
     intro: 'Encontrá lo que necesitás para instalarte, hacer planes y conocer gente.',
@@ -33,6 +35,7 @@ const messages = {
   },
   en: {
     title: 'Explore Uruguay',
+    arrival: 'Step-by-step arrival guide',
     transport: 'Transport and car rentals',
     tourism: 'Tourism and official guides',
     intro: 'Find what you need to settle in, make plans and meet people.',
@@ -47,6 +50,7 @@ const messages = {
   },
   pt: {
     title: 'Explore o Uruguai',
+    arrival: 'Guia de chegada por etapas',
     transport: 'Transporte e aluguel de carros',
     tourism: 'Turismo e guias oficiais',
     intro: 'Encontre o que precisa para se instalar, fazer planos e conhecer pessoas.',
@@ -86,6 +90,7 @@ export default async function ExplorePage({ params }: Props) {
         </div>
       </header>
       <main className="main-wrap explore-index">
+        <OpenLinkedSection />
         {categories.map(({ id, icon: Icon, links }, index) => {
           const [title, description, labels] = copy.categories[index]
           return (
@@ -96,12 +101,13 @@ export default async function ExplorePage({ params }: Props) {
                 <CaretDown size={18} className="explore-caret" aria-hidden="true" />
               </summary>
               <ul>
+                {id === 'llegada' && <li><a href={localizeHref('/llegada', locale)}>{copy.arrival} <ArrowRight size={16} aria-hidden="true" /></a></li>}
                 {links.map((href, i) => (
                   <li key={href}><a href={localizeHref(href, locale)}>{labels[i]} <ArrowRight size={16} aria-hidden="true" /></a></li>
                 ))}
               </ul>
               {id === 'llegada' && (
-                <section className="explore-extra">
+                <section className="explore-extra" id="apps-transporte">
                   <h2>{copy.transport}</h2>
                   <ul lang="es-UY">
                     {transport.map(item => (

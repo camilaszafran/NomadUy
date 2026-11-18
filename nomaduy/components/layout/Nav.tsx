@@ -74,6 +74,7 @@ export default function Nav() {
         </ul>
 
         <div className="nav-right">
+          <a className="nav-help" href={localizeHref('/ayuda', locale)} aria-label={t('need_help')}>{t('help')}</a>
           <LocaleSwitcher />
           <button
             className="nav-hamburger"
