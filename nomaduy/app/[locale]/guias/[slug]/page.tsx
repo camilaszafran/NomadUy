@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import { CultureContent, TransportContent } from '@/components/sections/discover/Content'
 import Nav from '@/components/layout/Nav'
 import Footer from '@/components/layout/Footer'
 import PdfBanner from '@/components/sections/home/PdfBanner'
@@ -69,6 +70,8 @@ export default async function GuidePage({ params }: Props) {
         </div>
       </div>
 
+      {slug === 'cultura-uruguay' && <CultureContent />}
+      {slug === 'moverse-uruguay' && <TransportContent />}
       <PdfBanner />
       <Footer />
     </>

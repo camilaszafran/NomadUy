@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
 import { setRequestLocale } from 'next-intl/server'
+import { DiscoveryLinks, TravelContent } from '@/components/sections/discover/Content'
 import Nav from '@/components/layout/Nav'
 import ConocerHero from '@/components/sections/conocer-uruguay/ConocerHero'
 import RoutesSection from '@/components/sections/conocer-uruguay/RoutesSection'
@@ -32,9 +33,11 @@ export default async function ConocerUruguayPage({
     <>
       <Nav />
       <ConocerHero />
+      <DiscoveryLinks items={[["cafes","Cafés"],["sin-auto","Escapadas sin auto"],["apps-turismo","Apps y experiencias"],["agenda-interior","Agenda del interior"]]} />
       <Suspense fallback={null}>
         <RoutesSection routes={routes} />
       </Suspense>
+      <TravelContent locale={locale} />
       <PdfBanner />
       <Footer />
     </>

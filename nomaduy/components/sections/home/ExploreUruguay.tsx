@@ -99,6 +99,10 @@ export default function ExploreUruguay() {
           <span>{t('rural_tourism.cta')} <span aria-hidden="true">↗</span></span>
         </div>
       </a>
+      <div className="discovery-actions" lang="es-UY">
+        <a href={localizeHref('/conocer-uruguay#cafes', locale)}>Cafés lindos de Uruguay →</a>
+        <a href={localizeHref('/conocer-uruguay#sin-auto', locale)}>Escapadas sin auto →</a>
+      </div>
     </section>
   )
 }

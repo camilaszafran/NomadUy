@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { StayContent } from '@/components/sections/discover/Content'
 import Nav from '@/components/layout/Nav'
 import PageSubtitle from '@/components/ui/PageSubtitle'
 import Footer from '@/components/layout/Footer'
@@ -40,6 +41,7 @@ export default async function VivirPage({
       <Suspense>
         <PlaceMatcher places={places} />
       </Suspense>
+      <StayContent />
       <PdfBanner />
       <Footer />
     </>

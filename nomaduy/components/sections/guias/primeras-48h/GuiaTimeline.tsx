@@ -1,3 +1,4 @@
+import { ArrivalDetails } from '@/components/sections/discover/Content'
 import Link from 'next/link'
 import { getTranslations, getLocale } from 'next-intl/server'
 import { localizeHref } from '@/lib/locale'
@@ -99,7 +100,9 @@ export default async function GuiaTimeline() {
                       </div>
                       <div className="step-body">
                         <p>{step.body}</p>
-                        {step.tips && (
+                        <ArrivalDetails step={step.num} />
+                        {step.num === 3 && <p className="discovery-actions"><Link href={localizeHref('/guias/moverse-uruguay#apps-transporte', locale)}>Uber, Cabify, taxis y otras apps →</Link><Link href={localizeHref('/vivir#alojamiento', locale)}>Dónde quedarte al llegar →</Link></p>}
+                        {step.tips && step.num !== 1 && step.num !== 4 && (
                           <div className="step-tips">
                             <div className="step-tips-label">Tips de la comunidad</div>
                             <ul>

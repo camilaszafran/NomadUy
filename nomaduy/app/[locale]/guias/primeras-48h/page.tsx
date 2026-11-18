@@ -7,7 +7,7 @@ import Footer from '@/components/layout/Footer'
 
 export const metadata = {
   title: 'Primeras 48 horas en Uruguay — NomadUY',
-  description: '18 pasos ordenados por prioridad para tus primeras 48 horas en Uruguay.',
+  description: '9 pasos ordenados por prioridad para tus primeras 48 horas en Uruguay.',
 }
 
 export default async function Primeras48hPage({

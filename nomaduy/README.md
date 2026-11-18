@@ -144,3 +144,13 @@ nomaduy/
 ├── messages/          # Traducciones (ES / EN / PT)
 └── scripts/           # Scripts de seed de datos (no correr sin revisar)
 ```
+
+## Recomendaciones de la comunidad
+
+El formulario de Comunidad guarda las sugerencias como borradores privados de
+Sanity. Requiere que `SANITY_API_TOKEN` tenga permiso de escritura en el dataset
+y que `RESEND_API_KEY` pueda enviar desde `bienvenida@nomad.com.uy`. La
+notificación se envía a `info@nomad.com.uy`. El enlace de revisión permite
+editar, publicar o descartar una sola sugerencia y queda inutilizado al
+procesarla. Si se configura `NOMAD_REVIEW_SECRET`, se usa para firmar enlaces;
+si se cambia la clave que los firmó, los anteriores dejan de funcionar.

@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { useTranslations, useLocale } from 'next-intl'
+import { MontevideoContent } from '@/components/sections/discover/Content'
 import PlaceCard from './PlaceCard'
 import PlaceGridCard from './PlaceGridCard'
 import type { Place } from '@/types/place'
@@ -142,6 +143,7 @@ export default function PlaceMatcher({ places }: { places: Place[] }) {
                 transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
               >
                 <PlaceCard place={featured} />
+                {featured.slug.current === 'montevideo' && <MontevideoContent locale={locale} />}
               </motion.div>
             </AnimatePresence>
           </div>

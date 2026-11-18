@@ -27,14 +27,14 @@
     "h1": "Tus primeras 48 horas en Uruguay.",
     "subtitle": "Llegaste. Respirá. Este checklist cubre todo lo que necesitás hacer — en orden de prioridad, con los links y números útiles.",
     "tag_airport": "Aeropuerto Carrasco",
-    "tag_steps": "18 pasos",
+    "tag_steps": "9 pasos",
     "tag_time": "~2 horas para lo esencial",
     "stat_count": "18",
     "stat_label": "cosas que hacer al llegar",
     "check_1": "SIM card en el aeropuerto",
     "check_2": "Cambio de moneda",
     "check_3": "Llegar al alojamiento",
-    "check_4": "Abrir billetera digital (Prex)",
+    "check_4": "Comparar tarjetas prepagas",
     "check_5": "Unirte a la comunidad NomadUY",
     "toc_label": "En esta guía",
     "pdf_cta_title": "Descargar PDF",
@@ -55,9 +55,9 @@
             "num": 1,
             "icon": "DeviceMobile",
             "title": "Comprá una SIM card",
-            "subtitle": "Antel o Claro — en el mismo aeropuerto",
+            "subtitle": "Antel, Claro y Tigo",
             "priorityLabel": "Ahora",
-            "body": "Hay locales de Antel y Claro en la zona de llegadas. Un plan de 30 días con datos ilimitados cuesta entre $400–600 UYU (~$10–15 USD).",
+            "body": "Confirmá con la compañía dónde comprar y activar la línea. Si contás con Wi-Fi, podés consultar las opciones de eSIM antes de llegar.",
             "tips": ["Pedí plan con datos, no solo voz", "Antel tiene mejor cobertura en interior", "Llevá efectivo — no siempre aceptan tarjeta"]
           },
           {
@@ -92,10 +92,10 @@
           {
             "num": 4,
             "icon": "CreditCard",
-            "title": "Descargá Prex",
-            "subtitle": "Billetera digital uruguaya",
+            "title": "Compará Prex y Midinero",
+            "subtitle": "Tarjetas prepagas",
             "priorityLabel": "Día 1",
-            "body": "Prex es la billetera digital más usada en Uruguay. Podés cargarla con efectivo en cualquier RedPagos, y usarla para pagar en comercios, delivery y servicios.",
+            "body": "Antes de pedir una tarjeta, verificá qué documento acepta el emisor y cuánto cuesta cargar o retirar saldo.",
             "tips": ["Descargá la app y registrate con tu pasaporte", "Cargala en cualquier RedPagos o Abitab", "Funciona para pagar Uber, Pedidos Ya, etc."]
           },
           {
