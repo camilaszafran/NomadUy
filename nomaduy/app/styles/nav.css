@@ -97,6 +97,7 @@
   top: 0; right: 0; bottom: 0;
   z-index: 200;
   width: min(320px, 88vw);
+  overflow-y: auto;
   background: var(--cream);
   display: flex;
   flex-direction: column;
@@ -196,4 +197,9 @@
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
+}
+
+@media (min-width: 1021px) and (max-width: 1150px) {
+  .site-nav { padding-inline: 3vw; }
+  .nav-links a:not(.nav-cta) { padding-inline: 9px; }
 }

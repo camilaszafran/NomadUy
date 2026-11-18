@@ -12,6 +12,7 @@ const linkHrefs = [
   { href: '/vivir',          key: 'vivir' },
   { href: '/conocer-uruguay', key: 'conocer' },
   { href: '/explora',        key: 'explora' },
+  { href: '/comunidad#recomendar', key: 'recomendar' },
 ] as const
 
 function buildLocalePath(fullPath: string, targetLocale: string): string {
@@ -109,7 +110,7 @@ export default function Nav() {
             >
               <div className="nav-drawer-links">
                 {linkHrefs.map(l => (
-                  <a key={l.href} href={localizeHref(l.href, locale)} className="nav-drawer-link">
+                  <a key={l.href} href={localizeHref(l.href, locale)} className="nav-drawer-link" onClick={() => setOpen(false)}>
                     {t(l.key)}
                   </a>
                 ))}
