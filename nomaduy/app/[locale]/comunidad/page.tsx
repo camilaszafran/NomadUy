@@ -1,5 +1,5 @@
 import { setRequestLocale } from 'next-intl/server'
-import { AgendaContent, SocialContent } from '@/components/sections/discover/Content'
+import { AgendaContent, LearningContent, SocialContent } from '@/components/sections/discover/Content'
 import Recommendations from '@/components/sections/discover/Recommendations'
 import Nav from '@/components/layout/Nav'
 import ComunidadHero from '@/components/sections/comunidad/ComunidadHero'
@@ -34,6 +34,7 @@ export default async function ComunidadPage({
       <EventsSection events={events} calendarUrl={calendarUrl} />
       <AgendaContent />
       <SocialContent locale={locale} />
+      <LearningContent locale={locale} />
       <Recommendations />
       <Footer />
     </>

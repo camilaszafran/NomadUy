@@ -100,12 +100,19 @@ export function StayContent() {
   return <Section id="alojamiento" title="Dónde quedarte al llegar" intro="Buscá un hostel o una estadía temporaria mientras conocés la ciudad y elegís dónde instalarte."><Directory items={stays} /></Section>
 }
 
+const learningKinds = ['Idiomas', 'Lectura y talleres', 'Arte, cerámica y música', 'Cocina y oficios']
+
+export function LearningContent({ locale }: { locale: string }) {
+  return <Section id="cursos-y-talleres" title="Cursos y talleres" intro="Encontrá clases e intercambios de idiomas, cerámica, arte, pintura, música y cocina. Consultá si aceptan principiantes y cómo anotarte.">
+    <Directory items={social.filter(item => learningKinds.includes(item.kind))} filter />
+    <RecommendLink locale={locale} text="Recomendá un taller o intercambio" />
+  </Section>
+}
+
 export function SocialContent({ locale }: { locale: string }) {
   return <Section id="conocer-gente" title="Dónde conocer gente" intro="Planes para ir por tu cuenta y actividades para volver cada semana. En los enlaces podés consultar cupos, precios y opciones para principiantes.">
-    <h3 className="discovery-subtitle">Aprendé algo y conocé gente</h3>
-    <p className="discovery-lede">Filtrá por Idiomas, Arte, cerámica y música o Cocina y oficios para encontrar clases y talleres.</p>
-    <Directory items={social} filter />
-    <RecommendLink locale={locale} text="Recomendá un taller o actividad" />
+    <Directory items={social.filter(item => !learningKinds.includes(item.kind))} filter />
+    <RecommendLink locale={locale} text="Recomendá una actividad" />
   </Section>
 }
 

@@ -32,3 +32,25 @@
 .discovery-jumps { display: flex; flex-wrap: wrap; gap: 8px; max-width: 1180px; margin: 16px auto; padding: 0 clamp(16px, 4vw, 42px); }
 .discovery-jumps a { display: inline-flex; gap: 6px; align-items: center; padding: 7px 12px; border-radius: 999px; background: var(--surface); color: var(--blue); font-size: .88rem; font-weight: 700; text-decoration: none; }
 .discovery-jumps a:hover, .discovery-jumps a:focus-visible { text-decoration: underline; }
+
+.explore-intro { max-width: 52ch; margin-top: 12px; color: var(--white); line-height: 1.5; }
+.explore-index { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 12px; }
+.explore-entry { min-width: 0; border: 1px solid #d7e2ef; border-radius: var(--radius-md); background: var(--white); scroll-margin-top: 82px; }
+.explore-entry summary { display: grid; grid-template-columns: 42px minmax(0, 1fr) 18px; align-items: center; gap: 12px; padding: 16px; list-style: none; cursor: pointer; border-radius: var(--radius-md); }
+.explore-entry summary::-webkit-details-marker { display: none; }
+.explore-entry summary:hover, .explore-entry[open] summary { background: var(--surface); }
+.explore-entry summary strong { display: block; font-size: 1.08rem; line-height: 1.25; }
+.explore-icon { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 10px; background: var(--blue-pale); color: var(--blue); }
+.explore-description { display: block; color: var(--ink-60); font-size: .9rem; margin-top: 4px; }
+.explore-caret { color: var(--blue); }
+.explore-entry[open] .explore-caret { transform: rotate(180deg); }
+.explore-entry ul { list-style: none; padding: 4px 16px 8px; }
+.explore-entry li + li { border-top: 1px solid #e4ecf5; }
+.explore-entry li a { display: flex; justify-content: space-between; align-items: center; gap: 8px; min-height: 44px; padding: 8px 0; color: var(--blue); font-weight: 650; text-decoration: none; }
+.explore-entry li a:hover { text-decoration: underline; }
+.explore-entry :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+#costo-de-vida, #tramites-y-guias { scroll-margin-top: 82px; }
+@media (max-width: 660px) {
+  .explore-index { grid-template-columns: minmax(0, 1fr); }
+  .explore-entry summary { padding: 13px; gap: 10px; }
+}

@@ -10,7 +10,7 @@ const linkHrefs = [
   { href: '/guias',          key: 'guias' },
   { href: '/vivir',          key: 'vivir' },
   { href: '/conocer-uruguay', key: 'conocer' },
-  { href: '/recursos',       key: 'recursos' },
+  { href: '/explora',        key: 'explora' },
 ] as const
 
 function buildLocalePath(fullPath: string, targetLocale: string): string {

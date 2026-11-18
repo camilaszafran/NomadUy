@@ -89,7 +89,7 @@ export default function CostCalculator() {
     : `$${Math.round(usd * UYU_TO_USD).toLocaleString()} UYU`
 
   return (
-    <main className="main-wrap">
+    <main id="costo-de-vida" className="main-wrap">
       <div className="calc-grid">
         <div className="calc-controls">
           <h2>{t('calc_heading')}</h2>
@@ -171,7 +171,7 @@ export default function CostCalculator() {
         </div>
       </div>
 
-      <div className="tools-grid">
+      <div id="tramites-y-guias" className="tools-grid">
         {toolKeys.map((keys, i) => {
           const TIcon = toolIcons[i]
           return (
