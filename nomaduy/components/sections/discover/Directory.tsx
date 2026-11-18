@@ -54,7 +54,7 @@ export default function Directory({ items, filter = false, map = false }: {
             <p className="discovery-meta">{t(item.region)} · {t(item.kind)}</p>
             <h3>{t(item.title)}</h3>
             <p>{t(item.description)}</p>
-            {item.href && <SaveButton item={{ href: item.href, title: item.title, kind: item.kind }} />}
+            {item.href && <SaveButton item={{ href: item.href, title: t(item.title), kind: t(item.kind) }} />}
             <div className="discovery-actions">
               {item.href && <a href={item.href} {...linkTarget(item.href)}>{t(item.label ?? 'Conocer el lugar')} <span aria-hidden="true">↗</span></a>}
               {item.map && (map ? <>

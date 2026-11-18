@@ -1370,5 +1370,69 @@
   "Baby fútbol de barrio": {
     "en": "Neighborhood youth football",
     "pt": "Futebol infantil de bairro"
+  },
+  "llegada": {
+    "en": "Arrival",
+    "pt": "Chegada"
+  },
+  "legal": {
+    "en": "Legal matters",
+    "pt": "Questões legais"
+  },
+  "vivienda": {
+    "en": "Housing",
+    "pt": "Moradia"
+  },
+  "trabajo": {
+    "en": "Work",
+    "pt": "Trabalho"
+  },
+  "moverse": {
+    "en": "Getting around",
+    "pt": "Transporte"
+  },
+  "salud": {
+    "en": "Healthcare",
+    "pt": "Saúde"
+  },
+  "familia": {
+    "en": "Family",
+    "pt": "Família"
+  },
+  "finanzas": {
+    "en": "Finances",
+    "pt": "Finanças"
+  },
+  "idioma": {
+    "en": "Language",
+    "pt": "Idioma"
+  },
+  "Uruguay": {
+    "en": "Uruguay",
+    "pt": "Uruguai"
+  },
+  "Montevideo": {
+    "en": "Montevideo",
+    "pt": "Montevidéu"
+  },
+  "Brasil → Uruguay": {
+    "en": "Brazil → Uruguay",
+    "pt": "Brasil → Uruguai"
+  },
+  "Argentina → Uruguay": {
+    "en": "Argentina → Uruguay",
+    "pt": "Argentina → Uruguai"
+  },
+  "Rusia → Maldonado": {
+    "en": "Russia → Maldonado",
+    "pt": "Rússia → Maldonado"
+  },
+  "Chequia → Piriápolis": {
+    "en": "Czechia → Piriápolis",
+    "pt": "Tchéquia → Piriápolis"
+  },
+  "Gales → Uruguay": {
+    "en": "Wales → Uruguay",
+    "pt": "País de Gales → Uruguai"
   }
 }
