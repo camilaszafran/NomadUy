@@ -58,8 +58,7 @@
   .main-wrap { padding: 32px 20px 60px; }
   .cat-strip-inner, .resource-tabs-inner, .interests-inner { padding: 0 20px; }
   .guide-grid, .routes-grid { grid-template-columns: repeat(2, 1fr); }
-  .tools-grid, .destinations-grid { grid-template-columns: repeat(2, 1fr); }
-  .calc-grid { grid-template-columns: 1fr; }
+  .destinations-grid { grid-template-columns: repeat(2, 1fr); }
   .featured-guide-inner { grid-template-columns: 1fr; }
   .featured-visual { display: none; }
   .comunidad-hero-grid, .events-inner { grid-template-columns: 1fr; gap: 32px; }
@@ -71,7 +70,7 @@
   .hero-stats { display: none; }
 }
 @media (max-width: 560px) {
-  .guide-grid, .routes-grid, .tools-grid, .destinations-grid { grid-template-columns: 1fr; }
+  .guide-grid, .routes-grid, .destinations-grid { grid-template-columns: 1fr; }
   .cowork-grid { grid-template-columns: 1fr; }
   .guide-cta-bar { flex-direction: column; align-items: flex-start; padding: 28px; }
   .cta-bar-actions { flex-direction: column; }

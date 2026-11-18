@@ -10,7 +10,8 @@ import {
   MapTrifold,
 } from '@phosphor-icons/react'
 import type { Icon } from '@phosphor-icons/react'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
+import { localizeHref } from '@/lib/locale'
 
 const UYU_TO_USD = 38.5
 
@@ -53,6 +54,16 @@ const toolKeys = [
 
 export default function CostCalculator() {
   const t = useTranslations('recursos')
+  const locale = useLocale()
+  const guideLocale = locale === 'en' || locale === 'pt' ? locale : 'es'
+  const toolLinks = [
+    '/guides/guia-' + guideLocale + '.pdf',
+    'https://www.gub.uy/tramites/',
+    localizeHref('/guias/encontrar-apartamento', locale),
+    'https://www.gub.uy/direccion-general-impositiva/personas',
+    localizeHref('/guias/salud-mutualistas', locale),
+    '#coworks',
+  ]
   const [currency, setCurrency] = useState<'USD' | 'UYU'>('USD')
   const [values, setValues] = useState(presetValues[1].values)
   const [activePreset, setActivePreset] = useState(1)
@@ -164,8 +175,8 @@ export default function CostCalculator() {
         {toolKeys.map((keys, i) => {
           const TIcon = toolIcons[i]
           return (
-            <div key={keys.title} className="tool-card">
-              <div className="tool-icon"><TIcon size={22} weight="regular" /></div>
+            <a key={keys.title} className="tool-card" href={toolLinks[i]}>
+              <div className="tool-icon" aria-hidden="true"><TIcon size={22} weight="regular" /></div>
               <div className="tool-body">
                 <div className="tool-title-row">
                   <h4>{t(keys.title)}</h4>
@@ -173,7 +184,8 @@ export default function CostCalculator() {
                 </div>
                 <p>{t(keys.desc)}</p>
               </div>
-            </div>
+              <span className="tool-arrow" aria-hidden="true">→</span>
+            </a>
           )
         })}
       </div>

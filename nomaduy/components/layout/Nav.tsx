@@ -59,7 +59,7 @@ export default function Nav() {
 
   return (
     <>
-      <nav>
+      <nav className="site-nav">
         <a href="/" className="nav-logo">
           Nomad<span>UY</span>
         </a>
