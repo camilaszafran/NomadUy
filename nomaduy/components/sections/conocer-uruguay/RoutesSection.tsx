@@ -4,6 +4,7 @@ import { Suspense, useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslations } from 'next-intl'
+import SaveButton from '@/components/planner/Favorites'
 import type { Ruta } from '@/types'
 import RouteModal from './RouteModal'
 
@@ -139,6 +140,7 @@ export default function RoutesSection({ routes }: RoutesSectionProps) {
                         ))}
                       </div>
                     )}
+                    <SaveButton item={{ href: '/conocer-uruguay?ruta=' + r.slug.current, title: r.title, kind: r.interestLabel ?? 'Ruta' }} />
                     <button className="route-cta-link">{t('view_route')}</button>
                   </motion.div>
                 )

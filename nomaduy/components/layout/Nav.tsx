@@ -8,6 +8,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import { routing } from '@/i18n/routing'
 
 const linkHrefs = [
+  { href: '/mi-uruguay', key: 'mi_uruguay' },
   { href: '/guias',          key: 'guias' },
   { href: '/vivir',          key: 'vivir' },
   { href: '/conocer-uruguay', key: 'conocer' },

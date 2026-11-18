@@ -1,3 +1,4 @@
+import SaveButton from '@/components/planner/Favorites'
 import { pageSeo } from '@/lib/seo'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
@@ -69,6 +70,7 @@ export default async function GuidePage({ params }: Props) {
 
       <div className="guide-article-wrap">
         <div className="guide-article">
+          <SaveButton item={{ href: '/guias/' + slug, title, kind: 'Guía' }} />
           {slug === 'salud-mutualistas' && <HealthSources locale={locale} />}
           {slug === 'moverse-uruguay' && (
             <p id="apps-transporte"><Link href={localizeHref('/explora#apps-transporte', locale)}>{updates.transport} →</Link></p>

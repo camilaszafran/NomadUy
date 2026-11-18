@@ -1,5 +1,6 @@
 'use client'
 
+import SaveButton from '@/components/planner/Favorites'
 import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -121,6 +122,7 @@ export default function PlaceCard({ place }: { place: Place }) {
 
       {/* Content */}
       <div className="place-content">
+        <SaveButton item={{ href: place._id.startsWith('regional-') ? '/vivir/lugares/' + place.slug.current : '/vivir?place=' + place.slug.current, title: place.title, kind: place.region }} />
         {place.description && <p>{place.description}</p>}
         {place.facts && (place.facts as PortableTextBlock[]).length > 0 && (
           <div className="place-facts">

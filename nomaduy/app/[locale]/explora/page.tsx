@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import { Suitcase, Compass, UsersThree, Palette, Briefcase, MusicNotes, CaretDown, ArrowRight } from '@phosphor-icons/react/dist/ssr'
 import Nav from '@/components/layout/Nav'
+import SearchEntry from '@/components/planner/SearchEntry'
 import Footer from '@/components/layout/Footer'
 import OpenLinkedSection from '@/components/sections/arrival/OpenLinkedSection'
 import { localizeHref } from '@/lib/locale'
@@ -99,6 +100,7 @@ export default async function ExplorePage({ params }: Props) {
       </header>
       <main className="main-wrap explore-index">
         <OpenLinkedSection />
+        <SearchEntry locale={locale} />
         <a className="explore-entry explore-service-link" href={localizeHref('/servicios', locale)}>{copy.services} →</a>
         {categories.map(({ id, icon: Icon, links }, index) => {
           const [title, description, labels] = copy.categories[index]
@@ -110,6 +112,7 @@ export default async function ExplorePage({ params }: Props) {
                 <CaretDown size={18} className="explore-caret" aria-hidden="true" />
               </summary>
               <ul>
+                {id === 'llegada' && <li><a href={localizeHref('/llegada#colivings', locale)}>Colivings →</a></li>}
                 {id === 'llegada' && <li><a href={localizeHref('/llegada', locale)}>{copy.arrival} <ArrowRight size={16} aria-hidden="true" /></a></li>}
                 {links.map((href, i) => (
                   <li key={href}><a href={localizeHref(href, locale)}>{labels[i]} <ArrowRight size={16} aria-hidden="true" /></a></li>

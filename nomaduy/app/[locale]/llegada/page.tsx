@@ -1,5 +1,7 @@
 import { pageSeo } from '@/lib/seo'
 import { setRequestLocale } from 'next-intl/server'
+import Colivings from '@/components/planner/Colivings'
+import SearchEntry from '@/components/planner/SearchEntry'
 import Nav from '@/components/layout/Nav'
 import Footer from '@/components/layout/Footer'
 import { arrivalLocale, officialArrival as links } from '@/lib/arrival-links'
@@ -66,6 +68,8 @@ export default async function ArrivalPage({ params }: Props) {
       <div className="page-header-inner"><h1>{t.title}</h1><p>{t.intro}</p></div>
     </header>
     <main className="main-wrap arrival-wrap">
+      <SearchEntry locale={locale} />
+      <a href="#colivings">Colivings ↓</a>
       <div className="arrival-shortcuts">
         <a href={localizeHref('/servicios', locale)}>{t.services} →</a>
         <a href={localizeHref('/ayuda', locale)}>{t.help} →</a>
@@ -81,6 +85,7 @@ export default async function ArrivalPage({ params }: Props) {
           </section>
         ))}
       </div>
+      <Colivings />
     </main>
     <Footer />
   </>

@@ -1,3 +1,4 @@
+import SaveButton from '@/components/planner/Favorites'
 import { pageSeo } from '@/lib/seo'
 import { setRequestLocale } from 'next-intl/server'
 import Nav from '@/components/layout/Nav'
@@ -40,6 +41,7 @@ export default async function Primeras48hPage({
       <Nav />
       <GuiaHero />
       <div className="guide-article-wrap">
+        <SaveButton item={{ href: '/guias/primeras-48h', title: searchCopy[locale === 'en' || locale === 'pt' ? locale : 'es'][0], kind: 'Guía' }} />
         <GuiaTimeline />
       </div>
       <PdfBanner />

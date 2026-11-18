@@ -1,3 +1,4 @@
+import SaveButton from '@/components/planner/Favorites'
 import { pageSeo } from '@/lib/seo'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { localizeHref } from '@/lib/locale'
@@ -59,7 +60,8 @@ export default async function LugaresPage({
       <main className="main-wrap">
         <div className="lugares-grid">
           {places.map((place) => (
-            <Link key={place._id} href={localizeHref(
+            <div className="saved-place-card" key={place._id}>
+            <Link href={localizeHref(
               featuredPlaceSlugs.some(slug => slug === place.slug.current)
                 ? '/vivir/lugares/' + place.slug.current
                 : '/vivir?place=' + place.slug.current,
@@ -110,6 +112,8 @@ export default async function LugaresPage({
                 </div>
               </div>
             </Link>
+            <SaveButton item={{ href: featuredPlaceSlugs.some(slug => slug === place.slug.current) ? '/vivir/lugares/' + place.slug.current : '/vivir?place=' + place.slug.current, title: place.title, kind: place.region }} />
+            </div>
           ))}
         </div>
       </main>

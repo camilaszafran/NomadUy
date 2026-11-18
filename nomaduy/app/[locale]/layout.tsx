@@ -2,6 +2,7 @@ import { Newsreader, Inter } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, setRequestLocale } from 'next-intl/server'
 import '../globals.css'
+import { FavoritesProvider } from '@/components/planner/Favorites'
 
 const newsreader = Newsreader({
   variable: '--font-newsreader',
@@ -35,7 +36,7 @@ export default async function LocaleLayout({
     <html lang={locale} className={`${newsreader.variable} ${inter.variable}`}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <FavoritesProvider>{children}</FavoritesProvider>
         </NextIntlClientProvider>
       </body>
     </html>

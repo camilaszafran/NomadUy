@@ -1,3 +1,4 @@
+import SaveButton from '@/components/planner/Favorites'
 import { notFound } from 'next/navigation'
 import { setRequestLocale, getTranslations } from 'next-intl/server'
 import Nav from '@/components/layout/Nav'
@@ -40,6 +41,7 @@ export default async function PlaceDetails({ params }: Props) {
     <main className="main-wrap arrival-wrap">
       <a href={localizeHref('/vivir/lugares', locale)}>← {back}</a>
       <article className="arrival-card">
+        <SaveButton item={{ href: '/vivir/lugares/' + slug, title: place.title, kind: place.region }} />
         <h2>{topic}</h2>
         <p>{place.description}</p>
         <ul>

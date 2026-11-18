@@ -1,3 +1,4 @@
+import SaveButton from '@/components/planner/Favorites'
 import { setRequestLocale } from 'next-intl/server'
 import Nav from '@/components/layout/Nav'
 import Footer from '@/components/layout/Footer'
@@ -287,6 +288,7 @@ export default async function ServicesPage({ params }: Props) {
             return <li key={href}>
               <a href={href} {...linkTarget(href)}>{typeof name === 'string' ? name : name[index]}</a>
               {label && <small className="services-source">{label}</small>}
+              <SaveButton item={{ href: destination, title: typeof name === 'string' ? name : name[index], kind: heading[index] }} />
             </li>
           })}</ul>
           {id === 'lavanderias' && <>

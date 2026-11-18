@@ -1,0 +1,24 @@
+
+.save-place, .planner button, .search-entry button { cursor:pointer; border:1px solid #c7d5e4; border-radius:8px; padding:9px 12px; background:white; color:var(--blue); font:inherit; min-height:44px; }
+.save-place { margin:8px 0; font-size:.9rem; font-weight:600; }
+.save-place[aria-pressed="true"], .planner-tabs button[aria-pressed="true"] { background:var(--blue); color:white; }
+.save-place:disabled { opacity:.5; cursor:wait; }
+.planner-results { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-block:18px; }
+.planner-results h2, .planner-results h3 { font-size:1.3rem; margin:6px 0 10px; }
+.planner-results a { color:var(--blue); }
+.planner label { display:block; font-weight:600; margin-top:22px; }
+.planner input, .search-entry input { width:100%; min-width:0; padding:12px; border:1px solid var(--ink-30); border-radius:8px; font:inherit; }
+.planner-prompts, .planner-actions, .planner-tabs { display:flex; flex-wrap:wrap; gap:10px; margin-block:12px; align-items:center; }
+.planner-actions a { min-height:44px; display:inline-flex; align-items:center; }
+.saved-place-card { display:flex; flex-direction:column; min-width:0; }
+.saved-place-card .lugar-card { flex:1; }
+.saved-place-card > .save-place { align-self:flex-start; }
+.search-entry { grid-column:1/-1; margin-block:0 20px; }
+.search-entry label { display:block; font-weight:600; margin-bottom:8px; }
+.search-entry form > div { display:flex; gap:8px; }
+.search-entry > a { display:inline-block; margin-block:8px; color:var(--blue); }
+.coliving-section { scroll-margin-top:90px; }
+.coliving-section select { max-width:100%; padding:10px; border:1px solid var(--ink-30); border-radius:8px; font:inherit; }
+@media(max-width:620px) { .planner-results { grid-template-columns:minmax(0,1fr); } }
+@media(min-width:1021px) and (max-width:1300px) { .site-nav .nav-links { display:none; } .site-nav .nav-hamburger { display:flex; } }
+@media print { .site-nav, .search-entry, .save-place, .planner-tabs, .planner-prompts, .planner-actions { display:none; } .planner-results { display:block; } .arrival-card { break-inside:avoid; } }

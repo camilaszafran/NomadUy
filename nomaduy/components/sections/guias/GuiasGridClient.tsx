@@ -1,5 +1,6 @@
 'use client'
 
+import SaveButton from '@/components/planner/Favorites'
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -149,7 +150,7 @@ export default function GuiasGridClient({ guides }: { guides: GuideCard[] }) {
           )
 
           return href
-              ? <Link key={guide._id} href={href} className="gcard">{inner}</Link>
+              ? <div key={guide._id}><Link href={localizeHref(href, locale)} className="gcard">{inner}</Link><SaveButton item={{ href, title: guide.title, kind: guide.category }} /></div>
               : <div key={guide._id} className="gcard gcard-soon">{inner}</div>
           })}
           </div>

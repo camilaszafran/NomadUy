@@ -1,3 +1,4 @@
+import SearchEntry from '@/components/planner/SearchEntry'
 import { pageSeo, siteOrigin } from '@/lib/seo'
 import { localizeHref } from '@/lib/locale'
 import { arrivalLocale } from '@/lib/arrival-links'
@@ -43,6 +44,7 @@ export default async function HomePage({
       <Hero events={events} />
       <section className="main-wrap home-guide-paths" aria-label={journeys[arrivalLocale(locale)][0]}>
         <h2>{journeys[arrivalLocale(locale)][0]}</h2>
+        <SearchEntry locale={locale} />
         <div className="services-shortcuts">
           {['viajar', 'estadia-temporal', 'mudarse'].map((slug, index) => (
             <a key={slug} href={localizeHref('/uruguay/' + slug, locale)}>{journeys[arrivalLocale(locale)][index + 1]} →</a>

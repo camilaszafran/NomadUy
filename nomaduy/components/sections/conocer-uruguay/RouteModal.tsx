@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
+import SaveButton from '@/components/planner/Favorites'
 import type { Ruta } from '@/types'
 
 interface RouteModalProps {
@@ -39,6 +40,7 @@ export default function RouteModal({ ruta, onClose }: RouteModalProps) {
             </div>
           )}
           <h2 className="modal-title">{ruta.title}</h2>
+          <SaveButton item={{ href: '/conocer-uruguay?ruta=' + ruta.slug.current, title: ruta.title, kind: ruta.interestLabel ?? 'Ruta' }} />
           <div className="route-meta">
             {ruta.distance && <span>{ruta.distance}</span>}
             {ruta.duration && <span>{ruta.duration}</span>}

@@ -1,5 +1,6 @@
 'use client'
 
+import SaveButton from '@/components/planner/Favorites'
 import { linkTarget } from '@/lib/link-target'
 import { useId, useState } from 'react'
 import type { Listing } from '@/lib/discover'
@@ -51,6 +52,7 @@ export default function Directory({ items, filter = false, map = false }: {
             <p className="discovery-meta">{item.region} · {item.kind}</p>
             <h3>{item.title}</h3>
             <p>{item.description}</p>
+            {item.href && <SaveButton item={{ href: item.href, title: item.title, kind: item.kind }} />}
             <div className="discovery-actions">
               {item.href && <a href={item.href} {...linkTarget(item.href)}>{item.label ?? 'Conocer el lugar'} <span aria-hidden="true">↗</span></a>}
               {item.map && (map ? <>
