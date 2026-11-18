@@ -1,3 +1,4 @@
+import { discoveryCopy } from '@/lib/discovery-copy'
 import SaveButton from '@/components/planner/Favorites'
 import { pageSeo } from '@/lib/seo'
 import { notFound } from 'next/navigation'
@@ -52,7 +53,7 @@ export default async function GuidePage({ params }: Props) {
         <div className="guia-hero-inner">
           <div>
             <div className="guia-breadcrumb">
-              <Link href={localizeHref('/guias', locale)} style={{ color: 'inherit', textDecoration: 'none' }}>Guías</Link>
+              <Link href={localizeHref('/guias', locale)} style={{ color: 'inherit', textDecoration: 'none' }}>{locale === 'en' ? 'Guides' : locale === 'pt' ? 'Guias' : 'Guías'}</Link>
               <span>›</span> {title}
             </div>
             <h1>{title}</h1>
@@ -60,7 +61,7 @@ export default async function GuidePage({ params }: Props) {
             {guide.tags && guide.tags.length > 0 && (
               <div className="hero-tags">
                 {guide.tags.map((tag) => (
-                  <span key={tag} className="hero-tag">{tag}</span>
+                  <span key={tag} className="hero-tag">{discoveryCopy(tag, locale)}</span>
                 ))}
               </div>
             )}
@@ -83,7 +84,7 @@ export default async function GuidePage({ params }: Props) {
           {isLegal ? <UpdatedLegalGuide locale={locale} /> : guide.body ? (
             <PortableTextRenderer value={guide.body} />
           ) : (
-            <p style={{ color: 'var(--ink-60)' }}>Esta guía está en construcción. ¡Volvé pronto!</p>
+            <p style={{ color: 'var(--ink-60)' }}>{locale === 'en' ? 'This guide is being prepared. Check back soon!' : locale === 'pt' ? 'Este guia está em preparação. Volte em breve!' : 'Esta guía está en construcción. ¡Volvé pronto!'}</p>
           )}
         </div>
       </div>

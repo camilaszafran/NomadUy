@@ -1,5 +1,7 @@
 'use client'
 
+import { discoveryCopy } from '@/lib/discovery-copy'
+
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Link from 'next/link'
@@ -107,7 +109,7 @@ export default function FeaturedGuidesClient({ guides }: Props) {
                 </div>
                 <div className="feat-card-body">
                   <span className="feat-tag feat-tag-category">
-                    {g.tags?.[0] ?? g.category}
+                    {discoveryCopy(g.tags?.[0] ?? g.category ?? '', locale)}
                   </span>
                   <h3>{g.title}</h3>
                   <p>{g.summary}</p>

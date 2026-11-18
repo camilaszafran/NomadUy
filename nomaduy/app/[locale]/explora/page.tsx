@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import { Suitcase, Compass, UsersThree, Palette, Briefcase, MusicNotes, CaretDown, ArrowRight } from '@phosphor-icons/react/dist/ssr'
 import Nav from '@/components/layout/Nav'
+import { discoveryCopy } from '@/lib/discovery-copy'
 import SearchEntry from '@/components/planner/SearchEntry'
 import Footer from '@/components/layout/Footer'
 import OpenLinkedSection from '@/components/sections/arrival/OpenLinkedSection'
@@ -122,11 +123,11 @@ export default async function ExplorePage({ params }: Props) {
                 <section className="explore-extra" id="apps-transporte">
                   <h2>{copy.transport}</h2>
                   <p><a href={localizeHref('/servicios#autos', locale)}>{copy.rent} →</a></p>
-                  <ul lang="es-UY">
+                  <ul lang={locale}>
                     {transport.map(item => (
                       <li key={item.title}>
                         <a href={item.href} {...linkTarget(item.href)}>{item.title} <span aria-hidden="true">↗</span></a>
-                        <p>{item.description}</p>
+                        <p>{discoveryCopy(item.description, locale)}</p>
                       </li>
                     ))}
                   </ul>
@@ -141,7 +142,7 @@ export default async function ExplorePage({ params }: Props) {
                       ...tourism,
                       ['Descubrí Montevideo', 'https://www.descubrimontevideo.uy/'],
                     ].map(([title, href]) => (
-                      <li key={href}><a href={href} {...linkTarget(href)}>{title} <span aria-hidden="true">↗</span></a></li>
+                      <li key={href}><a href={href} {...linkTarget(href)}>{discoveryCopy(title, locale)} <span aria-hidden="true">↗</span></a></li>
                     ))}
                   </ul>
                 </section>

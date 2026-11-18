@@ -1,22 +1,22 @@
 {
   "hero": {
     "eyebrow": "Uruguai, América do Sul",
-    "h1_line1": "Hacé do Uruguai",
-    "h1_em": "sua casa.",
-    "subtitle": "O guia mais completo para morar, trabalhar e criar raízes no Uruguai — elaborado por pessoas que decidiram ficar.",
-    "cta_primary": "Juntar-me à comunidade →",
+    "h1_line1": "Faça do Uruguai",
+    "h1_em": "o seu lar.",
+    "subtitle": "O guia completo para morar, trabalhar e criar raízes no Uruguai — feito por quem escolheu ficar.",
+    "cta_primary": "Quero fazer parte da comunidade →",
     "cta_secondary": "Acabei de chegar",
     "cta_pdf": "Baixe o guia em PDF gratuitamente",
     "card_now": "A comunidade agora",
     "event_next": "Próximo meetup",
     "event_fallback": "Primeira quinta-feira de cada mês · Montevidéu",
     "whatsapp_label": "Grupos ativos do WhatsApp",
-    "whatsapp_desc": "Recém-chegados · Alojamento · Eventos",
+    "whatsapp_desc": "Recém-chegados · Moradia · Eventos",
     "members_label": "Novos membros desta semana",
     "members_desc": "34 pessoas de 12 países",
     "join_mini_title": "Comece antes de chegar.",
     "join_mini_desc": "Junte-se à comunidade e receba o guia de boas-vindas na sua caixa de entrada.",
-    "join_mini_email": "tu@email.com",
+    "join_mini_email": "voce@email.com",
     "join_mini_btn": "Inscreva-se gratuitamente",
     "join_mini_note": "Sem spam. Cancele quando quiser."
   },
@@ -32,7 +32,7 @@
     "items": [
       {
         "title": "Primeiros passos e chegada",
-        "desc": "As primeiras 48 horas — SIM, câmbio, banco, aplicativos essenciais."
+        "desc": "As primeiras 48 horas — chip de celular, câmbio, banco e aplicativos essenciais."
       },
       {
         "title": "Vistos e questões jurídicas",
@@ -56,7 +56,7 @@
       },
       {
         "title": "Saúde e bem-estar",
-        "desc": "Mutualidades, seguro internacional, farmácias e médicos recomendados."
+        "desc": "Planos de saúde locais, seguro internacional, farmácias e médicos recomendados."
       },
       {
         "title": "Transporte",
@@ -64,7 +64,7 @@
       },
       {
         "title": "Comida e restaurantes",
-        "desc": "Do cabrito às churrasqueiras escondidas — o guia definitivo da gastronomia."
+        "desc": "Do chivito às parrillas escondidas — descubra os sabores do Uruguai."
       },
       {
         "title": "Cultura e idioma",
@@ -75,15 +75,15 @@
         "desc": "A Rambla, o Parque Rodó e passeios pela natureza saindo da cidade."
       },
       {
-        "title": "Gemas escondidas",
+        "title": "Tesouros escondidos",
         "desc": "Cabo Polonio, Punta del Diablo, Salto — o que os turistas não veem."
       }
     ]
   },
   "directory": {
     "label": "Onde morar",
-    "title": "Não sabe onde se hospedar no Uruguai?",
-    "title_highlight": "Nós recomendamos.",
+    "title": "Ainda não sabe onde morar no Uruguai?",
+    "title_highlight": "Encontre o lugar que combina com você.",
     "desc": "Responda a algumas perguntas sobre seu estilo de vida e seu orçamento. Mostramos os lugares que mais combinam com você — de Montevidéu a Cabo Polonio.",
     "cta": "Faça o teste"
   },
@@ -111,7 +111,7 @@
       {
         "title": "Termas do Norte",
         "desc": "Salto, Paysandú e as fontes termais naturais mais acessíveis da região.",
-        "tag": "Relaxe"
+        "tag": "Relaxamento"
       },
       {
         "title": "Vida Selvagem e Natureza",
@@ -150,8 +150,8 @@
   },
   "pdf_banner": {
     "title": "Baixe o guia gratuitamente",
-    "desc": "&quot;Seus primeiros 30 dias no Uruguai&quot; — tudo o que você precisa saber antes e depois de chegar, em um PDF que você pode levar com você.",
-    "email_placeholder": "tu@email.com",
+    "desc": "\"Seus primeiros 30 dias no Uruguai\" — tudo o que você precisa saber antes e depois de chegar, em um PDF que você pode levar com você.",
+    "email_placeholder": "voce@email.com",
     "cta": "Baixe gratuitamente →",
     "note": "Sem spam. Apenas o guia. Prometido."
   }

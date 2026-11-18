@@ -1,7 +1,7 @@
 {
   "nav": {
     "guias": "Guides",
-    "vivir": "To live",
+    "vivir": "Living in Uruguay",
     "conocer": "Discover Uruguay",
     "recursos": "Resources",
     "unirme": "Join"
@@ -22,7 +22,7 @@
   "home": {
     "hero": {
       "eyebrow": "Nomadic Community in Uruguay",
-      "h1": "Your next home at <br/> is <em>Uruguay</em>.",
+      "h1": "Make Uruguay <br/> <em>your home</em>.",
       "subtitle": "Practical guides, an active community, and everything you need to live, work, and settle down in Uruguay.",
       "cta_primary": "Join the community",
       "cta_secondary": "Browse guides",
@@ -40,7 +40,7 @@
     },
     "directory": {
       "label": "Directory of Places",
-      "title": "Spaces tested by <br/> and the community.",
+      "title": "Places recommended by <br/> the community.",
       "subtitle": "Coworking spaces, coliving, trusted doctors, and cafes with great Wi-Fi—recommended by people who already live here.",
       "cta": "View the complete directory →",
       "empty": "Coming soon"
@@ -56,14 +56,14 @@
       "title": "Calculate your cost of living <br/> in Uruguay.",
       "subtitle": "Estimate how much you need to live comfortably based on your lifestyle: rent, food, transportation, and more.",
       "cta": "Open calculator →",
-      "bar_rent": "For Rent (Pocitos, 2-bedroom)",
+      "bar_rent": "Rent (Pocitos, 2 bedrooms)",
       "bar_food": "Food and Outings",
       "bar_transport": "Transportation",
-      "bar_health": "Health (mutual insurance)"
+      "bar_health": "Healthcare (local health plan)"
     },
     "testimonials": {
       "label": "Community",
-      "title": "Real stories from <br/>—people just like you."
+      "title": "Real stories from <br/> people like you."
     },
     "pdf_banner": {
       "title": "Your guide for the first 30 days.",
@@ -81,18 +81,18 @@
   },
   "vivir": {
     "label": "Living in Uruguay",
-    "title": "Find your spot at <br/> in Uruguay.",
+    "title": "Find your place <br/> in Uruguay.",
     "subtitle": "Neighborhoods, cities, and hidden gems—everything you need to decide where to settle down.",
-    "filter_all": "Everyone",
+    "filter_all": "All",
     "filter_montevideo": "Montevideo",
     "filter_interior": "Interior",
     "filter_costa": "Coast"
   },
   "conocer": {
     "label": "Discover Uruguay",
-    "title": "<br/>: Routes and destinations to explore.",
+    "title": "Routes and destinations <br/> to explore.",
     "subtitle": "Designed by locals—from day trips to week-long tours.",
-    "filter_all": "Everyone",
+    "filter_all": "All",
     "filter_1dia": "1 day",
     "filter_finde": "Weekend",
     "filter_semana": "4–7 days",
@@ -109,7 +109,7 @@
     "title": "A place where <br/> you can feel at home.",
     "subtitle": "Meet people, share experiences, and build your network in Uruguay.",
     "join_title": "Join NomadUY",
-    "join_name": "You count",
+    "join_name": "Your first name",
     "join_email": "Your email",
     "join_city": "Where are you now?",
     "join_cta": "Join for free",
@@ -121,7 +121,7 @@
   },
   "recursos": {
     "label": "Resources",
-    "title": "Tools to help you plan your life in Uruguay <br/>.",
+    "title": "Tools to help you <br/> plan your life in Uruguay.",
     "subtitle": "Cost-of-living calculator, downloadable checklists, and links to official procedures—all in one place.",
     "calculator_title": "Cost of Living Calculator",
     "calculator_subtitle": "Estimate your monthly budget in Uruguay",

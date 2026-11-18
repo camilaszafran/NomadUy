@@ -1,3 +1,4 @@
+import { correctEditorialTranslations } from './editorial-translations'
 import { createClient } from 'next-sanity'
 
 export const sanityClient = createClient({
@@ -13,9 +14,10 @@ export async function sanityFetch<T>(
   params?: Record<string, unknown>,
   options?: { revalidate?: number }
 ): Promise<T> {
-  return sanityClient.fetch<T>(query, params ?? {}, {
+  const content = await sanityClient.fetch<T>(query, params ?? {}, {
     next: { revalidate: options?.revalidate ?? 3600 },
   })
+  return correctEditorialTranslations(content, params?.locale)
 }
 
 // Locale-aware field projection helper (inline in GROQ via select + coalesce)

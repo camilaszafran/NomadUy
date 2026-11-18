@@ -7,7 +7,7 @@
     "cta_primary": "Join the community →",
     "cta_secondary": "Just arrived",
     "cta_pdf": "↓ Download free PDF guide",
-    "card_now": "The community now",
+    "card_now": "Community highlights",
     "event_next": "Next meetup",
     "event_fallback": "First Thursday of every month · Montevideo",
     "whatsapp_label": "Active WhatsApp groups",
@@ -16,7 +16,7 @@
     "members_desc": "34 people from 12 countries",
     "join_mini_title": "Get started before you arrive.",
     "join_mini_desc": "Join the community and get the welcome guide sent to your inbox.",
-    "join_mini_email": "tu@email.com",
+    "join_mini_email": "you@email.com",
     "join_mini_btn": "Join for free",
     "join_mini_note": "No spam. Cancel anytime."
   },
@@ -64,11 +64,11 @@
       },
       {
         "title": "Food and Restaurants",
-        "desc": "From Goat to Hidden Grills — The Ultimate Food Guide"
+        "desc": "From chivito sandwiches to hidden parrillas — discover Uruguay’s food scene."
       },
       {
         "title": "Culture and language",
-        "desc": "Mate, Carnival, tango, the River Plate region, and how to fit in with the locals."
+        "desc": "Mate, Carnival, tango, Rioplatense Spanish, and how to connect with local life."
       },
       {
         "title": "Parks and Nature",
@@ -76,16 +76,16 @@
       },
       {
         "title": "Hidden gems",
-        "desc": "Cabo Polonio, Punta del Diablo, Salto — what tourists don´t see."
+        "desc": "Cabo Polonio, Punta del Diablo, Salto — what tourists don’t see."
       }
     ]
   },
   "directory": {
     "label": "Where to live",
-    "title": "Not sure where to stay in Uruguay?",
-    "title_highlight": "We recommend it.",
-    "desc": "Answer a few questions about your lifestyle and budget. We´ll show you the places that best suit you—from Montevideo to Cabo Polonio.",
-    "cta": "Take the Test"
+    "title": "Not sure where to live in Uruguay?",
+    "title_highlight": "Find the place that suits you.",
+    "desc": "Answer a few questions about your lifestyle and budget. We’ll show you the places that best suit you—from Montevideo to Cabo Polonio.",
+    "cta": "Find my place"
   },
   "explore": {
     "title": "Discover Uruguay",
@@ -99,12 +99,12 @@
     "see_route": "View route →",
     "items": [
       {
-        "title": "Surfing &amp; Coast",
+        "title": "Surfing & Coast",
         "desc": "Punta del Este, La Pedrera, Cabo Polonio, and Punta del Diablo.",
         "tag": "Atlantic"
       },
       {
-        "title": "History &amp; Heritage",
+        "title": "History & Heritage",
         "desc": "Colonia del Sacramento, Fray Bentos, and the secrets of the western coast.",
         "tag": "Culture"
       },
@@ -114,7 +114,7 @@
         "tag": "Relax"
       },
       {
-        "title": "Wildlife &amp; Nature",
+        "title": "Wildlife & Nature",
         "desc": "Cabo Polonio, sea lions, penguins, and the starriest sky.",
         "tag": "Nature"
       }
@@ -125,9 +125,9 @@
     "desc": "Cost of living calculator and links to the best external resources—all in one place.",
     "cta": "See resources →",
     "card_label": "Estimated monthly cost",
-    "card_total": "$1.630",
+    "card_total": "$1,630",
     "card_sub": "USD · Comfortable profile · Montevideo",
-    "bar_rent": "Rental",
+    "bar_rent": "Rent",
     "bar_food": "Food",
     "bar_transport": "Transportation",
     "bar_ocio": "Leisure",
@@ -150,8 +150,8 @@
   },
   "pdf_banner": {
     "title": "Download the free guide",
-    "desc": "&quot;Your First 30 Days in Uruguay&quot; — everything you need to know before and after you arrive, in a PDF you can take with you.",
-    "email_placeholder": "tu@email.com",
+    "desc": "\"Your First 30 Days in Uruguay\" — everything you need to know before and after you arrive, in a PDF you can take with you.",
+    "email_placeholder": "you@email.com",
     "cta": "Download for free →",
     "note": "No spam. Just the guide. Promise."
   }

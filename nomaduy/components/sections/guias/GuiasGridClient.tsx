@@ -1,5 +1,7 @@
 'use client'
 
+import { discoveryCopy } from '@/lib/discovery-copy'
+
 import SaveButton from '@/components/planner/Favorites'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -140,7 +142,7 @@ export default function GuiasGridClient({ guides }: { guides: GuideCard[] }) {
                 <h3>{guide.title}</h3>
                 {guide.tags && guide.tags.length > 0 && (
                   <div className="gcard-tags">
-                    {guide.tags.map((t) => <span key={t} className="gcard-tag">{t}</span>)}
+                    {guide.tags.map((t) => <span key={t} className="gcard-tag">{discoveryCopy(t, locale)}</span>)}
                   </div>
                 )}
                 <p>{guide.summary}</p>

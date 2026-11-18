@@ -2,10 +2,10 @@
   "label": "Guias",
   "title": "Tudo o que você precisa saber para morar aqui.",
   "subtitle": "Desde o primeiro dia até os trâmites de residência — guias claros, práticos e escritos por pessoas que já passaram por isso.",
-  "read_time": "Tempo de leitura:",
-  "all": "Todas",
+  "read_time": "min de leitura",
+  "all": "Todos",
   "back": "← Voltar aos guias",
-  "read": "Aprenda →",
+  "read": "Ler →",
   "help_title": "Você está procurando algo que não está aqui?",
   "help_desc": "A comunidade tem respostas para praticamente qualquer pergunta sobre a vida no Uruguai.",
   "help_cta": "Fazer uma pergunta na comunidade →",
@@ -13,7 +13,7 @@
   "cat_legal": "Questões jurídicas e trâmites",
   "cat_vivienda": "Habitação",
   "cat_trabajo": "Trabalho",
-  "cat_moverse": "Movimentar-se",
+  "cat_moverse": "Transporte",
   "cat_salud": "Saúde",
   "cat_familia": "Família",
   "cat_finanzas": "Finanças",
@@ -42,45 +42,48 @@
     "footer_title": "Quer o guia completo em PDF?",
     "footer_desc": "Baixe gratuitamente — funciona sem conexão com a internet.",
     "footer_download": "Baixe gratuitamente",
-    "footer_community": "Juntar-me à comunidade",
+    "footer_community": "Quero fazer parte da comunidade",
     "phases": [
       {
         "badgeNum": "1",
-        "badgeColor": "azul",
+        "badgeColor": "blue",
         "time": "Primeiras 2 horas — Ao pousar",
-        "timeColor": "azul",
+        "timeColor": "blue",
         "title": "No aeroporto",
         "steps": [
           {
             "num": 1,
-            "icon": "Dispositivo móvel",
-            "title": "Comprá una SIM card",
+            "icon": "DeviceMobile",
+            "title": "Compre um chip de celular",
             "subtitle": "Antel, Claro e Tigo",
             "priorityLabel": "Agora",
             "body": "Confirme com a operadora onde comprar e ativar a linha. Se tiver Wi-Fi, pode consultar as opções de eSIM antes de chegar.",
             "tips": [
-              "Pedi um plano com dados, não só de voz",
-              "A Antel tem melhor cobertura em ambientes fechados",
+              "Peça um plano com internet, não apenas chamadas",
+              "A Antel tem melhor cobertura no interior",
               "Leve dinheiro — nem sempre aceitam cartão"
             ]
           },
           {
             "num": 2,
-            "icon": "Moeda: Dólar",
+            "icon": "CurrencyDollar",
             "title": "Trocar dinheiro",
             "subtitle": "Moeda, caixas eletrônicos e casas de câmbio",
             "priorityLabel": "Agora",
             "body": "Se precisar de pesos na chegada, compare o valor final antes de trocar ou sacar. A cotação, as tarifas e as moedas disponíveis variam conforme o operador.",
-            "tips": ["Confira a moeda e as tarifas antes de aceitar o saque.", "Pergunte quantos pesos vai receber no total."]
+            "tips": [
+              "Confira a moeda e as tarifas antes de aceitar o saque.",
+              "Pergunte quantos pesos vai receber no total."
+            ]
           },
           {
             "num": 3,
-            "icon": "Carro",
+            "icon": "Car",
             "title": "Transporte para o centro",
             "subtitle": "Táxi, Uber ou ônibus",
             "priorityLabel": "Agora",
             "body": "O Uber funciona perfeitamente a partir de Carrasco. O táxi oficial custa cerca de 1.500 UYU (cerca de 37 USD) até o centro/Pocitos. O ônibus 700 chega à Cidade Velha por cerca de 50 UYU, mas leva 1h30.",
-            "infoType": "azul",
+            "infoType": "blue",
             "infoTitle": "Dica da comunidade",
             "infoBody": "O Uber é confiável, mais barato que o táxi e o motorista já sabe para onde você vai. Baixe o aplicativo antes de pousar."
           }
@@ -88,14 +91,14 @@
       },
       {
         "badgeNum": "2",
-        "badgeColor": "ouro",
+        "badgeColor": "gold",
         "time": "Primeiro dia",
-        "timeColor": "ouro",
-        "title": "Instalarate",
+        "timeColor": "gold",
+        "title": "Hora de se instalar",
         "steps": [
           {
             "num": 4,
-            "icon": "Cartão de crédito",
+            "icon": "CreditCard",
             "title": "Compare Prex e Midinero",
             "subtitle": "Cartões pré-pagos",
             "priorityLabel": "Dia 1",
@@ -108,7 +111,7 @@
           },
           {
             "num": 5,
-            "icon": "Dispositivo móvel",
+            "icon": "DeviceMobile",
             "title": "Instale os aplicativos essenciais",
             "subtitle": "Táxi, entrega, mapas",
             "priorityLabel": "Dia 1",
@@ -122,12 +125,12 @@
           },
           {
             "num": 6,
-            "icon": "Edifícios",
+            "icon": "Buildings",
             "title": "Oriente-se no seu bairro",
             "subtitle": "Supermercado, farmácia, caixa eletrônico",
             "priorityLabel": "Dia 1",
-            "body": "O primeiro que você precisa encontrar perto do seu alojamento: supermercado (Tienda Inglesa, Disco, Ta-Ta), farmácia, caixa eletrônico e uma padaria.",
-            "infoType": "verde",
+            "body": "Procure perto da sua hospedagem: um supermercado (Tienda Inglesa, Disco, Ta-Ta), uma farmácia, um caixa eletrônico e uma padaria.",
+            "infoType": "green",
             "infoTitle": "Principais supermercados",
             "infoBody": "Tienda Inglesa (premium), Disco/Devoto (médio), Ta-Ta (econômico). Todas oferecem bons produtos e aceitam cartão de crédito."
           }
@@ -135,38 +138,38 @@
       },
       {
         "badgeNum": "3",
-        "badgeColor": "verde",
+        "badgeColor": "green",
         "time": "Dia 2 — Primeiros trâmites",
-        "timeColor": "verde",
+        "timeColor": "green",
         "title": "Primeiros trâmites burocráticos",
         "steps": [
           {
             "num": 7,
-            "icon": "Cartão de Identificação",
+            "icon": "IdentificationCard",
             "title": "Carteira de identidade",
-            "subtitle": "Correio Uruguayo ou DNIC",
+            "subtitle": "Correo Uruguayo ou DNIC",
             "priorityLabel": "Dia 2+",
             "body": "Se você for ficar mais de 90 dias, dê início ao processo de obtenção da carteira de identidade. Você precisará do passaporte e de um endereço. O processo é feito nos Correios do Uruguai e leva de 2 a 4 semanas.",
             "tips": [
               "Traga o passaporte original + uma cópia",
               "Você precisa de um endereço no Uruguai (pode ser um alojamento temporário)",
-              "O custo é de cerca de US$ 700"
+              "O custo é de cerca de 700 UYU"
             ]
           },
           {
             "num": 8,
-            "icon": "Primeiros Socorros",
-            "title": "Mutualista o DISSE",
+            "icon": "FirstAid",
+            "title": "Mutualista ou DISSE",
             "subtitle": "Sistema de saúde",
             "priorityLabel": "Dia 2+",
             "body": "O Uruguai possui um sistema de saúde público-privado. Se você trabalha como empregado, o DISSE designa uma operadora de saúde para você. Se você é freelancer ou trabalha remotamente, pode contratar uma diretamente.",
-            "infoType": "ouro",
+            "infoType": "gold",
             "infoTitle": "Para nômades digitais",
             "infoBody": "Você pode contratar um plano de saúde privado (Médica Uruguaya, CASMU, etc.) por cerca de US$ 80–120 por mês. Ele cobre consultas médicas, atendimento de urgência e exames básicos."
           },
           {
             "num": 9,
-            "icon": "Globo",
+            "icon": "Globe",
             "title": "Junte-se ao NomadUY",
             "subtitle": "A comunidade que facilita tudo isso",
             "priorityLabel": "Dia 2+",

@@ -1,3 +1,4 @@
+import { discoveryCopy } from './discovery-copy'
 import { serviceGroups } from '@/lib/services'
 import { sanityFetch, searchGuidesQuery, rutasQuery } from '@/lib/sanity'
 import { allPlaces, featuredPlaceSlugs } from '@/lib/regional-places'
@@ -58,7 +59,7 @@ export async function searchCatalog(locale: string): Promise<SearchItem[]> {
  const services: Listing[] = [...colivings(locale), ...listings]
  for (const item of services) {
    const href = item.href ?? (item.map ? 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(item.map) : undefined)
-   if (href) catalog.push({ href, title: item.title, summary: item.description, keywords: item.region + ' ' + item.kind, kind: kinds[3][i] })
+   if (href) catalog.push({ href, title: discoveryCopy(item.title, locale), summary: discoveryCopy(item.description, locale), keywords: [item.region, item.kind, item.description, discoveryCopy(item.kind, locale)].join(' '), kind: kinds[3][i] })
  }
  for (const [label, href] of Object.entries(directories.arrivalLinks)) {
    const names: Record<string, string> = { prex: 'Prex', midinero: 'Midinero', claroEsim: 'Claro eSIM', antel: 'Antel', tigo: 'Tigo', claro: 'Claro' }

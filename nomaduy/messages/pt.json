@@ -22,9 +22,9 @@
   "home": {
     "hero": {
       "eyebrow": "Comunidade de Nômades no Uruguai",
-      "h1": "Seu próximo lar <br/> é <em>Uruguay</em>.",
+      "h1": "Faça do Uruguai <br/> <em>o seu lar</em>.",
       "subtitle": "Guias práticos, uma comunidade ativa e tudo o que você precisa para morar, trabalhar e se estabelecer no Uruguai.",
-      "cta_primary": "Juntar-me à comunidade",
+      "cta_primary": "Quero fazer parte da comunidade",
       "cta_secondary": "Explorar guias",
       "cta_pdf": "Baixe o guia gratuitamente",
       "event_fallback": "Primeira quinta-feira de cada mês · Montevidéu",
@@ -40,7 +40,7 @@
     },
     "directory": {
       "label": "Lista de locais",
-      "title": "Espaços testados por <br/> a comunidade.",
+      "title": "Lugares recomendados <br/> pela comunidade.",
       "subtitle": "Espaços de coworking, coliving, médicos de confiança e cafés com boa conexão à internet — recomendados por quem já mora aqui.",
       "cta": "Ver diretório completo →",
       "empty": "Em breve"
@@ -53,7 +53,7 @@
     },
     "resources": {
       "label": "Recursos",
-      "title": "Calcule o custo de vida em <br/> no Uruguai.",
+      "title": "Calcule o custo de vida <br/> no Uruguai.",
       "subtitle": "Calcule quanto você precisa para viver bem, de acordo com seu estilo de vida: aluguel, alimentação, transporte e muito mais.",
       "cta": "Abrir calculadora →",
       "bar_rent": "Aluguel (Pocitos, 2 quartos)",
@@ -81,7 +81,7 @@
   },
   "vivir": {
     "label": "Viver no Uruguai",
-    "title": "Encontre o seu lugar no <br/> no Uruguai.",
+    "title": "Encontre seu lugar <br/> no Uruguai.",
     "subtitle": "Bairros, cidades e recantos — tudo o que você precisa para decidir onde se estabelecer.",
     "filter_all": "Todos",
     "filter_montevideo": "Montevidéu",
@@ -109,7 +109,7 @@
     "title": "Um lugar onde <br/> você se sinta em casa.",
     "subtitle": "Conheça pessoas, compartilhe experiências e construa sua rede de contatos no Uruguai.",
     "join_title": "Inscrever-me no NomadUY",
-    "join_name": "O número",
+    "join_name": "Seu nome",
     "join_email": "Seu e-mail",
     "join_city": "Onde você está agora?",
     "join_cta": "Inscreva-se gratuitamente",
