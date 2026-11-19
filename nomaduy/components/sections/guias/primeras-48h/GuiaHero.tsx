@@ -5,6 +5,8 @@ import { localizeHref } from '@/lib/locale'
 export default async function GuiaHero() {
   const [t, locale] = await Promise.all([getTranslations('guias.primeras48'), getLocale()])
 
+  const phases = t.raw('phases') as { steps: unknown[] }[]
+  const stepCount = phases.reduce((sum, phase) => sum + phase.steps.length, 0)
   const checks = [
     { done: true,  key: 'check_1' },
     { done: true,  key: 'check_2' },
@@ -33,7 +35,7 @@ export default async function GuiaHero() {
         </div>
         <div className="hero-checklist-card">
           <div className="checklist-stat">
-            <strong>{t('stat_count')}</strong>
+            <strong>{stepCount}</strong>
             <span>{t('stat_label')}</span>
           </div>
           <div className="mini-checklist">

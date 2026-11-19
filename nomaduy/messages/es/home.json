@@ -15,7 +15,7 @@
     "members_label": "Nuevos miembros esta semana",
     "members_desc": "34 personas de 12 países",
     "join_mini_title": "Empezá antes de llegar.",
-    "join_mini_desc": "Unite a la comunidad y recibí la guía de bienvenida en tu inbox.",
+    "join_mini_desc": "Completá el formulario para sumarte a la comunidad y recibir la bienvenida.",
     "join_mini_email": "tu@email.com",
     "join_mini_btn": "Unirme gratis",
     "join_mini_note": "Sin spam. Cancelá cuando quieras."
@@ -30,18 +30,54 @@
     "cta": "Ver toda la guía →",
     "explore": "Explorar →",
     "items": [
-      { "title": "Primeros pasos y llegada", "desc": "Las primeras 48 horas — SIM, cambio de moneda, banco, apps esenciales." },
-      { "title": "Visas y legal", "desc": "Visa turista, permiso nómade digital, residencia — paso a paso, en lenguaje claro." },
-      { "title": "Barrios", "desc": "Pocitos, Palermo, Ciudad Vieja — encontrá tu rincón en Montevideo." },
-      { "title": "Housing y alquiler", "desc": "Cómo encontrar depto, contratos en español, precios actualizados." },
-      { "title": "Trabajo y coworking", "desc": "Los mejores coworkings y cafés donde realmente podés trabajar." },
-      { "title": "Costo de vida", "desc": "Presupuestos reales, estrategia USD vs. peso, ventajas impositivas." },
-      { "title": "Salud y bienestar", "desc": "Mutualistas, seguro internacional, farmacias y médicos recomendados." },
-      { "title": "Transporte", "desc": "STM, Uber, viajes intercity, cómo llegar a Punta del Este." },
-      { "title": "Comida y restaurantes", "desc": "Del chivito a las parrillas escondidas — la guía definitiva de food." },
-      { "title": "Cultura e idioma", "desc": "Mate, carnaval, tango, rioplatense y cómo encajar con los locales." },
-      { "title": "Parques y naturaleza", "desc": "La Rambla, Parque Rodó y escapadas de naturaleza desde la ciudad." },
-      { "title": "Gemas escondidas", "desc": "Cabo Polonio, Punta del Diablo, Salto — lo que los turistas no ven." }
+      {
+        "title": "Primeros pasos y llegada",
+        "desc": "Las primeras 48 horas — SIM, cambio de moneda, banco, apps esenciales."
+      },
+      {
+        "title": "Visas y legal",
+        "desc": "Visa turista, permiso nómade digital, residencia — paso a paso, en lenguaje claro."
+      },
+      {
+        "title": "Barrios",
+        "desc": "Pocitos, Palermo, Ciudad Vieja — encontrá tu rincón en Montevideo."
+      },
+      {
+        "title": "Housing y alquiler",
+        "desc": "Cómo encontrar depto, contratos en español, precios actualizados."
+      },
+      {
+        "title": "Trabajo y coworking",
+        "desc": "Los mejores coworkings y cafés donde realmente podés trabajar."
+      },
+      {
+        "title": "Costo de vida",
+        "desc": "Presupuestos reales, estrategia USD vs. peso, ventajas impositivas."
+      },
+      {
+        "title": "Salud y bienestar",
+        "desc": "Mutualistas, seguro internacional, farmacias y médicos recomendados."
+      },
+      {
+        "title": "Transporte",
+        "desc": "STM, Uber, viajes intercity, cómo llegar a Punta del Este."
+      },
+      {
+        "title": "Comida y restaurantes",
+        "desc": "Del chivito a las parrillas escondidas — la guía definitiva de food."
+      },
+      {
+        "title": "Cultura e idioma",
+        "desc": "Mate, carnaval, tango, rioplatense y cómo encajar con los locales."
+      },
+      {
+        "title": "Parques y naturaleza",
+        "desc": "La Rambla, Parque Rodó y escapadas de naturaleza desde la ciudad."
+      },
+      {
+        "title": "Gemas escondidas",
+        "desc": "Cabo Polonio, Punta del Diablo, Salto — lo que los turistas no ven."
+      }
     ]
   },
   "directory": {
@@ -62,10 +98,26 @@
     },
     "see_route": "Ver ruta →",
     "items": [
-      { "title": "Surf & Costa", "desc": "Punta del Este, La Pedrera, Cabo Polonio y Punta del Diablo.", "tag": "Atlántico" },
-      { "title": "Historia & Patrimonio", "desc": "Colonia del Sacramento, Fray Bentos y los secretos del litoral oeste.", "tag": "Cultura" },
-      { "title": "Termas del norte", "desc": "Salto, Paysandú y las termas naturales más accesibles de la región.", "tag": "Relax" },
-      { "title": "Wildlife & Naturaleza", "desc": "Cabo Polonio, lobos marinos, pingüinos y el cielo más estrellado.", "tag": "Naturaleza" }
+      {
+        "title": "Surf & Costa",
+        "desc": "Punta del Este, La Pedrera, Cabo Polonio y Punta del Diablo.",
+        "tag": "Atlántico"
+      },
+      {
+        "title": "Historia & Patrimonio",
+        "desc": "Colonia del Sacramento, Fray Bentos y los secretos del litoral oeste.",
+        "tag": "Cultura"
+      },
+      {
+        "title": "Termas del norte",
+        "desc": "Salto, Paysandú y las termas naturales más accesibles de la región.",
+        "tag": "Relax"
+      },
+      {
+        "title": "Wildlife & Naturaleza",
+        "desc": "Cabo Polonio, lobos marinos, pingüinos y el cielo más estrellado.",
+        "tag": "Naturaleza"
+      }
     ]
   },
   "resources": {
@@ -101,6 +153,6 @@
     "desc": "\"Tus primeros 30 días en Uruguay\" — todo lo que necesitás saber antes y después de llegar, en un PDF que podés llevar con vos.",
     "email_placeholder": "tu@email.com",
     "cta": "Descargar gratis →",
-    "note": "Sin spam. Solo la guía. Prometido."
+    "note": "Descarga directa. Disponible sin conexión."
   }
 }

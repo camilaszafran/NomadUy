@@ -33,7 +33,7 @@
   "comparison_cheaper": "← Más barato",
   "comparison_pricier": "→ Más caro",
   "comparison_similar": "≈ Similar",
-  "export_btn": "Descargar estimación en PDF",
+  "export_btn": "Descargar presupuesto (.txt)",
   "tool_checklist_title": "Checklist de llegada",
   "tool_checklist_desc": "Todo lo que hacer en el primer mes — en orden.",
   "tool_checklist_badge": "PDF",

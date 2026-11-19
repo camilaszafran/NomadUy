@@ -58,7 +58,11 @@
             "subtitle": "Antel, Claro y Tigo",
             "priorityLabel": "Ahora",
             "body": "Confirmá con la compañía dónde comprar y activar la línea. Si contás con Wi-Fi, podés consultar las opciones de eSIM antes de llegar.",
-            "tips": ["Pedí plan con datos, no solo voz", "Antel tiene mejor cobertura en interior", "Llevá efectivo — no siempre aceptan tarjeta"]
+            "tips": [
+              "Pedí plan con datos, no solo voz",
+              "Antel tiene mejor cobertura en interior",
+              "Llevá efectivo — no siempre aceptan tarjeta"
+            ]
           },
           {
             "num": 2,
@@ -67,7 +71,10 @@
             "subtitle": "Moneda, cajeros y casas de cambio",
             "priorityLabel": "Ahora",
             "body": "Si necesitás pesos al llegar, compará el importe final antes de cambiar o retirar. La cotización, los cargos y las monedas disponibles dependen del operador.",
-            "tips": ["Confirmá la moneda y la comisión antes de aceptar un retiro.", "Preguntá cuántos pesos vas a recibir en total."]
+            "tips": [
+              "Confirmá la moneda y la comisión antes de aceptar un retiro.",
+              "Preguntá cuántos pesos vas a recibir en total."
+            ]
           },
           {
             "num": 3,
@@ -75,10 +82,7 @@
             "title": "Transporte al centro",
             "subtitle": "Taxi, Uber o bus",
             "priorityLabel": "Ahora",
-            "body": "Uber funciona perfecto desde Carrasco. El taxi oficial cuesta ~$1,500 UYU (~$37 USD) al centro/Pocitos. El bus 700 llega a Ciudad Vieja por ~$50 UYU pero tarda 1h30.",
-            "infoType": "blue",
-            "infoTitle": "Tip de la comunidad",
-            "infoBody": "Uber es confiable, más barato que taxi y el conductor ya sabe adónde vas. Descargalo antes de aterrizar."
+            "body": "Antes de salir del aeropuerto, compará las opciones para llegar a tu alojamiento y confirmá el lugar de recogida, el precio final y el horario."
           }
         ]
       },
@@ -96,7 +100,11 @@
             "subtitle": "Tarjetas prepagas",
             "priorityLabel": "Día 1",
             "body": "Antes de pedir una tarjeta, verificá qué documento acepta el emisor y cuánto cuesta cargar o retirar saldo.",
-            "tips": ["Descargá la app y registrate con tu pasaporte", "Cargala en cualquier RedPagos o Abitab", "Funciona para pagar Uber, Pedidos Ya, etc."]
+            "tips": [
+              "Descargá la app y registrate con tu pasaporte",
+              "Cargala en cualquier RedPagos o Abitab",
+              "Funciona para pagar Uber, Pedidos Ya, etc."
+            ]
           },
           {
             "num": 5,
@@ -105,7 +113,12 @@
             "subtitle": "Taxi, delivery, mapas",
             "priorityLabel": "Día 1",
             "body": "Las apps que vas a usar todos los días en Uruguay:",
-            "tips": ["Uber — transporte de punto a punto", "Pedidos Ya — delivery de comida", "Google Maps — funciona perfecto en Montevideo", "Urufarma — encontrar farmacias y precios de remedios"]
+            "tips": [
+              "Uber — transporte de punto a punto",
+              "Pedidos Ya — delivery de comida",
+              "Google Maps — funciona perfecto en Montevideo",
+              "Urufarma — encontrar farmacias y precios de remedios"
+            ]
           },
           {
             "num": 6,
@@ -130,22 +143,18 @@
           {
             "num": 7,
             "icon": "IdentificationCard",
-            "title": "Cédula de identidad",
-            "subtitle": "Correo Uruguayo o DNIC",
+            "title": "Documentación y residencia",
+            "subtitle": "Trámites y fuentes oficiales",
             "priorityLabel": "Día 2+",
-            "body": "Si vas a vivir más de 90 días, empezá el trámite de cédula. Necesitás pasaporte y dirección. El trámite se hace en Correo Uruguayo y tarda 2–4 semanas.",
-            "tips": ["Llevá pasaporte original + fotocopia", "Necesitás dirección uruguaya (puede ser alojamiento temporal)", "El costo es ~$700 UYU"]
+            "body": "Consultá la guía de residencia para identificar el trámite que corresponde a tu situación y acceder a las fuentes oficiales."
           },
           {
             "num": 8,
             "icon": "FirstAid",
-            "title": "Mutualista o DISSE",
+            "title": "Acceso a la salud",
             "subtitle": "Sistema de salud",
             "priorityLabel": "Día 2+",
-            "body": "Uruguay tiene un sistema de salud público-privado. Si trabajás de forma dependiente, DISSE te asigna una mutualista. Si sos freelance/nómada, podés contratar una directamente.",
-            "infoType": "gold",
-            "infoTitle": "Para nómadas digitales",
-            "infoBody": "Podés contratar una mutualista privada (Médica Uruguaya, CASMU, etc.) por ~$80–120 USD/mes. Cubre médicos, urgencias y estudios básicos."
+            "body": "La guía de salud reúne las opciones y los enlaces para consultar requisitos de afiliación. Si necesitás orientación, revisá la sección Necesito ayuda."
           },
           {
             "num": 9,
@@ -154,10 +163,16 @@
             "subtitle": "La comunidad que hace más fácil todo esto",
             "priorityLabel": "Día 2+",
             "body": "La comunidad de NomadUY tiene grupos de WhatsApp por tema (housing, trabajo, legal, social), un foro de preguntas y respuestas, y eventos mensuales en Montevideo.",
-            "tips": ["WhatsApp group: acceso inmediato", "Foro: buscar antes de preguntar", "Evento mensual: primer jueves de cada mes"]
+            "tips": [
+              "WhatsApp group: acceso inmediato",
+              "Foro: buscar antes de preguntar",
+              "Evento mensual: primer jueves de cada mes"
+            ]
           }
         ]
       }
-    ]
+    ],
+    "residency_link": "Ver residencia y visas",
+    "health_link": "Ver guía de salud"
   }
 }

@@ -1,3 +1,4 @@
+import { linkTarget } from '@/lib/link-target'
 import { ArrivalDetails } from '@/components/sections/discover/Content'
 import Link from 'next/link'
 import { getTranslations, getLocale } from 'next-intl/server'
@@ -67,7 +68,7 @@ export default async function GuiaTimeline() {
             </li>
           ))}
         </ul>
-        <a href={localizeHref('/comunidad', locale)} className="toc-pdf-cta">
+        <a href={`/guides/guia-${locale}.pdf`} {...linkTarget(`/guides/guia-${locale}.pdf`)} className="toc-pdf-cta">
           <strong>{t('pdf_cta_title')}</strong>
           <span>{t('pdf_cta_desc')}</span>
         </a>
@@ -103,6 +104,8 @@ export default async function GuiaTimeline() {
                         <ArrivalDetails step={step.num} />
                         {step.num === 2 && <p className="discovery-actions"><Link href={localizeHref('/servicios#dinero', locale)}>{locale === 'en' ? 'Cash, ATMs and exchange offices' : locale === 'pt' ? 'Dinheiro, caixas e casas de câmbio' : 'Efectivo, cajeros y casas de cambio'} →</Link></p>}
                         {step.num === 3 && <p className="discovery-actions"><Link href={localizeHref('/explora#apps-transporte', locale)}>{locale === 'en' ? 'Uber, Cabify, taxis and other apps →' : locale === 'pt' ? 'Uber, Cabify, táxis e outros apps →' : 'Uber, Cabify, taxis y otras apps →'}</Link><Link href={localizeHref('/vivir#alojamiento', locale)}>{locale === 'en' ? 'Where to stay when you arrive →' : locale === 'pt' ? 'Onde se hospedar ao chegar →' : 'Dónde quedarte al llegar →'}</Link></p>}
+                        {step.num === 7 && <p className="discovery-actions"><Link href={localizeHref('/guias/legal-visas', locale)}>{t('residency_link')} →</Link></p>}
+                        {step.num === 8 && <p className="discovery-actions"><Link href={localizeHref('/guias/salud-mutualistas', locale)}>{t('health_link')} →</Link></p>}
                         {step.tips && step.num !== 1 && step.num !== 4 && (
                           <div className="step-tips">
                             <div className="step-tips-label">{locale === 'en' ? 'Community tips' : locale === 'pt' ? 'Dicas da comunidade' : 'Tips de la comunidad'}</div>
@@ -132,7 +135,7 @@ export default async function GuiaTimeline() {
             <p>{t('footer_desc')}</p>
           </div>
           <div className="cta-bar-actions">
-            <Link href={localizeHref('/comunidad', locale)} className="btn-primary">{t('footer_download')}</Link>
+            <Link href={`/guides/guia-${locale}.pdf`} {...linkTarget(`/guides/guia-${locale}.pdf`)} className="btn-primary">{t('footer_download')}</Link>
             <Link href={localizeHref('/comunidad', locale)} className="btn-ghost">{t('footer_community')}</Link>
           </div>
         </div>

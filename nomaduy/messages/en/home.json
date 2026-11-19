@@ -15,7 +15,7 @@
     "members_label": "New members this week",
     "members_desc": "34 people from 12 countries",
     "join_mini_title": "Get started before you arrive.",
-    "join_mini_desc": "Join the community and get the welcome guide sent to your inbox.",
+    "join_mini_desc": "Fill in the form to join the community and receive your welcome email.",
     "join_mini_email": "you@email.com",
     "join_mini_btn": "Join for free",
     "join_mini_note": "No spam. Cancel anytime."
@@ -153,6 +153,6 @@
     "desc": "\"Your First 30 Days in Uruguay\" — everything you need to know before and after you arrive, in a PDF you can take with you.",
     "email_placeholder": "you@email.com",
     "cta": "Download for free →",
-    "note": "No spam. Just the guide. Promise."
+    "note": "Direct download. Available offline."
   }
 }

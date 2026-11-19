@@ -134,7 +134,6 @@ export default function Hero({ events }: HeroProps) {
           <h3>{t('join_mini_title')}</h3>
           <p>{t('join_mini_desc')}</p>
           <div className="join-mini-fields">
-            <input type="email" placeholder={t('join_mini_email')} />
             <a href={localizeHref('/comunidad', locale)} className="join-mini-btn">{t('join_mini_btn')}</a>
           </div>
           <div className="join-mini-note">{t('join_mini_note')}</div>

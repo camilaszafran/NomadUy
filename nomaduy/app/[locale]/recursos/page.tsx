@@ -41,10 +41,12 @@ export default async function RecursosPage({
     <>
       <Nav />
       <RecursosHeader />
+      <main>
       <CostCalculator />
       <ExternalLinks />
       <WorkContent locale={locale} />
       <CreatorContent />
+      </main>
       <PdfBanner />
       <Footer />
     </>

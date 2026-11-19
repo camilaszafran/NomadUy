@@ -89,8 +89,18 @@ export default function CostCalculator() {
     ? `$${Math.round(usd).toLocaleString()}`
     : `$${Math.round(usd * UYU_TO_USD).toLocaleString()} UYU`
 
+  function downloadBudget() {
+    const text = [t('calc_heading'), ...sliderConfig.map(s => `${t(s.labelKey)}: ${display(values[s.key])}`), `${t('result_label')}: ${display(total)}`, t('result_sub'), 'https://www.nomad.com.uy' + localizeHref('/recursos', locale)].join('\n')
+    const url = URL.createObjectURL(new Blob([text], { type: 'text/plain;charset=utf-8' }))
+    const link = document.createElement('a')
+    link.href = url
+    link.download = 'NomadUY-budget.txt'
+    link.click()
+    URL.revokeObjectURL(url)
+  }
+
   return (
-    <main id="costo-de-vida" className="main-wrap">
+    <div id="costo-de-vida" className="main-wrap">
       <div className="calc-grid">
         <div className="calc-controls">
           <h2>{t('calc_heading')}</h2>
@@ -167,7 +177,7 @@ export default function CostCalculator() {
               ))}
             </div>
 
-            <button className="result-cta">{t('export_btn')}</button>
+            <button className="result-cta" onClick={downloadBudget}>{t('export_btn')}</button>
           </div>
         </div>
       </div>
@@ -190,6 +200,6 @@ export default function CostCalculator() {
           )
         })}
       </div>
-    </main>
+    </div>
   )
 }

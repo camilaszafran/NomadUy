@@ -82,10 +82,7 @@
             "title": "Transportation to downtown",
             "subtitle": "Taxi, Uber, or bus",
             "priorityLabel": "Now",
-            "body": "Uber works perfectly from Carrasco. An official taxi costs about $1,500 UYU (~$37 USD) to downtown/Pocitos. Bus 700 goes to Ciudad Vieja for about $50 UYU but takes 1 hour and 30 minutes.",
-            "infoType": "blue",
-            "infoTitle": "Community Tip",
-            "infoBody": "Uber is reliable, cheaper than a taxi, and the driver already knows where you’re going. Download the app before you land."
+            "body": "Before leaving the airport, compare ways to reach your accommodation and confirm the pickup point, total price and schedule."
           }
         ]
       },
@@ -146,26 +143,18 @@
           {
             "num": 7,
             "icon": "IdentificationCard",
-            "title": "Identity card",
-            "subtitle": "Correo Uruguayo or DNIC",
+            "title": "Documents and residency",
+            "subtitle": "Procedures and official sources",
             "priorityLabel": "Day 2+",
-            "body": "If you plan to stay for more than 90 days, start the process of obtaining an ID card. You’ll need your passport and a proof of address. You can apply at Correo Uruguayo, and it takes 2–4 weeks.",
-            "tips": [
-              "Bring your original passport and a photocopy",
-              "You need a Uruguayan address (it can be a temporary residence)",
-              "The cost is approximately $700 UYU"
-            ]
+            "body": "Use the residency guide to find the procedure for your situation and access official sources."
           },
           {
             "num": 8,
             "icon": "FirstAid",
-            "title": "Mutualista or DISSE",
+            "title": "Accessing healthcare",
             "subtitle": "Healthcare system",
             "priorityLabel": "Day 2+",
-            "body": "Uruguay has a public-private healthcare system. If you are an employee, DISSE assigns you a health insurance provider. If you are a freelancer or remote worker, you can sign up for one directly.",
-            "infoType": "gold",
-            "infoTitle": "For digital nomads",
-            "infoBody": "You can sign up for private health insurance (Médica Uruguaya, CASMU, etc.) for about $80–120 USD per month. It covers doctors’ visits, emergency care, and basic tests."
+            "body": "The healthcare guide brings together options and links to check enrolment requirements. For support, visit I need help."
           },
           {
             "num": 9,
@@ -182,6 +171,8 @@
           }
         ]
       }
-    ]
+    ],
+    "residency_link": "View residency and visas",
+    "health_link": "View the healthcare guide"
   }
 }

@@ -4,7 +4,6 @@ import { setRequestLocale } from 'next-intl/server'
 import Nav from '@/components/layout/Nav'
 import GuiaHero from '@/components/sections/guias/primeras-48h/GuiaHero'
 import GuiaTimeline from '@/components/sections/guias/primeras-48h/GuiaTimeline'
-import PdfBanner from '@/components/sections/home/PdfBanner'
 import Footer from '@/components/layout/Footer'
 
 const searchCopy = {
@@ -44,7 +43,6 @@ export default async function Primeras48hPage({
         <SaveButton item={{ href: '/guias/primeras-48h', title: searchCopy[locale === 'en' || locale === 'pt' ? locale : 'es'][0], kind: 'Guía' }} />
         <GuiaTimeline />
       </div>
-      <PdfBanner />
       <Footer />
     </>
   )

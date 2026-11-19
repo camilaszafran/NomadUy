@@ -82,10 +82,7 @@
             "title": "Transporte para o centro",
             "subtitle": "Táxi, Uber ou ônibus",
             "priorityLabel": "Agora",
-            "body": "O Uber funciona perfeitamente a partir de Carrasco. O táxi oficial custa cerca de 1.500 UYU (cerca de 37 USD) até o centro/Pocitos. O ônibus 700 chega à Cidade Velha por cerca de 50 UYU, mas leva 1h30.",
-            "infoType": "blue",
-            "infoTitle": "Dica da comunidade",
-            "infoBody": "O Uber é confiável, mais barato que o táxi e o motorista já sabe para onde você vai. Baixe o aplicativo antes de pousar."
+            "body": "Antes de sair do aeroporto, compare as opções para chegar à hospedagem e confirme o ponto de embarque, o preço final e o horário."
           }
         ]
       },
@@ -146,26 +143,18 @@
           {
             "num": 7,
             "icon": "IdentificationCard",
-            "title": "Carteira de identidade",
-            "subtitle": "Correo Uruguayo ou DNIC",
+            "title": "Documentação e residência",
+            "subtitle": "Documentação e fontes oficiais",
             "priorityLabel": "Dia 2+",
-            "body": "Se você for ficar mais de 90 dias, dê início ao processo de obtenção da carteira de identidade. Você precisará do passaporte e de um endereço. O processo é feito nos Correios do Uruguai e leva de 2 a 4 semanas.",
-            "tips": [
-              "Traga o passaporte original + uma cópia",
-              "Você precisa de um endereço no Uruguai (pode ser um alojamento temporário)",
-              "O custo é de cerca de 700 UYU"
-            ]
+            "body": "Consulte o guia de residência para identificar o procedimento adequado à sua situação e acessar as fontes oficiais."
           },
           {
             "num": 8,
             "icon": "FirstAid",
-            "title": "Mutualista ou DISSE",
+            "title": "Acesso à saúde",
             "subtitle": "Sistema de saúde",
             "priorityLabel": "Dia 2+",
-            "body": "O Uruguai possui um sistema de saúde público-privado. Se você trabalha como empregado, o DISSE designa uma operadora de saúde para você. Se você é freelancer ou trabalha remotamente, pode contratar uma diretamente.",
-            "infoType": "gold",
-            "infoTitle": "Para nômades digitais",
-            "infoBody": "Você pode contratar um plano de saúde privado (Médica Uruguaya, CASMU, etc.) por cerca de US$ 80–120 por mês. Ele cobre consultas médicas, atendimento de urgência e exames básicos."
+            "body": "O guia de saúde reúne opções e links para consultar os requisitos de inscrição. Se precisar de orientação, visite Preciso de ajuda."
           },
           {
             "num": 9,
@@ -182,6 +171,8 @@
           }
         ]
       }
-    ]
+    ],
+    "residency_link": "Ver residência e vistos",
+    "health_link": "Ver guia de saúde"
   }
 }
