@@ -1,0 +1,36 @@
+# NomadUY
+
+> A free guide for people coming to Uruguay for a trip, a temporary stay or a permanent move. Practical information and community in Spanish, English and Portuguese.
+
+Maintained by the NomadUY team. Editorial contact: info@nomad.com.uy.
+Access to NomadUY is free; third-party services may charge fees. NomadUY is not a government agency and does not process residency applications. Confirm current requirements, prices and availability with the linked authority or provider.
+
+## About
+- [Español](https://www.nomad.com.uy/sobre-nomad)
+- [English](https://www.nomad.com.uy/en/sobre-nomad)
+- [Português](https://www.nomad.com.uy/pt/sobre-nomad)
+
+## Travel to Uruguay
+- [Viajar a Uruguay](https://www.nomad.com.uy/uruguay/viajar)
+- [Travel to Uruguay](https://www.nomad.com.uy/en/uruguay/viajar)
+- [Viajar ao Uruguai](https://www.nomad.com.uy/pt/uruguay/viajar)
+
+## Temporary stays and remote work
+- [Vivir unos meses](https://www.nomad.com.uy/uruguay/estadia-temporal)
+- [Living in Uruguay short-term](https://www.nomad.com.uy/en/uruguay/estadia-temporal)
+- [Morar alguns meses](https://www.nomad.com.uy/pt/uruguay/estadia-temporal)
+
+## Moving to Uruguay
+- [Mudarse a Uruguay](https://www.nomad.com.uy/uruguay/mudarse)
+- [Moving to Uruguay](https://www.nomad.com.uy/en/uruguay/mudarse)
+- [Mudar para o Uruguai](https://www.nomad.com.uy/pt/uruguay/mudarse)
+
+## Directories and help
+- [Arrival checklist](https://www.nomad.com.uy/en/llegada)
+- [Everyday services](https://www.nomad.com.uy/en/servicios)
+- [Places to live](https://www.nomad.com.uy/en/vivir/lugares)
+- [Travel routes](https://www.nomad.com.uy/en/conocer-uruguay)
+- [Resources and cost-of-living calculator](https://www.nomad.com.uy/en/recursos)
+- [Community and recommendations](https://www.nomad.com.uy/en/comunidad)
+- [Help and consular directory](https://www.nomad.com.uy/en/ayuda)
+- [Multilingual sitemap](https://www.nomad.com.uy/sitemap.xml)

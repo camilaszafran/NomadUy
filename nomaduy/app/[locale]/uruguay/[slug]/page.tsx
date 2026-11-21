@@ -2,7 +2,9 @@ import { notFound } from 'next/navigation'
 import { setRequestLocale } from 'next-intl/server'
 import Nav from '@/components/layout/Nav'
 import Footer from '@/components/layout/Footer'
-import { pageSeo } from '@/lib/seo'
+import { pageSeo, siteOrigin, siteUrl } from '@/lib/seo'
+import extras from '@/lib/intent-extras'
+import { editorialReviewed, nomadIdentity } from '@/lib/nomad-identity'
 import { localizeHref } from '@/lib/locale'
 import { arrivalLocale } from '@/lib/arrival-links'
 
@@ -231,18 +233,51 @@ export default async function UruguayGuide({ params }: Props) {
   setRequestLocale(locale)
   const guide = getGuide(slug)
   if (!guide) notFound()
-  const [titles, intros, sections] = guide
+  const [titles, intros, originalSections] = guide
+  const sections = [...originalSections, ...extras[slug as keyof typeof extras]]
+  const loc = arrivalLocale(locale)
+  const labels = { es: ['En esta guía', 'Última revisión editorial', 'Fuentes oficiales y próximos pasos', 'Elegí otra guía', 'Sobre NomadUY'], en: ['In this guide', 'Last editorial review', 'Official sources and next steps', 'Choose another guide', 'About NomadUY'], pt: ['Neste guia', 'Última revisão editorial', 'Fontes oficiais e próximos passos', 'Escolha outro guia', 'Sobre o NomadUY'] }[loc]
   const i = language(locale)
+  const canonical = siteUrl('/uruguay/' + slug, locale)
+  const data = {
+    '@context': 'https://schema.org', '@graph': [{
+      '@type': 'WebPage', '@id': canonical + '#page', url: canonical, name: titles[i], description: intros[i],
+      inLanguage: locale, isAccessibleForFree: true, dateModified: editorialReviewed,
+      author: { '@type': 'Organization', name: nomadIdentity[loc].team },
+      publisher: { '@id': siteOrigin + '/#organization' },
+      isPartOf: { '@id': siteOrigin + '/#website' },
+    }, {
+      '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'NomadUY', item: siteUrl('/', locale) },
+        { '@type': 'ListItem', position: 2, name: titles[i], item: canonical },
+      ],
+    }, {
+      '@type': 'FAQPage', '@id': canonical + '#questions', inLanguage: locale,
+      mainEntity: sections.map(([q, a]) => ({ '@type': 'Question', name: q[i], acceptedAnswer: { '@type': 'Answer', text: a[i] } })),
+    }],
+  }
   return <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, '\\u003c') }} />
     <Nav />
     <header className="page-header page-header-blue"><div className="page-header-inner">
       <h1>{titles[i]}</h1><p>{intros[i]}</p>
     </div></header>
     <main className="main-wrap arrival-wrap">
-      {sections.map(([question, answer, href]) => <section className="arrival-card" key={href}>
+      <section className="arrival-card intent-summary">
+        <p>{nomadIdentity[loc].description}</p>
+        <p className="arrival-checked">{nomadIdentity[loc].team} · {labels[1]}: <time dateTime={editorialReviewed}>{new Intl.DateTimeFormat({ es: 'es-UY', en: 'en-GB', pt: 'pt-BR' }[loc], { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(editorialReviewed + 'T12:00:00Z'))}</time> · <a href={localizeHref('/sobre-nomad', locale)} target="_blank" rel="noopener noreferrer">{labels[4]}</a></p>
+        <nav aria-label={labels[0]} className="intent-contents"><h2>{labels[0]}</h2><ol>{sections.map(([q], index) => <li key={q[i]}><a href={'#pregunta-' + (index + 1)}>{q[i]}</a></li>)}</ol></nav>
+      </section>
+      {sections.map(([question, answer, href], index) => <section className="arrival-card intent-question" id={'pregunta-' + (index + 1)} key={question[i]}>
         <h2>{question[i]}</h2><p>{answer[i]}</p>
-        <a href={localizeHref(href, locale)}>{more[i]} →</a>
+        <a href={localizeHref(href, locale)} target="_blank" rel="noopener noreferrer">{more[i]} →</a>
       </section>)}
+      <section className="arrival-card"><h2>{labels[2]}</h2><ul>{[
+        ['https://uruguaynatural.com/es/datos/requisitos-de-ingreso-y-tramites/', ['Ministerio de Turismo: ingreso a Uruguay', 'Tourism Ministry: entry requirements', 'Ministério do Turismo: entrada no Uruguai']],
+        ['https://www.gub.uy/tramites/hoja-identidad-provisoria', ['Migración: Hoja de Identidad Provisoria', 'Immigration: provisional identity document', 'Imigração: documento de identidade provisória']],
+        ['https://www.gub.uy/tramites/residencia-legal-permanente', ['Migración: residencia legal permanente', 'Immigration: permanent residence', 'Imigração: residência permanente']],
+      ].filter((_, index) => slug === 'viajar' ? index === 0 : slug === 'estadia-temporal' ? index === 1 : index === 2).map(([href, title]) => <li key={href as string}><a href={href as string} target="_blank" rel="noopener noreferrer">{title[i]}</a></li>)}</ul></section>
+      <section className="arrival-card"><h2>{labels[3]}</h2><div className="services-shortcuts">{slugs.filter(item => item !== slug).map(item => <a key={item} href={localizeHref('/uruguay/' + item, locale)} target="_blank" rel="noopener noreferrer">{guides[item][0][i]} →</a>)}</div></section>
     </main>
     <Footer />
   </>

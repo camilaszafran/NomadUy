@@ -1,5 +1,6 @@
 import SearchEntry from '@/components/planner/SearchEntry'
-import { pageSeo, siteOrigin } from '@/lib/seo'
+import { pageSeo } from '@/lib/seo'
+import { organizationData, websiteData } from '@/lib/nomad-identity'
 import { localizeHref } from '@/lib/locale'
 import { arrivalLocale } from '@/lib/arrival-links'
 import { setRequestLocale } from 'next-intl/server'
@@ -34,11 +35,7 @@ export default async function HomePage({
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        name: 'NomadUY',
-        alternateName: 'Nomad UY',
-        url: siteOrigin,
-        inLanguage: ['es', 'en', 'pt'],
+        '@graph': [organizationData(arrivalLocale(locale)), websiteData(arrivalLocale(locale))],
       }) }} />
       <Nav />
       <Hero events={events} />

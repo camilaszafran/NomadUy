@@ -33,3 +33,9 @@
 .home-guide-paths h2 { margin-bottom: 14px; }
 @media (min-width: 760px) { .home-guide-paths .services-shortcuts { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 559px) { .home-guide-paths .services-shortcuts { grid-template-columns: minmax(0, 1fr); } }
+
+.intent-question { scroll-margin-top: 88px; }
+.intent-contents { margin-top: 20px; }
+.intent-contents ol { padding-inline-start: 1.3rem; display: grid; gap: 8px; }
+.intent-contents a { font-weight: 500; }
+.intent-summary .arrival-checked { margin-top: 16px; line-height: 1.7; }
