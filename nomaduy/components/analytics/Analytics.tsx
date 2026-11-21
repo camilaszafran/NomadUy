@@ -37,6 +37,7 @@ export default function Analytics() {
     try {
       const saved = localStorage.getItem(consentKey)
       consentChoice.current = saved === 'granted' || saved === 'denied' ? saved : 'unknown'
+      if (consentChoice.current === 'granted') initialize()
       setConsent(consentChoice.current)
     } catch { setConsent('unknown') }
   }, [enabled])
@@ -71,6 +72,7 @@ export default function Analytics() {
     } else {
       ;(window as unknown as Record<string, unknown>)[`ga-disable-${measurementId}`] = false
       window.gtag?.('consent', 'update', { analytics_storage: 'granted' })
+      if (!window.gtag) initialize()
     }
     setConsent(value)
     setEditing(false)
@@ -88,12 +90,11 @@ export default function Analytics() {
       allow_ad_personalization_signals: false,
       page_location: new URL(pathname, window.location.origin).href,
     })
-    setReady(true)
   }
 
   if (!enabled) return null
   return <>
-    {consent === 'granted' && <Script id="nomad-ga" src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} strategy="afterInteractive" onReady={initialize} />}
+    {consent === 'granted' && <Script id="nomad-ga" src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} strategy="afterInteractive" onReady={() => setReady(true)} />}
     {(consent === 'unknown' || editing) ? <aside className="analytics-consent" aria-label={t[0]}>
       <p>{t[1]}</p>
       <div><button type="button" onClick={() => choose('granted')}>{t[2]}</button><button type="button" onClick={() => choose('denied')}>{t[3]}</button></div>
